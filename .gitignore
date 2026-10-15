@@ -1,0 +1,10 @@
+__pycache__/
+cache_historial/
+*.pyc
+.env
+
+# Notas personales y material interno: se quedan solo en este PC (el repositorio es público)
+CLAUDE.md
+LEEME_PRIMERO.md
+referencias/
+docs/

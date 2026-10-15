@@ -1,0 +1,56 @@
+# Cada día: baja partidos y líneas (scripts/diario.py), guarda web/diario.json y publica la carpeta web/ en GitHub Pages.
+# También se puede lanzar a mano: pestaña Actions > "Picks del día" > Run workflow.
+name: Picks del día
+
+on:
+  schedule:
+    - cron: "0 19 * * *"        # 19:00 UTC = 3:00 pm en Venezuela (GitHub puede retrasarlo unos minutos)
+  workflow_dispatch:
+  push:
+    branches: [main]            # al subir cambios de la página solo se republica, sin gastar créditos
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  diario:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Datos del día
+        if: github.event_name != 'push'
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: |
+          pip install requests
+          if [ -n "$ODDS_API_KEY" ]; then python scripts/diario.py; else python scripts/diario.py --demo; fi
+
+      - name: Guardar diario.json en el repositorio
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add web/diario.json
+          git commit -m "Datos del día $(date -u +%F)" || echo "Sin cambios"
+          git push
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+      - id: deploy
+        uses: actions/deploy-pages@v4
