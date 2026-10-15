@@ -22,6 +22,7 @@ MK = {"ast": (1, ["PG", "SG"], "player_assists"), "reb": (2, ["PG", "SF", "PF", 
       "stl": (4, ["PG"], "player_steals")}
 MKEY = {v[2]: k for k, v in MK.items()}
 PMIN = 22
+INICIO = os.environ.get("TEMPORADA_INICIO", "2026-10-20")   # antes de esta fecha (pretemporada) no se piden cuotas: no gasta créditos
 ALIAS = {"la clippers": "Los Angeles Clippers"}
 
 def key(name):
@@ -96,7 +97,7 @@ def main():
             h, w = team(ev["home_team"], S), team(ev["away_team"], S)
             data["juegos"].append({"id": ev["id"], "local": h, "visitante": w, "hora": ev["commence_time"]})
             need = sorted({MK[k][2] for _, k in dvp_candidates(S, h, w)})
-            if not need: continue
+            if not need or start.date().isoformat() < INICIO: continue
             odds, left = get(f"/events/{ev['id']}/odds", apikey, regions="us", markets=",".join(need), oddsFormat="decimal")
             for bk in odds.get("bookmakers", []):
                 for m in bk.get("markets", []):
@@ -112,6 +113,7 @@ def main():
                         data["lineas"].setdefault(pk, {}).setdefault(k, []).append(r)
         data["creditos"] = int(left) if left and left.isdigit() else left
         if not events: data["nota"] = "Hoy no hay partidos de la NBA."
+        elif start.date().isoformat() < INICIO: data["nota"] = f"Pretemporada: las cuotas se empiezan a pedir el {INICIO}."
     json.dump(data, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     n = sum(len(v) for v in data["lineas"].values())
     print(f"{data['fecha']}: {len(data['juegos'])} partidos, {n} líneas de jugador/mercado, créditos restantes: {data['creditos']} -> {OUT}")
