@@ -65,9 +65,8 @@ def get(path, apikey, **params):
 
 def today_window():
     now = datetime.now(CARACAS)
-    start = now.replace(hour=6, minute=0, second=0, microsecond=0)
-    if now.hour < 6: start -= timedelta(days=1)          # de madrugada aún cuenta la jornada anterior
-    return start, start + timedelta(days=1)
+    start = now.replace(hour=0, minute=0, second=0, microsecond=0)   # el día del calendario en Caracas:
+    return start, start + timedelta(days=1)                           # corre a las 3 am y trae los partidos de esa noche
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--demo", action="store_true"); a = ap.parse_args()

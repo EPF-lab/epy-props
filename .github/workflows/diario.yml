@@ -4,7 +4,7 @@ name: Picks del día
 
 on:
   schedule:
-    - cron: "0 19 * * *"        # 19:00 UTC = 3:00 pm en Venezuela (GitHub puede retrasarlo unos minutos)
+    - cron: "0 7 * * *"         # 07:00 UTC = 3:00 am en Venezuela (GitHub puede retrasarlo; en horas de mucha carga, hasta ~1 h)
   workflow_dispatch:
   push:
     branches: [main]            # al subir cambios de la página solo se republica, sin gastar créditos
