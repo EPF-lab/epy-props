@@ -35,14 +35,9 @@ def wilson(k, n, z=1.96):
     p = k / n; d = 1 + z * z / n; c = p + z * z / (2 * n); m = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n))
     return ((c - m) / d, (c + m) / d)
 
-def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--ultimos", type=int, default=20)
-    ap.add_argument("--historial", default=os.path.join(ROOT, "web", "historial.json")); a = ap.parse_args()
-    H = json.load(open(a.historial, encoding="utf-8")); S = snap()
-    info = {str(p[10]): p for p in S["players"] if p[10]}                       # id -> fila de la página
-    pos_of = {pid: info[pid][3] for pid in H["p"] if pid in info}
-
-    # 1) lo permitido por cada equipo a cada posición, partido a partido: totales por (rival, juego, posición)
+def dvp_rank(H, pos_of):
+    """Ranking DvP de cada fecha usando solo partidos anteriores: {(fecha, rival, pos, mercado): puesto 1-30}."""
+    # lo permitido por cada equipo a cada posición, partido a partido: totales por (rival, juego, posición)
     allowed = defaultdict(lambda: defaultdict(float))                          # (opp, gid, date) -> {(pos,k): suma}
     for pid, games in H["p"].items():
         ps = pos_of.get(pid)
@@ -69,6 +64,17 @@ def main():
             for k in COL:
                 orden = sorted(means, key=lambda t: -means[t][(p, k)])
                 for i, t in enumerate(orden): rank_at[(d, t, p, k)] = i + 1
+
+    return rank_at
+
+def main():
+    ap = argparse.ArgumentParser(); ap.add_argument("--ultimos", type=int, default=20)
+    ap.add_argument("--historial", default=os.path.join(ROOT, "web", "historial.json")); a = ap.parse_args()
+    H = json.load(open(a.historial, encoding="utf-8")); S = snap()
+    info = {str(p[10]): p for p in S["players"] if p[10]}                       # id -> fila de la página
+    pos_of = {pid: info[pid][3] for pid in H["p"] if pid in info}
+
+    rank_at = dvp_rank(H, pos_of)
 
     # 2) simular la regla en los últimos N partidos de cada jugador
     res = defaultdict(lambda: {"sel": [0, 0], "ctl": [0, 0]})                 # (k, lado, variante) -> [aciertos, total]

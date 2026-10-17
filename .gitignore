@@ -9,3 +9,6 @@ LEEME_PRIMERO.md
 referencias/
 docs/
 .claude/
+
+# Datos descargados de DunkAPI (licencia del proveedor): solo en este PC
+data/dunkapi_cache/
