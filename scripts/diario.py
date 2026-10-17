@@ -1,56 +1,36 @@
 """
-Prepara los datos del día para la página: partidos de hoy y líneas de props de las casas grandes (The Odds API).
-Crea web/diario.json, que la página lee sola al abrirse.
+Prepara los datos del día para la página y mide al modelo solo.
+
+1. Partidos de hoy y líneas de props de las casas grandes (The Odds API) -> web/diario.json (la página lo lee sola).
+2. Registro de la prueba del modelo -> web/registro.json:
+   - guarda cada pick del día que pasa el filtro de DvP (con línea, cuotas, probabilidad, EV y si pasa también el de EV);
+   - califica los picks de días anteriores con los resultados reales (marcadores de ESPN).
 
 Uso:
     py diario.py                 (necesita la variable de entorno ODDS_API_KEY; en GitHub es un "secret")
-    py diario.py --demo          (sin clave: inventa partidos y líneas para probar la página)
+    py diario.py --demo          (sin clave: inventa partidos y líneas para probar la página; no toca el registro)
+    py diario.py --solo-calificar (no pide cuotas: solo califica el registro)
 
-Gasto de créditos: la lista de partidos es gratis; por cada partido se piden solo los mercados en los que
-algún jugador pasó el filtro de DvP (1 crédito por mercado, región "us").
+Gasto de créditos: la lista de partidos es gratis; por cada partido se piden solo los mercados de PICKS en los que
+algún jugador pasó el filtro de DvP (1 crédito por mercado, región "us"). Los resultados de ESPN no gastan créditos.
 """
-import argparse, json, os, random, re, sys, unicodedata
-from datetime import datetime, timedelta, timezone
+import argparse, json, os, random, sys, time
+from collections import defaultdict
+from datetime import date, datetime, timedelta, timezone
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-HTML, OUT = os.path.join(ROOT, "web", "index.html"), os.path.join(ROOT, "web", "diario.json")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import modelo as M  # noqa: E402
+
+ROOT = M.ROOT
+OUT, REG = os.path.join(ROOT, "web", "diario.json"), os.path.join(ROOT, "web", "registro.json")
 API = "https://api.the-odds-api.com/v4/sports/basketball_nba"
+ESPN = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba"
 CARACAS = timezone(timedelta(hours=-4))
-# mismos mercados y posiciones que la pestaña PICKS (índice en la tabla DvP)
-MK = {"ast": (1, ["PG", "SG"], "player_assists"), "reb": (2, ["PG", "SF", "PF", "C"], "player_rebounds"),
-      "pts": (0, ["PG", "SG", "SF", "C"], "player_points"), "tpm": (3, ["PG", "SG"], "player_threes"),
-      "stl": (4, ["PG"], "player_steals")}
-MKEY = {v[2]: k for k, v in MK.items()}
-PMIN = 22
-INICIO = os.environ.get("TEMPORADA_INICIO", "2026-10-20")   # antes de esta fecha (pretemporada) no se piden cuotas: no gasta créditos
+MARKET = {"pts": "player_points", "reb": "player_rebounds", "ast": "player_assists", "tpm": "player_threes", "stl": "player_steals"}
+MKEY = {v: k for k, v in MARKET.items()}
+INICIO = os.environ.get("TEMPORADA_INICIO", "2026-10-20")   # antes de esta fecha (pretemporada) no se piden cuotas ni se registran picks
 ALIAS = {"la clippers": "Los Angeles Clippers"}
-
-def key(name):
-    """Misma normalización que la página (normKey): sin acentos, minúsculas, sin puntuación ni sufijos."""
-    s = unicodedata.normalize("NFKD", name)
-    s = "".join(c for c in s if not unicodedata.combining(c)).lower()
-    s = re.sub(r"[^a-z0-9 ]", " ", s)
-    return " ".join(w for w in s.split() if w not in ("jr", "sr", "ii", "iii", "iv"))
-
-def load_snap():
-    for line in open(HTML, encoding="utf-8"):
-        if line.startswith("const SNAP="):
-            return json.loads(line[len("const SNAP="):].rstrip().rstrip(";"))
-    raise SystemExit("No encontré const SNAP en index.html")
-
-def dvp_candidates(S, home, away):
-    """Jugadores y mercados que pasan el filtro de DvP (rival 1-5 o 26-30), igual que genPicks() de la página."""
-    D, out = S["dvp"], []
-    rank = lambda t, pos, i: 1 + sum(1 for x in D.values() if x[pos][i] > D[t][pos][i])
-    for me, op in ((home, away), (away, home)):
-        ab = S["teams"][me][1]
-        for p in S["players"]:
-            if not (p[9] and p[5] >= PMIN and p[2] == ab): continue
-            for k, (i, poss, _) in MK.items():
-                if p[3] in poss:
-                    r = rank(op, p[3], i)
-                    if r <= 5 or r >= 26: out.append((p[0], k))
-    return out
+key = M.key
 
 def team(name, S):
     n = ALIAS.get(name.lower(), name)
@@ -68,10 +48,91 @@ def today_window():
     start = now.replace(hour=0, minute=0, second=0, microsecond=0)   # el día del calendario en Caracas:
     return start, start + timedelta(days=1)                           # corre a las 3 am y trae los partidos de esa noche
 
+# ---------- registro y calificación ----------
+def load_reg():
+    try: return json.load(open(REG, encoding="utf-8"))
+    except (OSError, ValueError): return {"v": 1, "picks": []}
+
+def registrar(reg, fecha, juegos, lineas, S):
+    """Rehace los picks de hoy (todos los que pasan DvP) con lo que dicen las casas a esta hora."""
+    md = M.Modelo(S)
+    reg["picks"] = [e for e in reg["picks"] if e["fecha"] != fecha]
+    for j in juegos:
+        for x in md.candidatos(j["local"], j["visitante"]):
+            p = x["p"]; ev = M.evaluar(md, x, (lineas.get(key(p[0])) or {}).get(x["k"]) or [])
+            if ev is None: continue
+            reg["picks"].append({"id": f"{fecha}|{p[0]}|{x['k']}|{x['side']}", "fecha": fecha, "hora": j.get("hora"),
+                                 "pl": p[0], "pid": p[10], "eq": x["me"], "vs": x["op"], "pos": p[3], "k": x["k"],
+                                 "side": x["side"], "rk": x["rk"], **ev, "res": None, "act": None})
+
+def espn(path, **params):
+    import requests
+    for att in range(3):
+        try:
+            r = requests.get(f"{ESPN}/{path}", params=params, timeout=30)
+            if r.status_code == 200: return r.json()
+        except requests.RequestException: pass
+        time.sleep(3 * (att + 1))
+    return None
+
+def box_del_dia(fecha):
+    """{normKey(jugador): {pts, reb, ast, tpm, stl}} de los partidos terminados de esa fecha y si todos terminaron."""
+    sb = espn("scoreboard", dates=fecha.replace("-", ""))
+    if not sb: return None, False
+    out, todos = {}, True
+    for ev in sb.get("events", []):
+        st = ev.get("status", {}).get("type", {})
+        if not st.get("completed"):
+            if st.get("name") not in ("STATUS_POSTPONED", "STATUS_CANCELED"): todos = False
+            continue
+        sm = espn("summary", event=ev["id"])
+        for t in (sm or {}).get("boxscore", {}).get("players", []):
+            for blk in t.get("statistics", []):
+                names = blk.get("names") or blk.get("labels") or []
+                ix = {n: i for i, n in enumerate(names)}
+                for a in blk.get("athletes", []):
+                    s = a.get("stats") or []
+                    if a.get("didNotPlay") or not s or "PTS" not in ix: continue
+                    num = lambda c: int(str(s[ix[c]]).split("-")[0]) if c in ix and str(s[ix[c]]).split("-")[0].lstrip("-").isdigit() else None
+                    ath = a.get("athlete") or {}
+                    nm = ath.get("displayName") or ath.get("fullName") or ath.get("shortName")
+                    if not nm: continue
+                    out[key(nm)] = {"pts": num("PTS"), "reb": num("REB"), "ast": num("AST"),
+                                                             "tpm": num("3PT"), "stl": num("STL")}
+    return out, todos
+
+def calificar(reg, hoy):
+    """Pone el resultado (W/L/P; NJ = no jugó, anulada; SL = sin línea) a los picks de días anteriores."""
+    pend = defaultdict(list)
+    for e in reg["picks"]:
+        if e.get("res") is None and e["fecha"] < hoy: pend[e["fecha"]].append(e)
+    n = 0
+    for f, es in sorted(pend.items()):
+        box, todos = box_del_dia(f)
+        if box is None: continue
+        viejo = (date.fromisoformat(hoy) - date.fromisoformat(f)).days >= 3
+        for e in es:
+            s = box.get(key(e["pl"]))
+            if s and s.get(e["k"]) is not None:
+                e["act"] = s[e["k"]]
+                if e.get("ln") is None: e["res"] = "SL"
+                elif e["act"] == e["ln"]: e["res"] = "P"
+                else: e["res"] = "W" if (e["act"] > e["ln"]) == (e["side"] == "O") else "L"
+                n += 1
+            elif todos or viejo:
+                e["res"] = "NJ"; n += 1
+    return n
+
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--demo", action="store_true"); a = ap.parse_args()
-    S = load_snap(); start, end = today_window()
-    data = {"v": 1, "fecha": start.date().isoformat(), "generado": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+    ap = argparse.ArgumentParser(); ap.add_argument("--demo", action="store_true"); ap.add_argument("--solo-calificar", action="store_true")
+    a = ap.parse_args()
+    S = M.load_snap(); start, end = today_window(); hoy = start.date().isoformat()
+    if a.solo_calificar:
+        reg = load_reg(); n = calificar(reg, hoy)
+        json.dump(reg, open(REG, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+        print(f"Calificados {n} picks."); return
+    md = M.Modelo(S)
+    data = {"v": 1, "fecha": hoy, "generado": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "fuente": "demo" if a.demo else "the-odds-api", "juegos": [], "lineas": {}, "creditos": None, "nota": ""}
     if a.demo:
         rnd = random.Random(start.date().toordinal()); teams = list(S["teams"]); rnd.shuffle(teams)
@@ -79,13 +140,12 @@ def main():
             h, w = teams[2 * i], teams[2 * i + 1]
             data["juegos"].append({"id": f"demo{i}", "local": h, "visitante": w,
                                    "hora": (start + timedelta(hours=13 + i % 3)).astimezone(timezone.utc).isoformat()})
-            for name, k in dvp_candidates(S, h, w):
-                p = next(q for q in S["players"] if q[0] == name)
-                base = {"pts": p[6], "reb": p[7], "ast": p[8], "tpm": p[11] if len(p) > 11 else None, "stl": p[12] if len(p) > 12 else None}[k]
-                if base is None: continue
-                ln = max(.5, round(base * rnd.uniform(.85, 1.1)) - .5)
-                books = [{"b": b, "ln": ln, "o": round(rnd.uniform(1.75, 2.05), 2), "u": round(rnd.uniform(1.75, 2.05), 2)} for b in ("draftkings", "fanduel")]
-                data["lineas"].setdefault(key(name), {})[k] = books
+            for x in md.candidatos(h, w):
+                b = M.base(x["p"], x["k"])
+                if b is None: continue
+                ln = max(.5, round(b * rnd.uniform(.85, 1.1)) - .5)
+                books = [{"b": bk, "ln": ln, "o": round(rnd.uniform(1.75, 2.05), 2), "u": round(rnd.uniform(1.75, 2.05), 2)} for bk in ("draftkings", "fanduel")]
+                data["lineas"].setdefault(key(x["p"][0]), {})[x["k"]] = books
         data["nota"] = "Datos INVENTADOS para probar la página."
     else:
         apikey = os.environ.get("ODDS_API_KEY", "").strip()
@@ -95,8 +155,8 @@ def main():
         for ev in events:
             h, w = team(ev["home_team"], S), team(ev["away_team"], S)
             data["juegos"].append({"id": ev["id"], "local": h, "visitante": w, "hora": ev["commence_time"]})
-            need = sorted({MK[k][2] for _, k in dvp_candidates(S, h, w)})
-            if not need or start.date().isoformat() < INICIO: continue
+            need = sorted({MARKET[x["k"]] for x in md.candidatos(h, w)})
+            if not need or hoy < INICIO: continue
             odds, left = get(f"/events/{ev['id']}/odds", apikey, regions="us", markets=",".join(need), oddsFormat="decimal")
             for bk in odds.get("bookmakers", []):
                 for m in bk.get("markets", []):
@@ -112,9 +172,15 @@ def main():
                         data["lineas"].setdefault(pk, {}).setdefault(k, []).append(r)
         data["creditos"] = int(left) if left and left.isdigit() else left
         if not events: data["nota"] = "Hoy no hay partidos de la NBA."
-        elif start.date().isoformat() < INICIO: data["nota"] = f"Pretemporada: las cuotas se empiezan a pedir el {INICIO}."
+        elif hoy < INICIO: data["nota"] = f"Pretemporada: las cuotas se empiezan a pedir el {INICIO}."
     json.dump(data, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     n = sum(len(v) for v in data["lineas"].values())
-    print(f"{data['fecha']}: {len(data['juegos'])} partidos, {n} líneas de jugador/mercado, créditos restantes: {data['creditos']} -> {OUT}")
+    print(f"{hoy}: {len(data['juegos'])} partidos, {n} líneas de jugador/mercado, créditos restantes: {data['creditos']} -> {OUT}")
+    if a.demo: return
+    reg = load_reg(); nc = calificar(reg, hoy)
+    if hoy >= INICIO: registrar(reg, hoy, data["juegos"], data["lineas"], S)
+    json.dump(reg, open(REG, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+    hoy_p = [e for e in reg["picks"] if e["fecha"] == hoy]
+    print(f"Registro: {nc} picks calificados; hoy {len(hoy_p)} picks DvP ({sum(1 for e in hoy_p if e.get('sel'))} pasan también EV) -> {REG}")
 
 if __name__ == "__main__": main()

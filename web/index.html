@@ -360,7 +360,7 @@ th{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;
 
 <section id="pk" hidden><div id="dyw"></div><div class="panel"><div class="ctl2" id="slman"><div class="lb">Local<select id="gh"></select></div><div class="lb">Visitante<select id="ga"></select></div><button class="btn" id="gadd" type="button">Añadir partido</button></div><div id="slate"></div></div>
 <div class="seg" id="pv" hidden><button data-v="sel" class="on">Seleccionadas (DvP + EV)</button><button data-v="all">Todas las de DvP</button></div><div class="seg" id="pf"><button data-f="all" class="on">Todas</button><button data-f="O">Over</button><button data-f="U">Under</button></div><div class="chips" id="pm"></div><div class="pnr"><p class="hint" id="pn"></p><button class="btn s" id="pall" type="button">Seguir todas las visibles</button></div><div class="grid" id="pg"></div></section>
-<section id="rc" hidden>
+<section id="rc" hidden><div id="mdl"></div>
 <div class="seg" id="rfs"><button data-s="all" class="on">Todas</button><button data-s="O">Over</button><button data-s="U">Under</button></div>
 <div class="chips fchips" id="rfm"></div><div id="rex"></div><div class="rg" id="rst"></div>
 <div class="panel"><div class="rh"><b>Crecimiento (unidades)</b></div><div class="chw" id="rch"></div></div>
@@ -442,9 +442,10 @@ const hue=t=>[...t].reduce((a,c)=>(a*31+c.charCodeAt(0))>>>0,7)%360,ini=n=>n.spl
 const grad=(h,a)=>`linear-gradient(135deg,hsl(${h} 70% 56%),hsl(${(h+a)%360} 72% 42%))`;
 const avH=(p,z)=>`<span class="av" style="--z:${z}px;background:${grad(hue(p[2]),35)}">${ini(p[0])}${p[10]?`<img src="${IMG(p[10])}" alt="" loading="lazy" onerror="this.remove()">`:""}</span>`;
 const tavH=(t,z)=>{const a=D.teams[t]?D.teams[t][1]:"?";return`<span class="av" style="--z:${z}px;background:${grad(hue(a),40)}">${a}</span>`};
+const PKM=["pts","ast"]; // mercados de PICKS en la fase de prueba (16-oct-2026): solo puntos y asistencias
 const PMIN=22,MK={ast:{l:"asistencias",i:1,pos:["PG","SG"]},reb:{l:"rebotes",i:2,pos:["PG","SF","PF","C"]},pts:{l:"puntos",i:0,pos:["PG","SG","SF","C"]},tpm:{l:"triples",i:3,pos:["PG","SG"]},stl:{l:"robos",i:4,pos:["PG"]}};
 const rank=(t,pos,i)=>1+Object.values(D.dvp).filter(x=>x[pos][i]>D.dvp[t][pos][i]).length;
-function genPicks(){const out=[];SL.g.forEach(([a,b])=>[[a,b],[b,a]].forEach(([me,op])=>{const ab=D.teams[me][1];PL.filter(p=>p[9]&&p[5]>=PMIN&&p[2]===ab).forEach(p=>{for(const k in MK){const m=MK[k];if(!m.pos.includes(p[3]))continue;const r=rank(op,p[3],m.i);if(r<=5||r>=26)out.push({p,op,me,k,r,side:r<=5?"O":"U"})}})}));
+function genPicks(){const out=[];SL.g.forEach(([a,b])=>[[a,b],[b,a]].forEach(([me,op])=>{const ab=D.teams[me][1];PL.filter(p=>p[9]&&p[5]>=PMIN&&p[2]===ab).forEach(p=>{for(const k of PKM){const m=MK[k];if(!m.pos.includes(p[3]))continue;const r=rank(op,p[3],m.i);if(r<=5||r>=26)out.push({p,op,me,k,r,side:r<=5?"O":"U"})}})}));
 return out.sort((x,y)=>Math.min(x.r,31-x.r)-Math.min(y.r,31-y.r)||y.p[6]-x.p[6])}
 /*PE*/
 function pickH(x,i){const{p,op,k,r,side}=x,m=MK[k],pos=p[3],o=side==="O",v=D.dvp[op][pos][m.i],mn=Object.values(D.dvp).reduce((a,t)=>a+t[pos][m.i],0)/30,dev=(v-mn)/mn,c=D.teams[op][0],base=BASE(p)[k],pj=base!=null?base*factor(op,pos,k).f:null;
@@ -457,7 +458,7 @@ let SL=loadSl(),PF={f:"all",m:"all"},PK=null;const saveSl=()=>{try{localStorage.
 /*DY*/
 // diario.json: partidos del día y líneas de las casas grandes (lo genera scripts/diario.py cada día)
 let DY=null,PVV="sel";
-const normKey=s=>s.normalize("NFKD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z0-9 ]/g," ").split(/\s+/).filter(w=>w&&!["jr","sr","ii","iii","iv"].includes(w)).join(" ");
+const normKey=s=>s.normalize("NFKD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[.'’]/g,"").replace(/[^a-z0-9 ]/g," ").split(/\s+/).filter(w=>w&&!["jr","sr","ii","iii","iv"].includes(w)).join(" ");
 const med=a=>{const s=a.filter(v=>v>1).sort((x,y)=>x-y),n=s.length;return n?(n%2?s[(n-1)/2]:(s[n/2-1]+s[n/2])/2):null};
 const hhmm=t=>{const d=new Date(t);return isNaN(d)?"":d.toLocaleTimeString("es-VE",{hour:"numeric",minute:"2-digit"})};
 function mkLine(x){const b=DY&&DY.lineas[normKey(x.p[0])]&&DY.lineas[normKey(x.p[0])][x.k];if(!b||!b.length)return null;
@@ -481,12 +482,28 @@ $("#dyw").innerHTML=(DY.fuente==="demo"?'<div class="warn">Datos de PRUEBA inven
 (!auto?`<div class="warn">Los datos automáticos son del ${DY.fecha}, no de hoy: el proceso diario no se ha ejecutado todavía. Mientras tanto puedes añadir partidos a mano.</div>`:"")+
 (auto?`<div class="panel"><b>Partidos de hoy</b> <span class="hint">· actualizado hace ${ago<60?ago+" min":Math.round(ago/60)+" h"}${DY.creditos!=null?" · créditos de cuotas restantes: "+DY.creditos:""}</span>${DY.nota?`<p class="hint" style="margin:6px 0 0">${DY.nota}</p>`:""}</div>`:"")}
 /*DYE*/
+/*MD*/
+// registro.json: picks que el proceso diario guarda y califica solo (prueba del modelo, sin dinero)
+let MDL=null;
+function mdlAgg(L){const r=L.filter(e=>e.res==="W"||e.res==="L"),W=r.filter(e=>e.res==="W").length,P=L.filter(e=>e.res==="P").length,
+imp=r.map(e=>{if(!(e.o>1&&e.u>1))return null;const io=1/e.o,iu=1/e.u;return(e.side==="O"?io:iu)/(io+iu)}).filter(v=>v!=null),evs=r.filter(e=>e.ev!=null);
+return{n:r.length,W,L:r.length-W,P,wr:r.length?W/r.length:null,imp:imp.length?imp.reduce((a,b)=>a+b,0)/imp.length:null,ev:evs.length?evs.reduce((a,e)=>a+e.ev,0)/evs.length:null}}
+function mdlRender(){const el=$("#mdl");if(!el||!MDL)return;const all=MDL.picks||[];if(!all.length){el.innerHTML='<div class="panel"><b>Prueba automática del modelo</b><p class="hint" style="margin:6px 0 0">Empieza el día del arranque de la NBA: cada madrugada se guardan los picks del día y al día siguiente se califican solos.</p></div>';return}
+const sel=all.filter(e=>e.sel),dvp=all.filter(e=>e.ln!=null),pend=all.filter(e=>e.res==null).length,nj=all.filter(e=>e.res==="NJ").length;
+const row=(t,a)=>`<span>${t}<small style="display:block;font-size:12px">${a.n?`${a.W} ganadas, ${a.L} perdidas${a.P?", "+a.P+" push":""}`:"sin resueltas"}</small></span><b style="white-space:nowrap">${a.wr!=null?pct(a.wr):"–"}</b><span class="hint" style="text-align:right;white-space:nowrap">${a.imp!=null?pct(a.imp):"–"}</span><b style="white-space:nowrap" class="${a.wr!=null&&a.imp!=null?(a.wr-a.imp>0?"pos":"neg"):""}">${a.wr!=null&&a.imp!=null?spct(a.wr-a.imp):"–"}</b>`;
+const S=mdlAgg(sel),A=mdlAgg(dvp),mk=PKM.map(k=>[capz(MK[k].l),mdlAgg(sel.filter(e=>e.k===k))]);
+el.innerHTML=`<div class="panel"><div class="rh"><b>Prueba automática del modelo</b><span class="chip">${S.n} resueltas</span></div>
+<p class="hint" style="margin:0 0 10px">Picks guardados cada madrugada y calificados solos con los resultados reales. Sin dinero: sirve para saber si el modelo le gana a la casa. «Ventaja» = acierto real menos la probabilidad que daba la casa (sin margen).</p>
+<div class="kv" style="grid-template-columns:1fr auto auto auto;align-items:baseline"><span class="hint">Grupo</span><span class="hint" style="text-align:right">acierto</span><span class="hint" style="text-align:right">casa</span><span class="hint" style="text-align:right">ventaja</span>
+${row("Seleccionadas (DvP + EV)",S)}${row("Todas las de DvP con línea",A)}${mk.map(([t,a])=>row("· "+t+" (seleccionadas)",a)).join("")}</div>
+<p class="hint" style="margin:6px 0 0">${pend} pendientes de calificar${nj?` · ${nj} anuladas (el jugador no jugó)`:""}${S.ev!=null?` · EV medio esperado de las seleccionadas ${spct(S.ev)}`:""}.${S.n<150?" Con menos de 150 jugadas resueltas los números pueden ser pura casualidad.":""}</p></div>`}
+/*MDE*/
 function picks(){const all=genPicks();all.forEach(x=>x.e=pickEV(x));const L=all.filter(x=>(PF.f==="all"||x.side===PF.f)&&(PF.m==="all"||x.k===PF.m)&&(!SL.auto||PVV==="all"||isSel(x)));
 $("#slate").innerHTML=SL.auto?'<div class="chips" style="margin-top:0">'+(SL.g.map(g=>`<span class="chip">${g[1]} @ ${g[0]}${g[2]?" · "+hhmm(g[2]):""}</span>`).join("")||'<span class="hint">Hoy no hay partidos.</span>')+"</div>":(SL.ex?'<p class="hint" style="margin:12px 0 0">Cartelera de ejemplo: cámbiala por los partidos reales.</p>':"")+'<div class="chips" style="margin-top:10px">'+(SL.g.map((g,i)=>`<span class="chip">${g[0]} vs ${g[1]} <button class="x" data-i="${i}" aria-label="Quitar">×</button></span>`).join("")||'<span class="hint">Añade partidos para generar jugadas.</span>')+"</div>";
-$("#pn").textContent=(SL.auto&&PVV==="sel"?`${L.length} de ${all.length} jugadas de DvP pasan también el filtro de EV (≥ ${pct(EVMIN)} a la cuota del mercado). `:"")+`${L.length} jugadas (${L.filter(x=>x.side==="O").length} over, ${L.filter(x=>x.side==="U").length} under). Over si el rival está entre los 5 que más permiten, under si está entre los puestos 26 y 30. Solo jugadores de ${PMIN}+ minutos con posición confirmada.`;
+$("#pn").textContent=(SL.auto&&PVV==="sel"?`${L.length} de ${all.length} jugadas de DvP pasan también el filtro de EV (≥ ${pct(EVMIN)} a la cuota del mercado). `:"")+`${L.length} jugadas (${L.filter(x=>x.side==="O").length} over, ${L.filter(x=>x.side==="U").length} under). Over si el rival está entre los 5 que más permiten, under si está entre los puestos 26 y 30. Solo puntos y asistencias, jugadores de ${PMIN}+ minutos con posición confirmada.`;
 PKL=L;$("#pg").innerHTML=L.map(pickH).join("")||'<p class="hint">Sin jugadas con estos filtros.</p>'}
 function pkInit(){const o=Object.keys(D.teams).sort().map(t=>`<option>${t}</option>`).join("");$("#gh").innerHTML=o;$("#ga").innerHTML=o;$("#ga").selectedIndex=1;
-$("#pm").innerHTML=[["all","Todos"],...Object.entries(MK).map(([k,m])=>[k,m.l[0].toUpperCase()+m.l.slice(1)])].map(([k,l])=>`<button data-m="${k}" class="${k==="all"?"on":""}">${l}</button>`).join("");
+$("#pm").innerHTML=[["all","Todos"],...PKM.map(k=>[k,MK[k]]).map(([k,m])=>[k,m.l[0].toUpperCase()+m.l.slice(1)])].map(([k,l])=>`<button data-m="${k}" class="${k==="all"?"on":""}">${l}</button>`).join("");
 $("#gadd").onclick=()=>{const a=$("#gh").value,b=$("#ga").value;if(a===b||SL.g.some(g=>g[0]===a&&g[1]===b))return;if(SL.ex)SL={ex:0,g:[]};SL.g.push([a,b]);saveSl();picks()};
 $("#slate").onclick=e=>{const b=e.target.closest(".x");if(!b)return;SL.g.splice(+b.dataset.i,1);SL.ex=0;saveSl();picks()};
 $("#pf").onclick=e=>{const b=e.target.closest("button");if(!b)return;PF.f=b.dataset.f;$$("#pf button").forEach(x=>x.classList.toggle("on",x===b));picks()};
@@ -538,7 +555,7 @@ const ed=!s&&need?`<div class="lw"><input class="el" inputmode="decimal" placeho
 return`<div class="lr"><div class="lc">${ctl}</div><div class="lm"><b>${e.pl}</b><span class="ct">${RMK[e.mk]} ${e.sd==="O"?"OVER":"UNDER"}${e.ln==null?"":" "+f1(e.ln)}</span>${e.od>1?`<span class="chip">@${f2(e.od)}</span>`:""}<small>${e.rk?"Ranking #"+e.rk+(e.vs?" vs "+e.vs:"")+". ":""}Stake ${f2(e.st)}u${e.ev!=null?", EV "+(e.ev>0?"+":"")+f3(e.ev):""}${e.om?". Cuota mínima "+f2(e.om):""}</small><div class="ac"><button class="mini" data-d="${e.id}">Borrar</button></div></div><div class="rr ${s?(r>0?"pos":r<0?"neg":""):""}">${s?su(r):"Pendiente"}<small>${s?"Retorno":"Tú confirmas"}</small></div>${ed}</div>`}
 function rec(){const L=RC.filter(e=>(RF.m==="all"||e.mk===RF.m)&&(RF.s==="all"||e.sd===RF.s)),a=rcAgg(L);
 $("#rst").innerHTML=rcStat("wr","Acierto",a.wr==null?"–":pct(a.wr),a.W+" G, "+a.Lo+" P, "+a.P+" push")+rcStat("pl","Ganancia / pérdida",a.S?su(a.profit):"–",a.roi==null?"":"ROI "+spct(a.roi),a.S?(a.profit>=0?"pos":"neg"):"")+rcStat("ev","EV promedio",a.ev==null?"–":f3(a.ev),"de las jugadas con EV")+rcStat("tp","Total de jugadas",a.n,a.pend+" pendientes");
-$("#rch").innerHTML=rcChart(L);rcRank();
+$("#rch").innerHTML=rcChart(L);rcRank();mdlRender();
 const g={};L.slice().sort((x,y)=>y.id-x.id).forEach(e=>(g[e.d]=g[e.d]||[]).push(e));
 $("#rls").innerHTML=Object.keys(g).sort().reverse().map(d=>`<div class="dh">${d.split("-").reverse().join("/")}</div><div class="panel lp">${g[d].map(rcRow).join("")}</div>`).join("")||'<div class="panel"><p class="hint" style="text-align:center;padding:14px 0">Aún no hay jugadas. Aquí aparecen las jugadas que sigas desde PICKS con «Seguir en RECORD».</p></div>';
 $("#rex").innerHTML=RC.some(e=>e.x)?'<div class="warn">Estás viendo datos de ejemplo, no tus resultados. <button class="btn s" id="rdx" type="button">Borrar ejemplo</button></div>':""}
@@ -652,5 +669,6 @@ $("#cf").onclick=()=>{const u=prompt("Pega la URL de tu Apps Script (termina en 
 (async()=>{let mode="Snapshot",data=SNAP;const U=getU();if(U){try{data=await (await fetch(U)).json();mode="En vivo"}catch(e){mode="Snapshot (sin conexión)"}}init(data,mode);
 // publicada junto a diario.json/historial.json (GitHub Pages) los lee sola; abierta como archivo local, simplemente no los encuentra
 try{const r=await fetch("diario.json",{cache:"no-store"});if(r.ok){DY=await r.json();dyApply();if(!$("#pk").hidden)picks()}}catch(e){}
+try{const r=await fetch("registro.json",{cache:"no-store"});if(r.ok){MDL=await r.json();mdlRender()}}catch(e){}
 try{if(!HIST){const r=await fetch("historial.json");if(r.ok){const h=await r.json();if(h&&h.v===1&&!HIST)HIST=h}}}catch(e){}})();
 </script></body></html>
