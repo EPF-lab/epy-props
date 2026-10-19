@@ -475,12 +475,12 @@ if(!e.ml)return'<p class="hint">Las casas aún no publican la línea de esta jug
 return`<div class="kv"><span>Línea del mercado (${e.ml.n} casa${e.ml.n>1?"s":""})</span><b>${sd} ${f1(e.ml.ln)}${e.od?" @"+f2(e.od):""}</b><span>Probabilidad del modelo</span><b>${pct(e.pw)}</b><span>EV a la cuota del mercado</span><b class="${e.ev>0?"pos":"neg"}">${e.ev==null?"–":spct(e.ev)}</b></div>`+
 (e.min?`<div class="vd ${isSel(x)?"g":"n"}">Apuesta solo si TriunfoBet paga <b>${f2(e.min)}</b> o más por ${sd} ${f1(e.ml.ln)}</div>`:"")+
 (e.alt.length?`<p class="hint" style="margin:8px 0 0">Si su línea es distinta: ${e.alt.map(a=>`${f1(a.ln)} → mínimo ${a.min?f2(a.min):"–"}`).join(" · ")}</p>`:"")}
-function dyApply(){if(!DY)return;const auto=DY.juegos&&DY.fecha===today();if(auto)SL={auto:1,g:DY.juegos.map(j=>[j.local,j.visitante,j.hora])};
+function dyApply(){if(!DY)return;const auto=DY.juegos&&DY.fecha>=today(),fut=DY.fecha>today(),fdm=DY.fecha.split("-").reverse().slice(0,2).join("/");if(auto)SL={auto:1,g:DY.juegos.map(j=>[j.local,j.visitante,j.hora])};
 $("#slman").hidden=!!auto;$("#pv").hidden=!auto;
 const ago=Math.round((Date.now()-Date.parse(DY.generado))/6e4);
 $("#dyw").innerHTML=(DY.fuente==="demo"?'<div class="warn">Datos de PRUEBA inventados (sin clave de cuotas). Las líneas y cuotas no son reales.</div>':"")+
 (!auto?`<div class="warn">Los datos automáticos son del ${DY.fecha}, no de hoy: el proceso diario no se ha ejecutado todavía. Mientras tanto puedes añadir partidos a mano.</div>`:"")+
-(auto?`<div class="panel"><b>Partidos de hoy</b> <span class="hint">· actualizado hace ${ago<60?ago+" min":Math.round(ago/60)+" h"}${DY.creditos!=null?" · créditos de cuotas restantes: "+DY.creditos:""}</span>${DY.nota?`<p class="hint" style="margin:6px 0 0">${DY.nota}</p>`:""}</div>`:"")}
+(auto?`<div class="panel"><b>${fut?"Partidos del "+fdm+" (mañana)":"Partidos de hoy"}</b> <span class="hint">· actualizado hace ${ago<60?ago+" min":Math.round(ago/60)+" h"}${DY.creditos!=null?" · créditos de cuotas restantes: "+DY.creditos:""}</span>${DY.nota?`<p class="hint" style="margin:6px 0 0">${DY.nota}</p>`:""}</div>`:"")}
 /*DYE*/
 /*MD*/
 // registro.json: picks que el proceso diario guarda y califica solo (prueba del modelo, sin dinero)
@@ -585,11 +585,11 @@ function trackInit(){
 document.body.insertAdjacentHTML("beforeend",'<div id="toast"></div>');
 $("#pg").addEventListener("click",e=>{const b=e.target.closest("button.rb");if(!b)return;const x=PKL[+b.dataset.r];if(x&&trackPick(x)){picks();toast("Añadida a RECORD. Confírmala cuando termine el partido.")}});
 $("#pall").onclick=()=>{let n=0;PKL.forEach(x=>{if(trackPick(x))n++});picks();toast(n?n+" jugadas añadidas a RECORD.":"Todas las visibles ya estaban en RECORD.")}}
-const today=()=>new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10),trKey=x=>today()+"|"+x.p[0]+"|"+x.k+"|"+x.side,isTr=x=>RC.some(e=>e.key===trKey(x));let TN=0;
+const today=()=>new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10),pDay=()=>SL.auto&&DY&&DY.fecha?DY.fecha:today(),trKey=x=>pDay()+"|"+x.p[0]+"|"+x.k+"|"+x.side,isTr=x=>RC.some(e=>e.key===trKey(x));let TN=0;
 function toast(t){const el=$("#toast");if(!el)return;el.textContent=t;el.classList.add("on");clearTimeout(toast.h);toast.h=setTimeout(()=>el.classList.remove("on"),2800)}
 function trackPick(x){if(isTr(x))return false;const p=x.p,pos=p[3],base=BASE(p)[x.k],pj=base!=null?f1(base)+" a "+f1(base*factor(x.op,pos,x.k).f):null;
 const e=x.e&&x.e.ml?x.e:null; // con datos automáticos guarda la línea del mercado y la cuota mínima; la cuota real de tu casa la escribes tú
-RC.push({id:Date.now()*1000+(++TN%1000),d:today(),pl:p[0],mk:x.k,sd:x.side,ln:e?e.ml.ln:null,od:null,st:1,ev:null,rs:"",key:trKey(x),src:"pick",rk:x.r,ps:pos,vs:x.op,pj,om:e&&e.min?+e.min.toFixed(2):null,evr:e&&e.ev!=null?+e.ev.toFixed(4):null});rcSave();return true}
+RC.push({id:Date.now()*1000+(++TN%1000),d:pDay(),pl:p[0],mk:x.k,sd:x.side,ln:e?e.ml.ln:null,od:null,st:1,ev:null,rs:"",key:trKey(x),src:"pick",rk:x.r,ps:pos,vs:x.op,pj,om:e&&e.min?+e.min.toFixed(2):null,evr:e&&e.ev!=null?+e.ev.toFixed(4):null});rcSave();return true}
 /*HS*/
 const HK={pts:["Puntos",6],reb:["Rebotes",7],ast:["Asistencias",8],tpm:["Triples",9],stl:["Robos",10],pra:["PRA",-1]};
 const hv=(r,k)=>k==="pra"?r[6]+r[7]+r[8]:r[HK[k][1]],fmtD=d=>String(Math.floor(d%10000/100)).padStart(2,"0")+"/"+String(d%100).padStart(2,"0");

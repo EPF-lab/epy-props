@@ -10,6 +10,7 @@ Uso:
     py diario.py                 (necesita la variable de entorno ODDS_API_KEY; en GitHub es un "secret")
     py diario.py --demo          (sin clave: inventa partidos y líneas para probar la página; no toca el registro)
     py diario.py --solo-calificar (no pide cuotas: solo califica el registro)
+    py diario.py --fecha 2026-10-20 (prepara ese día; útil la víspera, cuando las casas ya publicaron las líneas)
 
 Gasto de créditos: la lista de partidos es gratis; por cada partido se piden solo los mercados de PICKS en los que
 algún jugador pasó el filtro de DvP (1 crédito por mercado, región "us"). Los resultados de ESPN no gastan créditos.
@@ -43,7 +44,10 @@ def get(path, apikey, **params):
     if r.status_code != 200: raise SystemExit(f"Error de la API {r.status_code}: {r.text[:200]}")
     return r.json(), r.headers.get("x-requests-remaining")
 
-def today_window():
+def today_window(fecha=None):
+    if fecha:                                                         # --fecha AAAA-MM-DD: preparar otro día (p. ej. mañana)
+        start = datetime.fromisoformat(fecha).replace(tzinfo=CARACAS)
+        return start, start + timedelta(days=1)
     now = datetime.now(CARACAS)
     start = now.replace(hour=0, minute=0, second=0, microsecond=0)   # el día del calendario en Caracas:
     return start, start + timedelta(days=1)                           # corre a las 3 am y trae los partidos de esa noche
@@ -125,8 +129,9 @@ def calificar(reg, hoy):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--demo", action="store_true"); ap.add_argument("--solo-calificar", action="store_true")
+    ap.add_argument("--fecha", help="AAAA-MM-DD: preparar ese día en vez de hoy (hora de Caracas)")
     a = ap.parse_args()
-    S = M.load_snap(); start, end = today_window(); hoy = start.date().isoformat()
+    S = M.load_snap(); start, end = today_window(a.fecha); hoy = start.date().isoformat()
     if a.solo_calificar:
         reg = load_reg(); n = calificar(reg, hoy)
         json.dump(reg, open(REG, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
