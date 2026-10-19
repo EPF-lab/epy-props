@@ -469,11 +469,13 @@ function pickEV(x){const base=BASE(x.p)[x.k];if(base==null)return null;const m=b
 const at=(L,od)=>{const[po,pu]=probs(x.k,m,L),pw=x.side==="O"?po:pu,pl=x.side==="O"?pu:po;return{pw,ev:od>1?pw*(od-1)-pl:null,min:pw>0?1+(EVMIN+pl)/pw:null}};
 if(!ml)return{m};const od=x.side==="O"?ml.o:ml.u;return{m,ml,od,...at(ml.ln,od),alt:[ml.ln-1,ml.ln+1].filter(l=>l>0).map(l=>({ln:l,min:at(l).min}))}}
 const isSel=x=>x.e&&x.e.ev!=null&&x.e.ev>=EVMIN;
+const SOSP=.15,isSosp=x=>isSel(x)&&x.e.ev>SOSP; // EV demasiado alto: casi siempre es el modelo el que se equivoca, no la casa
 function evH(x){if(!SL.auto)return"";const e=x.e,sd=x.side==="O"?"OVER":"UNDER";
 if(!e)return'<p class="hint">Sin promedio de este mercado para el jugador: no se puede calcular el EV.</p>';
 if(!e.ml)return'<p class="hint">Las casas aún no publican la línea de esta jugada.</p>';
 return`<div class="kv"><span>Línea del mercado (${e.ml.n} casa${e.ml.n>1?"s":""})</span><b>${sd} ${f1(e.ml.ln)}${e.od?" @"+f2(e.od):""}</b><span>Probabilidad del modelo</span><b>${pct(e.pw)}</b><span>EV a la cuota del mercado</span><b class="${e.ev>0?"pos":"neg"}">${e.ev==null?"–":spct(e.ev)}</b></div>`+
-(e.min?`<div class="vd ${isSel(x)?"g":"n"}">Apuesta solo si TriunfoBet paga <b>${f2(e.min)}</b> o más por ${sd} ${f1(e.ml.ln)}</div>`:"")+
+(isSosp(x)?`<div class="warn" style="margin:12px 0 0"><b>⚠ Sospechosa: EV ${spct(e.ev)}</b><br>El modelo (proyección ${f1(e.m)}) se aleja mucho de la línea de la casa (${f1(e.ml.ln)}). Una diferencia así casi nunca es una ganga: suele significar que el modelo no sabe algo que la casa sí, porque usa el promedio de la temporada pasada. Revisa si el jugador viene de lesión, cambió de rol o de equipo, es joven y está mejorando, o tiene minutos limitados.</div>`:"")+
+(e.min?`<div class="vd ${isSel(x)&&!isSosp(x)?"g":"n"}">Apuesta solo si TriunfoBet paga <b>${f2(e.min)}</b> o más por ${sd} ${f1(e.ml.ln)}</div>`:"")+
 (e.alt.length?`<p class="hint" style="margin:8px 0 0">Si su línea es distinta: ${e.alt.map(a=>`${f1(a.ln)} → mínimo ${a.min?f2(a.min):"–"}`).join(" · ")}</p>`:"")}
 function dyApply(){if(!DY)return;const auto=DY.juegos&&DY.fecha>=today(),fut=DY.fecha>today(),fdm=DY.fecha.split("-").reverse().slice(0,2).join("/");if(auto)SL={auto:1,g:DY.juegos.map(j=>[j.local,j.visitante,j.hora])};
 $("#slman").hidden=!!auto;$("#pv").hidden=!auto;
@@ -489,13 +491,13 @@ function mdlAgg(L){const r=L.filter(e=>e.res==="W"||e.res==="L"),W=r.filter(e=>e
 imp=r.map(e=>{if(!(e.o>1&&e.u>1))return null;const io=1/e.o,iu=1/e.u;return(e.side==="O"?io:iu)/(io+iu)}).filter(v=>v!=null),evs=r.filter(e=>e.ev!=null);
 return{n:r.length,W,L:r.length-W,P,wr:r.length?W/r.length:null,imp:imp.length?imp.reduce((a,b)=>a+b,0)/imp.length:null,ev:evs.length?evs.reduce((a,e)=>a+e.ev,0)/evs.length:null}}
 function mdlRender(){const el=$("#mdl");if(!el||!MDL)return;const all=MDL.picks||[];if(!all.length){el.innerHTML='<div class="panel"><b>Prueba automática del modelo</b><p class="hint" style="margin:6px 0 0">Empieza el día del arranque de la NBA: cada madrugada se guardan los picks del día y al día siguiente se califican solos.</p></div>';return}
-const sel=all.filter(e=>e.sel),dvp=all.filter(e=>e.ln!=null),pend=all.filter(e=>e.res==null).length,nj=all.filter(e=>e.res==="NJ").length;
+const sel=all.filter(e=>e.sel),selOk=sel.filter(e=>!(e.ev>SOSP)),dvp=all.filter(e=>e.ln!=null),pend=all.filter(e=>e.res==null).length,nj=all.filter(e=>e.res==="NJ").length;
 const row=(t,a)=>`<span>${t}<small style="display:block;font-size:12px">${a.n?`${a.W} ganadas, ${a.L} perdidas${a.P?", "+a.P+" push":""}`:"sin resueltas"}</small></span><b style="white-space:nowrap">${a.wr!=null?pct(a.wr):"–"}</b><span class="hint" style="text-align:right;white-space:nowrap">${a.imp!=null?pct(a.imp):"–"}</span><b style="white-space:nowrap" class="${a.wr!=null&&a.imp!=null?(a.wr-a.imp>0?"pos":"neg"):""}">${a.wr!=null&&a.imp!=null?spct(a.wr-a.imp):"–"}</b>`;
 const S=mdlAgg(sel),A=mdlAgg(dvp),mk=PKM.map(k=>[capz(MK[k].l),mdlAgg(sel.filter(e=>e.k===k))]);
 el.innerHTML=`<div class="panel"><div class="rh"><b>Prueba automática del modelo</b><span class="chip">${S.n} resueltas</span></div>
 <p class="hint" style="margin:0 0 10px">Picks guardados cada madrugada y calificados solos con los resultados reales. Sin dinero: sirve para saber si el modelo le gana a la casa. «Ventaja» = acierto real menos la probabilidad que daba la casa (sin margen).</p>
 <div class="kv" style="grid-template-columns:1fr auto auto auto;align-items:baseline"><span class="hint">Grupo</span><span class="hint" style="text-align:right">acierto</span><span class="hint" style="text-align:right">casa</span><span class="hint" style="text-align:right">ventaja</span>
-${row("Seleccionadas (DvP + EV)",S)}${row("Todas las de DvP con línea",A)}${mk.map(([t,a])=>row("· "+t+" (seleccionadas)",a)).join("")}</div>
+${row("Seleccionadas (DvP + EV)",S)}${row("· sin las sospechosas (EV > "+Math.round(SOSP*100)+" %)",mdlAgg(selOk))}${row("Todas las de DvP con línea",A)}${mk.map(([t,a])=>row("· "+t+" (seleccionadas)",a)).join("")}</div>
 <p class="hint" style="margin:6px 0 0">${pend} pendientes de calificar${nj?` · ${nj} anuladas (el jugador no jugó)`:""}${S.ev!=null?` · EV medio esperado de las seleccionadas ${spct(S.ev)}`:""}.${S.n<150?" Con menos de 150 jugadas resueltas los números pueden ser pura casualidad.":""}</p></div>`}
 /*MDE*/
 function picks(){const all=genPicks();all.forEach(x=>x.e=pickEV(x));const L=all.filter(x=>(PF.f==="all"||x.side===PF.f)&&(PF.m==="all"||x.k===PF.m)&&(!SL.auto||PVV==="all"||isSel(x)));

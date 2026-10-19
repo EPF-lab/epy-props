@@ -8,6 +8,7 @@ from collections import OrderedDict
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LAM = {"pts": .7, "reb": .6, "ast": .5, "tpm": .5, "stl": .4}
 CAP, EVMIN = .12, .05
+SOSP = .15   # EV por encima de esto = "sospechosa" (el modelo probablemente no sabe algo: lesión, rol, minutos)
 VR = {"reb": 1.36, "ast": 1.23, "tpm": 1.17, "stl": 1.07}
 SD = {"pts": (2.302, .386), "pra": (3.109, .304)}
 IDX = {"pts": 0, "ast": 1, "reb": 2, "tpm": 3, "stl": 4}
@@ -108,5 +109,5 @@ def evaluar(M, x, books):
     ev = pw * (od - 1) - pl if od and od > 1 else None
     out.update({"ln": ml["ln"], "o": ml["o"], "u": ml["u"], "nb": ml["n"], "pw": round(pw, 4),
                 "ev": None if ev is None else round(ev, 4), "min": round(1 + (EVMIN + pl) / pw, 3) if pw > 0 else None,
-                "sel": ev is not None and ev >= EVMIN})
+                "sel": ev is not None and ev >= EVMIN, "sos": ev is not None and ev > SOSP})
     return out
