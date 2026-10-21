@@ -167,7 +167,8 @@ body.so .ov{opacity:1;pointer-events:auto}body.so #psh{transform:none}
 .sl3{display:flex;align-items:center;gap:8px}.sl3 input[type=range]{flex:1;padding:0;height:30px;background:transparent;accent-color:var(--acc);min-width:0}.sl3 b{min-width:46px;text-align:right;font-size:20px}.sl3 .mini{width:32px;height:32px;padding:0;font-size:14px}
 .mf summary{cursor:pointer;color:var(--acc);font-weight:600;margin:2px 0 10px}
 </style><style id="liquid-glass">
-[hidden]{display:none!important} /* que ningún estilo (grid/flex) vuelva a mostrar lo oculto */
+[hidden]{display:none!important}
+.dnav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 12px;padding:5px;border-radius:99px;background:var(--glass);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);border:1px solid var(--glass-edge);box-shadow:inset 0 1px 0 var(--glass-hi),var(--glass-shadow)}.dnav b{font-size:15px;text-align:center}.dnav .ib{width:40px;height:40px;font-size:24px;line-height:1;flex:none}.ib:disabled{opacity:.3;cursor:default} /* que ningún estilo (grid/flex) vuelva a mostrar lo oculto */
 /* ===== Estética iOS 26 "Liquid Glass" (PROMPT-ESTETICA.md). Solo estilo: sobrescribe los bloques anteriores. ===== */
 /* Tokens: oscuro por defecto; claro con prefers-color-scheme o con el botón de tema (data-theme). :not(#_) sube la especificidad sobre los bloques viejos */
 :root:not(#_){
@@ -359,7 +360,7 @@ th{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;
 <div class="panel" id="pcard"></div>
 <div class="grid" id="cards"></div></section>
 
-<section id="pk" hidden><div id="dyw"></div><div class="panel"><div class="ctl2" id="slman"><div class="lb">Local<select id="gh"></select></div><div class="lb">Visitante<select id="ga"></select></div><button class="btn" id="gadd" type="button">Añadir partido</button></div><div id="slate"></div></div>
+<section id="pk" hidden><div id="pdn"></div><div id="dyw"></div><div class="panel" id="slp"><div class="ctl2" id="slman"><div class="lb">Local<select id="gh"></select></div><div class="lb">Visitante<select id="ga"></select></div><button class="btn" id="gadd" type="button">Añadir partido</button></div><div id="slate"></div></div>
 <div class="seg" id="pv" hidden><button data-v="sel" class="on">Seleccionadas (DvP + EV)</button><button data-v="all">Todas las de DvP</button></div><div class="seg" id="pf"><button data-f="all" class="on">Todas</button><button data-f="O">Over</button><button data-f="U">Under</button></div><div class="chips" id="pm"></div><div class="pnr"><p class="hint" id="pn"></p><button class="btn s" id="pall" type="button">Seguir todas las visibles</button></div><div class="grid" id="pg"></div></section>
 <section id="rc" hidden><div id="mdl"></div>
 <div class="seg" id="rfs"><button data-s="all" class="on">Todas</button><button data-s="O">Over</button><button data-s="U">Under</button></div>
@@ -531,7 +532,29 @@ el.innerHTML=`<div class="panel"><div class="rh"><b>Prueba automática del model
 ${row("Seleccionadas: mezcla modelo + casa (EV ≥ "+Math.round(EVMINB*100)+" %)",B)}${mk.map(([t,a])=>row("· "+t,a)).join("")}${row("Seleccionadas: modelo solo (EV ≥ "+Math.round(EVMIN*100)+" %)",S)}${row("· modelo solo sin sospechosas",mdlAgg(selOk))}${row("Todas las de DvP con línea",A)}</div>
 <p class="hint" style="margin:6px 0 0">${pend} pendientes de calificar${nj?` · ${nj} anuladas (el jugador no jugó)`:""}${B.n?` · la mezcla se registra desde el 21-oct`:""}.${B.n+S.n<150?" Con menos de 150 jugadas resueltas los números pueden ser pura casualidad.":""}</p></div>`}
 /*MDE*/
-function picks(){const all=genPicks();all.forEach(x=>x.e=pickEV(x));const L=all.filter(x=>(PF.f==="all"||x.side===PF.f)&&(PF.m==="all"||x.k===PF.m)&&(!SL.auto||PVV==="all"||isSel(x)));
+/*HD*/
+// navegación por días en PICKS: el día en vivo (diario.json) y los días guardados en registro.json, con sus resultados
+let PDAY=null;
+const liveDay=()=>DY&&SL.auto?DY.fecha:null;
+function pDays(){const s=new Set(((MDL&&MDL.picks)||[]).map(e=>e.fecha));const l=liveDay();if(l)s.add(l);return[...s].sort()}
+const fDia=d=>new Date(d+"T12:00:00").toLocaleDateString("es-VE",{weekday:"short",day:"numeric",month:"short"});
+function navH(){const ds=pDays(),l=liveDay(),cur=PDAY&&ds.includes(PDAY)?PDAY:(l||ds[ds.length-1]);if(!ds.length){$("#pdn").innerHTML="";return cur}
+const i=ds.indexOf(cur),hoy=today(),tag=cur===l?(cur>hoy?" · mañana":cur===hoy?" · hoy":""):" · resultados";
+$("#pdn").innerHTML=`<div class="dnav"><button class="ib" type="button" data-d="${i>0?ds[i-1]:""}" ${i>0?"":"disabled"} aria-label="Día anterior">‹</button><b>${capz(fDia(cur))}${tag}</b><button class="ib" type="button" data-d="${i<ds.length-1?ds[i+1]:""}" ${i<ds.length-1?"":"disabled"} aria-label="Día siguiente">›</button></div>`;
+return cur}
+const selDe=e=>e.selb!=null?e.selb:!!e.sel; // antes del 21-oct no existía la mezcla: cuenta la selección del modelo solo
+const RES={W:["✓ Ganada","g"],L:["✕ Perdida","r"],P:["= Push",""],NJ:["No jugó (anulada)","w"],SL:["Sin línea",""]};
+function histH(e,i){const p=PL.find(q=>q[0]===e.pl)||[e.pl,"","",e.pos],o=e.side==="O",m=MK[e.k],r=RES[e.res]||["Pendiente",""],od=o?e.o:e.u,ev=e.evb!=null?e.evb:e.ev;
+return`<article class="card pick ${o?"o":"u"}" style="animation-delay:${i*40}ms;cursor:default"><div class="ph">${avH(p,56)}<div class="pt"><b>${e.pl}</b><small>${e.pos} vs ${e.vs}</small></div><span class="chip ${o?"g":"r"}">${o?"OVER":"UNDER"}</span></div>
+<div class="al">${capz(m?m.l:e.k)}${e.ln!=null?" "+f1(e.ln):""}${od?" @"+f2(od):""}</div>
+<div class="kv"><span>Resultado</span><b><span class="chip ${r[1]}">${r[0]}</span></b><span>Hizo</span><b>${e.act!=null?e.act:"–"}</b><span>Rival</span><b>#${e.rk} de 30</b><span>Proyección del modelo</span><b>${e.m!=null?f1(e.m):"–"}</b><span>EV ${e.evb!=null?"con la mezcla":"del modelo"}</span><b class="${ev>0?"pos":"neg"}">${ev!=null?spct(ev):"–"}</b>${e.les?`<span>Estado ese día</span><b>${estado(e.les)}</b>`:""}</div></article>`}
+function picksHist(day){const all=((MDL&&MDL.picks)||[]).filter(e=>e.fecha===day),L=all.filter(e=>(PF.f==="all"||e.side===PF.f)&&(PF.m==="all"||e.k===PF.m)&&(PVV==="all"||selDe(e)));
+const rs=L.filter(e=>e.res==="W"||e.res==="L"),W=rs.filter(e=>e.res==="W").length,pe=L.filter(e=>e.res==null).length;
+$("#pn").textContent=`${L.length} jugadas ${PVV==="all"?"de DvP":"seleccionadas"} · ${rs.length?`${W} ganadas, ${rs.length-W} perdidas (${pct(W/rs.length)})`:"sin resultados todavía"}${pe?" · "+pe+" pendientes":""}.${all.length&&all.every(e=>e.selb==null)?" Ese día aún no existía la mezcla con la casa: «seleccionadas» son las del modelo solo.":""}`;
+PKL=[];$("#pg").innerHTML=L.map(histH).join("")||'<p class="hint">Sin jugadas con estos filtros.</p>'}
+/*HDE*/
+function picks(){const day=navH(),hist=!!day&&day!==liveDay();$("#dyw").hidden=hist;$("#slp").hidden=hist;$("#pall").hidden=hist;$("#pv").hidden=!(SL.auto||hist);if(hist){picksHist(day);return}
+const all=genPicks();all.forEach(x=>x.e=pickEV(x));const L=all.filter(x=>(PF.f==="all"||x.side===PF.f)&&(PF.m==="all"||x.k===PF.m)&&(!SL.auto||PVV==="all"||isSel(x)));
 $("#slate").innerHTML=SL.auto?'<div class="chips" style="margin-top:0">'+(SL.g.map(g=>`<span class="chip">${g[1]} @ ${g[0]}${g[2]?" · "+hhmm(g[2]):""}</span>`).join("")||'<span class="hint">Hoy no hay partidos.</span>')+"</div>":(SL.ex?'<p class="hint" style="margin:12px 0 0">Cartelera de ejemplo: cámbiala por los partidos reales.</p>':"")+'<div class="chips" style="margin-top:10px">'+(SL.g.map((g,i)=>`<span class="chip">${g[0]} vs ${g[1]} <button class="x" data-i="${i}" aria-label="Quitar">×</button></span>`).join("")||'<span class="hint">Añade partidos para generar jugadas.</span>')+"</div>";
 $("#pn").textContent=(SL.auto&&PVV==="sel"?`${L.length} de ${all.length} jugadas de DvP pasan también el filtro de EV (≥ ${pct(EVMINB)} con la mezcla modelo + casa). `:"")+`${L.length} jugadas (${L.filter(x=>x.side==="O").length} over, ${L.filter(x=>x.side==="U").length} under). Over si el rival está entre los 5 que más permiten, under si está entre los puestos 26 y 30. Solo puntos y asistencias, jugadores de ${PMIN}+ minutos con posición confirmada.`;
 PKL=L;$("#pg").innerHTML=L.map(pickH).join("")||'<p class="hint">Sin jugadas con estos filtros.</p>'}
@@ -541,6 +564,7 @@ $("#gadd").onclick=()=>{const a=$("#gh").value,b=$("#ga").value;if(a===b||SL.g.s
 $("#slate").onclick=e=>{const b=e.target.closest(".x");if(!b)return;SL.g.splice(+b.dataset.i,1);SL.ex=0;saveSl();picks()};
 $("#pf").onclick=e=>{const b=e.target.closest("button");if(!b)return;PF.f=b.dataset.f;$$("#pf button").forEach(x=>x.classList.toggle("on",x===b));picks()};
 $("#pm").onclick=e=>{const b=e.target.closest("button");if(!b)return;PF.m=b.dataset.m;$$("#pm button").forEach(x=>x.classList.toggle("on",x===b));picks()};
+$("#pdn").onclick=e=>{const b=e.target.closest("button[data-d]");if(!b||!b.dataset.d)return;PDAY=b.dataset.d===liveDay()?null:b.dataset.d;picks();window.scrollTo({top:0,behavior:"smooth"})};
 $("#pv").onclick=e=>{const b=e.target.closest("button");if(!b)return;PVV=b.dataset.v;$$("#pv button").forEach(x=>x.classList.toggle("on",x===b));picks()}}
 function syncBtns(){const p=S.p,o=$("#op").value,ps=$("#ps").value;$('.pk[data-k="pl"]').innerHTML=avH(p,30)+`<span>${p[0]}</span>`;$('.pk[data-k="op"]').innerHTML=tavH(o,30)+`<span>${o}</span>`;$('.pk[data-k="ps"]').innerHTML=`<span class="av" style="--z:30px;background:${grad(hue(ps||p[3]),40)}">${ps||p[3]}</span><span>${ps||"Auto ("+p[3]+")"}</span>`}
 function buildSheet(){document.body.insertAdjacentHTML("beforeend",'<div class="ov"></div><div class="sh" id="psh" role="dialog"><div class="gr"></div><div class="sbt" id="st"></div><div class="sb" id="sbw"><input id="sq" placeholder="Buscar" autocomplete="off"></div><div class="sl" id="sl"></div></div>');
@@ -703,6 +727,6 @@ $("#cf").onclick=()=>{const u=prompt("Pega la URL de tu Apps Script (termina en 
 // publicada junto a diario.json/historial.json (GitHub Pages) los lee sola; abierta como archivo local, simplemente no los encuentra
 try{const r=await fetch("diario.json",{cache:"no-store"});if(r.ok){DY=await r.json();dyApply();if(!$("#pk").hidden)picks()}}catch(e){}
 try{const r=await fetch("movimientos.json");if(r.ok){MOV=await r.json();if(!$("#pk").hidden)picks()}}catch(e){}
-try{const r=await fetch("registro.json",{cache:"no-store"});if(r.ok){MDL=await r.json();mdlRender()}}catch(e){}
+try{const r=await fetch("registro.json",{cache:"no-store"});if(r.ok){MDL=await r.json();mdlRender();if(!$("#pk").hidden)picks()}}catch(e){}
 try{if(!HIST){const r=await fetch("historial.json");if(r.ok){const h=await r.json();if(h&&h.v===1&&!HIST)HIST=h}}}catch(e){}})();
 </script></body></html>
