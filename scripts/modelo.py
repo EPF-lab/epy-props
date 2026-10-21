@@ -8,6 +8,13 @@ from collections import OrderedDict
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LAM = {"pts": .7, "reb": .6, "ast": .5, "tpm": .5, "stl": .4}
 CAP, EVMIN = .12, .05
+BLEND = .30  # peso máximo del modelo al mezclarlo con la probabilidad de la casa sin margen (el resto es la casa)
+EVMINB = .02 # EV mínimo con la mezcla (las ventajas reales en props suelen ser de 2-4 %)
+def peso_modelo(ln, base):
+    """Cuanto más se aleja la línea de su promedio del año pasado, menos sabe el modelo (cambio de rol, lesión...):
+    peso pleno si la brecha es < 10 %, cero a partir del 30 %."""
+    gap = abs(ln - base) / base if base else 1
+    return BLEND * min(1.0, max(0.0, 1 - (gap - .10) / .20))
 SOSP = .15   # EV por encima de esto = "sospechosa" (el modelo probablemente no sabe algo: lesión, rol, minutos)
 VR = {"reb": 1.36, "ast": 1.23, "tpm": 1.17, "stl": 1.07}
 SD = {"pts": (2.302, .386), "pra": (3.109, .304)}
@@ -110,4 +117,14 @@ def evaluar(M, x, books):
     out.update({"ln": ml["ln"], "o": ml["o"], "u": ml["u"], "nb": ml["n"], "pw": round(pw, 4),
                 "ev": None if ev is None else round(ev, 4), "min": round(1 + (EVMIN + pl) / pw, 3) if pw > 0 else None,
                 "sel": ev is not None and ev >= EVMIN, "sos": ev is not None and ev > SOSP})
+    # mezcla modelo + casa: la línea de la casa ya incluye lesiones, roles y noticias que el modelo no ve
+    if ml["o"] and ml["u"] and ml["o"] > 1 and ml["u"] > 1 and od and od > 1:
+        io, iu = 1 / ml["o"], 1 / ml["u"]; mo = io / (io + iu); push = max(0.0, 1 - po - pu); w = peso_modelo(ml["ln"], b)
+        pob = w * po + (1 - w) * mo * (1 - push); pub = w * pu + (1 - w) * (1 - mo) * (1 - push)
+        pwb, plb = (pob, pub) if x["side"] == "O" else (pub, pob)
+        evb = pwb * (od - 1) - plb
+        out.update({"pm": round(mo if x["side"] == "O" else 1 - mo, 4), "w": round(w, 3), "pwb": round(pwb, 4), "evb": round(evb, 4),
+                    "minb": round(1 + (EVMINB + plb) / pwb, 3) if pwb > 0 else None, "selb": evb >= EVMINB})
+    else:
+        out["selb"] = False
     return out

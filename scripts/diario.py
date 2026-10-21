@@ -57,7 +57,19 @@ def load_reg():
     try: return json.load(open(REG, encoding="utf-8"))
     except (OSError, ValueError): return {"v": 1, "picks": []}
 
-def registrar(reg, fecha, juegos, lineas, S):
+def lesiones(S):
+    """Reporte de lesiones de ESPN: {equipo: [[jugador, estado (Out/Questionable/...), tipo]]} (gratis, sin clave)."""
+    d = espn("injuries")
+    out = {}
+    for t in (d or {}).get("injuries", []):
+        n = ALIAS.get(str(t.get("displayName", "")).lower(), t.get("displayName"))
+        if n not in S["teams"]: continue
+        for x in t.get("injuries", []):
+            nm = (x.get("athlete") or {}).get("displayName")
+            if nm: out.setdefault(n, []).append([nm, x.get("status") or "", ((x.get("details") or {}).get("type") or "")])
+    return out
+
+def registrar(reg, fecha, juegos, lineas, S, les=None):
     """Rehace los picks de hoy (todos los que pasan DvP) con lo que dicen las casas a esta hora."""
     md = M.Modelo(S)
     reg["picks"] = [e for e in reg["picks"] if e["fecha"] != fecha]
@@ -65,6 +77,9 @@ def registrar(reg, fecha, juegos, lineas, S):
         for x in md.candidatos(j["local"], j["visitante"]):
             p = x["p"]; ev = M.evaluar(md, x, (lineas.get(key(p[0])) or {}).get(x["k"]) or [])
             if ev is None: continue
+            st = next((l[1] for l in (les or {}).get(x["me"], []) if key(l[0]) == key(p[0])), None)
+            if st: ev["les"] = st
+            if st and st.lower().startswith("out"): ev["selb"] = False      # si está fuera no cuenta como seleccionada
             reg["picks"].append({"id": f"{fecha}|{p[0]}|{x['k']}|{x['side']}", "fecha": fecha, "hora": j.get("hora"),
                                  "pl": p[0], "pid": p[10], "eq": x["me"], "vs": x["op"], "pos": p[3], "k": x["k"],
                                  "side": x["side"], "rk": x["rk"], **ev, "res": None, "act": None})
@@ -176,6 +191,7 @@ def main():
                     for (pk, _), r in rows.items():
                         data["lineas"].setdefault(pk, {}).setdefault(k, []).append(r)
         data["creditos"] = int(left) if left and left.isdigit() else left
+        data["lesiones"] = lesiones(S)
         if not events: data["nota"] = "Hoy no hay partidos de la NBA."
         elif hoy < INICIO: data["nota"] = f"Pretemporada: las cuotas se empiezan a pedir el {INICIO}."
     json.dump(data, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
@@ -183,9 +199,9 @@ def main():
     print(f"{hoy}: {len(data['juegos'])} partidos, {n} líneas de jugador/mercado, créditos restantes: {data['creditos']} -> {OUT}")
     if a.demo: return
     reg = load_reg(); nc = calificar(reg, hoy)
-    if hoy >= INICIO: registrar(reg, hoy, data["juegos"], data["lineas"], S)
+    if hoy >= INICIO: registrar(reg, hoy, data["juegos"], data["lineas"], S, data.get("lesiones"))
     json.dump(reg, open(REG, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     hoy_p = [e for e in reg["picks"] if e["fecha"] == hoy]
-    print(f"Registro: {nc} picks calificados; hoy {len(hoy_p)} picks DvP ({sum(1 for e in hoy_p if e.get('sel'))} pasan también EV) -> {REG}")
+    print(f"Registro: {nc} picks calificados; hoy {len(hoy_p)} picks DvP ({sum(1 for e in hoy_p if e.get('selb'))} pasan EV con la mezcla; {sum(1 for e in hoy_p if e.get('sel'))} con el modelo solo) -> {REG}")
 
 if __name__ == "__main__": main()

@@ -167,6 +167,7 @@ body.so .ov{opacity:1;pointer-events:auto}body.so #psh{transform:none}
 .sl3{display:flex;align-items:center;gap:8px}.sl3 input[type=range]{flex:1;padding:0;height:30px;background:transparent;accent-color:var(--acc);min-width:0}.sl3 b{min-width:46px;text-align:right;font-size:20px}.sl3 .mini{width:32px;height:32px;padding:0;font-size:14px}
 .mf summary{cursor:pointer;color:var(--acc);font-weight:600;margin:2px 0 10px}
 </style><style id="liquid-glass">
+[hidden]{display:none!important} /* que ningún estilo (grid/flex) vuelva a mostrar lo oculto */
 /* ===== Estética iOS 26 "Liquid Glass" (PROMPT-ESTETICA.md). Solo estilo: sobrescribe los bloques anteriores. ===== */
 /* Tokens: oscuro por defecto; claro con prefers-color-scheme o con el botón de tema (data-theme). :not(#_) sube la especificidad sobre los bloques viejos */
 :root:not(#_){
@@ -466,16 +467,46 @@ const c={};b.forEach(r=>c[r.ln]=(c[r.ln]||0)+1);const ln=+Object.keys(c).sort((a
 return{ln,o:med(at.map(r=>r.o)),u:med(at.map(r=>r.u)),n:at.length}}
 // probabilidad del lado del pick, EV a la cuota del mercado y cuota mínima para EV >= EVMIN
 function pickEV(x){const base=BASE(x.p)[x.k];if(base==null)return null;const m=base*factor(x.op,x.p[3],x.k).f,ml=mkLine(x);
-const at=(L,od)=>{const[po,pu]=probs(x.k,m,L),pw=x.side==="O"?po:pu,pl=x.side==="O"?pu:po;return{pw,ev:od>1?pw*(od-1)-pl:null,min:pw>0?1+(EVMIN+pl)/pw:null}};
-if(!ml)return{m};const od=x.side==="O"?ml.o:ml.u;return{m,ml,od,...at(ml.ln,od),alt:[ml.ln-1,ml.ln+1].filter(l=>l>0).map(l=>({ln:l,min:at(l).min}))}}
-const isSel=x=>x.e&&x.e.ev!=null&&x.e.ev>=EVMIN;
-const SOSP=.15,isSosp=x=>isSel(x)&&x.e.ev>SOSP; // EV demasiado alto: casi siempre es el modelo el que se equivoca, no la casa
+const at=(L,od)=>{const[po,pu]=probs(x.k,m,L),pw=x.side==="O"?po:pu,pl=x.side==="O"?pu:po;return{po,pu,pw,pl,ev:od>1?pw*(od-1)-pl:null,min:pw>0?1+(EVMIN+pl)/pw:null}};
+if(!ml)return{m,base};const od=x.side==="O"?ml.o:ml.u,r=at(ml.ln,od),e={m,base,ml,od,...r};
+// mezcla modelo + casa: la línea de la casa ya incluye lesiones, roles y noticias que el modelo no ve
+if(ml.o>1&&ml.u>1&&od>1){const io=1/ml.o,iu=1/ml.u,mo=io/(io+iu),push=Math.max(0,1-r.po-r.pu),w=pesoModelo(ml.ln,base),pob=w*r.po+(1-w)*mo*(1-push),pub=w*r.pu+(1-w)*(1-mo)*(1-push);e.w=w;
+e.pm=x.side==="O"?mo:1-mo;e.pwb=x.side==="O"?pob:pub;const plb=x.side==="O"?pub:pob;e.evb=e.pwb*(od-1)-plb;e.minb=e.pwb>0?1+(EVMINB+plb)/e.pwb:null}
+const d=e.pwb!=null?e.pwb-r.pw:0; // en otras líneas se aplica el mismo ajuste de la casa
+e.alt=[ml.ln-1,ml.ln+1].filter(l=>l>0).map(l=>{const a=at(l),pw=Math.min(.99,Math.max(.01,a.pw+d));return{ln:l,min:1+((e.pwb!=null?EVMINB:EVMIN)+(1-pw))/pw}});return e}
+
+const BLEND=.30,EVMINB=.02; // peso máximo del modelo frente a la casa y EV mínimo con la mezcla (igual que scripts/modelo.py)
+const pesoModelo=(ln,base)=>{const g=base?Math.abs(ln-base)/base:1;return BLEND*Math.min(1,Math.max(0,1-(g-.10)/.20))}; // menos peso cuanto más se aleja la línea de su promedio
+const isOut=x=>{const l=lesDe(x);return l&&/^out/i.test(l[1])};
+const isSel=x=>x.e&&x.e.evb!=null&&x.e.evb>=EVMINB&&!isOut(x);
+const SOSP=.15,isSosp=x=>x.e&&x.e.ev!=null&&x.e.ev>SOSP; // EV del modelo puro demasiado alto: casi siempre es el modelo el que se equivoca, no la casa
+let MOV=null;const ESTL={"out":"fuera","doubtful":"duda (difícil)","questionable":"duda","day-to-day":"día a día","suspension":"suspendido"};
+const estado=st=>ESTL[String(st||"").toLowerCase()]||String(st||"").toLowerCase();
+const lesEq=t=>(DY&&DY.lesiones&&DY.lesiones[t])||[];
+function lesDe(x){const k=normKey(x.p[0]);return lesEq(x.me).find(l=>normKey(l[0])===k)}
+function ctxH(x){const e=x.e,ab=D.teams[x.me]?D.teams[x.me][1]:x.p[2],out=[];
+if(e&&e.ml&&e.base>0){const r=(e.ml.ln-e.base)/e.base;out.push(`<div class="kv" style="margin:8px 0 0"><span>Línea vs su promedio del año pasado</span><b class="${Math.abs(r)>=.15?(r<0?"neg":"pos"):""}">${f1(e.ml.ln)} vs ${f1(e.base)} (${spct(r)})</b></div>`+(Math.abs(r)>=.15?`<p class="hint" style="margin:2px 0 0">La casa espera ${r<0?"bastante menos":"bastante más"} que el año pasado: probable ${r<0?"pérdida":"aumento"} de rol o minutos.</p>`:""))}
+const me=lesDe(x);if(me)out.push(`<p class="${/^out/i.test(me[1])?"neg":""}" style="margin:6px 0 0;font-weight:600">⚠ ${x.p[0]}: ${estado(me[1])}${me[2]?" ("+me[2]+")":""}${/^out/i.test(me[1])?" — no cuenta como seleccionada":""}</p>`);
+const bajas=(t,excl)=>lesEq(t).filter(l=>/^(out|doubtful|questionable|day-to-day)/i.test(l[1])&&normKey(l[0])!==excl).slice(0,5).map(l=>`${l[0]} (${estado(l[1])})`).join(", ");
+const b1=bajas(x.me,normKey(x.p[0])),b2=bajas(x.op,"");
+if(b1)out.push(`<p class="hint" style="margin:4px 0 0"><b>Bajas en su equipo:</b> ${b1}</p>`);
+if(b2)out.push(`<p class="hint" style="margin:4px 0 0"><b>Bajas del rival:</b> ${b2}</p>`);
+const mv=MOV&&MOV[ab];if(mv){const f=a=>a.slice(0,4).map(z=>z[0]+(z[1]?` (${f1(z[1])} pts)`:"")).join(", ");
+const t=[mv.in&&mv.in.length?"<b>Llegaron:</b> "+f(mv.in):"",mv.out&&mv.out.length?"<b>Se fueron:</b> "+f(mv.out):""].filter(Boolean).join(" · ");
+if(t)out.push(`<p class="hint" style="margin:4px 0 0">${t}</p>`)}
+return out.length?`<div class="pnl" style="margin-top:10px"><div class="pl">Contexto del rol</div>${out.join("")}</div>`:""}
 function evH(x){if(!SL.auto)return"";const e=x.e,sd=x.side==="O"?"OVER":"UNDER";
 if(!e)return'<p class="hint">Sin promedio de este mercado para el jugador: no se puede calcular el EV.</p>';
-if(!e.ml)return'<p class="hint">Las casas aún no publican la línea de esta jugada.</p>';
-return`<div class="kv"><span>Línea del mercado (${e.ml.n} casa${e.ml.n>1?"s":""})</span><b>${sd} ${f1(e.ml.ln)}${e.od?" @"+f2(e.od):""}</b><span>Probabilidad del modelo</span><b>${pct(e.pw)}</b><span>EV a la cuota del mercado</span><b class="${e.ev>0?"pos":"neg"}">${e.ev==null?"–":spct(e.ev)}</b></div>`+
-(isSosp(x)?`<div class="warn" style="margin:12px 0 0"><b>⚠ Sospechosa: EV ${spct(e.ev)}</b><br>El modelo (proyección ${f1(e.m)}) se aleja mucho de la línea de la casa (${f1(e.ml.ln)}). Una diferencia así casi nunca es una ganga: suele significar que el modelo no sabe algo que la casa sí, porque usa el promedio de la temporada pasada. Revisa si el jugador viene de lesión, cambió de rol o de equipo, es joven y está mejorando, o tiene minutos limitados.</div>`:"")+
-(e.min?`<div class="vd ${isSel(x)&&!isSosp(x)?"g":"n"}">Apuesta solo si TriunfoBet paga <b>${f2(e.min)}</b> o más por ${sd} ${f1(e.ml.ln)}</div>`:"")+
+if(!e.ml)return'<p class="hint">Las casas aún no publican la línea de esta jugada.</p>'+ctxH(x);
+const mn=e.minb!=null?e.minb:e.min,ev=e.evb!=null?e.evb:e.ev;
+return`<div class="kv"><span>Línea del mercado (${e.ml.n} casa${e.ml.n>1?"s":""})</span><b>${sd} ${f1(e.ml.ln)}${e.od?" @"+f2(e.od):""}</b>
+<span>Probabilidad: modelo · casa</span><b>${pct(e.pw)} · ${e.pm!=null?pct(e.pm):"–"}</b>
+<span>Mezcla (${e.w!=null?Math.round(e.w*100):"–"} % modelo)</span><b>${e.pwb!=null?pct(e.pwb):"–"}</b>
+<span>EV con la mezcla</span><b class="${ev>0?"pos":"neg"}">${ev==null?"–":spct(ev)}</b></div>
+<p class="hint" style="margin:-4px 0 0">EV del modelo solo: ${e.ev==null?"–":spct(e.ev)}</p>`+
+(isSosp(x)?`<div class="warn" style="margin:12px 0 0"><b>⚠ Sospechosa: EV del modelo ${spct(e.ev)}</b><br>El modelo (proyección ${f1(e.m)}) se aleja mucho de la línea de la casa (${f1(e.ml.ln)}). Una diferencia así casi nunca es una ganga: suele significar que el modelo no sabe algo que la casa sí, porque usa el promedio de la temporada pasada. Por eso la mezcla le da poco peso al modelo aquí. Mira el contexto del rol de abajo.</div>`:"")+
+ctxH(x)+
+(mn?`<div class="vd ${isSel(x)?"g":"n"}">Apuesta solo si TriunfoBet paga <b>${f2(mn)}</b> o más por ${sd} ${f1(e.ml.ln)}</div>`:"")+
 (e.alt.length?`<p class="hint" style="margin:8px 0 0">Si su línea es distinta: ${e.alt.map(a=>`${f1(a.ln)} → mínimo ${a.min?f2(a.min):"–"}`).join(" · ")}</p>`:"")}
 function dyApply(){if(!DY)return;const auto=DY.juegos&&DY.fecha>=today(),fut=DY.fecha>today(),fdm=DY.fecha.split("-").reverse().slice(0,2).join("/");if(auto)SL={auto:1,g:DY.juegos.map(j=>[j.local,j.visitante,j.hora])};
 $("#slman").hidden=!!auto;$("#pv").hidden=!auto;
@@ -491,18 +522,18 @@ function mdlAgg(L){const r=L.filter(e=>e.res==="W"||e.res==="L"),W=r.filter(e=>e
 imp=r.map(e=>{if(!(e.o>1&&e.u>1))return null;const io=1/e.o,iu=1/e.u;return(e.side==="O"?io:iu)/(io+iu)}).filter(v=>v!=null),evs=r.filter(e=>e.ev!=null);
 return{n:r.length,W,L:r.length-W,P,wr:r.length?W/r.length:null,imp:imp.length?imp.reduce((a,b)=>a+b,0)/imp.length:null,ev:evs.length?evs.reduce((a,e)=>a+e.ev,0)/evs.length:null}}
 function mdlRender(){const el=$("#mdl");if(!el||!MDL)return;const all=MDL.picks||[];if(!all.length){el.innerHTML='<div class="panel"><b>Prueba automática del modelo</b><p class="hint" style="margin:6px 0 0">Empieza el día del arranque de la NBA: cada madrugada se guardan los picks del día y al día siguiente se califican solos.</p></div>';return}
-const sel=all.filter(e=>e.sel),selOk=sel.filter(e=>!(e.ev>SOSP)),dvp=all.filter(e=>e.ln!=null),pend=all.filter(e=>e.res==null).length,nj=all.filter(e=>e.res==="NJ").length;
+const sel=all.filter(e=>e.sel),selOk=sel.filter(e=>!(e.ev>SOSP)),selB=all.filter(e=>e.selb),dvp=all.filter(e=>e.ln!=null),pend=all.filter(e=>e.res==null).length,nj=all.filter(e=>e.res==="NJ").length;
 const row=(t,a)=>`<span>${t}<small style="display:block;font-size:12px">${a.n?`${a.W} ganadas, ${a.L} perdidas${a.P?", "+a.P+" push":""}`:"sin resueltas"}</small></span><b style="white-space:nowrap">${a.wr!=null?pct(a.wr):"–"}</b><span class="hint" style="text-align:right;white-space:nowrap">${a.imp!=null?pct(a.imp):"–"}</span><b style="white-space:nowrap" class="${a.wr!=null&&a.imp!=null?(a.wr-a.imp>0?"pos":"neg"):""}">${a.wr!=null&&a.imp!=null?spct(a.wr-a.imp):"–"}</b>`;
-const S=mdlAgg(sel),A=mdlAgg(dvp),mk=PKM.map(k=>[capz(MK[k].l),mdlAgg(sel.filter(e=>e.k===k))]);
-el.innerHTML=`<div class="panel"><div class="rh"><b>Prueba automática del modelo</b><span class="chip">${S.n} resueltas</span></div>
+const S=mdlAgg(sel),B=mdlAgg(selB),A=mdlAgg(dvp),mk=PKM.map(k=>[capz(MK[k].l),mdlAgg(selB.filter(e=>e.k===k))]);
+el.innerHTML=`<div class="panel"><div class="rh"><b>Prueba automática del modelo</b><span class="chip">${B.n} resueltas</span></div>
 <p class="hint" style="margin:0 0 10px">Picks guardados cada madrugada y calificados solos con los resultados reales. Sin dinero: sirve para saber si el modelo le gana a la casa. «Ventaja» = acierto real menos la probabilidad que daba la casa (sin margen).</p>
 <div class="kv" style="grid-template-columns:1fr auto auto auto;align-items:baseline"><span class="hint">Grupo</span><span class="hint" style="text-align:right">acierto</span><span class="hint" style="text-align:right">casa</span><span class="hint" style="text-align:right">ventaja</span>
-${row("Seleccionadas (DvP + EV)",S)}${row("· sin las sospechosas (EV > "+Math.round(SOSP*100)+" %)",mdlAgg(selOk))}${row("Todas las de DvP con línea",A)}${mk.map(([t,a])=>row("· "+t+" (seleccionadas)",a)).join("")}</div>
-<p class="hint" style="margin:6px 0 0">${pend} pendientes de calificar${nj?` · ${nj} anuladas (el jugador no jugó)`:""}${S.ev!=null?` · EV medio esperado de las seleccionadas ${spct(S.ev)}`:""}.${S.n<150?" Con menos de 150 jugadas resueltas los números pueden ser pura casualidad.":""}</p></div>`}
+${row("Seleccionadas: mezcla modelo + casa (EV ≥ "+Math.round(EVMINB*100)+" %)",B)}${mk.map(([t,a])=>row("· "+t,a)).join("")}${row("Seleccionadas: modelo solo (EV ≥ "+Math.round(EVMIN*100)+" %)",S)}${row("· modelo solo sin sospechosas",mdlAgg(selOk))}${row("Todas las de DvP con línea",A)}</div>
+<p class="hint" style="margin:6px 0 0">${pend} pendientes de calificar${nj?` · ${nj} anuladas (el jugador no jugó)`:""}${B.n?` · la mezcla se registra desde el 21-oct`:""}.${B.n+S.n<150?" Con menos de 150 jugadas resueltas los números pueden ser pura casualidad.":""}</p></div>`}
 /*MDE*/
 function picks(){const all=genPicks();all.forEach(x=>x.e=pickEV(x));const L=all.filter(x=>(PF.f==="all"||x.side===PF.f)&&(PF.m==="all"||x.k===PF.m)&&(!SL.auto||PVV==="all"||isSel(x)));
 $("#slate").innerHTML=SL.auto?'<div class="chips" style="margin-top:0">'+(SL.g.map(g=>`<span class="chip">${g[1]} @ ${g[0]}${g[2]?" · "+hhmm(g[2]):""}</span>`).join("")||'<span class="hint">Hoy no hay partidos.</span>')+"</div>":(SL.ex?'<p class="hint" style="margin:12px 0 0">Cartelera de ejemplo: cámbiala por los partidos reales.</p>':"")+'<div class="chips" style="margin-top:10px">'+(SL.g.map((g,i)=>`<span class="chip">${g[0]} vs ${g[1]} <button class="x" data-i="${i}" aria-label="Quitar">×</button></span>`).join("")||'<span class="hint">Añade partidos para generar jugadas.</span>')+"</div>";
-$("#pn").textContent=(SL.auto&&PVV==="sel"?`${L.length} de ${all.length} jugadas de DvP pasan también el filtro de EV (≥ ${pct(EVMIN)} a la cuota del mercado). `:"")+`${L.length} jugadas (${L.filter(x=>x.side==="O").length} over, ${L.filter(x=>x.side==="U").length} under). Over si el rival está entre los 5 que más permiten, under si está entre los puestos 26 y 30. Solo puntos y asistencias, jugadores de ${PMIN}+ minutos con posición confirmada.`;
+$("#pn").textContent=(SL.auto&&PVV==="sel"?`${L.length} de ${all.length} jugadas de DvP pasan también el filtro de EV (≥ ${pct(EVMINB)} con la mezcla modelo + casa). `:"")+`${L.length} jugadas (${L.filter(x=>x.side==="O").length} over, ${L.filter(x=>x.side==="U").length} under). Over si el rival está entre los 5 que más permiten, under si está entre los puestos 26 y 30. Solo puntos y asistencias, jugadores de ${PMIN}+ minutos con posición confirmada.`;
 PKL=L;$("#pg").innerHTML=L.map(pickH).join("")||'<p class="hint">Sin jugadas con estos filtros.</p>'}
 function pkInit(){const o=Object.keys(D.teams).sort().map(t=>`<option>${t}</option>`).join("");$("#gh").innerHTML=o;$("#ga").innerHTML=o;$("#ga").selectedIndex=1;
 $("#pm").innerHTML=[["all","Todos"],...PKM.map(k=>[k,MK[k]]).map(([k,m])=>[k,m.l[0].toUpperCase()+m.l.slice(1)])].map(([k,l])=>`<button data-m="${k}" class="${k==="all"?"on":""}">${l}</button>`).join("");
@@ -591,7 +622,7 @@ const today=()=>new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOStr
 function toast(t){const el=$("#toast");if(!el)return;el.textContent=t;el.classList.add("on");clearTimeout(toast.h);toast.h=setTimeout(()=>el.classList.remove("on"),2800)}
 function trackPick(x){if(isTr(x))return false;const p=x.p,pos=p[3],base=BASE(p)[x.k],pj=base!=null?f1(base)+" a "+f1(base*factor(x.op,pos,x.k).f):null;
 const e=x.e&&x.e.ml?x.e:null; // con datos automáticos guarda la línea del mercado y la cuota mínima; la cuota real de tu casa la escribes tú
-RC.push({id:Date.now()*1000+(++TN%1000),d:pDay(),pl:p[0],mk:x.k,sd:x.side,ln:e?e.ml.ln:null,od:null,st:1,ev:null,rs:"",key:trKey(x),src:"pick",rk:x.r,ps:pos,vs:x.op,pj,om:e&&e.min?+e.min.toFixed(2):null,evr:e&&e.ev!=null?+e.ev.toFixed(4):null});rcSave();return true}
+RC.push({id:Date.now()*1000+(++TN%1000),d:pDay(),pl:p[0],mk:x.k,sd:x.side,ln:e?e.ml.ln:null,od:null,st:1,ev:null,rs:"",key:trKey(x),src:"pick",rk:x.r,ps:pos,vs:x.op,pj,om:e&&(e.minb||e.min)?+(e.minb||e.min).toFixed(2):null,evr:e&&(e.evb!=null?e.evb:e.ev)!=null?+(e.evb!=null?e.evb:e.ev).toFixed(4):null});rcSave();return true}
 /*HS*/
 const HK={pts:["Puntos",6],reb:["Rebotes",7],ast:["Asistencias",8],tpm:["Triples",9],stl:["Robos",10],pra:["PRA",-1]};
 const hv=(r,k)=>k==="pra"?r[6]+r[7]+r[8]:r[HK[k][1]],fmtD=d=>String(Math.floor(d%10000/100)).padStart(2,"0")+"/"+String(d%100).padStart(2,"0");
@@ -671,6 +702,7 @@ $("#cf").onclick=()=>{const u=prompt("Pega la URL de tu Apps Script (termina en 
 (async()=>{let mode="Snapshot",data=SNAP;const U=getU();if(U){try{data=await (await fetch(U)).json();mode="En vivo"}catch(e){mode="Snapshot (sin conexión)"}}init(data,mode);
 // publicada junto a diario.json/historial.json (GitHub Pages) los lee sola; abierta como archivo local, simplemente no los encuentra
 try{const r=await fetch("diario.json",{cache:"no-store"});if(r.ok){DY=await r.json();dyApply();if(!$("#pk").hidden)picks()}}catch(e){}
+try{const r=await fetch("movimientos.json");if(r.ok){MOV=await r.json();if(!$("#pk").hidden)picks()}}catch(e){}
 try{const r=await fetch("registro.json",{cache:"no-store"});if(r.ok){MDL=await r.json();mdlRender()}}catch(e){}
 try{if(!HIST){const r=await fetch("historial.json");if(r.ok){const h=await r.json();if(h&&h.v===1&&!HIST)HIST=h}}}catch(e){}})();
 </script></body></html>
