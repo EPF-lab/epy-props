@@ -168,6 +168,13 @@ body.so .ov{opacity:1;pointer-events:auto}body.so #psh{transform:none}
 .mf summary{cursor:pointer;color:var(--acc);font-weight:600;margin:2px 0 10px}
 </style><style id="liquid-glass">
 [hidden]{display:none!important}
+.capo{position:fixed;inset:0;z-index:60;overflow:auto;display:flex;flex-direction:column;align-items:center;justify-content:safe center;gap:10px;padding:16px;background:radial-gradient(60vw 60vh at -5% 0%,var(--glow-1),transparent 70%),radial-gradient(50vw 55vh at 105% 15%,var(--glow-2),transparent 70%),radial-gradient(55vw 50vh at 85% 105%,var(--glow-3),transparent 70%),var(--bg)}
+.capc{width:min(560px,100%);display:grid;gap:12px;padding:20px;border-radius:28px;background:var(--glass-strong);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);border:1px solid var(--glass-edge);box-shadow:inset 0 1px 0 var(--glass-hi),var(--glass-shadow)}
+.capc .kv{margin:0}.caphit{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}.caphit span{font-size:34px;font-weight:750;letter-spacing:-.03em}.caphit small{color:var(--muted);font-size:14px}
+.capf{display:flex;flex-wrap:wrap;gap:6px}.capf .chip{background:var(--fill);color:var(--text-2)}
+.capb{display:flex;align-items:center;gap:10px;padding-top:10px;border-top:1px solid var(--line)}.capb img{width:36px;height:36px;border-radius:50%}.capb b{display:block;font-size:14px}.capb small{color:var(--muted);font-size:12px}
+.capx{position:fixed;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:1px solid var(--glass-edge);background:var(--fill);color:var(--text);font-size:24px;line-height:1;cursor:pointer}
+.caph{margin:0;text-align:center}
 .rv.dots{background:var(--fill);color:var(--text);font-size:20px;line-height:1;border:1px solid var(--glass-edge);box-shadow:inset 0 1px 0 var(--glass-hi)}
 .dnav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 12px;padding:5px;border-radius:99px;background:var(--glass);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);border:1px solid var(--glass-edge);box-shadow:inset 0 1px 0 var(--glass-hi),var(--glass-shadow)}.dnav b{font-size:15px;text-align:center}.dnav .ib{width:40px;height:40px;font-size:24px;line-height:1;flex:none}.ib:disabled{opacity:.3;cursor:default} /* que ningún estilo (grid/flex) vuelva a mostrar lo oculto */
 /* ===== Estética iOS 26 "Liquid Glass" (PROMPT-ESTETICA.md). Solo estilo: sobrescribe los bloques anteriores. ===== */
@@ -693,6 +700,30 @@ return`<svg viewBox="0 0 ${W} ${H}" id="dsv">${g}${bars}<line x1="${l}" x2="${W-
 let HIST=null,DT=null;
 const capz=t=>t[0].toUpperCase()+t.slice(1);
 const idb=(m,v)=>new Promise((res,rej)=>{try{const q=indexedDB.open("epy",1);q.onupgradeneeded=()=>q.result.createObjectStore("k");q.onerror=()=>rej(q.error);q.onsuccess=()=>{const tx=q.result.transaction("k",m==="get"?"readonly":"readwrite"),st=tx.objectStore("k"),r=m==="get"?st.get("hist"):st.put(v,"hist");r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}}catch(e){rej(e)}});
+/*CAP*/
+// tarjeta limpia a pantalla completa con el jugador, el resumen, el gráfico y los filtros, para hacer captura de pantalla
+function capOpen(){const d=DT;if(!d||!d.cur||!d.cur.length)return toast("Primero tiene que haber partidos en el gráfico.");
+const x=d.x,p=x.p,pos=p[3],k=d.stat,rows=d.cur,vals=rows.map(r=>hv(r,k)),n=vals.length,avg=vals.reduce((a,b)=>a+b,0)/n,so=vals.slice().sort((a,b)=>a-b),med=n%2?so[(n-1)/2]:(so[n/2-1]+so[n/2])/2;
+const L=d.alt,hs=hits(vals,L),side=hs.o>=hs.u?"Over":"Under",cn=side==="Over"?hs.o:hs.u,lbl=HK[k][0];
+const rk=MK[k]?rank(x.op,pos,MK[k].i):null,f=[];
+f.push({all:"Ambas temporadas",cur:"Temporada 2026-27",prev:"Temporada 2025-26"}[d.se||"all"]);
+f.push(d.N==="all"?"Todos los partidos":"Últimos "+d.N);
+if(d.onlyRival)f.push("Solo vs "+x.op);
+if(d.mate){const m=PL.find(q=>String(q[10])===String(d.mate));if(m)f.push((d.mw==="sin"?"Sin ":"Con ")+m[0])}
+if(d.rkR!=="all")f.push("Rival #"+d.rkR.replace("-","–")+" en "+(MK[d.rkMk]?MK[d.rkMk].l:d.rkMk)+" permitidas");
+const lg=$(".lg")?$(".lg").src:"";
+document.body.insertAdjacentHTML("beforeend",`<div class="capo" id="capo" role="dialog" aria-label="Captura"><button class="capx" type="button" aria-label="Cerrar">×</button><div class="capc">
+<div class="pn" style="gap:14px">${avH(p,72)}<div style="flex:1;min-width:0"><h2 style="margin:0;font-size:26px;font-weight:750;letter-spacing:-.02em">${p[0]}</h2><div class="hint">${pos} vs ${x.op}</div><span class="chip" style="margin-top:6px">${lbl} · línea ${f1(L)}</span></div></div>
+${rk?`<p class="why" style="margin:12px 0 0">${x.op} es el <b>#${rk}</b> que más ${MK[k].l} permite a los ${pos} rivales.</p>`:""}
+<div class="caphit"><span class="${side==="Over"?"pos":"neg"}">${side} ${cn}/${n}</span><small>${pct(cn/n)} con línea ${f1(L)}</small></div>
+<div class="chw dchart">${$("#dsv")?$("#dsv").outerHTML:""}</div>
+<div class="kv"><span>Partidos</span><b>${n}</b><span>Promedio</span><b>${f1(avg)}</b><span>Mediana</span><b>${f1(med)}</b><span>Máximo y mínimo</span><b>${Math.max(...vals)} y ${Math.min(...vals)}</b></div>
+<div class="capf">${f.map(t=>`<span class="chip">${t}</span>`).join("")}</div>
+<div class="capb">${lg?`<img src="${lg}" alt="">`:""}<span><b>El Profe Yenkins</b><small>t.me/elprofeyenkins</small></span></div></div>
+<p class="hint caph">Haz tu captura (Windows: Win + Shift + S) y toca × para volver.</p></div>`);
+const close=()=>{const o=$("#capo");if(o)o.remove();removeEventListener("keydown",esc)},esc=e=>{if(e.key==="Escape")close()};
+$("#capo .capx").onclick=close;addEventListener("keydown",esc)}
+/*CAPE*/
 function detRender(){const d=DT,el=$("#dtc");if(!el)return;
 if(!HIST){el.innerHTML='<div class="panel" style="margin:0"><b>Todavía no hay historial cargado</b><p class="hint" style="margin:6px 0 10px">1) En tu computadora corre <code>py fetch_gamelogs.py</code> (está en la carpeta de scripts). 2) Carga aquí el archivo <code>historial.json</code> que crea.</p><label class="btn s lf">Cargar historial.json<input type="file" id="hf" accept=".json,application/json" hidden></label><p class="hint" id="hm" style="margin:8px 0 0"></p></div>';["#dsm","#dHw","#dAw"].forEach(q=>$(q).textContent="");return}
 if(!HIST.p[d.x.p[10]]){el.innerHTML='<p class="hint">Este jugador no está en el archivo de historial (no llega a los minutos mínimos o no tiene ID).</p>';["#dsm","#dHw","#dAw"].forEach(q=>$(q).textContent="");return}
@@ -725,7 +756,7 @@ $("#pdb").innerHTML=`<div class="pn" style="gap:14px">${avH(p,64)}<div style="fl
 <div class="kv"><span>Permite a ${pos}</span><b>${f2(v)} (${spct((v-mn)/mn)} vs media)</b><span>Continuidad del rival</span><b class="${c<.6?"neg":""}">${f2(c)}${c<.6?" (cambió mucho)":""}</b>${pj!=null?`<span>Proyección</span><b>${f1(base)} a ${f1(pj)}</b>`:""}<span>Minutos por juego</span><b>${f1(p[5])}</b></div>
 <div><b style="font-size:14px">Este rival contra la posición ${pos}</b><div class="mkw">${mkr}</div></div>
 ${x.calc?"":`<div class="acts" style="margin:0"><button class="btn" id="dfol" type="button" ${isTr(x)?"disabled":""}>${isTr(x)?"En RECORD ✓":"Seguir en RECORD"}</button></div>`}
-<div class="dh3"><b style="font-size:17px">Historial del jugador</b><div class="seg per" id="dN"><button data-n="5">L5</button><button data-n="7">L7</button><button data-n="10" class="on">L10</button><button data-n="15">L15</button><button data-n="all">Todos</button></div></div>
+<div class="dh3"><b style="font-size:17px;display:flex;align-items:center;gap:8px">Historial del jugador <button class="mini" id="dCap" type="button">📸 Captura</button></b><div class="seg per" id="dN"><button data-n="5">L5</button><button data-n="7">L7</button><button data-n="10" class="on">L10</button><button data-n="15">L15</button><button data-n="all">Todos</button></div></div>
 <div class="seg per" id="dSe" style="margin-top:-6px"><button data-s="all" class="on">Ambas temporadas</button><button data-s="cur">2026-27</button><button data-s="prev">2025-26</button></div>
 <p class="dsum" id="dsm"></p><div id="dtc"></div>
 <div class="dpn"><div class="pnl"><div class="pl">Línea de la casa</div><div class="pr3"><label>Línea<input id="dLn" inputmode="decimal" placeholder="31,5"></label><label>Cuota over<input id="dOo" inputmode="decimal" placeholder="1,93"></label><label>Cuota under<input id="dOu" inputmode="decimal" placeholder="1,82"></label></div><div class="pv" id="dHw"></div></div>
@@ -739,6 +770,7 @@ const upd=()=>{const d=DT,old=d.stat;d.stat=$("#dSt").value;if(d.stat!==old){d.a
 ["#dLn","#dOo","#dOu"].forEach(q=>$(q).oninput=()=>{const v=rcNum($("#dLn").value);if(v!=null){DT.alt=v;DT.altAuto=false}detRender()});
 const mv=dl=>{DT.alt=Math.max(.5,+(DT.alt+dl).toFixed(1));DT.altAuto=false;detRender()};
 $("#dAl").oninput=e=>{DT.alt=+e.target.value;DT.altAuto=false;detRender()};$("#dAm").onclick=()=>mv(-.5);$("#dAp").onclick=()=>mv(.5);
+$("#dCap").onclick=capOpen;
 $("#dSe").onclick=e=>{const b=e.target.closest("button");if(!b)return;DT.se=b.dataset.s;$$("#dSe button").forEach(z=>z.classList.toggle("on",z===b));detRender()};
 $("#dN").onclick=e=>{const b=e.target.closest("button");if(!b)return;DT.N=b.dataset.n==="all"?"all":+b.dataset.n;$$("#dN button").forEach(z=>z.classList.toggle("on",z===b));detRender()};
 if($("#dfol"))$("#dfol").onclick=()=>{if(trackPick(x)){picks();toast("Añadida a RECORD. Confírmala cuando termine el partido.");$("#dfol").disabled=true;$("#dfol").textContent="En RECORD ✓"}};
