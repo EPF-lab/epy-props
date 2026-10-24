@@ -671,7 +671,9 @@ const hv=(r,k)=>k==="pra"?r[6]+r[7]+r[8]:r[HK[k][1]],fmtD=d=>String(Math.floor(d
 let AB2N=null;const rkC={};
 function abN(ab){if(!AB2N){AB2N={};Object.entries(D.teams).forEach(([n,v])=>AB2N[v[1]]=n)}return AB2N[ab]}
 function rkOf(ab,pos,mk){const key=ab+pos+mk;if(key in rkC)return rkC[key];const n=abN(ab);return rkC[key]=n?rank(n,pos,MK[mk].i):null}
+const NUEVA=20261001; // partidos desde esta fecha = temporada 2026-27
 function detRows(){const d=DT,id=d.x.p[10],h=HIST&&HIST.p[id];if(!h)return null;let rows=h.slice().sort((a,b)=>a[1]-b[1]);
+if(d.se==="cur")rows=rows.filter(r=>r[1]>=NUEVA);else if(d.se==="prev")rows=rows.filter(r=>r[1]<NUEVA);
 if(d.onlyRival){const ab=D.teams[d.x.op][1];rows=rows.filter(r=>r[3]===ab)}
 if(d.rkR!=="all"){const q=d.rkR.split("-").map(Number);rows=rows.filter(r=>{const k=rkOf(r[3],d.x.p[3],d.rkMk);return k!=null&&k>=q[0]&&k<=q[1]})}
 if(d.mate&&HIST.p[d.mate]){const win={};HIST.p[d.mate].forEach(r=>{const w=win[r[2]]=win[r[2]]||{lo:r[1],hi:r[1],g:new Set()};w.lo=Math.min(w.lo,r[1]);w.hi=Math.max(w.hi,r[1]);w.g.add(r[0])});
@@ -713,7 +715,7 @@ if(s!==k){$("#dSt").value=s;DT.stat=s;DT.proj=null}
 const L=rcNum(card.querySelector(".ln").value);if(L!=null){$("#dLn").value=card.querySelector(".ln").value;$("#dOo").value=card.querySelector(".oo").value;$("#dOu").value=card.querySelector(".ou").value;DT.alt=L;DT.altAuto=false}
 detRender()}
 function openDet(x){const p=x.p,m=MK[x.k],pos=p[3],o=x.side==="O",v=D.dvp[x.op][pos][m.i],mn=Object.values(D.dvp).reduce((a,t)=>a+t[pos][m.i],0)/30,c=D.teams[x.op][0],base=BASE(p)[x.k],pj=base!=null?base*factor(x.op,pos,x.k).f:null;
-DT={x,N:10,onlyRival:0,stat:x.k,mate:"",mw:"con",rkMk:x.k,rkR:"all",proj:pj,alt:null,altAuto:true};
+DT={x,N:10,se:"all",onlyRival:0,stat:x.k,mate:"",mw:"con",rkMk:x.k,rkR:"all",proj:pj,alt:null,altAuto:true};
 const tms=new Set(HIST&&HIST.p[p[10]]?HIST.p[p[10]].map(r=>r[2]):[p[2]]),mates=[];
 if(HIST)PL.forEach(q=>{if(q[0]===p[0]||!q[10]||!HIST.p[q[10]])return;const cnt=HIST.p[q[10]].filter(r=>tms.has(r[2])).length;if(cnt>=5)mates.push([q,cnt])});mates.sort((a,b)=>b[1]-a[1]);
 const mkr=Object.keys(MK).map(k=>{const i=MK[k].i,rk=rank(x.op,pos,i);return`<div class="mkr"><span>${capz(MK[k].l)}</span><span><b>${f2(D.dvp[x.op][pos][i])}</b> <span class="chip ${rk<=5?"g":rk>=26?"r":""}">#${rk}</span></span></div>`}).join("");
@@ -724,6 +726,7 @@ $("#pdb").innerHTML=`<div class="pn" style="gap:14px">${avH(p,64)}<div style="fl
 <div><b style="font-size:14px">Este rival contra la posición ${pos}</b><div class="mkw">${mkr}</div></div>
 ${x.calc?"":`<div class="acts" style="margin:0"><button class="btn" id="dfol" type="button" ${isTr(x)?"disabled":""}>${isTr(x)?"En RECORD ✓":"Seguir en RECORD"}</button></div>`}
 <div class="dh3"><b style="font-size:17px">Historial del jugador</b><div class="seg per" id="dN"><button data-n="5">L5</button><button data-n="7">L7</button><button data-n="10" class="on">L10</button><button data-n="15">L15</button><button data-n="all">Todos</button></div></div>
+<div class="seg per" id="dSe" style="margin-top:-6px"><button data-s="all" class="on">Ambas temporadas</button><button data-s="cur">2026-27</button><button data-s="prev">2025-26</button></div>
 <p class="dsum" id="dsm"></p><div id="dtc"></div>
 <div class="dpn"><div class="pnl"><div class="pl">Línea de la casa</div><div class="pr3"><label>Línea<input id="dLn" inputmode="decimal" placeholder="31,5"></label><label>Cuota over<input id="dOo" inputmode="decimal" placeholder="1,93"></label><label>Cuota under<input id="dOu" inputmode="decimal" placeholder="1,82"></label></div><div class="pv" id="dHw"></div></div>
 <div class="pnl"><div class="pl">Línea alternativa</div><div class="sl3"><button class="mini" id="dAm" type="button" aria-label="Bajar">◂</button><input type="range" id="dAl" min="0" max="50" step="0.5" value="0"><button class="mini" id="dAp" type="button" aria-label="Subir">▸</button><b id="dAv"></b></div><div class="pv" id="dAw"></div></div></div>
@@ -736,6 +739,7 @@ const upd=()=>{const d=DT,old=d.stat;d.stat=$("#dSt").value;if(d.stat!==old){d.a
 ["#dLn","#dOo","#dOu"].forEach(q=>$(q).oninput=()=>{const v=rcNum($("#dLn").value);if(v!=null){DT.alt=v;DT.altAuto=false}detRender()});
 const mv=dl=>{DT.alt=Math.max(.5,+(DT.alt+dl).toFixed(1));DT.altAuto=false;detRender()};
 $("#dAl").oninput=e=>{DT.alt=+e.target.value;DT.altAuto=false;detRender()};$("#dAm").onclick=()=>mv(-.5);$("#dAp").onclick=()=>mv(.5);
+$("#dSe").onclick=e=>{const b=e.target.closest("button");if(!b)return;DT.se=b.dataset.s;$$("#dSe button").forEach(z=>z.classList.toggle("on",z===b));detRender()};
 $("#dN").onclick=e=>{const b=e.target.closest("button");if(!b)return;DT.N=b.dataset.n==="all"?"all":+b.dataset.n;$$("#dN button").forEach(z=>z.classList.toggle("on",z===b));detRender()};
 if($("#dfol"))$("#dfol").onclick=()=>{if(trackPick(x)){picks();toast("Añadida a RECORD. Confírmala cuando termine el partido.");$("#dfol").disabled=true;$("#dfol").textContent="En RECORD ✓"}};
 document.body.classList.add("pd");$("#pdb").scrollTop=0;detRender()}
