@@ -691,7 +691,7 @@ function detChart(rows,k,line){if(!rows.length)return'<p class="hint" style="pad
 const W=640,H=300,l=38,r=16,t=30,b=54,n=rows.length,vals=rows.map(x=>hv(x,k)),top=Math.max(...vals,line||0,1)*1.1,step=[1,2,5,10,20,50,100].find(q=>top/q<=5)||200,mx=Math.ceil(top/step)*step,Y=v=>t+(H-t-b)*(1-v/mx),slot=(W-l-r)/n,bw=Math.min(slot*.54,44),ev=Math.ceil(n/12),yb=H-b;
 const dt=d=>Math.floor(d%10000/100)+"/"+d%100+"/"+String(Math.floor(d/10000)%100).padStart(2,"0");
 let g="";for(let v=0;v<=mx;v+=step){const y=Y(v).toFixed(1);g+=`<line x1="${l}" x2="${W-r}" y1="${y}" y2="${y}" class="gl"/><text x="${l-8}" y="${+y+4}" text-anchor="end" class="ax">${v}</text>`}
-const bars=rows.map((x,i)=>{const v=vals[i],cx=l+slot*(i+.5),x0=cx-bw/2,y0=Y(v),h=Math.max(2,yb-y0),rd=Math.min(7,bw/2,h),col=v>line?"#7ee0b5":v<line?"#ff9b8f":"#b9bec9";
+const bars=rows.map((x,i)=>{const v=vals[i],cx=l+slot*(i+.5),x0=cx-bw/2,y0=Y(v),h=Math.max(2,yb-y0),rd=Math.min(7,bw/2,h),col=v>line?BAR_OK:v<line?BAR_NO:"#b9bec9";
 const p="M"+x0.toFixed(1)+" "+yb+"V"+(y0+rd).toFixed(1)+"Q"+x0.toFixed(1)+" "+y0.toFixed(1)+" "+(x0+rd).toFixed(1)+" "+y0.toFixed(1)+"H"+(x0+bw-rd).toFixed(1)+"Q"+(x0+bw).toFixed(1)+" "+y0.toFixed(1)+" "+(x0+bw).toFixed(1)+" "+(y0+rd).toFixed(1)+"V"+yb+"Z";
 const lab=i%ev===0?`<text x="${cx.toFixed(1)}" y="${yb+16}" text-anchor="middle" class="ax xl">${x[4]?"":"@"}${x[3]}</text><text x="${cx.toFixed(1)}" y="${yb+30}" text-anchor="middle" class="ax">${dt(x[1])}</text>`:"";
 return`<path d="${p}" fill="${col}" class="bar2" data-i="${i}"><title>${dt(x[1])} ${x[4]?"vs":"@"} ${x[3]}: ${v}</title></path>${lab}`}).join("");
@@ -701,6 +701,7 @@ let HIST=null,DT=null;
 const capz=t=>t[0].toUpperCase()+t.slice(1);
 const idb=(m,v)=>new Promise((res,rej)=>{try{const q=indexedDB.open("epy",1);q.onupgradeneeded=()=>q.result.createObjectStore("k");q.onerror=()=>rej(q.error);q.onsuccess=()=>{const tx=q.result.transaction("k",m==="get"?"readonly":"readwrite"),st=tx.objectStore("k"),r=m==="get"?st.get("hist"):st.put(v,"hist");r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}}catch(e){rej(e)}});
 /*CAP*/
+const BAR_OK="#24FF6D",BAR_NO="#E31717"; // verde: superó la línea · rojo: no la superó
 // tarjeta limpia a pantalla completa con el jugador, el resumen, el gráfico y los filtros, para hacer captura de pantalla
 function capOpen(){const d=DT;if(!d||!d.cur||!d.cur.length)return toast("Primero tiene que haber partidos en el gráfico.");
 const x=d.x,p=x.p,pos=p[3],k=d.stat,rows=d.cur,vals=rows.map(r=>hv(r,k)),n=vals.length,avg=vals.reduce((a,b)=>a+b,0)/n,so=vals.slice().sort((a,b)=>a-b),med=n%2?so[(n-1)/2]:(so[n/2-1]+so[n/2])/2;
@@ -715,10 +716,8 @@ const lg=$(".lg")?$(".lg").src:"";
 document.body.insertAdjacentHTML("beforeend",`<div class="capo" id="capo" role="dialog" aria-label="Captura"><button class="capx" type="button" aria-label="Cerrar">×</button><div class="capc">
 <div class="pn" style="gap:14px">${avH(p,72)}<div style="flex:1;min-width:0"><h2 style="margin:0;font-size:26px;font-weight:750;letter-spacing:-.02em">${p[0]}</h2><div class="hint">${pos} vs ${x.op}</div><span class="chip" style="margin-top:6px">${lbl} · línea ${f1(L)}</span></div></div>
 ${rk?`<p class="why" style="margin:12px 0 0">${x.op} es el <b>#${rk}</b> que más ${MK[k].l} permite a los ${pos} rivales.</p>`:""}
-<div class="caphit"><span class="${side==="Over"?"pos":"neg"}">${side} ${cn}/${n}</span><small>${pct(cn/n)} con línea ${f1(L)}</small></div>
+<div class="caphit"><span style="color:${side==="Over"?BAR_OK:BAR_NO}">${side} ${cn}/${n}</span><small>${pct(cn/n)} con línea ${f1(L)}</small></div>
 <div class="chw dchart">${$("#dsv")?$("#dsv").outerHTML:""}</div>
-<div class="kv"><span>Partidos</span><b>${n}</b><span>Promedio</span><b>${f1(avg)}</b><span>Mediana</span><b>${f1(med)}</b><span>Máximo y mínimo</span><b>${Math.max(...vals)} y ${Math.min(...vals)}</b></div>
-<div class="capf">${f.map(t=>`<span class="chip">${t}</span>`).join("")}</div>
 <div class="capb">${lg?`<img src="${lg}" alt="">`:""}<span><b>El Profe Yenkins</b><small>t.me/elprofeyenkins</small></span></div></div>
 <p class="hint caph">Haz tu captura (Windows: Win + Shift + S) y toca × para volver.</p></div>`);
 const close=()=>{const o=$("#capo");if(o)o.remove();removeEventListener("keydown",esc)},esc=e=>{if(e.key==="Escape")close()};
@@ -738,7 +737,7 @@ const hl=rcNum($("#dLn").value),oo=toDec($("#dOo").value),ou=toDec($("#dOu").val
 if(hl!=null&&n){const hh=hits(vals,hl);ht=`Over ${hh.o}/${n} (${pct(hh.o/n)})<br>Under ${hh.u}/${n} (${pct(hh.u/n)})`;if(oo>1&&ou>1){const io=1/oo,iu=1/ou;ht+=`<br>La casa da ${pct(io/(io+iu))} al over (sin margen); en este historial salió ${pct(hh.o/n)}.`}}
 else ht=d.altAuto?`Escribe la línea de la casa. Mientras tanto el gráfico usa una línea de referencia (${f1(L)}), no real.`:"Escribe la línea de la casa para ver cuántas veces se cumplió.";
 $("#dHw").innerHTML=ht;
-el.innerHTML=`<div class="chw dchart">${detChart(rows,k,L)}</div><p class="hint" id="dcap" style="margin:6px 0 0">Toca una barra para ver el partido. Verde: superó la línea. Salmón: no la superó.</p>`+(n?`<div class="kv"><span>Partidos</span><b>${n}</b><span>Promedio</span><b>${f1(avg)}</b><span>Mediana</span><b>${f1(med)}</b><span>Máximo y mínimo</span><b>${Math.max(...vals)} y ${Math.min(...vals)}</b></div>`:"")+`<p class="hint" style="margin:8px 0 0">Historial ${HIST.temporadas.join(", ")}, actualizado ${HIST.asof}. El puesto del rival sale de la tabla DvP 2025-26 (el actual, no el de ese día). Con pocos partidos los promedios engañan. <label class="lf2">Actualizar historial<input type="file" id="hf" accept=".json,application/json" hidden></label></p>`}
+el.innerHTML=`<div class="chw dchart">${detChart(rows,k,L)}</div><p class="hint" id="dcap" style="margin:6px 0 0">Toca una barra para ver el partido. Verde: superó la línea. Rojo: no la superó.</p>`+(n?`<div class="kv"><span>Partidos</span><b>${n}</b><span>Promedio</span><b>${f1(avg)}</b><span>Mediana</span><b>${f1(med)}</b><span>Máximo y mínimo</span><b>${Math.max(...vals)} y ${Math.min(...vals)}</b></div>`:"")+`<p class="hint" style="margin:8px 0 0">Historial ${HIST.temporadas.join(", ")}, actualizado ${HIST.asof}. El puesto del rival sale de la tabla DvP 2025-26 (el actual, no el de ese día). Con pocos partidos los promedios engañan. <label class="lf2">Actualizar historial<input type="file" id="hf" accept=".json,application/json" hidden></label></p>`}
 // desde la Calculadora: abre el mismo panel de historial para el jugador, rival, posición y mercado elegidos
 function openCalcDet(s,card){const pos=$("#ps").value||S.p[3],op=$("#op").value,p=[...S.p];p[3]=pos;const k=s==="pra"?"pts":s,r=rank(op,pos,MK[k].i);
 openDet({p,op,k,r,side:r>=26?"U":"O",calc:1,lbl:LBL[s]});
