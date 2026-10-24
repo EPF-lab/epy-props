@@ -679,8 +679,9 @@ let AB2N=null;const rkC={};
 function abN(ab){if(!AB2N){AB2N={};Object.entries(D.teams).forEach(([n,v])=>AB2N[v[1]]=n)}return AB2N[ab]}
 function rkOf(ab,pos,mk){const key=ab+pos+mk;if(key in rkC)return rkC[key];const n=abN(ab);return rkC[key]=n?rank(n,pos,MK[mk].i):null}
 const NUEVA=20261001; // partidos desde esta fecha = temporada 2026-27
+const tempDe=dt=>{const y=Math.floor(dt/10000),m=Math.floor(dt/100)%100,a=m>=10?y:y-1;return a+"-"+String(a+1).slice(2)}; // AAAAMMDD -> "2025-26"
 function detRows(){const d=DT,id=d.x.p[10],h=HIST&&HIST.p[id];if(!h)return null;let rows=h.slice().sort((a,b)=>a[1]-b[1]);
-if(d.se==="cur")rows=rows.filter(r=>r[1]>=NUEVA);else if(d.se==="prev")rows=rows.filter(r=>r[1]<NUEVA);
+if(d.se&&d.se!=="all")rows=rows.filter(r=>tempDe(r[1])===d.se);
 if(d.onlyRival){const ab=D.teams[d.x.op][1];rows=rows.filter(r=>r[3]===ab)}
 if(d.rkR!=="all"){const q=d.rkR.split("-").map(Number);rows=rows.filter(r=>{const k=rkOf(r[3],d.x.p[3],d.rkMk);return k!=null&&k>=q[0]&&k<=q[1]})}
 if(d.mate&&HIST.p[d.mate]){const win={};HIST.p[d.mate].forEach(r=>{const w=win[r[2]]=win[r[2]]||{lo:r[1],hi:r[1],g:new Set()};w.lo=Math.min(w.lo,r[1]);w.hi=Math.max(w.hi,r[1]);w.g.add(r[0])});
@@ -711,7 +712,7 @@ if(d.onlyRival)f.push("contra "+x.op);
 if(d.mate){const m=PL.find(q=>String(q[10])===String(d.mate));if(m)f.push((d.mw==="sin"?"sin ":"con ")+m[0])}
 if(d.rkR!=="all")f.push("rivales #"+d.rkR.replace("-","–")+" en "+(MK[d.rkMk]?MK[d.rkMk].l:d.rkMk)+" permitidas");
 f.push(d.N==="all"?(f.length?"todos los partidos":"todos sus partidos"):"últimos "+d.N);
-const ys=[...new Set(rows.map(r=>r[1]>=NUEVA?"2026-27":"2025-26"))].sort();f.push(ys.length>1?"temporadas "+ys.join(" y "):"temporada "+ys[0]);
+const ys=[...new Set(rows.map(r=>tempDe(r[1])))].sort();f.push(ys.length>1?"temporadas "+(ys.length>2?ys.slice(0,-1).join(", ")+" y "+ys[ys.length-1]:ys.join(" y ")):"temporada "+ys[0]);
 const ctx=f.join(" · ");
 const lg=$(".lg")?$(".lg").src:"";
 document.body.insertAdjacentHTML("beforeend",`<div class="capo" id="capo" role="dialog" aria-label="Captura"><button class="capx" type="button" aria-label="Cerrar">×</button><div class="capc">
@@ -758,7 +759,7 @@ $("#pdb").innerHTML=`<div class="pn" style="gap:14px">${avH(p,64)}<div style="fl
 <div><b style="font-size:14px">Este rival contra la posición ${pos}</b><div class="mkw">${mkr}</div></div>
 ${x.calc?"":`<div class="acts" style="margin:0"><button class="btn" id="dfol" type="button" ${isTr(x)?"disabled":""}>${isTr(x)?"En RECORD ✓":"Seguir en RECORD"}</button></div>`}
 <div class="dh3"><b style="font-size:17px;display:flex;align-items:center;gap:8px">Historial del jugador <button class="mini" id="dCap" type="button">📸 Captura</button></b><div class="seg per" id="dN"><button data-n="5">L5</button><button data-n="7">L7</button><button data-n="10" class="on">L10</button><button data-n="15">L15</button><button data-n="all">Todos</button></div></div>
-<div class="seg per" id="dSe" style="margin-top:-6px"><button data-s="all" class="on">Ambas temporadas</button><button data-s="cur">2026-27</button><button data-s="prev">2025-26</button></div>
+<div class="seg per" id="dSe" style="margin-top:-6px"><button data-s="all" class="on">Todas las temporadas</button>${[...new Set(((HIST&&HIST.p[p[10]])||[]).map(r=>tempDe(r[1])))].sort().reverse().map(t=>`<button data-s="${t}">${t}</button>`).join("")}</div>
 <p class="dsum" id="dsm"></p><div id="dtc"></div>
 <div class="dpn"><div class="pnl"><div class="pl">Línea de la casa</div><div class="pr3"><label>Línea<input id="dLn" inputmode="decimal" placeholder="31,5"></label><label>Cuota over<input id="dOo" inputmode="decimal" placeholder="1,93"></label><label>Cuota under<input id="dOu" inputmode="decimal" placeholder="1,82"></label></div><div class="pv" id="dHw"></div></div>
 <div class="pnl"><div class="pl">Línea alternativa</div><div class="sl3"><button class="mini" id="dAm" type="button" aria-label="Bajar">◂</button><input type="range" id="dAl" min="0" max="50" step="0.5" value="0"><button class="mini" id="dAp" type="button" aria-label="Subir">▸</button><b id="dAv"></b></div><div class="pv" id="dAw"></div></div></div>

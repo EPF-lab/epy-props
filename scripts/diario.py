@@ -122,7 +122,7 @@ def box_del_dia(fecha):
 
 HIST = os.path.join(ROOT, "web", "historial.json")
 
-def actualizar_historial(S, hoy):
+def actualizar_historial(S, hoy, desde=None, guardar_cada=10, pausa=0.0):
     """Agrega a web/historial.json los partidos de la temporada nueva (desde INICIO hasta ayer) con los boxscores de ESPN.
     Mismo formato que fetch_gamelogs.py: [gameId, AAAAMMDD, equipo, rival, local(1/0), min, pts, reb, ast, triples, robos],
     con el ID de la NBA del jugador (el de la página). Solo pide los días que faltan (ESPN es gratis)."""
@@ -131,18 +131,27 @@ def actualizar_historial(S, hoy):
     hechos = set(H.get("espn_fechas", []))
     ids = {key(p[0]): str(p[10]) for p in S["players"] if p[10]}
     abbr = lambda n: (S["teams"].get(ALIAS.get(n.lower(), n)) or [None, None])[1]
-    d, fin, nuevos, dias = date.fromisoformat(INICIO), date.fromisoformat(hoy), 0, []
+    d, fin, nuevos, dias = date.fromisoformat(desde or INICIO), date.fromisoformat(hoy), 0, []
+    def guardar():
+        for lst in H["p"].values(): lst.sort(key=lambda r: r[1])
+        H["espn_fechas"] = sorted(hechos); H["asof"] = max(H.get("asof") or "", (date.today()).isoformat())
+        for f_ in hechos:
+            y, m = int(f_[:4]), int(f_[5:7]); t = f"{y}-{str(y + 1)[2:]}" if m >= 10 else f"{y - 1}-{str(y)[2:]}"
+            if t not in H.setdefault("temporadas", []): H["temporadas"].append(t)
+        H["temporadas"].sort()
+        json.dump(H, open(HIST, "w", encoding="utf-8"), separators=(",", ":"))
     while d < fin:
         f = d.isoformat(); d += timedelta(days=1)
         if f in hechos: continue
         sb = espn("scoreboard", dates=f.replace("-", ""))
         if not sb: continue
-        evs = sb.get("events", [])
+        evs = [e for e in sb.get("events", []) if (e.get("season") or {}).get("type", 2) == 2]   # solo temporada regular
         if any(not e.get("status", {}).get("type", {}).get("completed") for e in evs): continue   # día sin terminar: se reintenta mañana
         for ev in evs:
             comp = ev["competitions"][0]["competitors"]
             eq = {c["team"]["id"]: (abbr(c["team"]["displayName"]), c["homeAway"] == "home") for c in comp}
             sm = espn("summary", event=ev["id"])
+            if pausa: time.sleep(pausa)
             for t in (sm or {}).get("boxscore", {}).get("players", []):
                 tid = t.get("team", {}).get("id"); me, home = eq.get(tid, (None, False))
                 op = next((v[0] for k, v in eq.items() if k != tid), None)
@@ -158,11 +167,9 @@ def actualizar_historial(S, hoy):
                         lst = H["p"].setdefault(pid, [])
                         if not any(r[0] == row[0] for r in lst): lst.append(row); nuevos += 1
         hechos.add(f); dias.append(f)
-    if dias:
-        for lst in H["p"].values(): lst.sort(key=lambda r: r[1])
-        H["espn_fechas"] = sorted(hechos); H["asof"] = hoy
-        if "2026-27" not in H.get("temporadas", []): H["temporadas"] = H.get("temporadas", []) + ["2026-27"]
-        json.dump(H, open(HIST, "w", encoding="utf-8"), separators=(",", ":"))
+        if pausa: time.sleep(pausa)
+        if len(dias) % guardar_cada == 0: guardar()          # guarda el avance por si se corta
+    if dias: guardar()
     return nuevos, dias
 
 def calificar(reg, hoy):
