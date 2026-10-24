@@ -744,7 +744,7 @@ $(".ov").addEventListener("click",()=>document.body.classList.remove("pd"));addE
 $("#pg").addEventListener("click",e=>{const bt=e.target.closest("button");if(bt&&!bt.classList.contains("dt"))return;const c=e.target.closest(".pick");if(!c)return;const x=PKL[+c.dataset.i];if(x)openDet(x)});
 $("#pdb").addEventListener("click",e=>{const r=e.target.closest("[data-i]");if(!r||!DT||!DT.cur)return;const w=DT.cur[+r.dataset.i];if(w)$("#dcap").textContent=fmtD(w[1])+" "+(w[4]?"vs":"@")+" "+w[3]+": "+hv(w,DT.stat)+" "+HK[DT.stat][0].toLowerCase()+" en "+w[5]+" min."});
 $("#pdb").addEventListener("change",e=>{if(e.target.id!=="hf")return;const fl=e.target.files[0];if(!fl)return;fl.text().then(t=>{const d=JSON.parse(t);if(!d||d.v!==1||!d.p)throw 0;HIST=d;idb("put",d).catch(()=>{});if(DT){const ws=document.body.classList.contains("pd");if(ws)openDet(DT.x)}}).catch(()=>{const m=$("#hm");if(m)m.textContent="Ese archivo no es un historial válido. Usa el historial.json que crea fetch_gamelogs.py."})});
-idb("get").then(v=>{if(v&&v.v===1)HIST=v}).catch(()=>{})}
+idb("get").then(v=>{if(v&&v.v===1&&(!HIST||String(v.asof||"")>String(HIST.asof||"")))HIST=v}).catch(()=>{})}
 const getU=()=>{try{return CONFIG.DATA_URL||localStorage.getItem("epy_url")||""}catch(e){return CONFIG.DATA_URL}};
 $("#cf").onclick=()=>{const u=prompt("Pega la URL de tu Apps Script (termina en /exec). Déjala vacía para volver a la foto de datos.\nSolo funciona cuando la página está alojada en tu propio hosting.",getU());if(u===null)return;try{u.trim()?localStorage.setItem("epy_url",u.trim()):localStorage.removeItem("epy_url")}catch(e){}location.reload()};
 (async()=>{let mode="Snapshot",data=SNAP;const U=getU();if(U){try{data=await (await fetch(U)).json();mode="En vivo"}catch(e){mode="Snapshot (sin conexión)"}}init(data,mode);
@@ -752,5 +752,5 @@ $("#cf").onclick=()=>{const u=prompt("Pega la URL de tu Apps Script (termina en 
 try{const r=await fetch("diario.json",{cache:"no-store"});if(r.ok){DY=await r.json();dyApply();if(!$("#pk").hidden)picks()}}catch(e){}
 try{const r=await fetch("movimientos.json");if(r.ok){MOV=await r.json();if(!$("#pk").hidden)picks()}}catch(e){}
 try{const r=await fetch("registro.json",{cache:"no-store"});if(r.ok){MDL=await r.json();mdlRender();if(!$("#pk").hidden)picks()}}catch(e){}
-try{if(!HIST){const r=await fetch("historial.json");if(r.ok){const h=await r.json();if(h&&h.v===1&&!HIST)HIST=h}}}catch(e){}})();
+try{const r=await fetch("historial.json",{cache:"no-store"});if(r.ok){const h=await r.json();if(h&&h.v===1&&(!HIST||String(h.asof||"")>=String(HIST.asof||"")))HIST=h}}catch(e){} /* el publicado (con la temporada nueva) gana al guardado en el navegador si es más reciente */})();
 </script></body></html>

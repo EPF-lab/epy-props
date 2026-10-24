@@ -120,6 +120,51 @@ def box_del_dia(fecha):
                                                              "tpm": num("3PT"), "stl": num("STL")}
     return out, todos
 
+HIST = os.path.join(ROOT, "web", "historial.json")
+
+def actualizar_historial(S, hoy):
+    """Agrega a web/historial.json los partidos de la temporada nueva (desde INICIO hasta ayer) con los boxscores de ESPN.
+    Mismo formato que fetch_gamelogs.py: [gameId, AAAAMMDD, equipo, rival, local(1/0), min, pts, reb, ast, triples, robos],
+    con el ID de la NBA del jugador (el de la página). Solo pide los días que faltan (ESPN es gratis)."""
+    try: H = json.load(open(HIST, encoding="utf-8"))
+    except (OSError, ValueError): H = {"v": 1, "asof": None, "temporadas": [], "p": {}}
+    hechos = set(H.get("espn_fechas", []))
+    ids = {key(p[0]): str(p[10]) for p in S["players"] if p[10]}
+    abbr = lambda n: (S["teams"].get(ALIAS.get(n.lower(), n)) or [None, None])[1]
+    d, fin, nuevos, dias = date.fromisoformat(INICIO), date.fromisoformat(hoy), 0, []
+    while d < fin:
+        f = d.isoformat(); d += timedelta(days=1)
+        if f in hechos: continue
+        sb = espn("scoreboard", dates=f.replace("-", ""))
+        if not sb: continue
+        evs = sb.get("events", [])
+        if any(not e.get("status", {}).get("type", {}).get("completed") for e in evs): continue   # día sin terminar: se reintenta mañana
+        for ev in evs:
+            comp = ev["competitions"][0]["competitors"]
+            eq = {c["team"]["id"]: (abbr(c["team"]["displayName"]), c["homeAway"] == "home") for c in comp}
+            sm = espn("summary", event=ev["id"])
+            for t in (sm or {}).get("boxscore", {}).get("players", []):
+                tid = t.get("team", {}).get("id"); me, home = eq.get(tid, (None, False))
+                op = next((v[0] for k, v in eq.items() if k != tid), None)
+                if not me or not op: continue
+                for blk in t.get("statistics", []):
+                    ix = {n: i for i, n in enumerate(blk.get("names") or [])}
+                    for a in blk.get("athletes", []):
+                        st = a.get("stats") or []
+                        pid = ids.get(key((a.get("athlete") or {}).get("displayName", "")))
+                        if a.get("didNotPlay") or not st or not pid or "PTS" not in ix: continue
+                        n = lambda c: int(str(st[ix[c]]).split("-")[0].split(":")[0]) if c in ix and str(st[ix[c]]).split("-")[0].split(":")[0].isdigit() else 0
+                        row = [int(ev["id"]), int(f.replace("-", "")), me, op, 1 if home else 0, n("MIN"), n("PTS"), n("REB"), n("AST"), n("3PT"), n("STL")]
+                        lst = H["p"].setdefault(pid, [])
+                        if not any(r[0] == row[0] for r in lst): lst.append(row); nuevos += 1
+        hechos.add(f); dias.append(f)
+    if dias:
+        for lst in H["p"].values(): lst.sort(key=lambda r: r[1])
+        H["espn_fechas"] = sorted(hechos); H["asof"] = hoy
+        if "2026-27" not in H.get("temporadas", []): H["temporadas"] = H.get("temporadas", []) + ["2026-27"]
+        json.dump(H, open(HIST, "w", encoding="utf-8"), separators=(",", ":"))
+    return nuevos, dias
+
 def calificar(reg, hoy):
     """Pone el resultado (W/L/P; NJ = no jugó, anulada; SL = sin línea) a los picks de días anteriores."""
     pend = defaultdict(list)
@@ -198,6 +243,11 @@ def main():
     n = sum(len(v) for v in data["lineas"].values())
     print(f"{hoy}: {len(data['juegos'])} partidos, {n} líneas de jugador/mercado, créditos restantes: {data['creditos']} -> {OUT}")
     if a.demo: return
+    try:
+        nh, dh = actualizar_historial(S, hoy)
+        print(f"Historial: {nh} partidos nuevos de jugador ({len(dh)} días) -> {HIST}")
+    except Exception as ex:                       # el historial no debe tumbar el proceso diario
+        print("Historial: no se pudo actualizar:", ex)
     reg = load_reg(); nc = calificar(reg, hoy)
     if hoy >= INICIO: registrar(reg, hoy, data["juegos"], data["lineas"], S, data.get("lesiones"))
     json.dump(reg, open(REG, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
