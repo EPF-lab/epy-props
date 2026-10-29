@@ -21,6 +21,7 @@ from datetime import date, datetime, timedelta, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import modelo as M  # noqa: E402
+import actualizar_parametros as P  # noqa: E402
 
 ROOT = M.ROOT
 OUT, REG = os.path.join(ROOT, "web", "diario.json"), os.path.join(ROOT, "web", "registro.json")
@@ -203,6 +204,15 @@ def main():
         reg = load_reg(); n = calificar(reg, hoy)
         json.dump(reg, open(REG, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
         print(f"Calificados {n} picks."); return
+    if not a.demo:
+        try:
+            nh, dh = actualizar_historial(S, hoy)
+            print(f"Historial: {nh} partidos nuevos de jugador ({len(dh)} días) -> {HIST}")
+            # promedios y DvP de la página mezclados con los partidos de esta temporada, antes de elegir mercados
+            r = P.actualizar(S, json.load(open(HIST, encoding="utf-8"))); P.guardar(S)
+            print(f"Parámetros: {r['jugadores']} jugadores con partidos de esta temporada; {len(r['traspasos'])} cambios de equipo")
+        except Exception as ex:                   # el historial no debe tumbar el proceso diario
+            print("Historial/parámetros: no se pudo actualizar:", ex)
     md = M.Modelo(S)
     data = {"v": 1, "fecha": hoy, "generado": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "fuente": "demo" if a.demo else "the-odds-api", "juegos": [], "lineas": {}, "creditos": None, "nota": ""}
@@ -250,11 +260,6 @@ def main():
     n = sum(len(v) for v in data["lineas"].values())
     print(f"{hoy}: {len(data['juegos'])} partidos, {n} líneas de jugador/mercado, créditos restantes: {data['creditos']} -> {OUT}")
     if a.demo: return
-    try:
-        nh, dh = actualizar_historial(S, hoy)
-        print(f"Historial: {nh} partidos nuevos de jugador ({len(dh)} días) -> {HIST}")
-    except Exception as ex:                       # el historial no debe tumbar el proceso diario
-        print("Historial: no se pudo actualizar:", ex)
     reg = load_reg(); nc = calificar(reg, hoy)
     if hoy >= INICIO: registrar(reg, hoy, data["juegos"], data["lineas"], S, data.get("lesiones"))
     json.dump(reg, open(REG, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
