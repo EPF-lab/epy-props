@@ -31,14 +31,14 @@
    "f": "2026-11-08",
    "pl": "Tyler Herro",
    "k": "tpm",
-   "m": 3.15,
-   "lo": 2.9,
-   "hi": 3.4,
+   "m": 3.35,
+   "lo": 3.1,
+   "hi": 3.6,
    "vs": "Boston Celtics",
    "ln": 2.5,
    "od": "-140",
-   "pr": 0.59,
-   "nota": "3+ triples en 7 de 9 (8,1 intentos por partido, 41 %) y 4 de 5 contra Boston, pero Boston es de los que menos triples permiten a los escoltas (#27)."
+   "pr": 0.615,
+   "nota": "3+ triples en 7 de 9 (8,1 intentos, 41 %); 7 de 7 cuando tira 6+. Boston es el que más triples deja intentar esta temporada (40,4 por partido, #1)."
   }
  ]
 }
