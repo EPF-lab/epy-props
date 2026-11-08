@@ -26,6 +26,19 @@
    "od": "-130",
    "pr": 0.66,
    "nota": "Sin Dëmin ni Brown: en su único partido sin ambos generó 15 asistencias potenciales (6 asistencias). Dallas frena ~10 % las asistencias de los bases."
+  },
+  {
+   "f": "2026-11-08",
+   "pl": "Tyler Herro",
+   "k": "tpm",
+   "m": 3.3,
+   "lo": 3.0,
+   "hi": 3.5,
+   "vs": "Boston Celtics",
+   "ln": 2.5,
+   "od": "-140",
+   "pr": 0.615,
+   "nota": "3+ triples en 7 de 9 (8,1 intentos por partido, 41 %); 4 de 5 contra Boston. Sin racha de tiro: lo sostiene el volumen."
   }
  ]
 }
