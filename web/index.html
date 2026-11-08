@@ -497,6 +497,7 @@ const lesEq=t=>(DY&&DY.lesiones&&DY.lesiones[t])||[];
 function lesDe(x){const k=normKey(x.p[0]);return lesEq(x.me).find(l=>normKey(l[0])===k)}
 function ctxH(x){const e=x.e,ab=D.teams[x.me]?D.teams[x.me][1]:x.p[2],out=[];
 if(e&&e.ml&&e.base>0){const r=(e.ml.ln-e.base)/e.base;out.push(`<div class="kv" style="margin:8px 0 0"><span>Línea vs su promedio</span><b class="${Math.abs(r)>=.15?(r<0?"neg":"pos"):""}">${f1(e.ml.ln)} vs ${f1(e.base)} (${spct(r)})</b></div>`+(Math.abs(r)>=.15?`<p class="hint" style="margin:2px 0 0">La casa espera ${r<0?"bastante menos":"bastante más"} que su promedio: probable ${r<0?"pérdida":"aumento"} de rol o minutos.</p>`:""))}
+if(x.k==="pts"){const tz=tiroH(x.p[10]);if(tz)out.push(tz)}
 const me=lesDe(x);if(me)out.push(`<p class="${/^out/i.test(me[1])?"neg":""}" style="margin:6px 0 0;font-weight:600">⚠ ${x.p[0]}: ${estado(me[1])}${me[2]?" ("+me[2]+")":""}${/^out/i.test(me[1])?" — no cuenta como seleccionada":""}</p>`);
 const bajas=(t,excl)=>lesEq(t).filter(l=>/^(out|doubtful|questionable|day-to-day)/i.test(l[1])&&normKey(l[0])!==excl).slice(0,5).map(l=>`${l[0]} (${estado(l[1])})`).join(", ");
 const b1=bajas(x.me,normKey(x.p[0])),b2=bajas(x.op,"");
@@ -692,6 +693,16 @@ function trackPick(x){if(isTr(x))return false;const p=x.p,pos=p[3],base=BASE(p)[
 const e=x.e&&x.e.ml?x.e:null; // con datos automáticos guarda la línea del mercado y la cuota mínima; la cuota real de tu casa la escribes tú
 RC.push({id:Date.now()*1000+(++TN%1000),d:pDay(),pl:p[0],mk:x.k,sd:x.side,ln:e?e.ml.ln:null,od:null,st:1,ev:null,rs:"",key:trKey(x),src:"pick",rk:x.r,ps:pos,vs:x.op,pj,om:e&&(e.minb||e.min)?+(e.minb||e.min).toFixed(2):null,evr:e&&(e.evb!=null?e.evb:e.ev)!=null?+(e.evb!=null?e.evb:e.ev).toFixed(4):null});rcSave();return true}
 /*HS*/
+/*TIRO*/ // racha de tiro: puntería de sus últimos 3 partidos frente a su base de 2026-27 (encogida hacia 57 % TS de la liga con 150 intentos). Historial: [..., canastas, tiros, intentos de triple, libres anotados, libres intentados] en las posiciones 11-15.
+// Probado el 08-nov-2026 con 2026-27: tras una racha caliente el siguiente partido anotó 2,3 pts menos que su media de los últimos 5 (80 casos); tras una fría, 2,9 más (59 casos); sin alarma, igual (1156)
+const TIRO={n:3,k:150,ts:.57,ex:3.5,dts:.12};
+function tiroInfo(id){const h=HIST&&HIST.p[id];if(!h)return null;const all=h.filter(r=>r[5]>=10).sort((a,b)=>a[1]-b[1]),g=all.filter(r=>r.length>=16),last=g.slice(-TIRO.n),prev=g.slice(0,-TIRO.n);
+if(last.length<TIRO.n||all[all.length-1][0]!==last[last.length-1][0])return null; // la racha tiene que ser la de sus últimos partidos
+const tsa=r=>r[12]+.44*r[15],sm=(L,f)=>L.reduce((a,r)=>a+f(r),0),A3=sm(last,tsa),P3=sm(last,r=>r[6]);if(A3<12)return null;
+const tsb=(sm(prev,r=>r[6])+2*TIRO.ts*TIRO.k)/(2*(sm(prev,tsa)+TIRO.k)),ts3=P3/(2*A3),ex=(P3-2*tsb*A3)/last.length,t=ex>=TIRO.ex&&ts3-tsb>=TIRO.dts?"hot":ex<=-TIRO.ex&&ts3-tsb<=-TIRO.dts?"cold":null;
+return t&&{t,ex,fg:[sm(last,r=>r[11]),sm(last,r=>r[12])],tp:[sm(last,r=>r[9]),sm(last,r=>r[13])]}}
+function tiroH(id){const z=tiroInfo(id);if(!z)return"";const h=z.t==="hot";
+return`<div class="warn" style="margin:10px 0 0"><b>${h?"🔥 Racha de tiro caliente":"❄️ Racha de tiro fría"}</b><br>Últimos ${TIRO.n} partidos: ${z.fg[0]}/${z.fg[1]} de campo (${pct(z.fg[0]/z.fg[1])}) y ${z.tp[0]}/${z.tp[1]} en triples. Con su puntería habitual habría anotado unos ${f1(Math.abs(z.ex))} puntos ${h?"menos":"más"} por partido. Lo normal es que vuelva a su nivel: cuidado con los ${h?"OVER":"UNDER"} de puntos, P+A y PRA.<br><small>En 2026-27, tras una racha así, el siguiente partido anotó en promedio ${h?"2,3 puntos menos":"2,9 puntos más"} que su media de los últimos 5.</small></div>`}
 const HK={pts:["Puntos",6],reb:["Rebotes",7],ast:["Asistencias",8],tpm:["Triples",9],stl:["Robos",10],pra:["PRA",-1],pr:["P+R",-1],pa:["P+A",-1],ra:["R+A",-1]};
 const hv=(r,k)=>COMBO[k]?COMBO[k].reduce((a,x)=>a+r[HK[x][1]],0):r[HK[k][1]],fmtD=d=>String(Math.floor(d%10000/100)).padStart(2,"0")+"/"+String(d%100).padStart(2,"0");
 let AB2N=null;const rkC={};
@@ -760,7 +771,7 @@ const hl=rcNum($("#dLn").value),oo=toDec($("#dOo").value),ou=toDec($("#dOu").val
 if(hl!=null&&n){const hh=hits(vals,hl);ht=`Over ${hh.o}/${n} (${pct(hh.o/n)})<br>Under ${hh.u}/${n} (${pct(hh.u/n)})`;if(oo>1&&ou>1){const io=1/oo,iu=1/ou;ht+=`<br>La casa da ${pct(io/(io+iu))} al over (sin margen); en este historial salió ${pct(hh.o/n)}.`}}
 else ht=d.altAuto?`Escribe la línea de la casa. Mientras tanto el gráfico usa una línea de referencia (${f1(L)}), no real.`:"Escribe la línea de la casa para ver cuántas veces se cumplió.";
 $("#dHw").innerHTML=ht;
-el.innerHTML=`<div class="chw dchart">${detChart(rows,k,L)}</div><p class="hint" id="dcap" style="margin:6px 0 0">Toca una barra para ver el partido. Verde: superó la línea. Rojo: no la superó.</p>`+(n?`<div class="kv"><span>Partidos</span><b>${n}</b><span>Promedio</span><b>${f1(avg)}</b><span>Mediana</span><b>${f1(med)}</b><span>Máximo y mínimo</span><b>${Math.max(...vals)} y ${Math.min(...vals)}</b></div>`:"")+`<p class="hint" style="margin:8px 0 0">Historial ${HIST.temporadas.join(", ")}, actualizado ${HIST.asof}. El puesto del rival sale de la tabla DvP actual (2025-26 mezclada con esta temporada), no del de ese día. Con pocos partidos los promedios engañan. <label class="lf2">Actualizar historial<input type="file" id="hf" accept=".json,application/json" hidden></label></p>`}
+el.innerHTML=`${tiroH(d.x.p[10])}<div class="chw dchart">${detChart(rows,k,L)}</div><p class="hint" id="dcap" style="margin:6px 0 0">Toca una barra para ver el partido. Verde: superó la línea. Rojo: no la superó.</p>`+(n?`<div class="kv"><span>Partidos</span><b>${n}</b><span>Promedio</span><b>${f1(avg)}</b><span>Mediana</span><b>${f1(med)}</b><span>Máximo y mínimo</span><b>${Math.max(...vals)} y ${Math.min(...vals)}</b></div>`:"")+`<p class="hint" style="margin:8px 0 0">Historial ${HIST.temporadas.join(", ")}, actualizado ${HIST.asof}. El puesto del rival sale de la tabla DvP actual (2025-26 mezclada con esta temporada), no del de ese día. Con pocos partidos los promedios engañan. <label class="lf2">Actualizar historial<input type="file" id="hf" accept=".json,application/json" hidden></label></p>`}
 // desde la Calculadora: abre el mismo panel de historial para el jugador, rival, posición y mercado elegidos
 function openCalcDet(s,card){const pos=$("#ps").value||S.p[3],op=$("#op").value,p=[...S.p];p[3]=pos;const k=COMBO[s]?COMBO[s][0]:s,r=rank(op,pos,MK[k].i);
 openDet({p,op,k,r,side:r>=26?"U":"O",calc:1,lbl:LBL[s]});

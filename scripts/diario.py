@@ -126,6 +126,7 @@ HIST = os.path.join(ROOT, "web", "historial.json")
 def actualizar_historial(S, hoy, desde=None, guardar_cada=10, pausa=0.0):
     """Agrega a web/historial.json los partidos de la temporada nueva (desde INICIO hasta ayer) con los boxscores de ESPN.
     Mismo formato que fetch_gamelogs.py: [gameId, AAAAMMDD, equipo, rival, local(1/0), min, pts, reb, ast, triples, robos],
+    más los tiros al final (TIROS: canastas, tiros de campo, intentos de triple, libres anotados, libres intentados),
     con el ID de la NBA del jugador (el de la página). Solo pide los días que faltan (ESPN es gratis)."""
     try: H = json.load(open(HIST, encoding="utf-8"))
     except (OSError, ValueError): H = {"v": 1, "asof": None, "temporadas": [], "p": {}}
@@ -164,14 +165,42 @@ def actualizar_historial(S, hoy, desde=None, guardar_cada=10, pausa=0.0):
                         pid = ids.get(key((a.get("athlete") or {}).get("displayName", "")))
                         if a.get("didNotPlay") or not st or not pid or "PTS" not in ix: continue
                         n = lambda c: int(str(st[ix[c]]).split("-")[0].split(":")[0]) if c in ix and str(st[ix[c]]).split("-")[0].split(":")[0].isdigit() else 0
-                        row = [int(ev["id"]), int(f.replace("-", "")), me, op, 1 if home else 0, n("MIN"), n("PTS"), n("REB"), n("AST"), n("3PT"), n("STL")]
+                        row = [int(ev["id"]), int(f.replace("-", "")), me, op, 1 if home else 0, n("MIN"), n("PTS"), n("REB"), n("AST"), n("3PT"), n("STL")] + tiros(st, ix)
                         lst = H["p"].setdefault(pid, [])
                         if not any(r[0] == row[0] for r in lst): lst.append(row); nuevos += 1
         hechos.add(f); dias.append(f)
         if pausa: time.sleep(pausa)
         if len(dias) % guardar_cada == 0: guardar()          # guarda el avance por si se corta
-    if dias: guardar()
+    nt = completar_tiros(H, ids)                              # partidos viejos de esta temporada sin tiros (una sola vez)
+    if dias or nt: guardar()
     return nuevos, dias
+
+def tiros(st, ix):
+    """[canastas, tiros de campo, intentos de triple, libres anotados, libres intentados] de una fila del boxscore de ESPN."""
+    def ma(c):
+        v = str(st[ix[c]]).split("-") if c in ix else []
+        return [int(x) if x.isdigit() else 0 for x in v] if len(v) == 2 else [0, 0]
+    fg, tp, ft = ma("FG"), ma("3PT"), ma("FT")
+    return [fg[0], fg[1], tp[1], ft[0], ft[1]]
+
+def completar_tiros(H, ids, limite=400):
+    """Agrega los tiros (TIROS) a las filas de esta temporada que se guardaron antes de que existieran. Devuelve cuántas completó."""
+    ini = int(INICIO.replace("-", "")); filas = defaultdict(list)
+    for pid, lst in H["p"].items():
+        for r in lst:
+            if r[1] >= ini and len(r) == 11: filas[r[0]].append((pid, r))
+    n = 0
+    for gid in sorted(filas)[:limite]:
+        sm = espn("summary", event=gid)
+        if not sm: continue
+        por = {pid: r for pid, r in filas[gid]}
+        for t in sm.get("boxscore", {}).get("players", []):
+            for blk in t.get("statistics", []):
+                ix = {c: i for i, c in enumerate(blk.get("names") or [])}
+                for a in blk.get("athletes", []):
+                    r = por.get(ids.get(key((a.get("athlete") or {}).get("displayName", ""))))
+                    if r is not None and len(r) == 11 and a.get("stats"): r += tiros(a["stats"], ix); n += 1
+    return n
 
 def calificar(reg, hoy):
     """Pone el resultado (W/L/P; NJ = no jugó, anulada; SL = sin línea) a los picks de días anteriores."""
