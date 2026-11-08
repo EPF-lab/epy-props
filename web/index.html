@@ -424,7 +424,7 @@ const a=F.ast;
 $("#pcard").innerHTML=`<div class="pc"><div class="pn">${avH(p,64)}<div><h2>${p[0]}</h2><div class="m">${p[1]}${mv?" a "+p[2]:""}, ${f1(p[5])} min por juego, posición <b>${pos}</b>${p[4]&&!$("#ps").value?" (alterna "+p[4]+")":""}</div></div></div><div>${mv?'<span class="chip w">Cambió de equipo</span> ':""}<span class="chip">${pos}</span></div></div>
 <div class="sum">Contra <b>${op}</b> (continuidad <b>${f2(D.teams[op][0])}</b>): permite <b class="${a.dev>0?"pos":"neg"}">${spct(a.dev)}</b> asistencias, <b class="${F.pts.dev>0?"pos":"neg"}">${spct(F.pts.dev)}</b> puntos y <b class="${F.reb.dev>0?"pos":"neg"}">${spct(F.reb.dev)}</b> rebotes a ${pos} frente a la media. Con la continuidad, el factor final queda en asistencias ×${f3(a.f)}.</div>`;
 const old={};$$("#cards .card").forEach(c=>old[c.dataset.s]=[".ln",".oo",".ou"].map(q=>c.querySelector(q).value));
-$("#cards").innerHTML=["pts","reb","ast","pra","pr","pa","ra","tpm","stl"].filter(s=>pr[s]!=null).map(s=>{const o=old[s]||["","",""],fa=F[s].f-1;return`<article class="card" data-s="${s}" data-m="${pr[s]}"><div class="ch"><b>${LBL[s]}</b><span style="display:flex;gap:6px;align-items:center"><span class="chip ${fa>.002?"g":fa<-.002?"r":""}">factor ${spct(fa)}</span><button type="button" class="mini hbtn" data-h="${s}">Historial ›</button></span></div><div class="big"><span class="num" data-v="${pr[s]}">${f1(pr[s])}</span><small>proyección</small></div><div class="mut">Base ${f1(base[s])} × ${f3(F[s].f)}</div>
+$("#cards").innerHTML=["pts","reb","ast","pra","pr","pa","ra","tpm","stl"].filter(s=>pr[s]!=null).map(s=>{const o=old[s]||["","",""],fa=F[s].f-1,an=anaDe(p[0],s,op),pm=an?an.m:pr[s];return`<article class="card" data-s="${s}" data-m="${pm}"><div class="ch"><b>${LBL[s]}</b><span style="display:flex;gap:6px;align-items:center"><span class="chip ${fa>.002?"g":fa<-.002?"r":""}">factor ${spct(fa)}</span><button type="button" class="mini hbtn" data-h="${s}">Historial ›</button></span></div><div class="big"><span class="num" data-v="${pm}">${f1(pm)}</span><small>${an?"proyección del análisis":"proyección"}</small></div><div class="mut">${an?`Modelo ${f1(pr[s])} · análisis ${anaTxt(an)}${an.nota?`<br>${an.nota}`:""}`:`Base ${f1(base[s])} × ${f3(F[s].f)}`}</div>
 <div class="inp"><div class="lb">Línea<span class="stp"><button type="button" class="m" aria-label="Bajar línea">−</button><input class="ln" inputmode="decimal" placeholder="8,5" value="${o[0]}"><button type="button" class="p" aria-label="Subir línea">+</button></span></div><label>Cuota over<input class="oo" inputmode="decimal" placeholder="1,87 / -115" value="${o[1]}"></label><label>Cuota under<input class="ou" inputmode="decimal" placeholder="1,95 / -105" value="${o[2]}"></label></div><div class="out"></div></article>`}).join("");
 $$("#cards .card").forEach(calc);countUp()}
 function calc(c){const s=c.dataset.s,m=+c.dataset.m,L=parseFloat(c.querySelector(".ln").value.replace(",",".")),o=toDec(c.querySelector(".oo").value),u=toDec(c.querySelector(".ou").value),out=c.querySelector(".out");
@@ -693,6 +693,10 @@ function trackPick(x){if(isTr(x))return false;const p=x.p,pos=p[3],base=BASE(p)[
 const e=x.e&&x.e.ml?x.e:null; // con datos automáticos guarda la línea del mercado y la cuota mínima; la cuota real de tu casa la escribes tú
 RC.push({id:Date.now()*1000+(++TN%1000),d:pDay(),pl:p[0],mk:x.k,sd:x.side,ln:e?e.ml.ln:null,od:null,st:1,ev:null,rs:"",key:trKey(x),src:"pick",rk:x.r,ps:pos,vs:x.op,pj,om:e&&(e.minb||e.min)?+(e.minb||e.min).toFixed(2):null,evr:e&&(e.evb!=null?e.evb:e.ev)!=null?+(e.evb!=null?e.evb:e.ev).toFixed(4):null});rcSave();return true}
 /*HS*/
+/*ANA*/ // proyección final del análisis (web/proyecciones.json, la escribe scripts/proyeccion.py al cerrar cada análisis): ese día sustituye a la del modelo
+let ANA=null;
+const anaDe=(pl,k,op)=>{const n=normKey(pl),d=today();return((ANA&&ANA.p)||[]).filter(e=>e.f===d&&e.k===k&&normKey(e.pl)===n&&(!op||!e.vs||e.vs===op)).pop()||null},
+anaTxt=a=>f1(a.m)+(a.lo!=null&&a.hi!=null?` (rango ${f1(a.lo)} a ${f1(a.hi)})`:"");
 /*TIRO*/ // racha de tiro: puntería de sus últimos 3 partidos frente a su base de 2026-27 (encogida hacia 57 % TS de la liga con 150 intentos). Historial: [..., canastas, tiros, intentos de triple, libres anotados, libres intentados] en las posiciones 11-15.
 // Probado el 08-nov-2026 con 2026-27: tras una racha caliente el siguiente partido anotó 2,3 pts menos que su media de los últimos 5 (80 casos); tras una fría, 2,9 más (59 casos); sin alarma, igual (1156)
 const TIRO={n:3,k:150,ts:.57,ex:3.5,dts:.12};
@@ -738,7 +742,7 @@ const BAR_OK="#24FF6D",BAR_NO="#E31717"; // verde: superó la línea · rojo: no
 function capOpen(){const d=DT;if(!d||!d.cur||!d.cur.length)return toast("Primero tiene que haber partidos en el gráfico.");
 const x=d.x,p=x.p,pos=p[3],k=d.stat,rows=d.cur,vals=rows.map(r=>hv(r,k)),n=vals.length,avg=vals.reduce((a,b)=>a+b,0)/n,so=vals.slice().sort((a,b)=>a-b),med=n%2?so[(n-1)/2]:(so[n/2-1]+so[n/2])/2;
 const L=d.alt,hs=hits(vals,L),side=hs.o>=hs.u?"Over":"Under",cn=side==="Over"?hs.o:hs.u,lbl=HK[k][0];
-const rk=MK[k]?rank(x.op,pos,MK[k].i):null,f=[],B=BASE(p),pj1=s=>B[s]!=null?B[s]*factor(x.op,pos,s).f:null,proj=COMBO[k]?(COMBO[k].every(s=>B[s]!=null)?COMBO[k].reduce((a,s)=>a+pj1(s),0):null):(IDX[k]!=null?pj1(k):null);
+const rk=MK[k]?rank(x.op,pos,MK[k].i):null,f=[],B=BASE(p),pj1=s=>B[s]!=null?B[s]*factor(x.op,pos,s).f:null,proj=COMBO[k]?(COMBO[k].every(s=>B[s]!=null)?COMBO[k].reduce((a,s)=>a+pj1(s),0):null):(IDX[k]!=null?pj1(k):null),an=anaDe(p[0],k,x.op);
 if(d.onlyRival)f.push("contra "+x.op);
 if(d.mate){const m=PL.find(q=>String(q[10])===String(d.mate));if(m)f.push((d.mw==="sin"?"sin ":"con ")+m[0])}
 if(d.rkR!=="all")f.push("rivales #"+d.rkR.replace("-","–")+" en "+(MK[d.rkMk]?MK[d.rkMk].l:d.rkMk)+" permitidas");
@@ -749,7 +753,7 @@ const lg=$(".lg")?$(".lg").src:"";
 document.body.insertAdjacentHTML("beforeend",`<div class="capo" id="capo" role="dialog" aria-label="Captura"><button class="capx" type="button" aria-label="Cerrar">×</button><div class="capc">
 <div class="pn" style="gap:14px">${avH(p,72)}<div style="flex:1;min-width:0"><h2 style="margin:0;font-size:26px;font-weight:750;letter-spacing:-.02em">${p[0]}</h2><div class="hint">${pos} vs ${x.op}</div><span class="chip" style="margin-top:6px">${lbl} · línea ${f1(L)}</span></div></div>
 ${rk?`<p class="why" style="margin:12px 0 0">${x.op} es el <b>#${rk}</b> que más ${MK[k].l} permite a los ${pos} rivales.</p>`:""}
-${proj!=null?`<p class="why" style="margin:4px 0 0">Proyección del modelo: <b>${f1(proj)} ${COMBO[k]?lbl:lbl.toLowerCase()}</b></p>`:""}
+${an?`<p class="why" style="margin:4px 0 0">Proyección EPY: <b>${f1(an.m)} ${COMBO[k]?lbl:lbl.toLowerCase()}</b>${an.pr!=null&&an.ln!=null?` · <b>${pct(an.pr)}</b> de superar ${f1(an.ln)}`:""}</p>`:proj!=null?`<p class="why" style="margin:4px 0 0">Proyección del modelo: <b>${f1(proj)} ${COMBO[k]?lbl:lbl.toLowerCase()}</b></p>`:""}
 <div class="caphit"><div><small>Resultado con línea ${f1(L)}</small><b style="color:${side==="Over"?BAR_OK:BAR_NO}">${side} ${cn}/${n}</b><small class="capctx">${capz(ctx)}</small></div><span class="chip" style="background:color-mix(in srgb,${side==="Over"?BAR_OK:BAR_NO} 18%,transparent);color:${side==="Over"?BAR_OK:BAR_NO}">${pct(cn/n)}</span></div>
 <div class="chw dchart">${$("#dsv")?$("#dsv").outerHTML:""}</div>
 <div class="capb">${lg?`<img src="${lg}" alt="">`:""}<span><b>El Profe Yenkins</b><small>t.me/elprofeyenkins</small></span></div></div>
@@ -762,7 +766,7 @@ if(!HIST){el.innerHTML='<div class="panel" style="margin:0"><b>Todavía no hay h
 if(!HIST.p[d.x.p[10]]){el.innerHTML='<p class="hint">Este jugador no está en el archivo de historial (no llega a los minutos mínimos o no tiene ID).</p>';["#dsm","#dHw","#dAw"].forEach(q=>$(q).textContent="");return}
 const rows=detRows(),k=d.stat,vals=rows.map(r=>hv(r,k)),n=vals.length;d.cur=rows;
 const avg=n?vals.reduce((a,b)=>a+b,0)/n:0,so=vals.slice().sort((a,b)=>a-b),med=n?(n%2?so[(n-1)/2]:(so[n/2-1]+so[n/2])/2):0;
-if(d.altAuto){const base=k===d.x.k&&d.proj!=null?d.proj:avg;d.alt=Math.max(.5,Math.round(base*2)/2)}
+if(d.altAuto){const base=k===d.projK&&d.proj!=null?d.proj:avg;d.alt=Math.max(.5,Math.round(base*2)/2)}
 const L=d.alt,hs=hits(vals,L),side=hs.o>=hs.u?"Over":"Under",cn=side==="Over"?hs.o:hs.u,cls=side==="Over"?"pos":"neg",flt=d.onlyRival||d.mate||d.rkR!=="all";
 $("#dsm").innerHTML=n?`El <b class="${cls}">${side}</b> se cumplió <b class="${cls}">${cn}/${n}</b> en ${flt?n+" partidos con los filtros elegidos":(d.N==="all"?"los "+n+" partidos":"los últimos "+n+" partidos")} con una línea de <b>${f1(L)}</b>.`:"";
 const sl=$("#dAl");sl.max=Math.max(10,Math.ceil(Math.max(...vals,L,1)*1.4));sl.value=L;$("#dAv").textContent=f1(L);
@@ -775,18 +779,18 @@ el.innerHTML=`${tiroH(d.x.p[10])}<div class="chw dchart">${detChart(rows,k,L)}</
 // desde la Calculadora: abre el mismo panel de historial para el jugador, rival, posición y mercado elegidos
 function openCalcDet(s,card){const pos=$("#ps").value||S.p[3],op=$("#op").value,p=[...S.p];p[3]=pos;const k=COMBO[s]?COMBO[s][0]:s,r=rank(op,pos,MK[k].i);
 openDet({p,op,k,r,side:r>=26?"U":"O",calc:1,lbl:LBL[s]});
-if(s!==k){$("#dSt").value=s;DT.stat=s;DT.proj=null}
+if(s!==k){$("#dSt").value=s;DT.stat=s;const an=anaDe(S.p[0],s,op);DT.proj=an?an.m:null;DT.projK=s}
 const L=rcNum(card.querySelector(".ln").value);if(L!=null){$("#dLn").value=card.querySelector(".ln").value;$("#dOo").value=card.querySelector(".oo").value;$("#dOu").value=card.querySelector(".ou").value;DT.alt=L;DT.altAuto=false}
 detRender()}
 function openDet(x){const p=x.p,m=MK[x.k],pos=p[3],o=x.side==="O",v=D.dvp[x.op][pos][m.i],mn=Object.values(D.dvp).reduce((a,t)=>a+t[pos][m.i],0)/30,c=D.teams[x.op][0],base=BASE(p)[x.k],pj=base!=null?base*factor(x.op,pos,x.k).f:null;
-DT={x,N:10,se:"all",onlyRival:0,stat:x.k,mate:"",mw:"con",rkMk:x.k,rkR:"all",proj:pj,alt:null,altAuto:true};
+const an=anaDe(p[0],x.k,x.op);DT={x,N:10,se:"all",onlyRival:0,stat:x.k,mate:"",mw:"con",rkMk:x.k,rkR:"all",proj:an?an.m:pj,projK:x.k,alt:null,altAuto:true};
 const tms=new Set(HIST&&HIST.p[p[10]]?HIST.p[p[10]].map(r=>r[2]):[p[2]]),mates=[];
 if(HIST)PL.forEach(q=>{if(q[0]===p[0]||!q[10]||!HIST.p[q[10]])return;const cnt=HIST.p[q[10]].filter(r=>tms.has(r[2])).length;if(cnt>=5)mates.push([q,cnt])});mates.sort((a,b)=>b[1]-a[1]);
 const mkr=Object.keys(MK).map(k=>{const i=MK[k].i,rk=rank(x.op,pos,i);return`<div class="mkr"><span>${capz(MK[k].l)}</span><span><b>${f2(D.dvp[x.op][pos][i])}</b> <span class="chip ${rk<=5?"g":rk>=26?"r":""}">#${rk}</span></span></div>`}).join("");
 const so=(a,b)=>`<option value="${a}">${b}</option>`;
 $("#pdb").innerHTML=`<div class="pn" style="gap:14px">${avH(p,64)}<div style="flex:1;min-width:0"><h2 style="margin:0;font-size:24px;font-weight:700">${p[0]}</h2><div class="hint">${pos} vs ${x.op}</div></div><span class="chip ${x.calc?"":o?"g":"r"}">${x.calc?capz(x.lbl||m.l):(o?"OVER":"UNDER")+" "+capz(m.l)}</span></div>
 <p class="why" style="margin:0">${x.op} es el <b>#${x.r}</b> que más ${m.l} permite a los ${pos} rivales.</p>
-<div class="kv"><span>Permite a ${pos}</span><b>${f2(v)} (${spct((v-mn)/mn)} vs media)</b><span>Continuidad del rival</span><b class="${c<.6?"neg":""}">${f2(c)}${c<.6?" (cambió mucho)":""}</b>${pj!=null?`<span>Proyección</span><b>${f1(base)} a ${f1(pj)}</b>`:""}<span>Minutos por juego</span><b>${f1(p[5])}</b></div>
+<div class="kv"><span>Permite a ${pos}</span><b>${f2(v)} (${spct((v-mn)/mn)} vs media)</b><span>Continuidad del rival</span><b class="${c<.6?"neg":""}">${f2(c)}${c<.6?" (cambió mucho)":""}</b>${an?`<span>Proyección del análisis</span><b>${anaTxt(an)}</b><span>Modelo</span><b>${pj!=null?f1(pj):"–"}</b>`:pj!=null?`<span>Proyección</span><b>${f1(base)} a ${f1(pj)}</b>`:""}<span>Minutos por juego</span><b>${f1(p[5])}</b></div>${an&&an.nota?`<p class="hint" style="margin:-4px 0 0">${an.nota}</p>`:""}
 <div><b style="font-size:14px">Este rival contra la posición ${pos}</b><div class="mkw">${mkr}</div></div>
 ${x.calc?"":`<div class="acts" style="margin:0"><button class="btn" id="dfol" type="button" ${isTr(x)?"disabled":""}>${isTr(x)?"En RECORD ✓":"Seguir en RECORD"}</button></div>`}
 <div class="dh3"><b style="font-size:17px;display:flex;align-items:center;gap:8px">Historial del jugador <button class="mini" id="dCap" type="button">📸 Captura</button></b><div class="seg per" id="dN"><button data-n="5">L5</button><button data-n="7">L7</button><button data-n="10" class="on">L10</button><button data-n="15">L15</button><button data-n="all">Todos</button></div></div>
@@ -819,6 +823,7 @@ $("#cf").onclick=()=>{const u=prompt("Pega la URL de tu Apps Script (termina en 
 (async()=>{let mode="Snapshot",data=SNAP;const U=getU();if(U){try{data=await (await fetch(U)).json();mode="En vivo"}catch(e){mode="Snapshot (sin conexión)"}}init(data,mode);
 // publicada junto a diario.json/historial.json (GitHub Pages) los lee sola; abierta como archivo local, simplemente no los encuentra
 try{const r=await fetch("diario.json",{cache:"no-store"});if(r.ok){DY=await r.json();dyApply();if(!$("#pk").hidden)picks()}}catch(e){}
+try{const r=await fetch("proyecciones.json",{cache:"no-store"});if(r.ok){ANA=await r.json();try{render()}catch(e){}}}catch(e){}
 try{const r=await fetch("movimientos.json");if(r.ok){MOV=await r.json();if(!$("#pk").hidden)picks()}}catch(e){}
 try{const r=await fetch("registro.json",{cache:"no-store"});if(r.ok){MDL=await r.json();mdlRender();if(!$("#pk").hidden)picks()}}catch(e){}
 try{const r=await fetch("historial.json",{cache:"no-store"});if(r.ok){const h=await r.json();if(h&&h.v===1&&(!HIST||String(h.asof||"")>=String(HIST.asof||"")))HIST=h}}catch(e){} /* el publicado (con la temporada nueva) gana al guardado en el navegador si es más reciente */})();

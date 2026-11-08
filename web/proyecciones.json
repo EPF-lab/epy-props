@@ -1,0 +1,31 @@
+{
+ "v": 1,
+ "p": [
+  {
+   "f": "2026-11-08",
+   "pl": "Davion Mitchell",
+   "k": "pa",
+   "m": 22.5,
+   "lo": 21.5,
+   "hi": 24.0,
+   "vs": "Sacramento Kings",
+   "ln": 19.5,
+   "od": "-150",
+   "pr": 0.68,
+   "nota": "9 de 9 sobre 19.5; 14,2 asistencias potenciales y 12,7 tiros por partido. Bajado algo porque tira 50 % de campo y 41 % en triples, por encima de lo sostenible."
+  },
+  {
+   "f": "2026-11-08",
+   "pl": "Nolan Traoré",
+   "k": "ast",
+   "m": 4.7,
+   "lo": 4.3,
+   "hi": 5.3,
+   "vs": "Dallas Mavericks",
+   "ln": 3.5,
+   "od": "-130",
+   "pr": 0.66,
+   "nota": "Sin Dëmin ni Brown: en su único partido sin ambos generó 15 asistencias potenciales (6 asistencias). Dallas frena ~10 % las asistencias de los bases."
+  }
+ ]
+}
