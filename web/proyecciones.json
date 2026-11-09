@@ -42,6 +42,19 @@
   },
   {
    "f": "2026-11-09",
+   "pl": "Devin Booker",
+   "k": "tpm",
+   "m": 2.8,
+   "lo": 2.5,
+   "hi": 3.1,
+   "vs": "San Antonio Spurs",
+   "ln": 1.5,
+   "od": "-165",
+   "pr": 0.78,
+   "nota": "Asumiendo el análisis del usuario: 8-9 intentos de triple (máximo de la temporada posible) al 33-36 %. Con su volumen normal (1,9 triples) bajaría a ~61 %."
+  },
+  {
+   "f": "2026-11-09",
    "pl": "Grayson Allen",
    "k": "pa",
    "m": 20.0,
