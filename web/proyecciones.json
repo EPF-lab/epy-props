@@ -91,6 +91,58 @@
    "od": "+110",
    "pr": 0.56,
    "nota": "2+ triples en 5 de 8 (4,6 intentos, 46 % que debería bajar a ~36 %). Grimes fuera y Reaves duda: algo más de volumen."
+  },
+  {
+   "f": "2026-11-10",
+   "pl": "Darryn Peterson",
+   "k": "pts",
+   "m": 19.0,
+   "lo": 18.0,
+   "hi": 20.0,
+   "vs": "Miami Heat",
+   "ln": 17.5,
+   "od": "-110",
+   "pr": 0.55,
+   "nota": "Viene de 21 y 26; sin Keyonte George. Las casas ya ponen sus puntos en 18,5 casi 50/50."
+  },
+  {
+   "f": "2026-11-10",
+   "pl": "Darryn Peterson",
+   "k": "tpm",
+   "m": 2.5,
+   "lo": 2.2,
+   "hi": 2.8,
+   "vs": "Miami Heat",
+   "ln": 2.5,
+   "od": "+180",
+   "pr": 0.435,
+   "nota": "3+ triples en 4 de sus últimos 6 (6,7 intentos, 36 %); 2+ en 5 de 6 (~68 %). Keyonte George fuera: más tiros."
+  },
+  {
+   "f": "2026-11-10",
+   "pl": "Isaiah Hartenstein",
+   "k": "ra",
+   "m": 15.8,
+   "lo": 15.0,
+   "hi": 16.5,
+   "vs": "Portland Trail Blazers",
+   "ln": 13.5,
+   "od": "-115",
+   "pr": 0.635,
+   "nota": "Sin Chet ni Jalen Williams: 14+ R+A en 8 de 11 (media 15,7). Los 2 fallos de este año, en derrotas por 21 y 31. Contra Portland, 14+ en sus últimos 4."
+  },
+  {
+   "f": "2026-11-10",
+   "pl": "Tyrese Maxey",
+   "k": "tpm",
+   "m": 2.9,
+   "lo": 2.6,
+   "hi": 3.2,
+   "vs": "Boston Celtics",
+   "ln": 2.5,
+   "od": "-150",
+   "pr": 0.56,
+   "nota": "3+ en 6 de 11 (7,5 intentos, 34 %). Boston es el que más triples deja intentar, pero las casas bajaron sus puntos a 23,5 (promedia 27)."
   }
  ]
 }
