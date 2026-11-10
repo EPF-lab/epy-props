@@ -135,14 +135,14 @@
    "f": "2026-11-10",
    "pl": "Tyrese Maxey",
    "k": "tpm",
-   "m": 2.9,
-   "lo": 2.6,
-   "hi": 3.2,
+   "m": 3.0,
+   "lo": 2.7,
+   "hi": 3.3,
    "vs": "Boston Celtics",
    "ln": 2.5,
    "od": "-150",
-   "pr": 0.56,
-   "nota": "3+ en 6 de 11 (7,5 intentos, 34 %). Boston es el que más triples deja intentar, pero las casas bajaron sus puntos a 23,5 (promedia 27)."
+   "pr": 0.59,
+   "nota": "3+ en 6 de 9 cuando tira 7+; Boston deja tirar ~12 % más triples (8-8,5 intentos). Frena: 34 % de acierto y las casas bajaron sus puntos a 23,5."
   }
  ]
 }
