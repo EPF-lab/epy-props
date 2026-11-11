@@ -12,7 +12,10 @@
    "ln": 19.5,
    "od": "-150",
    "pr": 0.68,
-   "nota": "9 de 9 sobre 19.5; 14,2 asistencias potenciales y 12,7 tiros por partido. Bajado algo porque tira 50 % de campo y 41 % en triples, por encima de lo sostenible."
+   "nota": "9 de 9 sobre 19.5; 14,2 asistencias potenciales y 12,7 tiros por partido. Bajado algo porque tira 50 % de campo y 41 % en triples, por encima de lo sostenible.",
+   "jug": true,
+   "act": 28,
+   "res": "W"
   },
   {
    "f": "2026-11-08",
@@ -25,7 +28,10 @@
    "ln": 3.5,
    "od": "-130",
    "pr": 0.66,
-   "nota": "Sin Dëmin ni Brown: en su único partido sin ambos generó 15 asistencias potenciales (6 asistencias). Dallas frena ~10 % las asistencias de los bases."
+   "nota": "Sin Dëmin ni Brown: en su único partido sin ambos generó 15 asistencias potenciales (6 asistencias). Dallas frena ~10 % las asistencias de los bases.",
+   "jug": true,
+   "act": 2,
+   "res": "L"
   },
   {
    "f": "2026-11-08",
@@ -38,7 +44,10 @@
    "ln": 2.5,
    "od": "-140",
    "pr": 0.615,
-   "nota": "3+ triples en 7 de 9 (8,1 intentos, 41 %); 7 de 7 cuando tira 6+. Boston es el que más triples deja intentar esta temporada (40,4 por partido, #1)."
+   "nota": "3+ triples en 7 de 9 (8,1 intentos, 41 %); 7 de 7 cuando tira 6+. Boston es el que más triples deja intentar esta temporada (40,4 por partido, #1).",
+   "jug": true,
+   "act": 1,
+   "res": "L"
   },
   {
    "f": "2026-11-09",
@@ -51,7 +60,10 @@
    "ln": 1.5,
    "od": "-165",
    "pr": 0.78,
-   "nota": "Asumiendo el análisis del usuario: 8-9 intentos de triple (máximo de la temporada posible) al 33-36 %. Con su volumen normal (1,9 triples) bajaría a ~61 %."
+   "nota": "Asumiendo el análisis del usuario: 8-9 intentos de triple (máximo de la temporada posible) al 33-36 %. Con su volumen normal (1,9 triples) bajaría a ~61 %.",
+   "jug": true,
+   "act": 3,
+   "res": "W"
   },
   {
    "f": "2026-11-09",
@@ -64,7 +76,9 @@
    "ln": 19.5,
    "od": "-140",
    "pr": 0.5,
-   "nota": "Sin Miller, Knueppel ni Schröder sube su uso, pero el mercado ya lo descuenta (puntos en 16,5; P+A 18,5 en DraftKings). 20+ en 4 de 10 esta temporada; riesgo de paliza contra Cleveland."
+   "nota": "Sin Miller, Knueppel ni Schröder sube su uso, pero el mercado ya lo descuenta (puntos en 16,5; P+A 18,5 en DraftKings). 20+ en 4 de 10 esta temporada; riesgo de paliza contra Cleveland.",
+   "act": 33,
+   "res": "W"
   },
   {
    "f": "2026-11-09",
@@ -77,7 +91,9 @@
    "ln": 16.5,
    "od": "-130",
    "pr": 0.525,
-   "nota": "0,78 P+R por minuto (18,8 por 24 min) pero promedia 20,6 minutos; sin Stewart jugó 21 y 20. 17+ en 4 de 8. El mercado lo pone en 16,5 casi 50/50."
+   "nota": "0,78 P+R por minuto (18,8 por 24 min) pero promedia 20,6 minutos; sin Stewart jugó 21 y 20. 17+ en 4 de 8. El mercado lo pone en 16,5 casi 50/50.",
+   "act": 17,
+   "res": "W"
   },
   {
    "f": "2026-11-09",
@@ -90,7 +106,10 @@
    "ln": 1.5,
    "od": "+110",
    "pr": 0.56,
-   "nota": "2+ triples en 5 de 8 (4,6 intentos, 46 % que debería bajar a ~36 %). Grimes fuera y Reaves duda: algo más de volumen."
+   "nota": "2+ triples en 5 de 8 (4,6 intentos, 46 % que debería bajar a ~36 %). Grimes fuera y Reaves duda: algo más de volumen.",
+   "jug": true,
+   "act": 2,
+   "res": "W"
   },
   {
    "f": "2026-11-10",
@@ -103,7 +122,10 @@
    "ln": 9.5,
    "od": "-155",
    "pr": 0.67,
-   "nota": "Con 30+ minutos: 16, 11, 13 y 14 R+A. Sin Suggs, 10+ en 4 de 5 (el fallo, 22 min en su regreso). Sacramento permite mucho a los bases (#5 reb, #6 ast). Las casas ponen sus asistencias en 4,5 con el over favorito."
+   "nota": "Con 30+ minutos: 16, 11, 13 y 14 R+A. Sin Suggs, 10+ en 4 de 5 (el fallo, 22 min en su regreso). Sacramento permite mucho a los bases (#5 reb, #6 ast). Las casas ponen sus asistencias en 4,5 con el over favorito.",
+   "jug": true,
+   "act": 12,
+   "res": "W"
   },
   {
    "f": "2026-11-10",
@@ -116,7 +138,10 @@
    "ln": 19.5,
    "od": "-140",
    "pr": 0.56,
-   "nota": "Sin Keyonte George ni Markkanen (confirmado): más tiros. Viene de 21 y 26, pero su media de la temporada es 14,8 y la línea ya subió a 19,5."
+   "nota": "Sin Keyonte George ni Markkanen (confirmado): más tiros. Viene de 21 y 26, pero su media de la temporada es 14,8 y la línea ya subió a 19,5.",
+   "jug": true,
+   "act": 25,
+   "res": "W"
   },
   {
    "f": "2026-11-10",
@@ -129,7 +154,10 @@
    "ln": 2.5,
    "od": "+180",
    "pr": 0.435,
-   "nota": "3+ triples en 4 de sus últimos 6 (6,7 intentos, 36 %); 2+ en 5 de 6 (~68 %). Keyonte George fuera: más tiros."
+   "nota": "3+ triples en 4 de sus últimos 6 (6,7 intentos, 36 %); 2+ en 5 de 6 (~68 %). Keyonte George fuera: más tiros.",
+   "jug": true,
+   "act": 4,
+   "res": "W"
   },
   {
    "f": "2026-11-10",
@@ -142,7 +170,10 @@
    "ln": 13.5,
    "od": "-115",
    "pr": 0.635,
-   "nota": "Sin Chet ni Jalen Williams: 14+ R+A en 8 de 11 (media 15,7). Los 2 fallos de este año, en derrotas por 21 y 31. Contra Portland, 14+ en sus últimos 4."
+   "nota": "Sin Chet ni Jalen Williams: 14+ R+A en 8 de 11 (media 15,7). Los 2 fallos de este año, en derrotas por 21 y 31. Contra Portland, 14+ en sus últimos 4.",
+   "jug": true,
+   "act": 14,
+   "res": "W"
   },
   {
    "f": "2026-11-10",
@@ -155,7 +186,10 @@
    "ln": 2.5,
    "od": "-150",
    "pr": 0.59,
-   "nota": "3+ en 6 de 9 cuando tira 7+; Boston deja tirar ~12 % más triples (8-8,5 intentos). Frena: 34 % de acierto y las casas bajaron sus puntos a 23,5."
+   "nota": "3+ en 6 de 9 cuando tira 7+; Boston deja tirar ~12 % más triples (8-8,5 intentos). Frena: 34 % de acierto y las casas bajaron sus puntos a 23,5.",
+   "jug": true,
+   "act": 3,
+   "res": "W"
   }
  ]
 }

@@ -242,6 +242,11 @@ def main():
             print(f"Parámetros: {r['jugadores']} jugadores con partidos de esta temporada; {len(r['traspasos'])} cambios de equipo")
         except Exception as ex:                   # el historial no debe tumbar el proceso diario
             print("Historial/parámetros: no se pudo actualizar:", ex)
+        try:                                      # resultados de las proyecciones del análisis (web/proyecciones.json)
+            import calificar_proyecciones as CP
+            print(f"Proyecciones del análisis calificadas: {CP.calificar(hoy, box_del_dia)}")
+        except Exception as ex:
+            print("Proyecciones: no se pudieron calificar:", ex)
     md = M.Modelo(S)
     data = {"v": 1, "fecha": hoy, "generado": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "fuente": "demo" if a.demo else "the-odds-api", "juegos": [], "lineas": {}, "creditos": None, "nota": ""}
