@@ -202,7 +202,8 @@
    "ln": 9.5,
    "od": "-105",
    "pr": 0.61,
-   "nota": "5 seguidos con 30+ min y 10+ R+A (16, 11, 13, 14, 12); 23 oportunidades por partido en sus últimos 4. Utah quita asistencias a los bases (-5 % ajustado; tabla del usuario: 4º que menos) pero da rebotes. Bajado por jugar dos días seguidos."
+   "nota": "5 seguidos con 30+ min y 10+ R+A (16, 11, 13, 14, 12); 23 oportunidades por partido en sus últimos 4. Utah quita asistencias a los bases (-5 % ajustado; tabla del usuario: 4º que menos) pero da rebotes. Bajado por jugar dos días seguidos.",
+   "jug": true
   },
   {
    "f": "2026-11-11",
