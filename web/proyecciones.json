@@ -206,6 +206,19 @@
   },
   {
    "f": "2026-11-11",
+   "pl": "Isaiah Hartenstein",
+   "k": "ast",
+   "m": 4.2,
+   "lo": 3.8,
+   "hi": 4.6,
+   "vs": "Portland Trail Blazers",
+   "ln": 3.5,
+   "od": "+100",
+   "pr": 0.55,
+   "nota": "Sin Chet, J. Williams ni Wallace: 4, 4, 7, 6 y 5 asistencias. Pero solo genera ~7 asistencias potenciales por partido y convierte el 74 % (muy alto, tiende a bajar). Segundo partido seguido contra Portland."
+  },
+  {
+   "f": "2026-11-11",
    "pl": "Michael Porter Jr.",
    "k": "pts",
    "m": 22.6,
