@@ -310,6 +310,19 @@
    "od": "-110",
    "pr": 0.57,
    "nota": "Temporada P+R 25,9; con 30+ min 30,0 y 29+ en 5 de 7. Sin Miller 1 partido: 38 vs CLE (26 tiros), también sin Knueppel, Schroder y Diabaté, igual que hoy (Diabaté en duda). PHX da a los pívots +15 % en P+R (3º; puntos +28 %, rebotes neutros) y no tiene a Mark Williams. Riesgo: muestra de 1 partido y línea 2,6 sobre su media."
+  },
+  {
+   "f": "2026-11-12",
+   "pl": "Naz Reid",
+   "k": "pts",
+   "m": 21.0,
+   "lo": 19.5,
+   "hi": 22.5,
+   "vs": "Phoenix Suns",
+   "ln": 19.5,
+   "od": "-125",
+   "pr": 0.58,
+   "nota": "Temporada 17,4 pts; con 30+ min 20+ en 4 de 6. Sin Miller: 25 pts con 26 tiros vs CLE (34 % de uso). Miller libera ~20 tiros. PHX da a los pívots +28 % en puntos (2º) y es floja en spot-up (dato del usuario). Riesgo: tiró 38 % ese día; si baja el volumen a ~18 tiros queda en la línea."
   }
  ]
 }
