@@ -257,7 +257,9 @@
    "ln": 21.5,
    "od": "-125",
    "pr": 0.575,
-   "nota": "Washington es el 2º que más puntos deja a los ala-pívots esta temporada (+18 % ajustado). 22+ en 5 de 10; viene de 29. El mercado lo pone en 21,5 casi 50/50."
+   "nota": "Washington es el 2º que más puntos deja a los ala-pívots esta temporada (+18 % ajustado). 22+ en 5 de 10; viene de 29. El mercado lo pone en 21,5 casi 50/50.",
+   "act": 28,
+   "res": "W"
   },
   {
    "f": "2026-11-11",
@@ -272,7 +274,8 @@
    "pr": 0.66,
    "nota": "2+ triples en 7 de 8 (6 seguidos); 5,8 intentos en 23 min. Tiraba 48 % de tres (racha). Sin Merrill (fuera): más minutos. Vs NYK el 8-nov: 3 de 8. NYK permite mucho catch & shoot (dato del usuario). Resultado anotado a mano (no está en la lista de jugadores de la página).",
    "jug": true,
-   "res": "W"
+   "res": "W",
+   "act": 2
   }
  ]
 }
