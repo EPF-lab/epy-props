@@ -301,6 +301,19 @@
   },
   {
    "f": "2026-11-12",
+   "pl": "Ayo Dosunmu",
+   "k": "tpm",
+   "m": 2.15,
+   "lo": 1.9,
+   "hi": 2.4,
+   "vs": "Dallas Mavericks",
+   "ln": 1.5,
+   "od": "-143",
+   "pr": 0.61,
+   "nota": "Sin Edwards: 2+ en 5 de 7, 5,1 intentos en 34 min, 47 % (racha). DAL da a los SG +20 % en triples (4º)."
+  },
+  {
+   "f": "2026-11-12",
    "pl": "Coby White",
    "k": "ast",
    "m": 4.2,
@@ -338,6 +351,19 @@
    "pr": 0.58,
    "nota": "Temporada 17,4 pts; con 30+ min 20+ en 4 de 6. Sin Miller: 25 pts con 26 tiros vs CLE (34 % de uso). Miller libera ~20 tiros. PHX da a los pívots +28 % en puntos (2º) y es floja en spot-up (dato del usuario). Riesgo: tiró 38 % ese día; si baja el volumen a ~18 tiros queda en la línea.",
    "jug": true
+  },
+  {
+   "f": "2026-11-12",
+   "pl": "Rudy Gobert",
+   "k": "reb",
+   "m": 11.8,
+   "lo": 11.0,
+   "hi": 12.6,
+   "vs": "Dallas Mavericks",
+   "ln": 11.5,
+   "od": "+107",
+   "pr": 0.5,
+   "nota": "Media 12,1 (12+ en 5 de 10; inflada por 20 vs CLE). DAL normal contra pívots en rebotes (-6 %, 18º)."
   }
  ]
 }
