@@ -287,6 +287,19 @@
   },
   {
    "f": "2026-11-12",
+   "pl": "Coby White",
+   "k": "ast",
+   "m": 4.2,
+   "lo": 3.6,
+   "hi": 4.8,
+   "vs": "Phoenix Suns",
+   "ln": 3.5,
+   "od": "-130",
+   "pr": 0.55,
+   "nota": "Minutos 16, 18, 16, 20 desde que volvió (parece tope): proyección 21 (19-23). Potenciales 7, 7, 6, 10 = 0,43 por minuto (0,44 sin Schroder) -> unas 9 en 21 min; convierte ~50 % (los 9 ast del 9-nov fueron con 10 potenciales, conversión de suerte). PHX neutral contra bases (15º en asistencias). Schroder y Miller fuera."
+  },
+  {
+   "f": "2026-11-12",
    "pl": "Naz Reid",
    "k": "pr",
    "m": 30.0,
