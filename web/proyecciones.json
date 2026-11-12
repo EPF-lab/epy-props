@@ -203,7 +203,9 @@
    "od": "-105",
    "pr": 0.61,
    "nota": "5 seguidos con 30+ min y 10+ R+A (16, 11, 13, 14, 12); 23 oportunidades por partido en sus últimos 4. Utah quita asistencias a los bases (-5 % ajustado; tabla del usuario: 4º que menos) pero da rebotes. Bajado por jugar dos días seguidos.",
-   "jug": true
+   "jug": true,
+   "act": 15,
+   "res": "W"
   },
   {
    "f": "2026-11-11",
@@ -217,7 +219,9 @@
    "od": "+105",
    "pr": 0.57,
    "nota": "Vuelve tras 6 partidos por contusión ósea (no ligamento); entrenó completo y 15 días de descanso: menos riesgo de restricción. Traoré y Brown fuera. Con 26+ min sin Traoré: 4+ en 6 de 9 (3,8 ast); con 26+ min en general 15/31. 2025-26 como único base: 4,2 ast, 9,3 potenciales. NOP da a los bases +24 % en asistencias (2º); todos los bases con 30+ min ante NOP dieron 5+; sin Missi y Murphy en duda. Riesgo: Randle arma (10,4 potenciales).",
-   "jug": true
+   "jug": true,
+   "act": 1,
+   "res": "L"
   },
   {
    "f": "2026-11-11",
@@ -231,7 +235,9 @@
    "od": "+100",
    "pr": 0.58,
    "nota": "Sin Chet, J. Williams ni Wallace: 4, 4, 7, 6 y 5 asistencias. Solo ~7 asistencias potenciales por partido, pero sus pases (cortinas con entrega, backdoor a cortadores) son de alta calidad y el conteo de potenciales parece quedarse corto (vs Memphis dio 7 con 5 potenciales). Segundo partido seguido contra Portland.",
-   "jug": true
+   "jug": true,
+   "act": 6,
+   "res": "W"
   },
   {
    "f": "2026-11-11",
@@ -244,7 +250,9 @@
    "ln": 21.5,
    "od": "-120",
    "pr": 0.55,
-   "nota": "22+ en 6 de 10 (media 22,5, 16 tiros). Las casas ponen 22,5 casi 50/50. New Orleans permite muchos puntos en total, pero a los aleros les quita un 7 % ajustado."
+   "nota": "22+ en 6 de 10 (media 22,5, 16 tiros). Las casas ponen 22,5 casi 50/50. New Orleans permite muchos puntos en total, pero a los aleros les quita un 7 % ajustado.",
+   "act": 22,
+   "res": "W"
   },
   {
    "f": "2026-11-11",
