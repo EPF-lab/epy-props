@@ -297,7 +297,9 @@
    "od": "-125",
    "pr": 0.64,
    "nota": "8+ rebotes en 6 seguidos (8, 9, 8, 14, 8, 8), desde que juega con Anthony Davis. Últimos 5 con seguimiento: 26,8 min, 16,4 oportunidades, 9,4 reb (57 %). DET sin Duren da a los pívots +20 % en rebotes (5º); vs DET el 9-nov: 8. Riesgos: segundo de dos días seguidos y DET favorito por 10,5 (paliza = menos minutos).",
-   "jug": true
+   "jug": true,
+   "act": 9,
+   "res": "W"
   },
   {
    "f": "2026-11-12",
@@ -310,7 +312,9 @@
    "ln": 1.5,
    "od": "-143",
    "pr": 0.61,
-   "nota": "Sin Edwards: 2+ en 5 de 7, 5,1 intentos en 34 min, 47 % (racha). DAL da a los SG +20 % en triples (4º)."
+   "nota": "Sin Edwards: 2+ en 5 de 7, 5,1 intentos en 34 min, 47 % (racha). DAL da a los SG +20 % en triples (4º).",
+   "act": 2,
+   "res": "W"
   },
   {
    "f": "2026-11-12",
@@ -323,7 +327,9 @@
    "ln": 3.5,
    "od": "-130",
    "pr": 0.55,
-   "nota": "Minutos 16, 18, 16, 20 desde que volvió (parece tope): proyección 21 (19-23). Potenciales 7, 7, 6, 10 = 0,43 por minuto (0,44 sin Schroder) -> unas 9 en 21 min; convierte ~50 % (los 9 ast del 9-nov fueron con 10 potenciales, conversión de suerte). PHX neutral contra bases (15º en asistencias). Schroder y Miller fuera."
+   "nota": "Minutos 16, 18, 16, 20 desde que volvió (parece tope): proyección 21 (19-23). Potenciales 7, 7, 6, 10 = 0,43 por minuto (0,44 sin Schroder) -> unas 9 en 21 min; convierte ~50 % (los 9 ast del 9-nov fueron con 10 potenciales, conversión de suerte). PHX neutral contra bases (15º en asistencias). Schroder y Miller fuera.",
+   "act": 3,
+   "res": "L"
   },
   {
    "f": "2026-11-12",
@@ -336,7 +342,9 @@
    "ln": 28.5,
    "od": "-110",
    "pr": 0.57,
-   "nota": "Temporada P+R 25,9; con 30+ min 30,0 y 29+ en 5 de 7. Sin Miller 1 partido: 38 vs CLE (26 tiros), también sin Knueppel, Schroder y Diabaté, igual que hoy (Diabaté en duda). PHX da a los pívots +15 % en P+R (3º; puntos +28 %, rebotes neutros) y no tiene a Mark Williams. Riesgo: muestra de 1 partido y línea 2,6 sobre su media."
+   "nota": "Temporada P+R 25,9; con 30+ min 30,0 y 29+ en 5 de 7. Sin Miller 1 partido: 38 vs CLE (26 tiros), también sin Knueppel, Schroder y Diabaté, igual que hoy (Diabaté en duda). PHX da a los pívots +15 % en P+R (3º; puntos +28 %, rebotes neutros) y no tiene a Mark Williams. Riesgo: muestra de 1 partido y línea 2,6 sobre su media.",
+   "act": 24,
+   "res": "L"
   },
   {
    "f": "2026-11-12",
@@ -350,7 +358,9 @@
    "od": "-125",
    "pr": 0.58,
    "nota": "Temporada 17,4 pts; con 30+ min 20+ en 4 de 6. Sin Miller: 25 pts con 26 tiros vs CLE (34 % de uso). Miller libera ~20 tiros. PHX da a los pívots +28 % en puntos (2º) y es floja en spot-up (dato del usuario). Riesgo: tiró 38 % ese día; si baja el volumen a ~18 tiros queda en la línea.",
-   "jug": true
+   "jug": true,
+   "act": 16,
+   "res": "L"
   },
   {
    "f": "2026-11-12",
@@ -363,7 +373,9 @@
    "ln": 11.5,
    "od": "+107",
    "pr": 0.5,
-   "nota": "Media 12,1 (12+ en 5 de 10; inflada por 20 vs CLE). DAL normal contra pívots en rebotes (-6 %, 18º)."
+   "nota": "Media 12,1 (12+ en 5 de 10; inflada por 20 vs CLE). DAL normal contra pívots en rebotes (-6 %, 18º).",
+   "act": 6,
+   "res": "L"
   },
   {
    "f": "2026-11-13",
