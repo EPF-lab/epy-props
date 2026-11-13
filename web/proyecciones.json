@@ -419,6 +419,19 @@
   },
   {
    "f": "2026-11-13",
+   "pl": "Jeremiah Fears",
+   "k": "ast",
+   "m": 6.3,
+   "lo": 5.8,
+   "hi": 6.8,
+   "vs": "Memphis Grizzlies",
+   "ln": 5.5,
+   "od": "-140",
+   "pr": 0.58,
+   "nota": "Sin Murray (tobillo, fuera), tambien fuera Murphy III, Watford y McGowens. Ultimos 3 sin Murray: SAC 29 min 13 ast (11 potenciales), ATL 31 min 7 ast (9), MEM 38 min 7 ast (13): 11 potenciales por partido, 0,34 por minuto. Con Murray (4-11 nov): 8,6 potenciales en 31 min. Proyeccion ~34 min, ~11,5 potenciales, conversion ~0,57. MEM concede 9 % menos asistencias de lo esperado a los armadores (19 de 30, solo 2026-27). El usuario dijo vs Kings, pero ESPN marca vs Memphis."
+  },
+  {
+   "f": "2026-11-13",
    "pl": "Meleek Thomas",
    "k": "pts",
    "m": 12.5,
