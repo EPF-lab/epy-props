@@ -716,6 +716,7 @@ const NUEVA=20261001; // partidos desde esta fecha = temporada 2026-27
 const tempDe=dt=>{const y=Math.floor(dt/10000),m=Math.floor(dt/100)%100,a=m>=10?y:y-1;return a+"-"+String(a+1).slice(2)}; // AAAAMMDD -> "2025-26"
 function detRows(){const d=DT,id=d.x.p[10],h=HIST&&HIST.p[id];if(!h)return null;let rows=h.slice().sort((a,b)=>a[1]-b[1]);
 if(d.se&&d.se!=="all")rows=rows.filter(r=>tempDe(r[1])===d.se);
+if(d.mn)rows=rows.filter(r=>r[5]>=d.mn); // minutos mínimos
 if(d.onlyRival){const ab=D.teams[d.x.op][1];rows=rows.filter(r=>r[3]===ab)}
 if(d.rkR!=="all"){const q=d.rkR.split("-").map(Number);rows=rows.filter(r=>{const k=rkOf(r[3],d.x.p[3],d.rkMk);return k!=null&&k>=q[0]&&k<=q[1]})}
 if(d.mate&&HIST.p[d.mate]){const win={};HIST.p[d.mate].forEach(r=>{const w=win[r[2]]=win[r[2]]||{lo:r[1],hi:r[1],g:new Set()};w.lo=Math.min(w.lo,r[1]);w.hi=Math.max(w.hi,r[1]);w.g.add(r[0])});
@@ -746,6 +747,7 @@ const rk=MK[k]?rank(x.op,pos,MK[k].i):null,f=[],B=BASE(p),pj1=s=>B[s]!=null?B[s]
 if(d.onlyRival)f.push("contra "+x.op);
 if(d.mate){const m=PL.find(q=>String(q[10])===String(d.mate));if(m)f.push((d.mw==="sin"?"sin ":"con ")+m[0])}
 if(d.rkR!=="all")f.push("rivales #"+d.rkR.replace("-","–")+" en "+(MK[d.rkMk]?MK[d.rkMk].l:d.rkMk)+" permitidas");
+if(d.mn)f.push(d.mn+"+ minutos");
 f.push(d.N==="all"?(f.length?"todos los partidos":"todos sus partidos"):"últimos "+d.N);
 const ys=[...new Set(rows.map(r=>tempDe(r[1])))].sort();f.push(ys.length>1?"temporadas "+(ys.length>2?ys.slice(0,-1).join(", ")+" y "+ys[ys.length-1]:ys.join(" y ")):"temporada "+ys[0]);
 const ctx=f.join(" · ");
@@ -767,7 +769,7 @@ if(!HIST.p[d.x.p[10]]){el.innerHTML='<p class="hint">Este jugador no está en el
 const rows=detRows(),k=d.stat,vals=rows.map(r=>hv(r,k)),n=vals.length;d.cur=rows;
 const avg=n?vals.reduce((a,b)=>a+b,0)/n:0,so=vals.slice().sort((a,b)=>a-b),med=n?(n%2?so[(n-1)/2]:(so[n/2-1]+so[n/2])/2):0;
 if(d.altAuto){const base=k===d.projK&&d.proj!=null?d.proj:avg;d.alt=Math.max(.5,Math.round(base*2)/2)}
-const L=d.alt,hs=hits(vals,L),side=hs.o>=hs.u?"Over":"Under",cn=side==="Over"?hs.o:hs.u,cls=side==="Over"?"pos":"neg",flt=d.onlyRival||d.mate||d.rkR!=="all";
+const L=d.alt,hs=hits(vals,L),side=hs.o>=hs.u?"Over":"Under",cn=side==="Over"?hs.o:hs.u,cls=side==="Over"?"pos":"neg",flt=d.onlyRival||d.mate||d.rkR!=="all"||d.mn;
 $("#dsm").innerHTML=n?`El <b class="${cls}">${side}</b> se cumplió <b class="${cls}">${cn}/${n}</b> en ${flt?n+" partidos con los filtros elegidos":(d.N==="all"?"los "+n+" partidos":"los últimos "+n+" partidos")} con una línea de <b>${f1(L)}</b>.`:"";
 const sl=$("#dAl");sl.max=Math.max(10,Math.ceil(Math.max(...vals,L,1)*1.4));sl.value=L;$("#dAv").textContent=f1(L);
 $("#dAw").innerHTML=n?`Over ${hs.o}/${n} (${pct(hs.o/n)})<br>Under ${hs.u}/${n} (${pct(hs.u/n)})${hs.p?"<br>Push "+hs.p:""}`:"";
@@ -783,7 +785,7 @@ if(s!==k){$("#dSt").value=s;DT.stat=s;const an=anaDe(S.p[0],s,op);DT.proj=an?an.
 const L=rcNum(card.querySelector(".ln").value);if(L!=null){$("#dLn").value=card.querySelector(".ln").value;$("#dOo").value=card.querySelector(".oo").value;$("#dOu").value=card.querySelector(".ou").value;DT.alt=L;DT.altAuto=false}
 detRender()}
 function openDet(x){const p=x.p,m=MK[x.k],pos=p[3],o=x.side==="O",v=D.dvp[x.op][pos][m.i],mn=Object.values(D.dvp).reduce((a,t)=>a+t[pos][m.i],0)/30,c=D.teams[x.op][0],base=BASE(p)[x.k],pj=base!=null?base*factor(x.op,pos,x.k).f:null;
-const an=anaDe(p[0],x.k,x.op);DT={x,N:10,se:"all",onlyRival:0,stat:x.k,mate:"",mw:"con",rkMk:x.k,rkR:"all",proj:an?an.m:pj,projK:x.k,alt:null,altAuto:true};
+const an=anaDe(p[0],x.k,x.op);DT={x,N:10,se:"all",onlyRival:0,stat:x.k,mate:"",mw:"con",rkMk:x.k,rkR:"all",mn:0,proj:an?an.m:pj,projK:x.k,alt:null,altAuto:true};
 const tms=new Set(HIST&&HIST.p[p[10]]?HIST.p[p[10]].map(r=>r[2]):[p[2]]),mates=[];
 if(HIST)PL.forEach(q=>{if(q[0]===p[0]||!q[10]||!HIST.p[q[10]])return;const cnt=HIST.p[q[10]].filter(r=>tms.has(r[2])).length;if(cnt>=5)mates.push([q,cnt])});mates.sort((a,b)=>b[1]-a[1]);
 const mkr=Object.keys(MK).map(k=>{const i=MK[k].i,rk=rank(x.op,pos,i);return`<div class="mkr"><span>${capz(MK[k].l)}</span><span><b>${f2(D.dvp[x.op][pos][i])}</b> <span class="chip ${rk<=5?"g":rk>=26?"r":""}">#${rk}</span></span></div>`}).join("");
@@ -798,6 +800,7 @@ ${x.calc?"":`<div class="acts" style="margin:0"><button class="btn" id="dfol" ty
 <p class="dsum" id="dsm"></p><div id="dtc"></div>
 <div class="dpn"><div class="pnl"><div class="pl">Línea de la casa</div><div class="pr3"><label>Línea<input id="dLn" inputmode="decimal" placeholder="31,5"></label><label>Cuota over<input id="dOo" inputmode="decimal" placeholder="1,93"></label><label>Cuota under<input id="dOu" inputmode="decimal" placeholder="1,82"></label></div><div class="pv" id="dHw"></div></div>
 <div class="pnl"><div class="pl">Línea alternativa</div><div class="sl3"><button class="mini" id="dAm" type="button" aria-label="Bajar">◂</button><input type="range" id="dAl" min="0" max="50" step="0.5" value="0"><button class="mini" id="dAp" type="button" aria-label="Subir">▸</button><b id="dAv"></b></div><div class="pv" id="dAw"></div></div></div>
+<div class="pnl" style="margin-top:10px"><div class="pl">Minutos mínimos</div><div class="sl3"><button class="mini" id="dMm" type="button" aria-label="Menos minutos">◂</button><input type="range" id="dMn" min="0" max="48" step="1" value="0" aria-label="Minutos mínimos"><button class="mini" id="dMp" type="button" aria-label="Más minutos">▸</button><b id="dMv">Todos</b></div><div class="pv">Solo cuenta los partidos en que jugó al menos estos minutos (48 = partido completo).</div></div>
 <details class="mf" open><summary>Más filtros</summary><div class="fg3"><label>Estadística<select id="dSt">${Object.keys(HK).map(k=>so(k,HK[k][0])).join("")}</select></label><label>Rival<select id="dRv">${so(0,"Todos los rivales")}${so(1,"Solo vs "+x.op)}</select></label><span></span>
 <label>Compañero<select id="dMt">${so("","Sin filtro")}${mates.map(a=>so(a[0][10],a[0][0]+" ("+a[1]+" partidos juntos)")).join("")}</select></label><label>Con o sin él<select id="dMw">${so("con","Jugó con él")}${so("sin","Jugó sin él")}</select></label><span></span>
 <label>Ranking del rival en<select id="dRm">${Object.keys(MK).map(k=>so(k,capz(MK[k].l)+" permitidas")).join("")}</select></label><label>Puesto del rival<select id="dRr">${so("all","Todos")}${so("1-5","1 a 5 (los que más permiten)")}${so("1-10","1 a 10")}${so("11-20","11 a 20")}${so("21-30","21 a 30")}${so("26-30","26 a 30 (los que menos permiten)")}</select></label></div></details>`;
@@ -807,6 +810,8 @@ const upd=()=>{const d=DT,old=d.stat;d.stat=$("#dSt").value;if(d.stat!==old){d.a
 ["#dLn","#dOo","#dOu"].forEach(q=>$(q).oninput=()=>{const v=rcNum($("#dLn").value);if(v!=null){DT.alt=v;DT.altAuto=false}detRender()});
 const mv=dl=>{DT.alt=Math.max(.5,+(DT.alt+dl).toFixed(1));DT.altAuto=false;detRender()};
 $("#dAl").oninput=e=>{DT.alt=+e.target.value;DT.altAuto=false;detRender()};$("#dAm").onclick=()=>mv(-.5);$("#dAp").onclick=()=>mv(.5);
+const mnS=v=>{DT.mn=Math.max(0,Math.min(48,v));$("#dMn").value=DT.mn;$("#dMv").textContent=DT.mn?DT.mn+"+ min":"Todos";detRender()};
+$("#dMn").oninput=e=>mnS(+e.target.value);$("#dMm").onclick=()=>mnS(DT.mn-1);$("#dMp").onclick=()=>mnS(DT.mn+1);
 $("#dCap").onclick=capOpen;
 $("#dSe").onclick=e=>{const b=e.target.closest("button");if(!b)return;DT.se=b.dataset.s;$$("#dSe button").forEach(z=>z.classList.toggle("on",z===b));detRender()};
 $("#dN").onclick=e=>{const b=e.target.closest("button");if(!b)return;DT.N=b.dataset.n==="all"?"all":+b.dataset.n;$$("#dN button").forEach(z=>z.classList.toggle("on",z===b));detRender()};
