@@ -515,6 +515,19 @@
   },
   {
    "f": "2026-11-14",
+   "pl": "Jeremiah Fears",
+   "k": "ast",
+   "m": 5.5,
+   "lo": 5.0,
+   "hi": 6.0,
+   "vs": "Denver Nuggets",
+   "ln": 5.5,
+   "od": "-145",
+   "pr": 0.47,
+   "nota": "Sin Murray, 4 partidos: 11,5 potenciales (11, 9, 13, 13) y 13, 7, 7, 7 ast. Ayer vs MEM 13 potenciales y 7 ast en 34 min; volvio Poole (6 potenciales en 21 min). DEN: 26o en asistencias a armadores en temporada (-15 %), 23o desde 1-nov (-14 %) (mi ajuste, solo 2026-27). Vs DEN en oct (con Murray, desde el banco): 2 y 3 ast. DEN -12,5 (riesgo de paliza), NOP en back-to-back."
+  },
+  {
+   "f": "2026-11-14",
    "pl": "Meleek Thomas",
    "k": "pts",
    "m": 12.3,
