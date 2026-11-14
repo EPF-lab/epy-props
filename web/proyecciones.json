@@ -388,7 +388,9 @@
    "ln": 4.5,
    "od": "-140",
    "pr": 0.6,
-   "nota": "Temporada 5,9 ast y 10,6 potenciales en 34 min; vs POR el 23-oct: 10 ast con 17 potenciales. POR da a los pívots +24 % en asistencias (3º) y convierten 66 %. Contra: molestia en la rodilla (falto 1 partido; volvió con 24 min, 9 potenciales); últimos 4 antes de eso bajó a 7,3 potenciales; POR favorito por 10,5."
+   "nota": "Temporada 5,9 ast y 10,6 potenciales en 34 min; vs POR el 23-oct: 10 ast con 17 potenciales. POR da a los pívots +24 % en asistencias (3º) y convierten 66 %. Contra: molestia en la rodilla (falto 1 partido; volvió con 24 min, 9 potenciales); últimos 4 antes de eso bajó a 7,3 potenciales; POR favorito por 10,5.",
+   "act": 5,
+   "res": "W"
   },
   {
    "f": "2026-11-13",
@@ -401,7 +403,9 @@
    "ln": 3.5,
    "od": "-165",
    "pr": 0.62,
-   "nota": "Sin Chet, J. Williams ni Wallace: 4+ en 6 seguidos (4, 4, 7, 6, 5, 6); últimos 4: 7,3 potenciales y 6 ast en 25,5 min (82 % de conversión, alta). Vs LAC el 25-oct: 1 ast con 3 potenciales (con Chet y JDub); historial vs LAC 6, 6, 3, 1, 1. LAC da a los pívots +11,5 % en asistencias (9º). Ajay Mitchell en duda."
+   "nota": "Sin Chet, J. Williams ni Wallace: 4+ en 6 seguidos (4, 4, 7, 6, 5, 6); últimos 4: 7,3 potenciales y 6 ast en 25,5 min (82 % de conversión, alta). Vs LAC el 25-oct: 1 ast con 3 potenciales (con Chet y JDub); historial vs LAC 6, 6, 3, 1, 1. LAC da a los pívots +11,5 % en asistencias (9º). Ajay Mitchell en duda.",
+   "act": 6,
+   "res": "W"
   },
   {
    "f": "2026-11-13",
@@ -415,7 +419,9 @@
    "od": "-120",
    "pr": 0.62,
    "nota": "Temporada 16,1 pts con 12,1 tiros en 28 min; 14+ en 9 de 12 (fallos 8, 8, 4). Ahora sale del banco (23-31 min). ORL contra SF: toda la temporada neutral (15º, mi ajuste), pero en los últimos partidos los SF le superan su media (Brooks 24 vs 13,6 esperado, Bailey 18 vs 12,9, Sensabaugh 19 vs 14,8; tabla del usuario: 5 seguidos sobre su línea). Sin Banchero, Suggs ni Isaac. Riesgo: ORL favorito por 9,5.",
-   "jug": true
+   "jug": true,
+   "act": 22,
+   "res": "W"
   },
   {
    "f": "2026-11-13",
@@ -429,7 +435,9 @@
    "od": "-140",
    "pr": 0.6,
    "nota": "Sin Murray, Murphy III, Watford ni McGowens (Mathurin duda). Ultimos 3 sin Murray: 11 potenciales/partido (SAC 11, ATL 9, MEM 13), 9 ast. Con Murray 8,6 pot en 31 min. MEM sin Edey ni Post: sin protector de aro, mejor conversion de potenciales. Ritmo: MEM 6o y NOP 5o en posesiones de rival; total 235,5; ultimo duelo 134-135 (Fears 7 ast/13 pot en 38 min, con Edey 19 min). MEM vs armadores: neutral (mi ajuste 19o, -9 %; dato usuario 15o). Proyeccion ~34 min.",
-   "jug": true
+   "jug": true,
+   "act": 7,
+   "res": "W"
   },
   {
    "f": "2026-11-13",
@@ -442,7 +450,9 @@
    "ln": 10.5,
    "od": "-110",
    "pr": 0.63,
-   "nota": "9 partidos: 16, 10, 13, 17, 9, 12, 9, 18, 14 (media 13,1; 11+ en 6 de 9; 10+ en 7 de 9) en 23 min. Tira 48 % de tres (racha, debería bajar). Hoy sin Mobley ni Merrill: más tiros y minutos. MIA normal contra SG (14º), total 236,5 (ritmo alto). Alternativa +9.5 a -150: 69 %. Calificar a mano (no está en la lista de jugadores de la página)."
+   "nota": "9 partidos: 16, 10, 13, 17, 9, 12, 9, 18, 14 (media 13,1; 11+ en 6 de 9; 10+ en 7 de 9) en 23 min. Tira 48 % de tres (racha, debería bajar). Hoy sin Mobley ni Merrill: más tiros y minutos. MIA normal contra SG (14º), total 236,5 (ritmo alto). Alternativa +9.5 a -150: 69 %. Calificar a mano (no está en la lista de jugadores de la página).",
+   "act": 12,
+   "res": "W"
   },
   {
    "f": "2026-11-13",
@@ -454,7 +464,9 @@
    "vs": "Memphis Grizzlies",
    "ln": 4.5,
    "pr": 0.35,
-   "nota": "JUGADA ANALIZADA: MENOS de 4.5 (prob. del under ~65 %). Temporada 3,4 reb, 4 o menos en 8 de 12; 7,5 oportunidades por partido. Sin Murphy: 4, 0 y 1 reb (10, 0 y 2 oportunidades). MEM neutral contra SF en rebotes (16º). Riesgos: MEM sin Edey ni Post y NOP sin Missi (más rebotes libres); Murphy en duda."
+   "nota": "JUGADA ANALIZADA: MENOS de 4.5 (prob. del under ~65 %). Temporada 3,4 reb, 4 o menos en 8 de 12; 7,5 oportunidades por partido. Sin Murphy: 4, 0 y 1 reb (10, 0 y 2 oportunidades). MEM neutral contra SF en rebotes (16º). Riesgos: MEM sin Edey ni Post y NOP sin Missi (más rebotes libres); Murphy en duda.",
+   "act": 10,
+   "res": "W"
   },
   {
    "f": "2026-11-13",
@@ -467,7 +479,9 @@
    "ln": 21.5,
    "od": "-120",
    "pr": 0.51,
-   "nota": "Temporada 21,7 pts en 32 min (22+ en 7 de 12). Sin Curry: 26 y 37 (2 partidos); on/off del usuario: +6 % pts/36, uso +2,5. Curry fuera 2 semanas (desgarro oblicuo). SAS de las defensas más duras con aleros (SF -13 %, 29º; PF -4 %, 22º): Brooks 7, Bridges 7, Camara 4 recientemente. SAS favorito por 11,5 (riesgo de paliza)."
+   "nota": "Temporada 21,7 pts en 32 min (22+ en 7 de 12). Sin Curry: 26 y 37 (2 partidos); on/off del usuario: +6 % pts/36, uso +2,5. Curry fuera 2 semanas (desgarro oblicuo). SAS de las defensas más duras con aleros (SF -13 %, 29º; PF -4 %, 22º): Brooks 7, Bridges 7, Camara 4 recientemente. SAS favorito por 11,5 (riesgo de paliza).",
+   "act": 3,
+   "res": "L"
   },
   {
    "f": "2026-11-13",
@@ -481,7 +495,9 @@
    "od": "+115",
    "pr": 0.58,
    "nota": "Sin Curry (9,4 intentos de triple en 26,5 min esta temporada) GSW no tira menos (37,5 intentos vs 35): los reparte y Lendeborg se llevó la mayor parte (11 y 11, su media es 5,7); 6 de 11 en ambos. Brandon Williams también fuera. Proyección ~8 intentos (SAS quita intentos a los aleros: PF -24 %, SF -12 %; pero según el usuario concede mucho en pull-up) al 40 %. SAS favorito por 11,5.",
-   "jug": true
+   "jug": true,
+   "act": 0,
+   "res": "L"
   }
  ]
 }
