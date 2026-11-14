@@ -539,6 +539,19 @@
    "pr": 0.7,
    "nota": "2+ triples en 9 de 10 (solo fallo 0 de 1 vs WSH). 26 de 55 (47 %), 5,5 intentos en 22 min; proyeccion ~5,5 intentos al 40 % (regresado). DAL: 12o en intentos de triple permitidos (+2 %), 24o en metidos (-6 %) (mi ajuste, solo 2026-27). Back-to-back CLE, minutos 18-27. Ajuste por correlacion (usuario): sus puntos dependen de los triples; en sus 7 partidos de 11+ pts metio 2+ triples. Triples sube a 70 %.",
    "jug": true
+  },
+  {
+   "f": "2026-11-14",
+   "pl": "Naji Marshall",
+   "k": "ast",
+   "m": 3.8,
+   "lo": 3.4,
+   "hi": 4.2,
+   "vs": "Cleveland Cavaliers",
+   "ln": 2.5,
+   "od": "-114",
+   "pr": 0.7,
+   "nota": "Temporada 4,4 ast en 24,6 min; 7,0 potenciales por partido (NBA.com), conversion 63 %. Con 16+ min: 3+ en 7 de 8 (verificado). Ultimos 4: 3,25 ast y 5,5 potenciales en 22 min (2, 2, 4, 5); mas manos con Caleb Martin y Clayton Jr. CLE: 12o en asistencias a armadores en temporada (-2 %), 7o desde 1-nov (+6 %) (mi ajuste, solo 2026-27); dato tweet: 8o general, 9o a la posicion. CLE en back-to-back. Christie duda."
   }
  ]
 }
