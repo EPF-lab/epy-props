@@ -15,7 +15,7 @@ import diario as D, modelo as M  # noqa: E402
 PAGINA = os.path.join(M.ROOT, "web", "index.html")
 MINMIN, MINPJ = 20, 2
 # posición confirmada a mano (las demás se deducen y quedan "por confirmar", fuera de PICKS)
-POS = {"Fred VanVleet": "PG", "Damian Lillard": "PG", "Kyrie Irving": "PG", "Cameron Boozer": "PF"}
+POS = {"Fred VanVleet": "PG", "Damian Lillard": "PG", "Kyrie Irving": "PG", "Cameron Boozer": "PF", "Meleek Thomas": "SG"}
 TEMPS = {2025: "2024-25", 2026: "2025-26", 2027: "2026-27"}
 
 def get(url):
