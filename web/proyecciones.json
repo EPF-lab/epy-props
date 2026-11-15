@@ -631,6 +631,32 @@
   },
   {
    "f": "2026-11-15",
+   "pl": "Sandro Mamukelashvili",
+   "k": "pts",
+   "m": 12.0,
+   "lo": 11.0,
+   "hi": 13.0,
+   "vs": "Phoenix Suns",
+   "ln": 10.5,
+   "od": "-110",
+   "pr": 0.6,
+   "nota": "Temporada 10,8 pts en 23,7 min; 11+ en 6 de 13. Ultimos 2: 23 y 23 (5/8 triples en ambos), sin Grimes en los dos y sin Reaves en ATL (32 min); en MIL Reaves jugo 25 min. Hoy Reaves fuera, Sexton y Thiero duda; Grimes no figura en el reporte de ESPN (sin verificar). Proyeccion ~27 min. PHO vs PF 25o (-8 %), vs PF+C 12o (+4 %) (mi ajuste, solo 2026-27). LAL -2,5."
+  },
+  {
+   "f": "2026-11-15",
+   "pl": "Sandro Mamukelashvili",
+   "k": "tpm",
+   "m": 1.6,
+   "lo": 1.4,
+   "hi": 1.9,
+   "vs": "Phoenix Suns",
+   "ln": 1.5,
+   "od": "-105",
+   "pr": 0.47,
+   "nota": "Temporada 21 de 51 (41 %), 3,9 intentos; 2+ en 5 de 13. Ultimos 2: 8 intentos y 5 metidos en cada uno (sin Grimes/Reaves). PHO quita triples a PF+C: 24o en intentos (-10 %), 25o desde 1-nov (-18 %) (mi ajuste, solo 2026-27). Proyeccion ~27 min, ~4,4 intentos al 37 %."
+  },
+  {
+   "f": "2026-11-15",
    "pl": "Sion James",
    "k": "ast",
    "m": 3.0,
