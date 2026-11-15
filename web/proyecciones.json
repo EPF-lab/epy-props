@@ -672,14 +672,14 @@
    "f": "2026-11-15",
    "pl": "Naji Marshall",
    "k": "ast",
-   "m": 3.5,
+   "m": 4.1,
    "lo": 2.0,
-   "hi": 5.0,
+   "hi": 6.0,
    "vs": "Boston Celtics",
    "ln": 2.5,
    "od": "-148",
-   "pr": 0.65,
-   "nota": "3+ ast en 8 de 10; 0.18 ast/min. BOS 25o en ast permitidas a armadores (ajuste -10%). BOS -14.5, total 218.5: riesgo de paliza (vs BRK 15 min, 2 ast). DAL en segundo partido de dos noches. Kyrie y Aldama duda, Christie dudoso: si Kyrie no juega, mas balon para Marshall."
+   "pr": 0.7,
+   "nota": "Supuesto: Kyrie no juega (dudoso, descanso tras jugar anoche). Sin Kyrie: 5 ast (SAS, 21 min) y 7 (SAC, 24 min), 0.27 ast/min vs 0.16 con el; solo 2 partidos. 3+ ast en 8 de 10. BOS 25o en ast a armadores (-10%). BOS -14.5, total 218.5: riesgo de paliza (vs BRK 15 min, 2 ast). DAL segundo partido en dos noches."
   },
   {
    "f": "2026-11-15",
