@@ -830,6 +830,31 @@
   {
    "f": "2026-11-16",
    "pl": "Yaxel Lendeborg",
+   "k": "pr",
+   "m": 32.7,
+   "lo": 26.0,
+   "hi": 39.0,
+   "vs": "New Orleans Pelicans",
+   "ln": 29.5,
+   "pr": 0.65,
+   "nota": "Linea 29.5 supuesta (cuota sin confirmar). P+R 30+ en 8 de 13; sin Curry 35 y 41. 7+ reb en 9 de 13 (0.235 reb/min, ~8.4 con NOP +7-11%). Mas estable que los puntos solos."
+  },
+  {
+   "f": "2026-11-16",
+   "pl": "Yaxel Lendeborg",
+   "k": "pts",
+   "m": 24.3,
+   "lo": 18.0,
+   "hi": 30.0,
+   "vs": "New Orleans Pelicans",
+   "ln": 22.5,
+   "od": "-113",
+   "pr": 0.59,
+   "nota": "Sin Curry: 26 (PHO) y 37 (LAC), 0.90 pts/min vs 0.64 en la temporada (mezclado ~0.72, 33 min). 23+ en 7 de 13. NOP 4o en pts a PF ajustado (+11%). Viene de 3 pts (1 de 13) en la paliza vs SAS; dijo que sera mas agresivo. GS -3.5."
+  },
+  {
+   "f": "2026-11-16",
+   "pl": "Yaxel Lendeborg",
    "k": "tpm",
    "m": 2.8,
    "lo": 1.0,
