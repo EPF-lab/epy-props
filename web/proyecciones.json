@@ -829,6 +829,19 @@
   },
   {
    "f": "2026-11-16",
+   "pl": "Meleek Thomas",
+   "k": "tpm",
+   "m": 2.4,
+   "lo": 1.0,
+   "hi": 4.0,
+   "vs": "Chicago Bulls",
+   "ln": 2.5,
+   "od": "+131",
+   "pr": 0.45,
+   "nota": "3+ en 7 de 11; 0.25 intentos/min (~6 en 24-26 min sin Tyson ni Merrill); 45% (29 de 64) encogido a ~38%. CHI 29o en triples a SG ajustado (-21%), 19o a guardias/aleros. Modelo 37%, historial 64%: mezcla ~45%. Total 241.5, CLE -8.5."
+  },
+  {
+   "f": "2026-11-16",
    "pl": "Tristan Da Silva",
    "k": "tpm",
    "m": 3.1,
