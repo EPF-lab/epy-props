@@ -862,6 +862,19 @@
   },
   {
    "f": "2026-11-16",
+   "pl": "VJ Edgecombe",
+   "k": "reb",
+   "m": 6.4,
+   "lo": 4.0,
+   "hi": 9.0,
+   "vs": "Brooklyn Nets",
+   "ln": 5.5,
+   "od": "-120",
+   "pr": 0.56,
+   "nota": "Sin LeBron: 13 (MIL), 8 (CHA), 8 (TOR) y 4 (IND 15-nov, que el tweet no cuenta): 3 de 4. 6+ en 8 de 13 en la temporada. 0.25 reb/min sin LeBron vs 0.19 con el (mezcla ~0.21 x 33 min). BKN 28o en reb a SG ajustado (-18%), 26o a guardias/aleros. Embiid duda. Doble-doble +980 ~10%, sin valor claro."
+  },
+  {
+   "f": "2026-11-16",
    "pl": "Yaxel Lendeborg",
    "k": "pa",
    "m": 28.6,
