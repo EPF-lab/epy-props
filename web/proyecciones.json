@@ -861,7 +861,10 @@
    "lo": 10.0,
    "hi": 19.0,
    "vs": "Chicago Bulls",
-   "nota": "Sin Tyson (dudoso), Merrill, Mobley ni Tomlin; Watson duda. Ultimos 3: 15 (23 min), 22 (27), 24 (34, sin Mitchell/Garland/Hunter/Strus en el b2b). Con titulares: ~0.55 pts/min x ~27 min. CHI 2o en pts a guardias/aleros ajustado (+9%), neutral a SG. Total 241.5, CLE -8.5."
+   "ln": 10.5,
+   "od": "-110",
+   "pr": 0.72,
+   "nota": "Sin Tyson, Merrill, Mobley ni Tomlin. 0.55 pts/min x ~27 min. CHI 2o en pts a guardias/aleros (+9%). Total 241.5, CLE -8.5. EV +37% (13+ a +140: 60%, EV +45%) sospechoso: la casa parece esperar ~20-22 min. Con 20 min EV ~+2%."
   },
   {
    "f": "2026-11-16",
