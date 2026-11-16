@@ -777,6 +777,19 @@
   },
   {
    "f": "2026-11-16",
+   "pl": "Franz Wagner",
+   "k": "ast",
+   "m": 7.8,
+   "lo": 5.0,
+   "hi": 11.0,
+   "vs": "Boston Celtics",
+   "ln": 6.5,
+   "od": "-118",
+   "pr": 0.61,
+   "nota": "Cuota supuesta -118 (usuario escribio -18). Sin Banchero (desde 25-oct): 9, 5, 11, 12, 6, 15, 11, 7, 1, 12 (7+ en 7 de 10). Potenciales NBA.com: temporada 174 pot/99 ast (14.5 por partido, 57%); vs BOS 1-nov 20 pot/12 ast; 13-nov 15 pot/12 ast con Suggs de vuelta. BOS 25o en ast a armadores ajustado (-10%), pero en segundo partido de dos noches. BOS -8.5, total 212.5 (bajo)."
+  },
+  {
+   "f": "2026-11-16",
    "pl": "Jeremiah Fears",
    "k": "ast",
    "m": 6.9,
@@ -800,6 +813,19 @@
    "od": "-140",
    "pr": 0.63,
    "nota": "2+ triples en 4 de 8 (4 de 6 sin los 10 min vs GSW y la paliza en POR); 5+ intentos en 6 de 8. 0.28 intentos/min, 40% este año vs 1.65 triples en 24 min el pasado (mezcla ~0.09 triples/min). DEN 3o en intentos de triple permitidos y 6o en triples ajustados (+5 a +9%). Minutos irregulares (10-31); PHX en segundo partido de dos noches tras 31 min ayer. DEN -9.5."
+  },
+  {
+   "f": "2026-11-16",
+   "pl": "Tristan Da Silva",
+   "k": "tpm",
+   "m": 3.1,
+   "lo": 1.0,
+   "hi": 5.0,
+   "vs": "Boston Celtics",
+   "ln": 2.5,
+   "od": "+100",
+   "pr": 0.57,
+   "nota": "3+ triples en 6 de 10; 8.8 intentos por partido (7+ en todos salvo los 2 vs TOR), 38.6%. Vs BOS 1-nov: 5 de 8. BOS 4o en triples permitidos ajustado (+8%), segundo partido de dos noches. Correlacionada con las ast de Wagner."
   }
  ]
 }
