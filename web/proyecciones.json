@@ -588,7 +588,9 @@
    "ln": 24.5,
    "od": "+300",
    "pr": 0.27,
-   "nota": "25+ PRA en 3 de 13 (30, 26, 30). Necesita noche grande de tiro; alta varianza."
+   "nota": "25+ PRA en 3 de 13 (30, 26, 30). Necesita noche grande de tiro; alta varianza.",
+   "act": 13,
+   "res": "L"
   },
   {
    "f": "2026-11-15",
@@ -601,7 +603,9 @@
    "ln": 11.5,
    "od": "-140",
    "pr": 0.63,
-   "nota": "12+ en 9 de 13; 26 min de media. P(pts) ~ P(3+ triples) + 25% del resto. MIL 2o en puntos a SG (FanDuel), 13o ajustado."
+   "nota": "12+ en 9 de 13; 26 min de media. P(pts) ~ P(3+ triples) + 25% del resto. MIL 2o en puntos a SG (FanDuel), 13o ajustado.",
+   "act": 7,
+   "res": "L"
   },
   {
    "f": "2026-11-15",
@@ -615,7 +619,9 @@
    "od": "+148",
    "pr": 0.51,
    "nota": "6.9 triples intentados por partido y 41.6% en 2026-27 (encogido a ~38%); 3+ triples en 8 de 13. Sus 12+ puntos dependen de los triples: 8 de sus 9 noches de 12+ vinieron con 3+ triples (casi no va a la linea: 11 libres en 13 partidos). MIL 12o en triples permitidos a escoltas ajustado (5o a guardias/aleros, +8%); FanDuel 7o a SG. ATL -8.5, total 233.5; Flemings out.",
-   "jug": true
+   "jug": true,
+   "act": 1,
+   "res": "L"
   },
   {
    "f": "2026-11-15",
@@ -629,7 +635,9 @@
    "od": "-175",
    "pr": 0.77,
    "nota": "2+ triples en 11 de 13 partidos (solo fallo con 1 ante IND y CHI); modelo 73%, mezcla ~77%. 6.9 triples intentados por partido y 41.6% en 2026-27 (encogido a ~38%); 3+ triples en 8 de 13. Sus 12+ puntos dependen de los triples: 8 de sus 9 noches de 12+ vinieron con 3+ triples (casi no va a la linea: 11 libres en 13 partidos). MIL 12o en triples permitidos a escoltas ajustado (5o a guardias/aleros, +8%); FanDuel 7o a SG. ATL -8.5, total 233.5; Flemings out.",
-   "jug": true
+   "jug": true,
+   "act": 1,
+   "res": "L"
   },
   {
    "f": "2026-11-15",
@@ -642,7 +650,9 @@
    "ln": 2.5,
    "od": "+110",
    "pr": 0.48,
-   "nota": "Embiid fuera. Temporada: 3+ triples en 6 de 13; con 20+ min 5 de 8; 32 de 75 (43 %), 0,25 intentos por min. Sin Embiid (2 partidos): 27 min 1/4 y 25 min 5/9. Ultimos 5 promedia 17 min (10-23). Proyeccion ~24 min, ~6,3 intentos al 39 %. IND: 6o en intentos de triple permitidos (+5 %) y 3o en metidos (+10 %) (mi ajuste, solo 2026-27); tweet: 21o en intentos y 24o a bases. Vs IND 28-oct: 6/10 en 27 min. PHI -7,5."
+   "nota": "Embiid fuera. Temporada: 3+ triples en 6 de 13; con 20+ min 5 de 8; 32 de 75 (43 %), 0,25 intentos por min. Sin Embiid (2 partidos): 27 min 1/4 y 25 min 5/9. Ultimos 5 promedia 17 min (10-23). Proyeccion ~24 min, ~6,3 intentos al 39 %. IND: 6o en intentos de triple permitidos (+5 %) y 3o en metidos (+10 %) (mi ajuste, solo 2026-27); tweet: 21o en intentos y 24o a bases. Vs IND 28-oct: 6/10 en 27 min. PHI -7,5.",
+   "act": 1,
+   "res": "L"
   },
   {
    "f": "2026-11-15",
@@ -655,7 +665,9 @@
    "ln": 2.5,
    "od": "+100",
    "pr": 0.47,
-   "nota": "Sin Markkanen ni JJJ. Ultimos 5: 3+ en 4 (3, 4, 4, 2, 4), 8,8 intentos y 39 %, 33 min. Temporada 3+ en 7 de 13, 29 de 81 (36 %). Vs SAS: 3/8 y 2/4. SAS vs bases: 27o en intentos de triple permitidos (-8 %), 15o en metidos (neutral) (mi ajuste, solo 2026-27): quita volumen. SAS -16,5 (riesgo de paliza, como Lendeborg 13-nov) y UTA en back-to-back. Proyeccion ~30 min, ~6,9 intentos al 37 %."
+   "nota": "Sin Markkanen ni JJJ. Ultimos 5: 3+ en 4 (3, 4, 4, 2, 4), 8,8 intentos y 39 %, 33 min. Temporada 3+ en 7 de 13, 29 de 81 (36 %). Vs SAS: 3/8 y 2/4. SAS vs bases: 27o en intentos de triple permitidos (-8 %), 15o en metidos (neutral) (mi ajuste, solo 2026-27): quita volumen. SAS -16,5 (riesgo de paliza, como Lendeborg 13-nov) y UTA en back-to-back. Proyeccion ~30 min, ~6,9 intentos al 37 %.",
+   "act": 3,
+   "res": "W"
   },
   {
    "f": "2026-11-15",
@@ -668,7 +680,9 @@
    "ln": 24.5,
    "od": "-125",
    "pr": 0.6,
-   "nota": "Temporada 25,5 pts en 34 min; 25+ en 6 de 11. Ultimos 7: 27,4 (5 de 7 sobre 24,5). LAL vs SG: 9o que mas permite (+5 %), 8o desde 1-nov (+11 %) (mi ajuste, solo 2026-27); sin Reaves, Sexton duda. Vs LAL en la era Luka: 19 (40 min), 27 y 21 (27 min); antes 23, 33, 26. LAL -2,5, total 228,5 (partido parejo). El pique con Luka no se puede medir."
+   "nota": "Temporada 25,5 pts en 34 min; 25+ en 6 de 11. Ultimos 7: 27,4 (5 de 7 sobre 24,5). LAL vs SG: 9o que mas permite (+5 %), 8o desde 1-nov (+11 %) (mi ajuste, solo 2026-27); sin Reaves, Sexton duda. Vs LAL en la era Luka: 19 (40 min), 27 y 21 (27 min); antes 23, 33, 26. LAL -2,5, total 228,5 (partido parejo). El pique con Luka no se puede medir.",
+   "act": 17,
+   "res": "L"
   },
   {
    "f": "2026-11-15",
@@ -681,7 +695,9 @@
    "ln": 4.5,
    "od": "+120",
    "pr": 0.5,
-   "nota": "Sin Holmgren, J. Williams ni Wallace (Ajay Mitchell duda). Ultimos 5: 7, 6, 5, 6, 6 ast con 5, 6, 7, 11, 10 potenciales (7,8 por partido; conversion 77 %, insostenible). Primeros 8: 5,1 potenciales y 2,5 ast. SAC vs C: 29o en asistencias (-24 %), 28o desde 1-nov (-31 %) (mi ajuste, solo 2026-27); sin Raynaud. OKC -10,5. Alternativa +3.5 a -175: ~67 %."
+   "nota": "Sin Holmgren, J. Williams ni Wallace (Ajay Mitchell duda). Ultimos 5: 7, 6, 5, 6, 6 ast con 5, 6, 7, 11, 10 potenciales (7,8 por partido; conversion 77 %, insostenible). Primeros 8: 5,1 potenciales y 2,5 ast. SAC vs C: 29o en asistencias (-24 %), 28o desde 1-nov (-31 %) (mi ajuste, solo 2026-27); sin Raynaud. OKC -10,5. Alternativa +3.5 a -175: ~67 %.",
+   "act": 2,
+   "res": "L"
   },
   {
    "f": "2026-11-15",
@@ -695,7 +711,9 @@
    "od": "-148",
    "pr": 0.7,
    "nota": "Supuesto: Kyrie no juega (dudoso, descanso tras jugar anoche). Sin Kyrie: 5 ast (SAS, 21 min) y 7 (SAC, 24 min), 0.27 ast/min vs 0.16 con el; solo 2 partidos. 3+ ast en 8 de 10. BOS 25o en ast a armadores (-10%). BOS -14.5, total 218.5: riesgo de paliza (vs BRK 15 min, 2 ast). DAL segundo partido en dos noches.",
-   "jug": true
+   "jug": true,
+   "act": 2,
+   "res": "L"
   },
   {
    "f": "2026-11-15",
@@ -708,7 +726,9 @@
    "ln": 11.5,
    "od": "-110",
    "pr": 0.43,
-   "nota": "Vuelve tras 2 partidos fuera por ferula en un dedo de la mano derecha. Temporada 8,0 pts en 26 min (0,31 por min); 12+ en 3 de 11 (13, 23, 12). De titular sin Luka (DET): 12 en 32 min. Hoy Reaves fuera, Sexton duda: ~30 min. PHO vs SG: 2o que mas puntos permite (+15 %) (mi ajuste, solo 2026-27)."
+   "nota": "Vuelve tras 2 partidos fuera por ferula en un dedo de la mano derecha. Temporada 8,0 pts en 26 min (0,31 por min); 12+ en 3 de 11 (13, 23, 12). De titular sin Luka (DET): 12 en 32 min. Hoy Reaves fuera, Sexton duda: ~30 min. PHO vs SG: 2o que mas puntos permite (+15 %) (mi ajuste, solo 2026-27).",
+   "act": 22,
+   "res": "W"
   },
   {
    "f": "2026-11-15",
@@ -721,7 +741,9 @@
    "ln": 10.5,
    "od": "-110",
    "pr": 0.55,
-   "nota": "Temporada 10,8 pts en 23,7 min; 11+ en 6 de 13. Ultimos 2: 23 y 23 (5/8 triples en ambos), sin Grimes en los dos y sin Reaves en ATL (32 min); en MIL Reaves jugo 25 min. Hoy Reaves fuera, Sexton y Thiero duda; Grimes no figura en el reporte de ESPN (sin verificar). Proyeccion ~27 min. PHO vs PF 25o (-8 %), vs PF+C 12o (+4 %) (mi ajuste, solo 2026-27). LAL -2,5. ACTUALIZADO: Grimes confirmado disponible, baja a ~25 min y 55 %."
+   "nota": "Temporada 10,8 pts en 23,7 min; 11+ en 6 de 13. Ultimos 2: 23 y 23 (5/8 triples en ambos), sin Grimes en los dos y sin Reaves en ATL (32 min); en MIL Reaves jugo 25 min. Hoy Reaves fuera, Sexton y Thiero duda; Grimes no figura en el reporte de ESPN (sin verificar). Proyeccion ~27 min. PHO vs PF 25o (-8 %), vs PF+C 12o (+4 %) (mi ajuste, solo 2026-27). LAL -2,5. ACTUALIZADO: Grimes confirmado disponible, baja a ~25 min y 55 %.",
+   "act": 4,
+   "res": "L"
   },
   {
    "f": "2026-11-15",
@@ -734,7 +756,9 @@
    "ln": 1.5,
    "od": "-105",
    "pr": 0.47,
-   "nota": "Temporada 21 de 51 (41 %), 3,9 intentos; 2+ en 5 de 13. Ultimos 2: 8 intentos y 5 metidos en cada uno (sin Grimes/Reaves). PHO quita triples a PF+C: 24o en intentos (-10 %), 25o desde 1-nov (-18 %) (mi ajuste, solo 2026-27). Proyeccion ~27 min, ~4,4 intentos al 37 %."
+   "nota": "Temporada 21 de 51 (41 %), 3,9 intentos; 2+ en 5 de 13. Ultimos 2: 8 intentos y 5 metidos en cada uno (sin Grimes/Reaves). PHO quita triples a PF+C: 24o en intentos (-10 %), 25o desde 1-nov (-18 %) (mi ajuste, solo 2026-27). Proyeccion ~27 min, ~4,4 intentos al 37 %.",
+   "act": 0,
+   "res": "L"
   },
   {
    "f": "2026-11-15",
@@ -747,7 +771,9 @@
    "ln": 2.5,
    "od": "-140",
    "pr": 0.56,
-   "nota": "Sin Schroder (3): BOS 21 min 0 ast/2 pot, CLE 33 min 4/6, PHX 32 min 6/7 (5 pot, 3,3 ast). Con Schroder (9): 5,7 pot y 2,8 ast en 25 min. Sus potenciales no suben sin Schroder: la creacion la absorben Coby White y Grayson Allen; sube por minutos. Temporada 3+ en 7 de 12, conversion 53 %. Vuelve Miller (segun usuario), Knueppel fuera. LAC: vs SG 6o (+22 %), pero vs armadores 28o (-20 %) (mi ajuste, solo 2026-27). CHA -1,5, total 214,5."
+   "nota": "Sin Schroder (3): BOS 21 min 0 ast/2 pot, CLE 33 min 4/6, PHX 32 min 6/7 (5 pot, 3,3 ast). Con Schroder (9): 5,7 pot y 2,8 ast en 25 min. Sus potenciales no suben sin Schroder: la creacion la absorben Coby White y Grayson Allen; sube por minutos. Temporada 3+ en 7 de 12, conversion 53 %. Vuelve Miller (segun usuario), Knueppel fuera. LAC: vs SG 6o (+22 %), pero vs armadores 28o (-20 %) (mi ajuste, solo 2026-27). CHA -1,5, total 214,5.",
+   "act": 4,
+   "res": "W"
   },
   {
    "f": "2026-11-16",
@@ -773,7 +799,8 @@
    "ln": 11.5,
    "od": "-136",
    "pr": 0.61,
-   "nota": "PHX en segundo partido de dos noches (jugo ayer en casa vs LAL) y viaja a la altura de Denver. Vs PHX en historial: 4, 5 (dic-2024, 26-28 min), 18, 25, 20, 13, 31: por encima de su media en los ultimos 5. 12+ en 6 de 11 esta temporada (media 12.8); irregular. PHX 3o en pts a escoltas ajustado (+10%). DEN -9.5: riesgo de paliza."
+   "nota": "PHX en segundo partido de dos noches (jugo ayer en casa vs LAL) y viaja a la altura de Denver. Vs PHX en historial: 4, 5 (dic-2024, 26-28 min), 18, 25, 20, 13, 31: por encima de su media en los ultimos 5. 12+ en 6 de 11 esta temporada (media 12.8); irregular. PHX 3o en pts a escoltas ajustado (+10%). DEN -9.5: riesgo de paliza.",
+   "jug": true
   },
   {
    "f": "2026-11-16",
@@ -812,7 +839,8 @@
    "ln": 5.5,
    "od": "-150",
    "pr": 0.66,
-   "nota": "Sin Murray (pidio traspaso, out): 13, 7, 7, 7, 7 ast (5 de 5 con 6+), 0.24 ast/min vs 0.17 en la temporada; 29-38 min. Cumplio vs DEN (7) con EV negativo en mi analisis. GSW 17o en ast a armadores (neutral), sin Curry, Porzingis, Butler ni Moody. NOP sin Murphy, Mathurin, Watford ni McGowens: menos receptores. GS -3.5, total 223.5."
+   "nota": "Sin Murray (pidio traspaso, out): 13, 7, 7, 7, 7 ast (5 de 5 con 6+), 0.24 ast/min vs 0.17 en la temporada; 29-38 min. Cumplio vs DEN (7) con EV negativo en mi analisis. GSW 17o en ast a armadores (neutral), sin Curry, Porzingis, Butler ni Moody. NOP sin Murphy, Mathurin, Watford ni McGowens: menos receptores. GS -3.5, total 223.5.",
+   "jug": true
   },
   {
    "f": "2026-11-16",
@@ -864,7 +892,8 @@
    "ln": 10.5,
    "od": "-110",
    "pr": 0.7,
-   "nota": "Fuera Tyson, Merrill, Mobley y Tomlin; Watson juega. 0.55 pts/min x ~25 min. CHI 2o en pts a guardias/aleros (+9%). Total 241.5, CLE -8.5. EV +33% (13+ a +140: 58%, EV +39%). Con 20 min EV ~+2%."
+   "nota": "Fuera Tyson, Merrill, Mobley y Tomlin; Watson juega. 0.55 pts/min x ~25 min. CHI 2o en pts a guardias/aleros (+9%). Total 241.5, CLE -8.5. EV +33% (13+ a +140: 58%, EV +39%). Con 20 min EV ~+2%.",
+   "jug": true
   },
   {
    "f": "2026-11-16",
