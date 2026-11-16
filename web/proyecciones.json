@@ -619,6 +619,20 @@
   },
   {
    "f": "2026-11-15",
+   "pl": "Aaron Wiggins",
+   "k": "tpm",
+   "m": 2.7,
+   "lo": 1.0,
+   "hi": 4.0,
+   "vs": "Milwaukee Bucks",
+   "ln": 1.5,
+   "od": "-175",
+   "pr": 0.77,
+   "nota": "2+ triples en 11 de 13 partidos (solo fallo con 1 ante IND y CHI); modelo 73%, mezcla ~77%. 6.9 triples intentados por partido y 41.6% en 2026-27 (encogido a ~38%); 3+ triples en 8 de 13. Sus 12+ puntos dependen de los triples: 8 de sus 9 noches de 12+ vinieron con 3+ triples (casi no va a la linea: 11 libres en 13 partidos). MIL 12o en triples permitidos a escoltas ajustado (5o a guardias/aleros, +8%); FanDuel 7o a SG. ATL -8.5, total 233.5; Flemings out.",
+   "jug": true
+  },
+  {
+   "f": "2026-11-15",
    "pl": "Anfernee Simons",
    "k": "tpm",
    "m": 2.5,
@@ -736,18 +750,30 @@
    "nota": "Sin Schroder (3): BOS 21 min 0 ast/2 pot, CLE 33 min 4/6, PHX 32 min 6/7 (5 pot, 3,3 ast). Con Schroder (9): 5,7 pot y 2,8 ast en 25 min. Sus potenciales no suben sin Schroder: la creacion la absorben Coby White y Grayson Allen; sube por minutos. Temporada 3+ en 7 de 12, conversion 53 %. Vuelve Miller (segun usuario), Knueppel fuera. LAC: vs SG 6o (+22 %), pero vs armadores 28o (-20 %) (mi ajuste, solo 2026-27). CHA -1,5, total 214,5."
   },
   {
-   "f": "2026-11-15",
-   "pl": "Aaron Wiggins",
-   "k": "tpm",
-   "m": 2.7,
-   "lo": 1.0,
-   "hi": 4.0,
-   "vs": "Milwaukee Bucks",
-   "ln": 1.5,
-   "od": "-175",
-   "pr": 0.77,
-   "nota": "2+ triples en 11 de 13 partidos (solo fallo con 1 ante IND y CHI); modelo 73%, mezcla ~77%. 6.9 triples intentados por partido y 41.6% en 2026-27 (encogido a ~38%); 3+ triples en 8 de 13. Sus 12+ puntos dependen de los triples: 8 de sus 9 noches de 12+ vinieron con 3+ triples (casi no va a la linea: 11 libres en 13 partidos). MIL 12o en triples permitidos a escoltas ajustado (5o a guardias/aleros, +8%); FanDuel 7o a SG. ATL -8.5, total 233.5; Flemings out.",
-   "jug": true
+   "f": "2026-11-16",
+   "pl": "Christian Braun",
+   "k": "pts",
+   "m": 13.1,
+   "lo": 9.0,
+   "hi": 17.0,
+   "vs": "Phoenix Suns",
+   "ln": 11.5,
+   "od": "-118",
+   "pr": 0.58,
+   "nota": "12+ en 6 de 11 (media 12.8, mediana 12); muy irregular: 4, 6, 7, 9 en sus noches malas. 11 tiros por partido, 34 min. PHX 3o en pts a escoltas ajustado (+10%), 9o a guardias/aleros. Su 31 vs PHX fue con 7 de 9 en triples (atipico). DEN -9.5: riesgo de paliza. Strawther out."
+  },
+  {
+   "f": "2026-11-16",
+   "pl": "Jeremiah Fears",
+   "k": "ast",
+   "m": 6.9,
+   "lo": 5.0,
+   "hi": 9.0,
+   "vs": "Golden State Warriors",
+   "ln": 5.5,
+   "od": "-150",
+   "pr": 0.66,
+   "nota": "Sin Murray (pidio traspaso, out): 13, 7, 7, 7, 7 ast (5 de 5 con 6+), 0.24 ast/min vs 0.17 en la temporada; 29-38 min. Cumplio vs DEN (7) con EV negativo en mi analisis. GSW 17o en ast a armadores (neutral), sin Curry, Porzingis, Butler ni Moody. NOP sin Murphy, Mathurin, Watford ni McGowens: menos receptores. GS -3.5, total 223.5."
   }
  ]
 }
