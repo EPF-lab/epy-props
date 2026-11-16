@@ -836,9 +836,9 @@
    "hi": 5.0,
    "vs": "Boston Celtics",
    "ln": 2.5,
-   "od": "+100",
+   "od": "-110",
    "pr": 0.57,
-   "nota": "3+ triples en 6 de 10; 8.8 intentos por partido (7+ en todos salvo los 2 vs TOR), 38.6%. Vs BOS 1-nov: 5 de 8. BOS 4o en triples permitidos ajustado (+8%), segundo partido de dos noches. Correlacionada con las ast de Wagner."
+   "nota": "Cuota bajo de +100 a -110. 3+ triples en 6 de 10; 8.8 intentos por partido (7+ en todos salvo los 2 vs TOR), 38.6%. Con 8+ intentos ~62%. Vs BOS 1-nov: 5 de 8. BOS 4o en triples permitidos ajustado (+8%), segundo partido de dos noches. Total 212.5 (lento). Correlacionada con las ast de Wagner."
   },
   {
    "f": "2026-11-16",
