@@ -842,6 +842,26 @@
   },
   {
    "f": "2026-11-16",
+   "pl": "Tyrese Proctor",
+   "k": "pts",
+   "m": 14.2,
+   "lo": 10.0,
+   "hi": 19.0,
+   "vs": "Chicago Bulls",
+   "nota": "Sin Tyson (dudoso), Merrill, Mobley ni Tomlin; Watson duda. Ultimos 3: 15 (23 min), 22 (27), 24 (34, sin Mitchell/Garland/Hunter/Strus en el b2b). Con titulares: ~0.55 pts/min x ~27 min. CHI 2o en pts a guardias/aleros ajustado (+9%), neutral a SG. Total 241.5, CLE -8.5."
+  },
+  {
+   "f": "2026-11-16",
+   "pl": "Tyrese Proctor",
+   "k": "tpm",
+   "m": 2.0,
+   "lo": 1.0,
+   "hi": 3.0,
+   "vs": "Chicago Bulls",
+   "nota": "5.3 intentos esperados en 27 min (0.2/min); 47% este ano encogido a ~37%. CHI 29o en triples a SG (-21%), 19o a guardias/aleros."
+  },
+  {
+   "f": "2026-11-16",
    "pl": "Yaxel Lendeborg",
    "k": "pr",
    "m": 32.7,
