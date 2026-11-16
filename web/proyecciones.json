@@ -826,6 +826,19 @@
    "od": "+100",
    "pr": 0.57,
    "nota": "3+ triples en 6 de 10; 8.8 intentos por partido (7+ en todos salvo los 2 vs TOR), 38.6%. Vs BOS 1-nov: 5 de 8. BOS 4o en triples permitidos ajustado (+8%), segundo partido de dos noches. Correlacionada con las ast de Wagner."
+  },
+  {
+   "f": "2026-11-16",
+   "pl": "Yaxel Lendeborg",
+   "k": "tpm",
+   "m": 2.6,
+   "lo": 1.0,
+   "hi": 5.0,
+   "vs": "New Orleans Pelicans",
+   "ln": 2.5,
+   "od": "+129",
+   "pr": 0.47,
+   "nota": "Sin Curry: 24-oct PHO 6 de 11, 1-nov LAC 6 de 11, 13-nov SAS 0 de 2 (paliza 123-85, 24 min). Con Curry 4.6 intentos/partido y 3+ triples solo 1 vez (4 de 4 vs NOP 9-nov). 3+ en 3 de 13 en total; 41% en la temporada (encogido). NOP neutral vs triples (13o). GS -3.5, total 223.5."
   }
  ]
 }
