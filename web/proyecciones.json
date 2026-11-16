@@ -863,6 +863,19 @@
   {
    "f": "2026-11-16",
    "pl": "Yaxel Lendeborg",
+   "k": "pa",
+   "m": 28.6,
+   "lo": 22.0,
+   "hi": 35.0,
+   "vs": "New Orleans Pelicans",
+   "ln": 28.5,
+   "od": "-105",
+   "pr": 0.5,
+   "nota": "P+A 29+ en 3 de 13 (31, 37, 43). Sin Curry: 31 y 43 (4 en la paliza vs SAS). Asistencias irregulares: 0-6, 0.11/min (sin Curry 5 y 6). Sin valor a -105; mejor el P+R 29.5 a -145 (rebotes 7+ en 9 de 13)."
+  },
+  {
+   "f": "2026-11-16",
+   "pl": "Yaxel Lendeborg",
    "k": "pr",
    "m": 32.7,
    "lo": 26.0,
