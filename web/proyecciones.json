@@ -1030,15 +1030,28 @@
   {
    "f": "2026-11-17",
    "pl": "Kevin Huerter",
+   "k": "pa",
+   "m": 17.0,
+   "lo": 13.0,
+   "hi": 21.0,
+   "vs": "San Antonio Spurs",
+   "ln": 14.5,
+   "od": "-125",
+   "pr": 0.66,
+   "nota": "Fuera Duncan Robinson, Holland y Prince. P+A/min: 0.51 temporada; 0.67 en sus 3 de 33+ min (29, 15, 27); sin Robinson 2025-26: 24, 23, 22 en 32-38 min. ~32 min x 0.53-0.55 = 17. Con 30 min ~16 (EV +8%). SA -9.5: riesgo de paliza. EV ~+18%."
+  },
+  {
+   "f": "2026-11-17",
+   "pl": "Kevin Huerter",
    "k": "tpm",
-   "m": 2.3,
+   "m": 2.4,
    "lo": 1.0,
    "hi": 4.0,
    "vs": "San Antonio Spurs",
-   "ln": 1.5,
-   "od": "-173",
-   "pr": 0.645,
-   "nota": "Fuera Duncan Robinson, Holland y Prince; Joe dudoso. 0.19 intentos/min esta temporada; en sus 3 de 33+ min: 8, 5 y 6 intentos (4, 0 y 2 triples). ~6.5 intentos x 36% = 2.3. 2+ 64.5% vs 63.4% (EV +2%); 3+ a +150: 40% vs 40% (EV 0%). SA -9.5: riesgo de paliza. Sin valor claro: la casa ya descuenta la baja."
+   "ln": 2.5,
+   "od": "+152",
+   "pr": 0.42,
+   "nota": "Sin Robinson. Dato del usuario: 8 intentos/partido sin Robinson desde que llego a DET, 3+ en 3 de 3 (2025-26). Esta temporada en 33+ min: 8, 5, 6 intentos. ~6.7 intentos x 36% = 2.4. SAS 1o en limitar triples del rival. 3+ a +152: 42% vs 39.7%, EV ~+6%. Correlacionada con su P+A."
   },
   {
    "f": "2026-11-17",
