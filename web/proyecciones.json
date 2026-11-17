@@ -1031,14 +1031,14 @@
    "f": "2026-11-17",
    "pl": "Kevin Huerter",
    "k": "pa",
-   "m": 17.0,
-   "lo": 13.0,
-   "hi": 21.0,
+   "m": 15.8,
+   "lo": 12.0,
+   "hi": 20.0,
    "vs": "San Antonio Spurs",
    "ln": 14.5,
    "od": "-125",
-   "pr": 0.66,
-   "nota": "Fuera Duncan Robinson, Holland y Prince. P+A/min: 0.51 temporada; 0.67 en sus 3 de 33+ min (29, 15, 27); sin Robinson 2025-26: 24, 23, 22 en 32-38 min. ~32 min x 0.53-0.55 = 17. Con 30 min ~16 (EV +8%). SA -9.5: riesgo de paliza. EV ~+18%."
+   "pr": 0.59,
+   "nota": "Fuera Duncan Robinson, Holland y Prince. ~32 min x 0.53 = 17, ajustado -7% por la defensa de SAS (mi ajuste 2026-27: P+A vs SG +1%, vs SF -16%; pts vs SF -18%). Solo 2 partidos con 13+ pts esta temporada (35 y 38 min). Wembanyama + Castle/Harper en el perimetro. SA -9.5. EV ~+6%."
   },
   {
    "f": "2026-11-17",
