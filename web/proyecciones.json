@@ -1042,6 +1042,19 @@
   },
   {
    "f": "2026-11-17",
+   "pl": "Quentin Grimes",
+   "k": "ast",
+   "m": 3.2,
+   "lo": 2.0,
+   "hi": 5.0,
+   "vs": "Charlotte Hornets",
+   "ln": 2.5,
+   "od": "-118",
+   "pr": 0.6,
+   "nota": "Sin Reaves ni Kessler. 0.09 ast/min esta temporada x ~35 min. 3+ en 7 de 12 (4 de 4 con 27+ min antes del 15-nov; 1 ast en 37 min y 43 pases el 15-nov sin Reaves). Dato del usuario: 3+ en 22 de 28 con 35-50 pases (filtro hecho despues del partido, optimista). EV ~+9 a +14%."
+  },
+  {
+   "f": "2026-11-17",
    "pl": "Sandro Mamukelashvili",
    "k": "pts",
    "m": 14.1,
