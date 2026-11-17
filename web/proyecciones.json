@@ -1055,6 +1055,19 @@
   },
   {
    "f": "2026-11-17",
+   "pl": "Quentin Grimes",
+   "k": "tpm",
+   "m": 1.7,
+   "lo": 1.0,
+   "hi": 3.0,
+   "vs": "Charlotte Hornets",
+   "ln": 1.5,
+   "od": "+108",
+   "pr": 0.49,
+   "nota": "Sin Reaves ni Kessler, ~35 min. Volumen bajo esta temporada: 39 intentos en 324 min (0.12/min, 33%); 15-nov sin Reaves: 5 de 6 en 37 min. ~4.8 intentos x 36% = 1.7. 2+ en 3 de 12. EV ~+2%."
+  },
+  {
+   "f": "2026-11-17",
    "pl": "Sandro Mamukelashvili",
    "k": "pts",
    "m": 14.1,
