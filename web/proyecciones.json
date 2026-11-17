@@ -1016,6 +1016,19 @@
   },
   {
    "f": "2026-11-17",
+   "pl": "Darryn Peterson",
+   "k": "pts",
+   "m": 23.0,
+   "lo": 17.0,
+   "hi": 29.0,
+   "vs": "Los Angeles Clippers",
+   "ln": 20.5,
+   "od": "-121",
+   "pr": 0.63,
+   "nota": "UTA sin Markkanen, Jaren Jackson, Hayes ni Nurkic. Rol nuevo: 19-21 tiros en sus ultimos 5 (antes 7-15); 26, 25, 22, 28, 17 pts en 31-35 min (0.71 pts/min). ~34 min x ~0.68 = 23. LAC neutral vs SG (+4%) y PG (-1%) en mi ajuste 2026-27. LAC -6.5, total 225.5. 21+ a -121: EV ~+12%; 22+ a -118: ~+4%."
+  },
+  {
+   "f": "2026-11-17",
    "pl": "Jaden McDaniels",
    "k": "ra",
    "m": 10.3,
@@ -1026,6 +1039,19 @@
    "od": "-136",
    "pr": 0.69,
    "nota": "Sin Kuminga. Ultimos 5 (NBA.com): reb chances 14,11,11,11,9 (57% convertidas); ast potenciales 4,6,4,10,7 (65%). ~33 min: 11.1 chances y 6.2 pot -> ~6.3 reb + 3.7 ast. Vs POR ayer: 31 min, 9 chances, 7 pot, R+A 9. Modelo 66%; 9+ en 13 de 14 esta temporada; mezcla 69%, EV ~+17%. Segundo partido seguido vs POR."
+  },
+  {
+   "f": "2026-11-17",
+   "pl": "Jamal Shead",
+   "k": "ast",
+   "m": 5.1,
+   "lo": 4.0,
+   "hi": 6.5,
+   "vs": "New York Knicks",
+   "ln": 4.5,
+   "od": "-114",
+   "pr": 0.55,
+   "nota": "Con Quickley y Barnes: 0.24 ast/min. Potenciales temporada 151 en 312 min (56% convertidas); vs NYK 15-nov con todos: 8 pot y 4 ast en 26 min. EV ~+4%."
   },
   {
    "f": "2026-11-17",
