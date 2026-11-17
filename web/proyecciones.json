@@ -996,6 +996,26 @@
    "od": "-173",
    "pr": 0.645,
    "nota": "Fuera Duncan Robinson, Holland y Prince; Joe dudoso. 0.19 intentos/min esta temporada; en sus 3 de 33+ min: 8, 5 y 6 intentos (4, 0 y 2 triples). ~6.5 intentos x 36% = 2.3. 2+ 64.5% vs 63.4% (EV +2%); 3+ a +150: 40% vs 40% (EV 0%). SA -9.5: riesgo de paliza. Sin valor claro: la casa ya descuenta la baja."
+  },
+  {
+   "f": "2026-11-17",
+   "pl": "Moussa Diabaté",
+   "k": "reb",
+   "m": 10.3,
+   "lo": 7.0,
+   "hi": 14.0,
+   "vs": "Los Angeles Lakers",
+   "nota": "LAL sin Kessler (12 reb/partido): menos competencia en el tablero. 0.34 reb/min x ~30 min. CHA sin Knueppel ni Schroder. Ultimos 2: 13 y 12 reb. Sin linea todavia."
+  },
+  {
+   "f": "2026-11-17",
+   "pl": "Sandro Mamukelashvili",
+   "k": "pts",
+   "m": 14.0,
+   "lo": 9.0,
+   "hi": 19.0,
+   "vs": "Charlotte Hornets",
+   "nota": "Fuera Kessler (pierna) y Reaves: Mamu es el pivot suplente, ~30 min. 0.47 pts/min y 0.19 reb/min esta temporada; con 30+ min: 13 y 23 pts (8 y 8 reb). Sin linea todavia."
   }
  ]
 }
