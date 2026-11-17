@@ -1005,7 +1005,10 @@
    "lo": 7.0,
    "hi": 14.0,
    "vs": "Los Angeles Lakers",
-   "nota": "LAL sin Kessler (12 reb/partido): menos competencia en el tablero. 0.34 reb/min x ~30 min. CHA sin Knueppel ni Schroder. Ultimos 2: 13 y 12 reb. Sin linea todavia."
+   "ln": 9.5,
+   "od": "-104",
+   "pr": 0.55,
+   "nota": "LAL sin Kessler (12 reb/partido). 0.34 reb/min x ~30 min. 10+ en 4 de 11 esta temporada; 9+ en 6 de 11. Ultimos 2: 13 y 12. 10+ a -104: EV ~+7% con 30 min, -8% con 28. 9+ a -182: EV ~+1%. Margen chico."
   },
   {
    "f": "2026-11-17",
