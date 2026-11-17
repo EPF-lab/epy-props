@@ -1011,11 +1011,14 @@
    "f": "2026-11-17",
    "pl": "Sandro Mamukelashvili",
    "k": "pts",
-   "m": 14.0,
+   "m": 14.1,
    "lo": 9.0,
    "hi": 19.0,
    "vs": "Charlotte Hornets",
-   "nota": "Fuera Kessler (pierna) y Reaves: Mamu es el pivot suplente, ~30 min. 0.47 pts/min y 0.19 reb/min esta temporada; con 30+ min: 13 y 23 pts (8 y 8 reb). Sin linea todavia."
+   "ln": 13.5,
+   "od": "-112",
+   "pr": 0.54,
+   "nota": "Fuera Kessler (pierna) y Reaves: Mamu es el pivot suplente, ~30 min. 0.47 pts/min esta temporada; con 30+ min: 13 y 23 pts. 14+ en 4 de 14. Con 30 min EV +2%; con 32, +12%; con 28, -10%. Sin valor claro."
   }
  ]
 }
