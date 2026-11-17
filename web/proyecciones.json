@@ -983,6 +983,19 @@
    "od": "+129",
    "pr": 0.53,
    "nota": "Solo contexto sin Curry (pedido del usuario): 24-oct PHO 6 de 11, 1-nov LAC 6 de 11, 13-nov SAS 0 de 2 (paliza, 24 min). 0.26 intentos/min sin Curry -> ~8 intentos en 32 min; acierto encogido a ~37%. Con 8 intentos P(3+) ~62%, con 7 ~51%; muestra de 2 partidos normales. NOP neutral (13o). GS -3.5, total 223.5."
+  },
+  {
+   "f": "2026-11-17",
+   "pl": "Kevin Huerter",
+   "k": "tpm",
+   "m": 2.3,
+   "lo": 1.0,
+   "hi": 4.0,
+   "vs": "San Antonio Spurs",
+   "ln": 1.5,
+   "od": "-173",
+   "pr": 0.645,
+   "nota": "Fuera Duncan Robinson, Holland y Prince; Joe dudoso. 0.19 intentos/min esta temporada; en sus 3 de 33+ min: 8, 5 y 6 intentos (4, 0 y 2 triples). ~6.5 intentos x 36% = 2.3. 2+ 64.5% vs 63.4% (EV +2%); 3+ a +150: 40% vs 40% (EV 0%). SA -9.5: riesgo de paliza. Sin valor claro: la casa ya descuenta la baja."
   }
  ]
 }
