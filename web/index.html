@@ -370,7 +370,7 @@ th{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;
 
 <section id="pk" hidden><div id="pdn"></div><div id="dyw"></div><div class="panel" id="slp"><div class="ctl2" id="slman"><div class="lb">Local<select id="gh"></select></div><div class="lb">Visitante<select id="ga"></select></div><button class="btn" id="gadd" type="button">Añadir partido</button></div><div id="slate"></div></div>
 <div class="seg" id="pv" hidden><button data-v="sel" class="on">Seleccionadas (DvP + EV)</button><button data-v="all">Todas las de DvP</button></div><div class="seg" id="pf"><button data-f="all" class="on">Todas</button><button data-f="O">Over</button><button data-f="U">Under</button></div><div class="chips" id="pm"></div><div class="pnr"><p class="hint" id="pn"></p><button class="btn s" id="pall" type="button">Seguir todas las visibles</button></div><div class="grid" id="pg"></div></section>
-<section id="rc" hidden><div id="mdl"></div>
+<section id="rc" hidden><div id="ofi"></div><div id="mdl"></div>
 <div class="seg" id="rfs"><button data-s="all" class="on">Todas</button><button data-s="O">Over</button><button data-s="U">Under</button></div>
 <div class="chips fchips" id="rfm"></div><div id="rex"></div><div class="rg" id="rst"></div>
 <div class="panel"><div class="rh"><b>Crecimiento (unidades)</b></div><div class="chw" id="rch"></div></div>
@@ -464,6 +464,16 @@ body.vsw .wrap{max-width:1240px}body.vsw .warn{display:none}
 .vsln input{width:70px;text-align:center;font-weight:750;font-size:15px;padding:6px;background:transparent}
 .vsln small{color:var(--muted,var(--mut));font-size:12px}
 .vslg{display:flex;gap:14px;justify-content:center;font-size:12px;color:var(--muted,var(--mut));margin:6px 0 0}.vslg i{display:inline-block;width:14px;height:3px;border-radius:2px;vertical-align:middle;margin-right:5px}
+.ofp .ofh b{font-size:19px}.ofp .hint{font-size:13px;margin-top:2px}
+.ofl{display:grid;gap:10px;max-height:520px;overflow-y:auto}
+.ofd{background:var(--fill,var(--seg));border-radius:14px;padding:8px 10px}
+.ofdh{display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:2px 2px 6px;border-bottom:1px solid var(--line);margin-bottom:4px;text-transform:capitalize}
+.ofr{display:flex;align-items:center;gap:10px;padding:6px 2px}
+.ofr>i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:900;font-size:13px;flex:none;background:var(--seg);color:var(--mut)}
+.ofr>i.w{background:var(--pos);color:#04210f}.ofr>i.l{background:var(--neg);color:#fff}
+.ofn{flex:1;min-width:0;display:grid}.ofn b{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ofn small{font-size:12px;color:var(--muted,var(--mut))}
+.ofo{display:grid;text-align:right;font-size:13px;font-weight:700}.ofo small{font-size:11px;color:var(--muted,var(--mut));font-weight:600}
+.ofa{min-width:70px;text-align:right;font-weight:800;font-size:15px}.ofa.w{color:var(--pos)}.ofa.l{color:var(--neg)}.ofa.p{color:var(--muted,var(--mut));font-size:12px;font-weight:600}
 .vsemp{padding:40px 10px;text-align:center;color:var(--muted,var(--mut))}
 .vsmn{display:flex;flex-direction:row;align-items:center;gap:8px;background:var(--fill,var(--seg));border-radius:99px;padding:5px 12px;font-size:13px;color:var(--text,var(--ink));font-weight:600}
 .vsmn span{white-space:nowrap;min-width:62px}.vsmn input{width:130px;padding:0;background:transparent;accent-color:var(--acc);box-shadow:none}
@@ -540,7 +550,7 @@ $("#op").addEventListener("change",render);$("#ps").addEventListener("change",re
 $("#cards").addEventListener("click",e=>{const b=e.target.closest(".hbtn");if(b)openCalcDet(b.dataset.h,b.closest(".card"))});
 $("#cards").addEventListener("input",e=>{if(e.target.closest(".card"))calc(e.target.closest(".card"))});
 $("#mb").addEventListener("click",e=>{const r=e.target.closest("tr");if(!r)return;$("#op").value=r.dataset.t;$("#ps").value=$("#mp").value;render();tab("calc")});
-function tab(t){if(t==="pk")picks();if(t==="rc")rec();const tt=TT[t],h=$("#ht");h.textContent=tt[0];$("#hs").textContent=tt[1];h.classList.remove("sw");void h.offsetWidth;h.classList.add("sw");$$(".tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t===t));["calc","vs","pk","rc","mx","hw"].forEach(i=>$("#"+i).hidden=i!==t);document.body.classList.toggle("vsw",t==="vs");if(t==="vs")vsOpen()}
+function tab(t){if(t==="pk")picks();if(t==="rc"){rec();ofiRender()}const tt=TT[t],h=$("#ht");h.textContent=tt[0];$("#hs").textContent=tt[1];h.classList.remove("sw");void h.offsetWidth;h.classList.add("sw");$$(".tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t===t));["calc","vs","pk","rc","mx","hw"].forEach(i=>$("#"+i).hidden=i!==t);document.body.classList.toggle("vsw",t==="vs");if(t==="vs")vsOpen()}
 $$(".tabs button").forEach(b=>b.onclick=()=>tab(b.dataset.t));
 $("#th").onclick=()=>{const r=document.documentElement,d=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;r.dataset.theme=d?"light":"dark"};
 const PV={},RM=matchMedia("(prefers-reduced-motion:reduce)");
@@ -632,6 +642,22 @@ let MDL=null;
 function mdlAgg(L){const r=L.filter(e=>e.res==="W"||e.res==="L"),W=r.filter(e=>e.res==="W").length,P=L.filter(e=>e.res==="P").length,
 imp=r.map(e=>{if(!(e.o>1&&e.u>1))return null;const io=1/e.o,iu=1/e.u;return(e.side==="O"?io:iu)/(io+iu)}).filter(v=>v!=null),evs=r.filter(e=>e.ev!=null);
 return{n:r.length,W,L:r.length-W,P,wr:r.length?W/r.length:null,imp:imp.length?imp.reduce((a,b)=>a+b,0)/imp.length:null,ev:evs.length?evs.reduce((a,e)=>a+e.ev,0)/evs.length:null}}
+
+/*OFI*/ // Jugadas oficiales: las marcadas con calificar_proyecciones.py --jugada (proyecciones.json, jug:true); se califican solas cada madrugada
+const OFK={pts:"Pts",reb:"Reb",ast:"Ast",tpm:"Triples",stl:"Robos",pra:"PRA",pr:"P+R",pa:"P+A",ra:"R+A"};
+const ofDec=o=>{const n=parseFloat(String(o||"").replace(",","."));if(isNaN(n))return null;return n<0?1+100/-n:n>=100?1+n/100:n>1?n:null};
+function ofiRender(){const el=$("#ofi");if(!el)return;const L=((ANA&&ANA.p)||[]).filter(e=>e.jug).sort((a,b)=>a.f<b.f?1:a.f>b.f?-1:0);
+if(!L.length){el.innerHTML="";return}
+let W=0,Lo=0,P=0,pend=0,nj=0,u=0,st=0;const days={};
+L.slice().reverse().forEach(e=>{const d=ofDec(e.od);if(e.res==="W"){W++;st++;if(d)u+=d-1}else if(e.res==="L"){Lo++;st++;u-=1}else if(e.res==="P")P++;else if(e.res==="NJ")nj++;else pend++;(days[e.f]=days[e.f]||[]).push(e)});
+const su=x=>(x>=0?"+":"")+x.toFixed(2).replace(".",",")+"u",wr=W+Lo?W/(W+Lo):null;
+const rows=Object.keys(days).sort().reverse().map(f=>{const g=days[f],w=g.filter(e=>e.res==="W").length,l=g.filter(e=>e.res==="L").length,uu=g.reduce((a,e)=>a+(e.res==="W"?(ofDec(e.od)||1)-1:e.res==="L"?-1:0),0);
+const dd=new Date(f+"T12:00:00").toLocaleDateString("es",{weekday:"short",day:"numeric",month:"short"});
+return`<div class="ofd"><div class="ofdh"><b>${dd}</b><span>${w}-${l}${w+l?` · <b class="${uu>=0?"pos":"neg"}">${su(uu)}</b>`:""}</span></div>${g.map(e=>{const r=e.res,ic=r==="W"?"✓":r==="L"?"✕":r==="P"?"=":r==="NJ"?"–":"•",cl=r==="W"?"w":r==="L"?"l":"p";
+return`<div class="ofr"><i class="${cl}">${ic}</i><span class="ofn"><b>${typeof vsEsc==="function"?vsEsc(e.pl):e.pl}</b><small>+${String(e.ln).replace(".",",")} ${OFK[e.k]||e.k} · vs ${e.vs||"–"}</small></span><span class="ofo">${e.od||"–"}<small>${e.pr!=null?Math.round(e.pr*100)+"%":""}</small></span><span class="ofa ${cl}">${e.act!=null?e.act:r==="NJ"?"No jugó":"Pendiente"}</span></div>`}).join("")}</div>`}).join("");
+el.innerHTML=`<div class="panel ofp"><div class="ofh"><div><b>Jugadas oficiales</b><p class="hint">Las que marcas como oficiales en los análisis. Se califican solas cada madrugada; cálculo a 1u por jugada.</p></div></div>
+<div class="rg" style="margin:12px 0">${rcStat("wr","Récord",W+"-"+Lo,wr==null?"":"Acierto "+pct(wr))+rcStat("pl","Unidades",st?su(u):"–",st?"ROI "+spct(u/st):"",st?(u>=0?"pos":"neg"):"")+rcStat("tp","Jugadas",L.length,pend+" pendientes"+(nj?" · "+nj+" no jugó":""))+rcStat("ev","Prob. media",pct(L.reduce((a,e)=>a+(e.pr||0),0)/L.length),"que les dio el análisis")}</div>
+<div class="ofl">${rows}</div></div>`}
 function mdlRender(){const el=$("#mdl");if(!el||!MDL)return;const all=MDL.picks||[];if(!all.length){el.innerHTML='<div class="panel"><b>Prueba automática del modelo</b><p class="hint" style="margin:6px 0 0">Empieza el día del arranque de la NBA: cada madrugada se guardan los picks del día y al día siguiente se califican solos.</p></div>';return}
 const sel=all.filter(e=>e.sel),selOk=sel.filter(e=>!(e.ev>SOSP)),selB=all.filter(e=>e.selb),dvp=all.filter(e=>e.ln!=null),pend=all.filter(e=>e.res==null).length,nj=all.filter(e=>e.res==="NJ").length;
 const row=(t,a)=>`<span>${t}<small style="display:block;font-size:12px">${a.n?`${a.W} ganadas, ${a.L} perdidas${a.P?", "+a.P+" push":""}`:"sin resueltas"}</small></span><b style="white-space:nowrap">${a.wr!=null?pct(a.wr):"–"}</b><span class="hint" style="text-align:right;white-space:nowrap">${a.imp!=null?pct(a.imp):"–"}</span><b style="white-space:nowrap" class="${a.wr!=null&&a.imp!=null?(a.wr-a.imp>0?"pos":"neg"):""}">${a.wr!=null&&a.imp!=null?spct(a.wr-a.imp):"–"}</b>`;
@@ -927,7 +953,7 @@ const getU=()=>{try{return CONFIG.DATA_URL||localStorage.getItem("epy_url")||""}
 $("#cf").onclick=()=>{const u=prompt("Pega la URL de tu Apps Script (termina en /exec). Déjala vacía para volver a la foto de datos.\nSolo funciona cuando la página está alojada en tu propio hosting.",getU());if(u===null)return;try{u.trim()?localStorage.setItem("epy_url",u.trim()):localStorage.removeItem("epy_url")}catch(e){}location.reload()};
 (async()=>{let mode="Snapshot",data=SNAP;const U=getU();if(U){try{data=await (await fetch(U)).json();mode="En vivo"}catch(e){mode="Snapshot (sin conexión)"}}init(data,mode);
 // publicada junto a diario.json/historial.json (GitHub Pages) los lee sola; abierta como archivo local, simplemente no los encuentra
-try{const r=await fetch("proyecciones.json",{cache:"no-store"});if(r.ok){ANA=await r.json();try{render();if(DT&&$("#dtc"))detRender()}catch(e){}}}catch(e){} // primero: es pequeño y cambia lo que se ve en la Calculadora
+try{const r=await fetch("proyecciones.json",{cache:"no-store"});if(r.ok){ANA=await r.json();try{ofiRender()}catch(e){}try{render();if(DT&&$("#dtc"))detRender()}catch(e){}}}catch(e){} // primero: es pequeño y cambia lo que se ve en la Calculadora
 try{const r=await fetch("diario.json",{cache:"no-store"});if(r.ok){DY=await r.json();dyApply();if(!$("#pk").hidden)picks()}}catch(e){}
 try{const r=await fetch("movimientos.json");if(r.ok){MOV=await r.json();if(!$("#pk").hidden)picks()}}catch(e){}
 try{const r=await fetch("registro.json",{cache:"no-store"});if(r.ok){MDL=await r.json();mdlRender();if(!$("#pk").hidden)picks()}}catch(e){}
