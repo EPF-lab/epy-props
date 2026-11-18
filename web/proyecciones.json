@@ -1275,6 +1275,19 @@
   },
   {
    "f": "2026-11-18",
+   "pl": "Isaiah Hartenstein",
+   "k": "ast",
+   "m": 4.8,
+   "lo": 4.4,
+   "hi": 5.1,
+   "vs": "Atlanta Hawks",
+   "ln": 3.5,
+   "od": "-155",
+   "pr": 0.67,
+   "nota": "Sin Chet/JDub/Cason (y hoy sin Sorber ni Jaylin Williams): 7 de 8 con 4+ en los ultimos 8 (fallo: 18 min en paliza vs SAC); 7.5 ast pot y 41.9 pases por partido (NBA.com), conversion 67% alta -> 26 min x 0.29 pot/min ~4.4-5.1. ATL +9% ast a todos y +23% a C (Sharpe 13 infla). OKC -7.5 riesgo paliza."
+  },
+  {
+   "f": "2026-11-18",
    "pl": "Kentavious Caldwell-Pope",
    "k": "tpm",
    "m": 1.55,
