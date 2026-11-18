@@ -1031,14 +1031,27 @@
    "f": "2026-11-17",
    "pl": "Grayson Allen",
    "k": "pra",
-   "m": 22.5,
-   "lo": 16.0,
-   "hi": 28.0,
+   "m": 20.1,
+   "lo": 15.0,
+   "hi": 26.0,
    "vs": "Los Angeles Lakers",
    "ln": 19.5,
    "od": "-120",
-   "pr": 0.64,
-   "nota": "Sin Schroder ni Knueppel; Coby White ~20 min. NBA.com sin Schroder: ast potenciales 8, 13, 9, 10 (40 en 115 min, 0.35/min, 47% convertidas); reb chances 5, 5, 7, 9 (0.23/min, 58%). 16.5 oportunidades R+A por partido. ~28 min: ~8.5 R+A + ~15 pts (0.55/min) = 22.5-23. PRA sin Schroder: 5 (22 min), 37, 24, 21 (25 min desde el banco). LAL -8.5. EV ~+16%."
+   "pr": 0.53,
+   "nota": "Dato del usuario: los 2 partidos de 34 min sin Schroder fueron tambien sin Brandon Miller; con Miller de vuelta (15-nov, mismo contexto que hoy) jugo 25 min. ~25.5 min x 0.79 = 20. EV ~-3%."
+  },
+  {
+   "f": "2026-11-17",
+   "pl": "Grayson Allen",
+   "k": "ra",
+   "m": 7.6,
+   "lo": 5.5,
+   "hi": 9.5,
+   "vs": "Los Angeles Lakers",
+   "ln": 6.5,
+   "od": "-121",
+   "pr": 0.62,
+   "nota": "Con Miller de vuelta ~25.5 min. NBA.com sin Schroder: 0.35 ast potenciales/min (47% convertidas) y 0.23 reb chances/min (58%); 15-nov desde el banco: 19 oportunidades en 25 min, 9 R+A. ~8.9 pot x 52% + 5.8 chances x 58% = 8.0; mezclado con su ritmo de R+A = 7.6. 7+ en 7 de 13. EV ~+13%."
   },
   {
    "f": "2026-11-17",
