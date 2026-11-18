@@ -1172,6 +1172,19 @@
    "od": "-150",
    "pr": 0.65,
    "nota": "Sin Schroder ni Knueppel; Coby White restringido (~20 min). Potenciales sin Schroder: BOS 2 (21 min), CLE 6 (33), PHX 7 (32), LAC 8 (35, 50 pases, 4 ast): 0.21/min en los ultimos 3. ~33 min x 0.20 = 6.6 pot x 55% = 3.6. 3+ en 3 de 4 sin Schroder. LAL -8.5: riesgo de paliza. EV ~+8%."
+  },
+  {
+   "f": "2026-11-18",
+   "pl": "Dean Wade",
+   "k": "pr",
+   "m": 12.0,
+   "lo": 10.5,
+   "hi": 13.5,
+   "vs": "Orlando Magic",
+   "ln": 10.5,
+   "od": "-115",
+   "pr": 0.58,
+   "nota": "Sin Jaylen Brown; ~30 min; 0.41 P+R/min (mezcla temporada 0.35 y ultimos 4 0.53); ORL sin Banchero/Isaac/Penda"
   }
  ]
 }
