@@ -1026,7 +1026,9 @@
    "od": "-121",
    "pr": 0.63,
    "nota": "UTA sin Markkanen, Jaren Jackson, Hayes ni Nurkic. Rol nuevo: 19-21 tiros en sus ultimos 5 (antes 7-15); 26, 25, 22, 28, 17 pts en 31-35 min (0.71 pts/min). ~34 min x ~0.68 = 23. LAC neutral vs SG (+4%) y PG (-1%) en mi ajuste 2026-27. LAC -6.5, total 225.5. 21+ a -121: EV ~+12%; 22+ a -118: ~+4%.",
-   "jug": true
+   "jug": true,
+   "act": 13,
+   "res": "L"
   },
   {
    "f": "2026-11-17",
@@ -1039,7 +1041,8 @@
    "ln": 19.5,
    "od": "-120",
    "pr": 0.53,
-   "nota": "Dato del usuario: los 2 partidos de 34 min sin Schroder fueron tambien sin Brandon Miller; con Miller de vuelta (15-nov, mismo contexto que hoy) jugo 25 min. ~25.5 min x 0.79 = 20. EV ~-3%."
+   "nota": "Dato del usuario: los 2 partidos de 34 min sin Schroder fueron tambien sin Brandon Miller; con Miller de vuelta (15-nov, mismo contexto que hoy) jugo 25 min. ~25.5 min x 0.79 = 20. EV ~-3%.",
+   "res": "NJ"
   },
   {
    "f": "2026-11-17",
@@ -1053,7 +1056,8 @@
    "od": "-121",
    "pr": 0.62,
    "nota": "Con Miller de vuelta ~25.5 min. NBA.com sin Schroder: 0.35 ast potenciales/min (47% convertidas) y 0.23 reb chances/min (58%); 15-nov desde el banco: 19 oportunidades en 25 min, 9 R+A. ~8.9 pot x 52% + 5.8 chances x 58% = 8.0; mezclado con su ritmo de R+A = 7.6. 7+ en 7 de 13. EV ~+13%.",
-   "jug": true
+   "jug": true,
+   "res": "NJ"
   },
   {
    "f": "2026-11-17",
@@ -1067,7 +1071,9 @@
    "od": "-136",
    "pr": 0.69,
    "nota": "Sin Kuminga. Ultimos 5 (NBA.com): reb chances 14,11,11,11,9 (57% convertidas); ast potenciales 4,6,4,10,7 (65%). ~33 min: 11.1 chances y 6.2 pot -> ~6.3 reb + 3.7 ast. Vs POR ayer: 31 min, 9 chances, 7 pot, R+A 9. Modelo 66%; 9+ en 13 de 14 esta temporada; mezcla 69%, EV ~+17%. Segundo partido seguido vs POR.",
-   "jug": true
+   "jug": true,
+   "act": 9,
+   "res": "W"
   },
   {
    "f": "2026-11-17",
@@ -1080,7 +1086,9 @@
    "ln": 4.5,
    "od": "-114",
    "pr": 0.55,
-   "nota": "Con Quickley y Barnes: 0.24 ast/min. Potenciales temporada 151 en 312 min (56% convertidas); vs NYK 15-nov con todos: 8 pot y 4 ast en 26 min. EV ~+4%."
+   "nota": "Con Quickley y Barnes: 0.24 ast/min. Potenciales temporada 151 en 312 min (56% convertidas); vs NYK 15-nov con todos: 8 pot y 4 ast en 26 min. EV ~+4%.",
+   "act": 6,
+   "res": "W"
   },
   {
    "f": "2026-11-17",
@@ -1093,7 +1101,9 @@
    "ln": 14.5,
    "od": "-125",
    "pr": 0.59,
-   "nota": "Fuera Duncan Robinson, Holland y Prince. ~32 min x 0.53 = 17, ajustado -7% por la defensa de SAS (mi ajuste 2026-27: P+A vs SG +1%, vs SF -16%; pts vs SF -18%). Solo 2 partidos con 13+ pts esta temporada (35 y 38 min). Wembanyama + Castle/Harper en el perimetro. SA -9.5. EV ~+6%."
+   "nota": "Fuera Duncan Robinson, Holland y Prince. ~32 min x 0.53 = 17, ajustado -7% por la defensa de SAS (mi ajuste 2026-27: P+A vs SG +1%, vs SF -16%; pts vs SF -18%). Solo 2 partidos con 13+ pts esta temporada (35 y 38 min). Wembanyama + Castle/Harper en el perimetro. SA -9.5. EV ~+6%.",
+   "act": 10,
+   "res": "L"
   },
   {
    "f": "2026-11-17",
@@ -1106,7 +1116,9 @@
    "ln": 2.5,
    "od": "+152",
    "pr": 0.42,
-   "nota": "Sin Robinson. Dato del usuario: 8 intentos/partido sin Robinson desde que llego a DET, 3+ en 3 de 3 (2025-26). Esta temporada en 33+ min: 8, 5, 6 intentos. ~6.7 intentos x 36% = 2.4. SAS 1o en limitar triples del rival. 3+ a +152: 42% vs 39.7%, EV ~+6%. Correlacionada con su P+A."
+   "nota": "Sin Robinson. Dato del usuario: 8 intentos/partido sin Robinson desde que llego a DET, 3+ en 3 de 3 (2025-26). Esta temporada en 33+ min: 8, 5, 6 intentos. ~6.7 intentos x 36% = 2.4. SAS 1o en limitar triples del rival. 3+ a +152: 42% vs 39.7%, EV ~+6%. Correlacionada con su P+A.",
+   "act": 0,
+   "res": "L"
   },
   {
    "f": "2026-11-17",
@@ -1119,7 +1131,9 @@
    "ln": 9.5,
    "od": "-104",
    "pr": 0.55,
-   "nota": "LAL sin Kessler (12 reb/partido). 0.34 reb/min x ~30 min. 10+ en 4 de 11 esta temporada; 9+ en 6 de 11. Ultimos 2: 13 y 12. 10+ a -104: EV ~+7% con 30 min, -8% con 28. 9+ a -182: EV ~+1%. Margen chico."
+   "nota": "LAL sin Kessler (12 reb/partido). 0.34 reb/min x ~30 min. 10+ en 4 de 11 esta temporada; 9+ en 6 de 11. Ultimos 2: 13 y 12. 10+ a -104: EV ~+7% con 30 min, -8% con 28. 9+ a -182: EV ~+1%. Margen chico.",
+   "act": 16,
+   "res": "W"
   },
   {
    "f": "2026-11-17",
@@ -1132,7 +1146,9 @@
    "ln": 2.5,
    "od": "-118",
    "pr": 0.545,
-   "nota": "Sin Reaves ni Kessler. Potenciales NBA.com: con Reaves 46 en 287 min (0.16/min, 4.2 por partido, 61% convertidas); 15-nov sin Reaves: 43 pases pero solo 4 potenciales en 37 min (0.11/min) y 1 ast. La creacion la absorbio Luka (17 potenciales). ~5 potenciales x 58% = 2.9-3.0 ast. EV ~0%. Dato del usuario: 3+ en 22 de 28 con 35-50 pases (filtro posterior, optimista)."
+   "nota": "Sin Reaves ni Kessler. Potenciales NBA.com: con Reaves 46 en 287 min (0.16/min, 4.2 por partido, 61% convertidas); 15-nov sin Reaves: 43 pases pero solo 4 potenciales en 37 min (0.11/min) y 1 ast. La creacion la absorbio Luka (17 potenciales). ~5 potenciales x 58% = 2.9-3.0 ast. EV ~0%. Dato del usuario: 3+ en 22 de 28 con 35-50 pases (filtro posterior, optimista).",
+   "act": 3,
+   "res": "W"
   },
   {
    "f": "2026-11-17",
@@ -1145,7 +1161,9 @@
    "ln": 1.5,
    "od": "+108",
    "pr": 0.49,
-   "nota": "Sin Reaves ni Kessler, ~35 min. Volumen bajo esta temporada: 39 intentos en 324 min (0.12/min, 33%); 15-nov sin Reaves: 5 de 6 en 37 min. ~4.8 intentos x 36% = 1.7. 2+ en 3 de 12. EV ~+2%."
+   "nota": "Sin Reaves ni Kessler, ~35 min. Volumen bajo esta temporada: 39 intentos en 324 min (0.12/min, 33%); 15-nov sin Reaves: 5 de 6 en 37 min. ~4.8 intentos x 36% = 1.7. 2+ en 3 de 12. EV ~+2%.",
+   "act": 10,
+   "res": "W"
   },
   {
    "f": "2026-11-17",
@@ -1158,7 +1176,9 @@
    "ln": 13.5,
    "od": "-112",
    "pr": 0.54,
-   "nota": "Fuera Kessler (pierna) y Reaves: Mamu es el pivot suplente, ~30 min. 0.47 pts/min esta temporada; con 30+ min: 13 y 23 pts. 14+ en 4 de 14. Con 30 min EV +2%; con 32, +12%; con 28, -10%. Sin valor claro."
+   "nota": "Fuera Kessler (pierna) y Reaves: Mamu es el pivot suplente, ~30 min. 0.47 pts/min esta temporada; con 30+ min: 13 y 23 pts. 14+ en 4 de 14. Con 30 min EV +2%; con 32, +12%; con 28, -10%. Sin valor claro.",
+   "act": 3,
+   "res": "L"
   },
   {
    "f": "2026-11-17",
@@ -1171,7 +1191,9 @@
    "ln": 2.5,
    "od": "-150",
    "pr": 0.65,
-   "nota": "Sin Schroder ni Knueppel; Coby White restringido (~20 min). Potenciales sin Schroder: BOS 2 (21 min), CLE 6 (33), PHX 7 (32), LAC 8 (35, 50 pases, 4 ast): 0.21/min en los ultimos 3. ~33 min x 0.20 = 6.6 pot x 55% = 3.6. 3+ en 3 de 4 sin Schroder. LAL -8.5: riesgo de paliza. EV ~+8%."
+   "nota": "Sin Schroder ni Knueppel; Coby White restringido (~20 min). Potenciales sin Schroder: BOS 2 (21 min), CLE 6 (33), PHX 7 (32), LAC 8 (35, 50 pases, 4 ast): 0.21/min en los ultimos 3. ~33 min x 0.20 = 6.6 pot x 55% = 3.6. 3+ en 3 de 4 sin Schroder. LAL -8.5: riesgo de paliza. EV ~+8%.",
+   "act": 4,
+   "res": "W"
   },
   {
    "f": "2026-11-18",
