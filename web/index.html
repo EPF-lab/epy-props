@@ -447,7 +447,7 @@ body.vsw .wrap{max-width:1240px}body.vsw .warn{display:none}
 .vsch svg{width:100%;height:auto;display:block}
 .vsch .gl{stroke:var(--line);stroke-dasharray:none;opacity:.55}
 .vsch .ax{fill:var(--muted,var(--mut));font:11px var(--f)}.vsch .xo{fill:var(--text,var(--ink));font:700 11px var(--f)}
-.vsch .bv{fill:#fff;font:800 12px var(--f)}.vsch .bvo{fill:var(--text,var(--ink));font:800 12px var(--f)}
+.vsch .bv{fill:#fff;font:800 12px var(--f);paint-order:stroke;stroke:rgba(0,0,0,.35);stroke-width:2.5px}.vsch .bvo{fill:var(--text,var(--ink));font:800 12px var(--f)}
 .vsch .ml{fill:none;stroke:#4c8dff;stroke-width:2;stroke-linejoin:round}.vsch .md{fill:#4c8dff}
 .vsch .rl{stroke:#e8c27a;stroke-width:2;stroke-dasharray:6 5}
 .vsch .bar{cursor:pointer;transition:opacity .15s}.vsch .bar:hover{opacity:.8}
@@ -465,6 +465,20 @@ body.vsw .wrap{max-width:1240px}body.vsw .warn{display:none}
 .vsln small{color:var(--muted,var(--mut));font-size:12px}
 .vslg{display:flex;gap:14px;justify-content:center;font-size:12px;color:var(--muted,var(--mut));margin:6px 0 0}.vslg i{display:inline-block;width:14px;height:3px;border-radius:2px;vertical-align:middle;margin-right:5px}
 .vsemp{padding:40px 10px;text-align:center;color:var(--muted,var(--mut))}
+.vsmn{display:flex;flex-direction:row;align-items:center;gap:8px;background:var(--fill,var(--seg));border-radius:99px;padding:5px 12px;font-size:13px;color:var(--text,var(--ink));font-weight:600}
+.vsmn span{white-space:nowrap;min-width:62px}.vsmn input{width:130px;padding:0;background:transparent;accent-color:var(--acc);box-shadow:none}
+.vsf .tg{display:inline-flex;align-items:center;gap:6px}
+.vstm{position:relative}
+.vstp{position:absolute;z-index:30;top:calc(100% + 6px);left:0;width:310px;max-width:calc(100vw - 40px);background:var(--solid,var(--card));border:1px solid var(--glass-edge,var(--line));border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.45);padding:10px}
+.vstph{display:flex;justify-content:space-between;align-items:center;padding:2px 4px 8px;border-bottom:1px solid var(--line);font-size:14px}
+.vstph button{border:0;background:none;color:var(--acc);font:600 12px var(--f);cursor:pointer}
+.vstpc{display:flex;gap:16px;padding:8px 6px 4px;font-size:11px;font-weight:700;color:var(--muted,var(--mut));letter-spacing:.05em}
+.vstpl{max-height:340px;overflow-y:auto;display:grid;gap:4px}
+.vstr{display:flex;align-items:center;gap:8px;padding:3px 2px}
+.vstr>button{width:30px;height:30px;border-radius:9px;border:0;background:var(--fill,var(--seg));color:var(--text,var(--ink));font-size:17px;font-weight:700;cursor:pointer;flex:none}
+.vstr>button.pl.on{background:var(--pos);color:#04210f}.vstr>button.mi.on{background:var(--neg);color:#fff}
+.vstr span{display:grid;min-width:0}.vstr b{font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.vstr small{font-size:11px;color:var(--muted,var(--mut))}
+@media(max-width:600px){.vsf{overflow:visible;flex-wrap:wrap}.vstp{position:fixed;left:16px;right:16px;top:auto;bottom:100px;width:auto}}
 </style>
 <section id="vs" hidden>
 <div class="vsd"><button type="button" id="vsPrev" aria-label="Día anterior">‹</button><b id="vsDay"></b><button type="button" id="vsNext" aria-label="Día siguiente">›</button><button type="button" class="hoy" id="vsHoy">Hoy</button></div>
@@ -831,6 +845,7 @@ const L=d.alt,hs=hits(vals,L),side=hs.o>=hs.u?"Over":"Under",cn=side==="Over"?hs
 const rk=MK[k]?rank(x.op,pos,MK[k].i):null,f=[],B=BASE(p),pj1=s=>B[s]!=null?B[s]*factor(x.op,pos,s).f:null,proj=COMBO[k]?(COMBO[k].every(s=>B[s]!=null)?COMBO[k].reduce((a,s)=>a+pj1(s),0):null):(IDX[k]!=null?pj1(k):null),an=anaDe(p[0],k,x.op);
 if(d.onlyRival)f.push("contra "+x.op);
 if(d.mate){const m=PL.find(q=>String(q[10])===String(d.mate));if(m)f.push((d.mw==="sin"?"sin ":"con ")+m[0])}
+(d.mates||[]).forEach(([id,w])=>{const m=PL.find(q=>String(q[10])===String(id));if(m)f.push((w==="sin"?"sin ":"con ")+m[0])});if(d.ha)f.push(d.ha==="h"?"de local":"de visita");
 if(d.rkR!=="all")f.push("rivales #"+d.rkR.replace("-","–")+" en "+(MK[d.rkMk]?MK[d.rkMk].l:d.rkMk)+" permitidas");
 if(d.mn)f.push(d.mn+"+ minutos");
 f.push(d.N==="all"?(f.length?"todos los partidos":"todos sus partidos"):"últimos "+d.N);
@@ -920,7 +935,7 @@ try{const r=await fetch("historial.json",{cache:"no-store"});if(r.ok){const h=aw
 </script>
 <script>
 /* ---------- Pestaña Partidos: enfrentamiento, plantillas y gráfico por jugador ---------- */
-const VS={day:null,games:[],g:null,inj:{},side:"a",pid:null,k:"pts",N:20,ha:"all",se:"all",mn:0,riv:false,mate:"",mw:"sin",L:null,Lauto:true,tries:0};
+const VS={mates:{},day:null,games:[],g:null,inj:{},side:"a",pid:null,k:"pts",N:20,ha:"all",se:"all",mn:0,riv:false,mate:"",mw:"sin",L:null,Lauto:true,tries:0};
 const E2H={PHX:"PHO",BKN:"BRK",CHA:"CHO",NO:"NOP",SA:"SAS",GS:"GSW",NY:"NYK",UTAH:"UTA",WSH:"WAS"};
 const VSK=[["pts","Puntos",r=>r[6]],["reb","Rebotes",r=>r[7]],["ast","Asistencias",r=>r[8]],["pra","PRA",r=>r[6]+r[7]+r[8]],["pa","Pts+Ast",r=>r[6]+r[8]],["pr","Pts+Reb",r=>r[6]+r[7]],["ra","Reb+Ast",r=>r[7]+r[8]],["tpm","Triples",r=>r[9]],["tpa","Triples int.",r=>r[13]],["stl","Robos",r=>r[10]],["fga","Tiros de campo",r=>r[12]],["fta","Tiros libres",r=>r[15]]];
 const vsF=k=>(VSK.find(x=>x[0]===k)||VSK[0])[2];
@@ -937,17 +952,23 @@ const mv=n=>{const d=new Date(VS.day);d.setDate(d.getDate()+n);VS.day=d;VS.g=nul
 $("#vsPrev").onclick=()=>mv(-1);$("#vsNext").onclick=()=>mv(1);$("#vsHoy").onclick=()=>{VS.day=new Date();VS.g=null;vsLoad()};
 $("#vsg").addEventListener("click",e=>{const b=e.target.closest("[data-g]");if(!b)return;vsPick(b.dataset.g)});
 $("#vsr").addEventListener("click",e=>{const s=e.target.closest("[data-sd]");if(s){VS.side=s.dataset.sd;vsRoster();return}
-const b=e.target.closest("[data-pid]");if(!b)return;VS.pid=b.dataset.pid;VS.mate="";VS.Lauto=true;vsRoster();vsPlayer();if(innerWidth<980)$("#vsp").scrollIntoView({behavior:"smooth",block:"start"})});
+const b=e.target.closest("[data-pid]");if(!b)return;VS.pid=b.dataset.pid;VS.mates={};VS.Lauto=true;vsRoster();vsPlayer();if(innerWidth<980)$("#vsp").scrollIntoView({behavior:"smooth",block:"start"})});
 const P=$("#vsp");
 P.addEventListener("click",e=>{const t=e.target.closest("button");if(!t){const br=e.target.closest(".bar");if(br)vsCap(+br.dataset.i);return}
+if(t.id==="vsTm"){VS.tmOpen=!VS.tmOpen;$("#vsTp").hidden=!VS.tmOpen;return}
+if(t.dataset.tm){const id=t.dataset.tm,w=t.dataset.w;if(VS.mates[id]===w)delete VS.mates[id];else VS.mates[id]=w;VS.tmOpen=true;vsPlayer();return}
+if(t.id==="vsTmX"){VS.mates={};VS.tmOpen=true;vsPlayer();return}
+if(t.id==="vsPrint"){vsPrint();return}
 if(t.dataset.k){VS.k=t.dataset.k;VS.Lauto=true;vsPlayer();return}
 if(t.dataset.n){VS.N=t.dataset.n==="all"?"all":+t.dataset.n;vsPlayer();return}
 if(t.dataset.ha){VS.ha=t.dataset.ha;vsPlayer();return}
 if(t.id==="vsRiv"){VS.riv=!VS.riv;vsPlayer();return}
 if(t.dataset.ln){const v=(VS.L||0)+ +t.dataset.ln;VS.L=Math.max(.5,Math.round(v*2)/2);VS.Lauto=false;vsPlayer();return}
 if(t.id==="vsLr"){VS.Lauto=true;vsPlayer()}});
+P.addEventListener("input",e=>{if(e.target.id==="vsMn")$("#vsMnV").textContent=e.target.value});
+document.addEventListener("click",e=>{if(VS.tmOpen&&!e.target.closest(".vstm")){VS.tmOpen=false;const t=$("#vsTp");if(t)t.hidden=true}});
 P.addEventListener("change",e=>{const t=e.target;
-if(t.id==="vsSe")VS.se=t.value;else if(t.id==="vsMn")VS.mn=+t.value;else if(t.id==="vsMate")VS.mate=t.value;else if(t.id==="vsMw")VS.mw=t.value;
+if(t.id==="vsSe")VS.se=t.value;else if(t.id==="vsMn")VS.mn=+t.value;
 else if(t.id==="vsL"){const v=parseFloat(String(t.value).replace(",","."));if(!isNaN(v)){VS.L=v;VS.Lauto=false}}else return;vsPlayer()})}
 
 async function vsLoad(){const d=VS.day,today0=vsIso(new Date())===vsIso(d);
@@ -964,7 +985,7 @@ function vsGames(){$("#vsg").innerHTML=VS.games.map(g=>{const tm=g.st==="pre"?g.
 const row=(t,o)=>`<span><i><img src="${t.logo}" alt="">${t.name}</i>${g.st!=="pre"?`<b>${t.sc}</b>`:""}</span>`;
 return`<button type="button" class="vsc${VS.g&&VS.g.id===g.id?" on":""}" data-g="${g.id}"><small>${tm}</small>${row(g.a)}${row(g.h)}</button>`}).join("")}
 
-async function vsPick(id){const g=VS.games.find(x=>x.id===id);if(!g)return;VS.g=g;VS.side="a";VS.pid=null;VS.mate="";VS.riv=false;vsGames();vsHead();VS.inj={};vsRoster();vsPlayer();
+async function vsPick(id){const g=VS.games.find(x=>x.id===id);if(!g)return;VS.g=g;VS.side="a";VS.pid=null;VS.mates={};VS.riv=false;vsGames();vsHead();VS.inj={};vsRoster();vsPlayer();
 try{const r=await fetch("https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event="+id);const j=await r.json();
 (j.injuries||[]).forEach(t=>(t.injuries||[]).forEach(i=>{VS.inj[vsNk(i.athlete.displayName)]=i.status}));if(VS.g&&VS.g.id===id){vsRoster();if(VS.pid)vsPlayer()}}catch(e){}}
 
@@ -992,8 +1013,8 @@ if(VS.se!=="all")rows=rows.filter(r=>tempDe(r[1])===VS.se);
 if(VS.ha!=="all")rows=rows.filter(r=>VS.ha==="h"?r[4]:!r[4]);
 if(VS.mn)rows=rows.filter(r=>r[5]>=VS.mn);
 if(VS.riv)rows=rows.filter(r=>r[3]===opp);
-if(VS.mate&&HIST.p[VS.mate]){const mr=HIST.p[VS.mate],pl=new Set(mr.map(r=>r[0])),on=new Set(mr.map(r=>tempDe(r[1])+r[2]));
-rows=rows.filter(r=>on.has(tempDe(r[1])+r[2])&&(VS.mw==="con"?pl.has(r[0]):!pl.has(r[0])))}
+Object.entries(VS.mates).forEach(([mid,w])=>{const mr=HIST.p[mid];if(!mr)return;const pl=new Set(mr.map(r=>r[0])),on=new Set(mr.map(r=>tempDe(r[1])+r[2]));
+rows=rows.filter(r=>on.has(tempDe(r[1])+r[2])&&(w==="con"?pl.has(r[0]):!pl.has(r[0])))});
 return rows}
 
 function vsBook(name,k){try{if(typeof DY==="undefined"||!DY||DY.fecha!==vsIso(VS.day))return null;const L=DY.lineas&&DY.lineas[name]&&DY.lineas[name][k];if(!L||!L.length)return null;
@@ -1020,10 +1041,11 @@ el.innerHTML=`<div class="vsph">${avH(p,60)}<div style="flex:1;min-width:0"><h2>
 <div class="vsf"><div class="sg">${[5,10,15,20,30,"all"].map(v=>`<button type="button" data-n="${v}" class="${VS.N===v?"on":""}">${v==="all"?"Todos":"L"+v}</button>`).join("")}</div>
 <div class="sg">${[["all","Local + Visita"],["h","Local"],["a","Visita"]].map(v=>`<button type="button" data-ha="${v[0]}" class="${VS.ha===v[0]?"on":""}">${v[1]}</button>`).join("")}</div>
 <select id="vsSe" aria-label="Temporada"><option value="all">Todas las temporadas</option>${seasons.map(s=>`<option value="${s}"${VS.se===s?" selected":""}>${s}</option>`).join("")}</select>
-<select id="vsMn" aria-label="Minutos mínimos">${[0,15,20,25,30,35].map(v=>`<option value="${v}"${VS.mn===v?" selected":""}>${v?v+"+ min":"Cualquier minuto"}</option>`).join("")}</select>
+<label class="vsmn"><span>Min ≥ <b id="vsMnV">${VS.mn}</b></span><input type="range" id="vsMn" min="0" max="48" step="1" value="${VS.mn}" aria-label="Minutos mínimos"></label>
 <button type="button" class="tg${VS.riv?" on":""}" id="vsRiv">Solo vs ${opp}</button>
-<select id="vsMw" aria-label="Con o sin">${[["sin","Sin"],["con","Con"]].map(v=>`<option value="${v[0]}"${VS.mw===v[0]?" selected":""}>${v[1]}</option>`).join("")}</select>
-<select id="vsMate" aria-label="Compañero"><option value="">compañero…</option>${mates.map(x=>`<option value="${x.id}"${VS.mate===x.id?" selected":""}>${vsEsc(x.p[0])}</option>`).join("")}</select></div>
+<div class="vstm"><button type="button" class="tg${Object.keys(VS.mates).length?" on":""}" id="vsTm"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c.6-3.2 3-5 6-5s5.4 1.8 6 5"/><path d="M16 4.6a3.2 3.2 0 0 1 0 6.3M18 14.3c1.7.7 2.8 2.3 3.1 4.7"/></svg>Compañeros${Object.keys(VS.mates).length?" ("+Object.keys(VS.mates).length+")":""} ▾</button>
+<div class="vstp" id="vsTp"${VS.tmOpen?"":" hidden"}><div class="vstph"><b>Compañeros</b>${Object.keys(VS.mates).length?`<button type="button" id="vsTmX">Quitar todos</button>`:""}</div><div class="vstpc"><span>CON</span><span>SIN</span></div><div class="vstpl">${mates.map(x=>{const w=VS.mates[x.id];return`<div class="vstr"><button type="button" class="pl${w==="con"?" on":""}" data-tm="${x.id}" data-w="con" aria-label="Con ${vsEsc(x.p[0])}">+</button><button type="button" class="mi${w==="sin"?" on":""}" data-tm="${x.id}" data-w="sin" aria-label="Sin ${vsEsc(x.p[0])}">−</button>${avH(x.p,32)}<span><b>${vsEsc(x.p[0])}</b><small>${x.p[3]} · ${x.min.toFixed(1)} min</small></span></div>`}).join("")||'<p class="hint" style="padding:8px">Sin compañeros con partidos.</p>'}</div></div></div>
+<button type="button" class="tg pr" id="vsPrint"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M7 9V3h10v6M7 18H4v-7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7h-3"/><path d="M7 14h10v7H7z"/></svg>Imprimir</button></div>
 <div class="vss"><div><small>Promedio</small><b>${n?f1(avg):"–"}</b></div><div><small>Hit rate (+${f1(L)})</small><b style="color:${n&&ov/n>=.5?"var(--pos)":"var(--neg)"}">${n?Math.round(ov/n*100)+"% ("+ov+"/"+n+")":"–"}</b></div><div><small>Min promedio</small><b>${n?f1(mavg):"–"}</b></div><div><small>Línea</small><span class="lnb"><button type="button" data-ln="-1" aria-label="Bajar línea">−</button><input id="vsL" inputmode="decimal" value="${String(L).replace(".",",")}" aria-label="Línea"><button type="button" data-ln="1" aria-label="Subir línea">+</button></span><span class="src">${VS.Lauto?src:`manual · <button type="button" id="vsLr">volver a la sugerida</button>`}${an?` · EPY ${f1(an.m)}`:""}</span></div></div>
 <div class="vsch">${vsChart(rows,f,L)}</div><p class="vscap" id="vsCap">${n?`${kl} · ${n} partidos. Toca una barra para ver el detalle.`:""}</p>
 <div class="vslg"><span><i style="background:${BAR_OK}"></i>Superó</span><span><i style="background:${BAR_NO}"></i>No superó</span><span><i style="background:#4c8dff"></i>Minutos</span><span><i style="background:#e8c27a"></i>Línea</span></div>
@@ -1038,7 +1060,7 @@ let g="";for(let v=0;v<=mx;v+=step){const y=Y(v).toFixed(1);g+=`<line x1="${l}" 
 [0,12,24,36,48].forEach(m=>{g+=`<text x="${W-r+6}" y="${YM(m)+4}" class="ax" style="fill:#4c8dff">${m}'</text>`});
 const bars=rows.map((x,i)=>{const v=vals[i],cx=l+slot*(i+.5),x0=cx-bw/2,y0=Y(v),h=Math.max(3,yb-y0),rd=Math.min(6,bw/2,h/2),col=v>L?BAR_OK:BAR_NO;
 const pth=`M${x0.toFixed(1)} ${yb}V${(y0+rd).toFixed(1)}Q${x0.toFixed(1)} ${y0.toFixed(1)} ${(x0+rd).toFixed(1)} ${y0.toFixed(1)}H${(x0+bw-rd).toFixed(1)}Q${(x0+bw).toFixed(1)} ${y0.toFixed(1)} ${(x0+bw).toFixed(1)} ${(y0+rd).toFixed(1)}V${yb}Z`;
-const inside=h>20,lab=`<text x="${cx.toFixed(1)}" y="${inside?(yb-6).toFixed(1):(y0-5).toFixed(1)}" text-anchor="middle" class="${inside?"bv":"bvo"}" style="${inside&&v>L?"fill:#06210f":""}">${v}</text>`;
+const inside=h>20,lab=`<text x="${cx.toFixed(1)}" y="${inside?(yb-6).toFixed(1):(y0-5).toFixed(1)}" text-anchor="middle" class="${inside?"bv":"bvo"}">${v}</text>`;
 const xl=i%ev===0?`<text x="${cx.toFixed(1)}" y="${yb+16}" text-anchor="middle" class="xo">${x[4]?"":"@"}${x[3]}</text><text x="${cx.toFixed(1)}" y="${yb+30}" text-anchor="middle" class="ax">${dt(x[1])}</text>`:"";
 return`<path d="${pth}" fill="${col}" class="bar" data-i="${i}"><title>${dt(x[1])} ${x[4]?"vs":"@"} ${x[3]}: ${v} en ${x[5]} min</title></path>${lab}${xl}`}).join("");
 const pts=rows.map((x,i)=>[l+slot*(i+.5),YM(x[5])]);
@@ -1046,6 +1068,13 @@ const ml=`<polyline class="ml" points="${pts.map(q=>q[0].toFixed(1)+","+q[1].toF
 const yl=Y(L).toFixed(1);
 return`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">${g}${bars}${ml}<line x1="${l}" x2="${W-r}" y1="${yl}" y2="${yl}" class="rl"/><rect x="${W-r-44}" y="${+yl-11}" width="42" height="20" rx="6" fill="#e8c27a"/><text x="${W-r-23}" y="${+yl+4}" text-anchor="middle" style="font:800 12px var(--f);fill:#2a2108">${f1(L)}</text></svg>`}
 
+// "Imprimir": abre la misma tarjeta de captura que el detalle de PICKS (capOpen), con los filtros de esta pestaña
+function vsPrint(){if(!VS.cur||!VS.cur.length)return toast("No hay partidos en el gráfico.");if(!HK[VS.k])return toast("La captura solo está disponible para puntos, rebotes, asistencias, triples, robos y combinados.");
+const g=VS.g,p=(PL||[]).find(q=>String(q[10])===String(VS.pid));if(!p)return;const all=HIST.p[VS.pid]||[],cur=all.filter(r=>r[1]>=NUEVA),last=cur.length?cur.reduce((m,r)=>r[1]>m[1]?r:m):null,ab=last?last[2]:p[2],oppAb=ab===g.a.hab?g.h.hab:g.a.hab;
+const op=abN(oppAb)||(ab===g.a.hab?g.h.full:g.a.full);
+const prevDT=DT;DT={x:{p,op,k:VS.k},stat:VS.k,cur:VS.cur,alt:VS.L,onlyRival:VS.riv,mate:"",mw:"sin",mates:Object.entries(VS.mates),ha:VS.ha==="all"?"":VS.ha,rkR:"all",mn:VS.mn,N:VS.N};
+const tmp=document.createElement("div");tmp.hidden=true;tmp.innerHTML=detChart(VS.cur,VS.k,VS.L);document.body.appendChild(tmp);
+try{capOpen()}finally{tmp.remove();DT=prevDT}}
 function vsCap(i){const r=VS.cur&&VS.cur[i];if(!r)return;const d=String(r[1]),f=vsF(VS.k);
 $("#vsCap").innerHTML=`<b>${d.slice(6)}/${d.slice(4,6)}/${d.slice(0,4)}</b> ${r[4]?"vs":"@"} ${r[3]} · <b>${f(r)}</b> ${(VSK.find(x=>x[0]===VS.k)||VSK[0])[1].toLowerCase()} · ${r[5]} min · ${r[6]} pts, ${r[7]} reb, ${r[8]} ast${r[12]!=null?` · ${r[11]}/${r[12]} TC`:""}${r[13]!=null?` · ${r[9]}/${r[13]} triples`:""}`}
 </script>
