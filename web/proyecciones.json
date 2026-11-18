@@ -1203,14 +1203,14 @@
    "f": "2026-11-18",
    "pl": "Domantas Sabonis",
    "k": "reb",
-   "m": 14.0,
-   "lo": 13.0,
-   "hi": 14.5,
+   "m": 14.3,
+   "lo": 13.5,
+   "hi": 14.6,
    "vs": "Phoenix Suns",
    "ln": 11.5,
    "od": "-167",
-   "pr": 0.69,
-   "nota": "0.42 reb/min x 33 min; reb chances 24.7/g (21 y 26 ultimos 2); PHX +2% reb a pivots (+5% general); 10 de 12 con 12+; mercado principal 13.5 a -105 coincide"
+   "pr": 0.705,
+   "nota": "0.42 reb/min x 33 min; PHX 4to que mas reb permite a C (tabla del usuario, bruto) vs +2% ajustado por rivales (Jokic x2, Sengun, Wemby) -> +5%; prob mezclada con mercado"
   },
   {
    "f": "2026-11-18",
