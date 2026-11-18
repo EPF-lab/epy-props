@@ -1177,14 +1177,14 @@
    "f": "2026-11-18",
    "pl": "Dean Wade",
    "k": "pr",
-   "m": 12.0,
+   "m": 11.8,
    "lo": 10.5,
    "hi": 13.5,
    "vs": "Orlando Magic",
    "ln": 10.5,
    "od": "-115",
-   "pr": 0.58,
-   "nota": "Sin Jaylen Brown; ~30 min; 0.41 P+R/min (mezcla temporada 0.35 y ultimos 4 0.53); ORL sin Banchero/Isaac/Penda"
+   "pr": 0.57,
+   "nota": "Sin Jaylen Brown; ~30 min; reb chances 16/11/14/12 ultimos 4 (0.43/min vs 0.27 antes), conversion 60% vs 47% habitual -> reb algo inflados"
   }
  ]
 }
