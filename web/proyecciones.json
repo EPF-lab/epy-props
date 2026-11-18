@@ -1025,7 +1025,8 @@
    "ln": 20.5,
    "od": "-121",
    "pr": 0.63,
-   "nota": "UTA sin Markkanen, Jaren Jackson, Hayes ni Nurkic. Rol nuevo: 19-21 tiros en sus ultimos 5 (antes 7-15); 26, 25, 22, 28, 17 pts en 31-35 min (0.71 pts/min). ~34 min x ~0.68 = 23. LAC neutral vs SG (+4%) y PG (-1%) en mi ajuste 2026-27. LAC -6.5, total 225.5. 21+ a -121: EV ~+12%; 22+ a -118: ~+4%."
+   "nota": "UTA sin Markkanen, Jaren Jackson, Hayes ni Nurkic. Rol nuevo: 19-21 tiros en sus ultimos 5 (antes 7-15); 26, 25, 22, 28, 17 pts en 31-35 min (0.71 pts/min). ~34 min x ~0.68 = 23. LAC neutral vs SG (+4%) y PG (-1%) en mi ajuste 2026-27. LAC -6.5, total 225.5. 21+ a -121: EV ~+12%; 22+ a -118: ~+4%.",
+   "jug": true
   },
   {
    "f": "2026-11-17",
@@ -1051,7 +1052,8 @@
    "ln": 6.5,
    "od": "-121",
    "pr": 0.62,
-   "nota": "Con Miller de vuelta ~25.5 min. NBA.com sin Schroder: 0.35 ast potenciales/min (47% convertidas) y 0.23 reb chances/min (58%); 15-nov desde el banco: 19 oportunidades en 25 min, 9 R+A. ~8.9 pot x 52% + 5.8 chances x 58% = 8.0; mezclado con su ritmo de R+A = 7.6. 7+ en 7 de 13. EV ~+13%."
+   "nota": "Con Miller de vuelta ~25.5 min. NBA.com sin Schroder: 0.35 ast potenciales/min (47% convertidas) y 0.23 reb chances/min (58%); 15-nov desde el banco: 19 oportunidades en 25 min, 9 R+A. ~8.9 pot x 52% + 5.8 chances x 58% = 8.0; mezclado con su ritmo de R+A = 7.6. 7+ en 7 de 13. EV ~+13%.",
+   "jug": true
   },
   {
    "f": "2026-11-17",
@@ -1064,7 +1066,8 @@
    "ln": 8.5,
    "od": "-136",
    "pr": 0.69,
-   "nota": "Sin Kuminga. Ultimos 5 (NBA.com): reb chances 14,11,11,11,9 (57% convertidas); ast potenciales 4,6,4,10,7 (65%). ~33 min: 11.1 chances y 6.2 pot -> ~6.3 reb + 3.7 ast. Vs POR ayer: 31 min, 9 chances, 7 pot, R+A 9. Modelo 66%; 9+ en 13 de 14 esta temporada; mezcla 69%, EV ~+17%. Segundo partido seguido vs POR."
+   "nota": "Sin Kuminga. Ultimos 5 (NBA.com): reb chances 14,11,11,11,9 (57% convertidas); ast potenciales 4,6,4,10,7 (65%). ~33 min: 11.1 chances y 6.2 pot -> ~6.3 reb + 3.7 ast. Vs POR ayer: 31 min, 9 chances, 7 pot, R+A 9. Modelo 66%; 9+ en 13 de 14 esta temporada; mezcla 69%, EV ~+17%. Segundo partido seguido vs POR.",
+   "jug": true
   },
   {
    "f": "2026-11-17",
