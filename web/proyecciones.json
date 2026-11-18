@@ -1188,6 +1188,19 @@
   },
   {
    "f": "2026-11-18",
+   "pl": "Devin Booker",
+   "k": "ast",
+   "m": 6.3,
+   "lo": 5.8,
+   "hi": 6.8,
+   "vs": "Sacramento Kings",
+   "ln": 5.5,
+   "od": "112",
+   "pr": 0.56,
+   "nota": "AST pot 12/g ultimos 5 (9.4 temporada); 0.18 ast/min x 35; SAC +12% ast a guardias; prob mezclada con mercado (-120 en otras casas)"
+  },
+  {
+   "f": "2026-11-18",
    "pl": "Michael Porter Jr.",
    "k": "pts",
    "m": 24.0,
@@ -1198,6 +1211,19 @@
    "od": "-130",
    "pr": 0.575,
    "nota": "35 min x 0.655 pts/min = 22.9; CHI permite +8% a aleros (pace), regresado a +5%; total 238.5, BKN -2.5"
+  },
+  {
+   "f": "2026-11-18",
+   "pl": "Yaxel Lendeborg",
+   "k": "pts",
+   "m": 23.0,
+   "lo": 21.5,
+   "hi": 24.0,
+   "vs": "Dallas Mavericks",
+   "ln": 22.5,
+   "od": "-120",
+   "pr": 0.53,
+   "nota": "Sin Curry: 0.73 pts/min (5 juegos) vs 0.62 con el; ~32-33 min; DAL +3% a aleros; DAL -6.5 riesgo paliza"
   }
  ]
 }
