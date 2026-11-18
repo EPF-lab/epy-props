@@ -1185,6 +1185,19 @@
    "od": "-115",
    "pr": 0.57,
    "nota": "Sin Jaylen Brown; ~30 min; reb chances 16/11/14/12 ultimos 4 (0.43/min vs 0.27 antes), conversion 60% vs 47% habitual -> reb algo inflados"
+  },
+  {
+   "f": "2026-11-18",
+   "pl": "Michael Porter Jr.",
+   "k": "pts",
+   "m": 24.0,
+   "lo": 22.9,
+   "hi": 25.0,
+   "vs": "Chicago Bulls",
+   "ln": 22.5,
+   "od": "-130",
+   "pr": 0.575,
+   "nota": "35 min x 0.655 pts/min = 22.9; CHI permite +8% a aleros (pace), regresado a +5%; total 238.5, BKN -2.5"
   }
  ]
 }
