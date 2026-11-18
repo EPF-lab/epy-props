@@ -1225,14 +1225,14 @@
    "f": "2026-11-18",
    "pl": "Devin Booker",
    "k": "ast",
-   "m": 6.3,
+   "m": 6.2,
    "lo": 5.8,
-   "hi": 6.8,
+   "hi": 6.7,
    "vs": "Sacramento Kings",
    "ln": 5.5,
    "od": "120",
-   "pr": 0.56,
-   "nota": "Otras casas se movieron a -125 (al over); el +120 es precio aislado de una casa; prob mezclada con consenso"
+   "pr": 0.55,
+   "nota": "AST pot 12.5 ultimos 4; armadores vs SAC +4% ast pot y ~+9% ast; otras casas -125 (precio aislado a +120)"
   },
   {
    "f": "2026-11-18",
@@ -1251,14 +1251,14 @@
    "f": "2026-11-18",
    "pl": "Franz Wagner",
    "k": "ra",
-   "m": 15.3,
+   "m": 15.5,
    "lo": 14.5,
-   "hi": 15.9,
+   "hi": 16.0,
    "vs": "Philadelphia 76ers",
    "ln": 12.5,
    "od": "-136",
-   "pr": 0.67,
-   "nota": "Sin Paolo: 0.42 RA/min x 38 min = 15.9, 8 de 11 con 13+ (tres fallos en 9); PHI +4% reb y -14% ast a aleros; ORL tambien sin Isaac/Penda; prob recortada por suelo de 9"
+   "pr": 0.68,
+   "nota": "Sin Paolo: 0.42 RA/min x 38 min, 8 de 11 con 13+; PHI da +10-15% chances de rebote a perimetrales y +24-72% ast pot a creadores principales (Cade, Giddey, Nembhard); sin castigo de ast; tope -145"
   },
   {
    "f": "2026-11-18",
