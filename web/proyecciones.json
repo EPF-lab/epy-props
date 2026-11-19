@@ -1426,6 +1426,19 @@
   },
   {
    "f": "2026-11-19",
+   "pl": "Josh Hart",
+   "k": "pra",
+   "m": 14.0,
+   "lo": 12.5,
+   "hi": 15.5,
+   "vs": "Minnesota Timberwolves",
+   "ln": 17.5,
+   "od": "-110",
+   "pr": 0.35,
+   "nota": "UNDER (prob guardada = over 35%; under ~65%, recortado de 69% por sobreconfianza del modelo lejos de la linea). Verificado: ultimos 8 = 13.0 PRA; 18+ solo en 4 de 11 (3 primeros y 21 vs BRK); desde que volvio 9, 7, 11 en 23-31 min, 0.38 PRA/min (0.54 temporada, 0.62 en 2025-26). FGA 4-5 ultimos 4. MIN -6% PRA a SG/SF (41), R+A -2%. Historico vs MIN 21/27/35 con otro rol. 0.48/min x 28 min -> 13.4, regresado a 14."
+  },
+  {
+   "f": "2026-11-19",
    "pl": "Karl-Anthony Towns",
    "k": "pts",
    "m": 21.0,
