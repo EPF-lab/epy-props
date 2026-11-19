@@ -1436,6 +1436,19 @@
    "od": "-110",
    "pr": 0.545,
    "nota": "Supuesto: Camara no juega (DTD pie), Avdija si. Camara no se ha perdido ningun partido con Cissoko en POR (sin muestra). 2026-27: 0.55 PRA/min, 15+ en 4 de 14; con 26+ min 3 de 6 (23, 23, 21, 8, 12, 12). ~29 min x 0.51 x MIL +4% = 15.3 (54.5%). Si Camara juega ~23 min -> 12 (35%). Volatil: depende del tiro (17 y 19 pts vs OKC)."
+  },
+  {
+   "f": "2026-11-19",
+   "pl": "Stephon Castle",
+   "k": "pra",
+   "m": 28.2,
+   "lo": 25.6,
+   "hi": 31.3,
+   "vs": "Los Angeles Clippers",
+   "ln": 30.5,
+   "od": "-125",
+   "pr": 0.39,
+   "nota": "2026-27: 26.1 PRA, 31+ solo 4 de 15. Sin Harper (10, 2025-26): 30.1 PRA, 6 de 10, 0.96/min. SAS -15.5: en sus 6 palizas 2 de 6 con 31+ (~26 min). LAC neutral a PG/SG (1.00, 27 partidos). Mezcla 55% paliza: 25.6 / 31.3 -> 39%. Justa ~+155."
   }
  ]
 }
