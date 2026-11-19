@@ -1382,9 +1382,9 @@
    "hi": 9.0,
    "vs": "Memphis Grizzlies",
    "ln": 6.5,
-   "od": "-126",
+   "od": "-152",
    "pr": 0.58,
-   "nota": "Cuota encontrada -126 (antes -152). Sin Green ni Porzingis, Horford DTD. Con 17+ min 7+ en 4 de 5 (10, 8, 10, 5, 8); sin Green 2 de 2 (7 en 13 min, 10 en 20 vs LAC con 25 reb chances). NBA.com: 11.5 reb chances en 15.1 min (0.76/min), 55% conversion. MEM -13% reb a C (23 partidos). Ojo: 0 reb en 16 min vs NOP 16-nov. Minutos 16/21/25 -> 58%. Justa ~-138."
+   "nota": "Sin Green ni Porzingis, Horford DTD. Con 17+ min 7+ en 4 de 5 (10, 8, 10, 5, 8); sin Green 2 de 2 (7 en 13 min, 10 en 20 vs LAC con 25 reb chances). NBA.com: 11.5 reb chances en 15.1 min (0.76/min), 55% conversion. MEM -13% reb a C (23 partidos). Ojo: 0 reb en 16 min vs NOP 16-nov. Minutos 16/21/25 -> 58%. Justa ~-138."
   },
   {
    "f": "2026-11-19",
@@ -1463,6 +1463,19 @@
    "od": "-120",
    "pr": 0.53,
    "nota": "Linea abrio 19.5 y subio a 20.5. 21.2 pts (14), 9 de 14 con 21+, 0.65 pts/min, ~34 min. MIN vs C/PF -5% pts (19 partidos); mapa de tiros -1.3 pts (MIN 62% en RA vs 66% liga; Towns 6.9 tiros/pj ahi). Sin Edwards MIN mas debil pero total 216.5 bajo. vs MIN historico 32/15/40. Justa ~-112 en 20.5; en 19.5 58% (~-138)."
+  },
+  {
+   "f": "2026-11-19",
+   "pl": "Karl-Anthony Towns",
+   "k": "tpm",
+   "m": 1.8,
+   "lo": 1.6,
+   "hi": 2.1,
+   "vs": "Minnesota Timberwolves",
+   "ln": 1.5,
+   "od": "-126",
+   "pr": 0.57,
+   "nota": "2026-27: 2+ triples en 10 de 14, 2.0 3PM en 5.0 3PA (40%). MIN -7% 3PM y -6% 3PA a C/PF (25 partidos); mapa de tiros triple de arriba MIN 32% vs 34% liga. Total 216.5 bajo (sin Edwards). vs MIN 5/1/3. Modelo 52% (m 1.8), historial 71%: mezcla 57%. Justa ~-133."
   },
   {
    "f": "2026-11-19",
