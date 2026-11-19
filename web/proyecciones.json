@@ -1481,14 +1481,14 @@
    "f": "2026-11-19",
    "pl": "Sidy Cissoko",
    "k": "pra",
-   "m": 15.3,
-   "lo": 13.5,
-   "hi": 16.5,
+   "m": 15.6,
+   "lo": 12.0,
+   "hi": 17.0,
    "vs": "Milwaukee Bucks",
    "ln": 14.5,
    "od": "-110",
-   "pr": 0.545,
-   "nota": "Supuesto: Camara no juega (DTD pie), Avdija si. Camara no se ha perdido ningun partido con Cissoko en POR (sin muestra). 2026-27: 0.55 PRA/min, 15+ en 4 de 14; con 26+ min 3 de 6 (23, 23, 21, 8, 12, 12). ~29 min x 0.51 x MIL +4% = 15.3 (54.5%). Si Camara juega ~23 min -> 12 (35%). Volatil: depende del tiro (17 y 19 pts vs OKC)."
+   "pr": 0.55,
+   "nota": "Actualizado tarde: Avdija DTD (pie), Camara DTD (descanso); MIL sin Turner ni Kuzma (Out). Escenarios: ambos fuera ~33 min -> 17.0 (63%); solo Camara fuera 15.8 (56%); solo Avdija fuera 15.3 (54.5%); ambos juegan 12 (35%). Unico partido sin Avdija: 12 PRA en 32 min (17-nov). Camara nunca se ha perdido un partido con el. Mezcla ~55%."
   },
   {
    "f": "2026-11-19",
