@@ -31,7 +31,7 @@ def calificar(hoy, box_del_dia=None):
             s = (box or {}).get(M.key(e["pl"]))
             if s is None and (todos or (date.fromisoformat(hoy) - date.fromisoformat(e["f"])).days >= 3): e["res"] = "NJ"; n += 1; continue
         if s is None: continue
-        e["act"] = VAL[e["k"]](s); e["res"] = "P" if e["act"] == e["ln"] else "W" if e["act"] > e["ln"] else "L"; n += 1
+        e["act"] = VAL[e["k"]](s); e["res"] = "P" if e["act"] == e["ln"] else "W" if (e["act"] > e["ln"]) != (e.get("sd") == "U") else "L"; n += 1
     if n: json.dump(D, open(ARCH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     return n
 
