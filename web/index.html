@@ -474,6 +474,17 @@ body.vsw .wrap{max-width:1240px}body.vsw .warn{display:none}
 .ofn{flex:1;min-width:0;display:grid}.ofn b{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ofn small{font-size:12px;color:var(--muted,var(--mut))}
 .ofo{display:grid;text-align:right;font-size:13px;font-weight:700}.ofo small{font-size:11px;color:var(--muted,var(--mut));font-weight:600}
 .ofa{min-width:70px;text-align:right;font-weight:800;font-size:15px}.ofa.w{color:var(--pos)}.ofa.l{color:var(--neg)}.ofa.p{color:var(--muted,var(--mut));font-size:12px;font-weight:600}
+.vsz{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.vszh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}.vszh b{font-size:17px}.vszh span{font-size:12.5px;color:var(--muted,var(--mut))}
+.vszs{margin:8px 0 10px;padding:9px 12px;border-radius:12px;font-size:13px;background:var(--fill,var(--seg))}.vszs.g{background:color-mix(in srgb,var(--pos) 14%,transparent)}.vszs.r{background:color-mix(in srgb,var(--neg) 14%,transparent)}.vszs small{color:var(--muted,var(--mut))}
+.vszg{display:grid;gap:14px;grid-template-columns:1fr}@media(min-width:1180px){.vszg{grid-template-columns:minmax(260px,340px) minmax(0,1fr);align-items:start}}.vszg>*{min-width:0}.vszw{overflow-x:auto}
+.vscourt{width:100%;max-width:420px;margin:0 auto;height:auto;display:block;background:var(--fill,var(--bg));border-radius:14px}
+.vscourt .cl{fill:none;stroke:#c9a36a;stroke-width:.18;opacity:.75}.vscourt .mk{fill:#30d158}.vscourt .ms{stroke:#ff453a;stroke-width:.24;stroke-linecap:round}
+.vszt{width:100%;border-collapse:separate;border-spacing:0 4px;font-size:13px}
+.vszt th{font-size:11px;font-weight:700;color:var(--muted,var(--mut));text-align:center;padding:2px 4px}.vszt th:first-child{text-align:left}
+.vszt td{background:var(--fill,var(--seg));text-align:center;padding:6px 6px;font-weight:700}.vszt td:first-child{text-align:left;border-radius:10px 0 0 10px}.vszt td:last-child{border-radius:0 10px 10px 0}
+.vszt td small{display:block;font-size:10.5px;font-weight:600;color:var(--muted,var(--mut))}
+.vszt td.g{background:color-mix(in srgb,var(--pos) 22%,var(--fill,var(--seg)))}.vszt td.r{background:color-mix(in srgb,var(--neg) 22%,var(--fill,var(--seg)))}
 .vsemp{padding:40px 10px;text-align:center;color:var(--muted,var(--mut))}
 .vsmn{display:flex;flex-direction:row;align-items:center;gap:8px;background:var(--fill,var(--seg));border-radius:99px;padding:5px 12px;font-size:13px;color:var(--text,var(--ink));font-weight:600}
 .vsmn span{white-space:nowrap;min-width:62px}.vsmn input{width:130px;padding:0;background:transparent;accent-color:var(--acc);box-shadow:none}
@@ -964,7 +975,7 @@ const vsEsc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;
 const vsCol=c=>/^[0-9a-f]{6}$/i.test(c||"")?"#"+c:"#333";
 let vsBound=false;
 
-function vsOpen(){if(!vsBound)vsBind();if(!VS.day){VS.day=new Date();vsLoad()}else vsRender()}
+function vsOpen(){if(!vsBound)vsBind();vsTirLoad();if(!VS.day){VS.day=new Date();vsLoad()}else{vsRoster();vsPlayer()}}
 function vsBind(){vsBound=true;
 const mv=n=>{const d=new Date(VS.day);d.setDate(d.getDate()+n);VS.day=d;VS.g=null;vsLoad()};
 $("#vsPrev").onclick=()=>mv(-1);$("#vsNext").onclick=()=>mv(1);$("#vsHoy").onclick=()=>{VS.day=new Date();VS.g=null;vsLoad()};
@@ -1068,8 +1079,8 @@ el.innerHTML=`<div class="vsph">${avH(p,60)}<div style="flex:1;min-width:0"><h2>
 <div class="vsch">${vsChart(rows,f,L)}</div><p class="vscap" id="vsCap">${n?`${kl} · ${n} partidos. Toca una barra para ver el detalle.`:""}</p>
 <div class="vslg"><span><i style="background:${BAR_OK}"></i>Superó</span><span><i style="background:${BAR_NO}"></i>No superó</span><span><i style="background:#4c8dff"></i>Minutos</span><span><i style="background:#e8c27a"></i>Línea</span></div>
 <div class="vsh5">${[5,10,15,20].map(m=>{const h=hr(m);return`<div class="${VS.N===m?"on":""}"><small>L${m}</small><b>${h.o}/${h.n}</b><i style="color:${h.n&&h.o/h.n>=.5?"var(--pos)":"var(--neg)"}">${h.n?Math.round(h.o/h.n*100)+"%":"–"}</i></div>`}).join("")}${(()=>{const h=hr("all");return`<div class="${VS.N==="all"?"on":""}"><small>Todos</small><b>${h.o}/${h.n}</b><i style="color:${h.n&&h.o/h.n>=.5?"var(--pos)":"var(--neg)"}">${h.n?Math.round(h.o/h.n*100)+"%":"–"}</i></div>`})()}<div><small>Min L5</small><b>${m5.length?mA(m5).toFixed(0):"–"}</b><i style="color:var(--muted,var(--mut))">${m5.length?(mA(m5)-mA(m20)>=0?"+":"")+(mA(m5)-mA(m20)).toFixed(1)+" vs L20":""}</i></div></div>
-`;
-VS.cur=rows}
+<div class="vsz" id="vsZ"></div>`;
+VS.cur=rows;VS.opp=opp;VS.oppN=oppN;vsShots()}
 
 function vsChart(rows,f,L){if(!rows.length)return'<p class="vsemp">Sin partidos con estos filtros.</p>';
 const n=rows.length,nar=innerWidth<600,W=nar?Math.max(380,Math.min(560,n*30+70)):Math.max(640,Math.min(1000,n*46+80)),H=nar?320:300,l=34,r=34,t=22,b=50,vals=rows.map(f),top=Math.max(...vals,L,1)*1.12,step=[1,2,5,10,20,50].find(q=>top/q<=6)||100,mx=Math.ceil(top/step)*step,yb=H-b,Y=v=>t+(yb-t)*(1-v/mx),YM=m=>t+(yb-t)*(1-m/48),slot=(W-l-r)/n,bw=Math.min(slot*.68,42),ev=Math.ceil(n/(nar?12:22));
@@ -1093,6 +1104,40 @@ const op=abN(oppAb)||(ab===g.a.hab?g.h.full:g.a.full);
 const prevDT=DT;DT={x:{p,op,k:VS.k},stat:VS.k,cur:VS.cur,alt:VS.L,onlyRival:VS.riv,mate:"",mw:"sin",mates:Object.entries(VS.mates),ha:VS.ha==="all"?"":VS.ha,rkR:"all",mn:VS.mn,N:VS.N};
 const tmp=document.createElement("div");tmp.hidden=true;tmp.innerHTML=detChart(VS.cur,VS.k,VS.L);document.body.appendChild(tmp);
 try{capOpen()}finally{tmp.remove();DT=prevDT}}
+
+/* ---------- Mapa de tiros (web/tiros.json, jugada a jugada de ESPN) ---------- */
+let TIR=null,TIRp=null;
+const ZN=[["RA","Área restringida"],["PT","Pintura (no RA)"],["MR","Media distancia"],["C3","Triple de esquina"],["AB3","Triple de arriba"]],ZV={RA:2,PT:2,MR:2,C3:3,AB3:3};
+function vsTirLoad(){if(TIRp)return TIRp;TIRp=fetch("tiros.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=>{if(!d||!d.s)return;TIR=d;vsTirPrep();if(VS.pid&&$("#vsZ"))vsShots()}).catch(()=>{});return TIRp}
+function vsTirPrep(){const gp={},def={},lg={};ZN.forEach(([z])=>lg[z]=[0,0]);
+Object.values(TIR.g).forEach(([d,h,a])=>{gp[h]=(gp[h]||0)+1;gp[a]=(gp[a]||0)+1});
+TIR.byP={};TIR.s.forEach(s=>{(TIR.byP[s[1]]=TIR.byP[s[1]]||[]).push(s);const g=TIR.g[s[0]];if(!g||!lg[s[6]])return;const opp=s[2]===g[1]?g[2]:g[1],t=def[opp]=def[opp]||{},z=t[s[6]]=t[s[6]]||[0,0];z[0]+=s[5];z[1]++;lg[s[6]][0]+=s[5];lg[s[6]][1]++});
+const tot={};Object.entries(def).forEach(([t,o])=>tot[t]=Object.values(o).reduce((a,z)=>a+z[1],0));
+TIR.D={};ZN.forEach(([z])=>{const rows=Object.keys(def).map(t=>{const v=def[t][z]||[0,0];return{t,r:v[1]/tot[t],f:v[1]?v[0]/v[1]:0,pg:v[1]/gp[t]}});
+[...rows].sort((a,b)=>b.r-a.r).forEach((x,i)=>{(TIR.D[x.t]=TIR.D[x.t]||{})[z]={r:x.r,f:x.f,pg:x.pg,rr:i+1}});[...rows].sort((a,b)=>b.f-a.f).forEach((x,i)=>TIR.D[x.t][z].fr=i+1)});
+const lt=Object.values(lg).reduce((a,z)=>a+z[1],0);TIR.L={};ZN.forEach(([z])=>TIR.L[z]={r:lg[z][1]/lt,f:lg[z][1]?lg[z][0]/lg[z][1]:0});
+TIR.byN={};Object.entries(TIR.n).forEach(([id,nm])=>TIR.byN[vsNk(nm)]=id)}
+const vsEid=p=>{const id=String(p[10]||"");return id[0]==="e"?id.slice(1):TIR&&TIR.byN[vsNk(p[0])]};
+function vsCourt(sh){const jit=i=>((i*37)%7-3)*.13;let dots="";sh.forEach((s,i)=>{const x=s[3]+jit(i),y=s[4]+jit(i*3+1);
+dots+=s[5]?`<circle cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r=".62" class="mk"/>`:`<path d="M${(x-.5).toFixed(2)} ${(y-.5).toFixed(2)}l1 1m0-1l-1 1" class="ms"/>`});
+return`<svg viewBox="-1.5 -6.5 53 43" class="vscourt"><rect x="0" y="-5.25" width="50" height="41" class="cl" rx=".6"/><rect x="17" y="-5.25" width="16" height="19" class="cl"/><circle cx="25" cy="13.75" r="6" class="cl"/><path d="M22 -1.25h6" class="cl"/><circle cx="25" cy="0" r=".75" class="cl"/><path d="M21 0A4 4 0 0 0 29 0" class="cl"/><path d="M3 -5.25V8.95A23.75 23.75 0 0 0 47 8.95V-5.25" class="cl"/><path d="M0 35.75h50" class="cl"/>${dots}</svg>`}
+function vsShots(){const el=$("#vsZ");if(!el)return;if(!TIR){el.innerHTML='<p class="hint" style="margin:14px 4px 0">Cargando mapa de tiros…</p>';return}
+const p=(PL||[]).find(q=>String(q[10])===String(VS.pid)),eid=p&&vsEid(p),D=TIR.D[VS.opp];
+if(!eid||!TIR.byP[eid]){el.innerHTML='<p class="hint" style="margin:14px 4px 0">Sin tiros de este jugador en 2026-27.</p>';return}
+const gs=new Set((VS.cur||[]).filter(r=>r[1]>=NUEVA).map(r=>String(r[0]))),sh=TIR.byP[eid].filter(s=>gs.has(String(s[0]))),ng=new Set(sh.map(s=>s[0])).size;
+const old=(VS.cur||[]).some(r=>r[1]<NUEVA);
+if(!sh.length){el.innerHTML=`<p class="hint" style="margin:14px 4px 0">Sin tiros con estos filtros${old?" (el mapa solo tiene la temporada 2026-27)":""}.</p>`;return}
+const Z={};ZN.forEach(([z])=>Z[z]=[0,0]);sh.forEach(s=>{if(Z[s[6]]){Z[s[6]][0]+=s[5];Z[s[6]][1]++}});const N=sh.length,M=sh.reduce((a,s)=>a+s[5],0);
+let ev=0;const dz=[];ZN.forEach(([z])=>{const a=Z[z][1]/ng;if(D&&TIR.L[z]){const d=(D[z].f-TIR.L[z].f)*ZV[z]*a;ev+=d;if(Z[z][1]/N>=.1)dz.push([z,D[z].f-TIR.L[z].f])}});
+dz.sort((a,b)=>b[1]-a[1]);const zl=z=>{const t=ZN.find(x=>x[0]===z)[1];return t[0].toLowerCase()+t.slice(1)};
+const cl=(rk)=>rk<=10?"g":rk>=21?"r":"";
+el.innerHTML=`<div class="vszh"><b>Mapa de tiros</b><span>${ng} ${ng>1?"partidos":"partido"} · ${N} tiros · ${Math.round(M/N*100)}% TC${old?" · solo 2026-27":""}</span></div>
+${D?`<div class="vszs ${ev>=0?"g":"r"}"><b>vs ${VS.oppN}: ${ev>=0?"+":""}${f1(ev)} pts por partido</b> · sus tiros con el % que permite ${VS.opp}, frente al % de la liga.${dz.length?`<br><small>Zona más blanda donde tira: ${zl(dz[0][0])}${dz.length>1?` · más dura: ${zl(dz[dz.length-1][0])}`:""}</small>`:""}</div>`:""}
+<div class="vszg"><div>${vsCourt(sh)}<div class="vslg"><span><i style="background:#30d158;border-radius:50%;width:9px;height:9px"></i>Metido</span><span><b style="color:#ff453a">✕</b> Fallado</span></div></div>
+<div class="vszw"><table class="vszt"><thead><tr><th rowspan="2">Zona</th><th colspan="2">Defensa de ${VS.opp}</th><th colspan="2">${vsEsc(p[0].split(" ").slice(-1)[0])}</th></tr><tr><th>Tiros permitidos</th><th>% permitido</th><th>Sus tiros</th><th>Su acierto</th></tr></thead><tbody>
+${ZN.map(([z,l])=>{const d=D&&D[z],L=TIR.L[z],pr=Z[z][1]/N,pf=Z[z][1]?Z[z][0]/Z[z][1]:null;
+return`<tr><td><b>${l}</b><small>${Z[z][0]}/${Z[z][1]} TC</small></td>${d?`<td class="${cl(d.rr)}">${Math.round(d.r*100)}%<small>#${d.rr}</small></td><td class="${cl(d.fr)}">${Math.round(d.f*100)}%<small>#${d.fr} · liga ${Math.round(L.f*100)}%</small></td>`:"<td>–</td><td>–</td>"}<td class="${pr>L.r*1.15?"g":pr<L.r*.85?"r":""}">${Math.round(pr*100)}%<small>liga ${Math.round(L.r*100)}%</small></td><td class="${pf==null||Z[z][1]<5?"":pf>L.f+.05?"g":pf<L.f-.05?"r":""}">${pf==null?"–":Math.round(pf*100)+"%"}<small>${Z[z][1]<5&&Z[z][1]?"pocos tiros":"&nbsp;"}</small></td></tr>`}).join("")}</tbody></table></div></div>
+<p class="hint" style="font-size:11.5px;margin:8px 2px 0">Tiros de ESPN (jugada a jugada, temporada 2026-27); zonas calculadas por la posición del tiro. El mapa sigue los filtros de arriba. Ranking del rival: #1 = el que más permite (verde = favorece al tirador). Con pocos partidos, los porcentajes engañan.</p>`}
 function vsCap(i){const r=VS.cur&&VS.cur[i];if(!r)return;const d=String(r[1]),f=vsF(VS.k);
 $("#vsCap").innerHTML=`<b>${d.slice(6)}/${d.slice(4,6)}/${d.slice(0,4)}</b> ${r[4]?"vs":"@"} ${r[3]} · <b>${f(r)}</b> ${(VSK.find(x=>x[0]===VS.k)||VSK[0])[1].toLowerCase()} · ${r[5]} min · ${r[6]} pts, ${r[7]} reb, ${r[8]} ast${r[12]!=null?` · ${r[11]}/${r[12]} TC`:""}${r[13]!=null?` · ${r[9]}/${r[13]} triples`:""}`}
 </script>

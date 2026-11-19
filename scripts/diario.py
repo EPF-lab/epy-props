@@ -247,6 +247,12 @@ def main():
             print(f"Proyecciones del análisis calificadas: {CP.calificar(hoy, box_del_dia)}")
         except Exception as ex:
             print("Proyecciones: no se pudieron calificar:", ex)
+        try:                                      # mapa de tiros de la pestaña Partidos (web/tiros.json, ESPN)
+            import tiros as T
+            n, g, k = T.actualizar()
+            print(f"Tiros: {n} partidos nuevos; {g} partidos y {k} tiros")
+        except Exception as ex:
+            print("Tiros: no se pudieron actualizar:", ex)
     md = M.Modelo(S)
     data = {"v": 1, "fecha": hoy, "generado": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "fuente": "demo" if a.demo else "the-odds-api", "juegos": [], "lineas": {}, "creditos": None, "nota": ""}
