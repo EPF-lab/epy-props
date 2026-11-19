@@ -1206,7 +1206,9 @@
    "ln": 11.5,
    "od": "-150",
    "pr": 0.67,
-   "nota": "Sin Duren (9 partidos, NBA.com): 14.0 reb chances y 10.4 ast pot por partido en 28.6 min (24.4 oportunidades); convirtio 67% y 60%. Con conversion normal (60%/55%) a 28 min ~13.8 R+A. 7 de 10 con 12+ sin Duren. NOP 0.96 RA a aleros, muy diezmado; DET -7.5 riesgo paliza."
+   "nota": "Sin Duren (9 partidos, NBA.com): 14.0 reb chances y 10.4 ast pot por partido en 28.6 min (24.4 oportunidades); convirtio 67% y 60%. Con conversion normal (60%/55%) a 28 min ~13.8 R+A. 7 de 10 con 12+ sin Duren. NOP 0.96 RA a aleros, muy diezmado; DET -7.5 riesgo paliza.",
+   "act": 11,
+   "res": "L"
   },
   {
    "f": "2026-11-18",
@@ -1220,7 +1222,9 @@
    "od": "-114",
    "pr": 0.61,
    "nota": "Sin Ty Jerome (y sin Pippen): 28/26/27 PRA en 25/34/32 min, 0.89 PRA/min; ast pot sin Jerome 18/12/11; CLE neutral en PRA a guardias (1.01) pero +7 a +80% ast pot a armadores; CLE sin Mobley/Tyson/Merrill; ~32 min",
-   "jug": true
+   "jug": true,
+   "act": 34,
+   "res": "W"
   },
   {
    "f": "2026-11-18",
@@ -1233,7 +1237,8 @@
    "ln": 10.5,
    "od": "-115",
    "pr": 0.57,
-   "nota": "Sin Jaylen Brown; ~30 min; reb chances 16/11/14/12 ultimos 4 (0.43/min vs 0.27 antes), conversion 60% vs 47% habitual -> reb algo inflados"
+   "nota": "Sin Jaylen Brown; ~30 min; reb chances 16/11/14/12 ultimos 4 (0.43/min vs 0.27 antes), conversion 60% vs 47% habitual -> reb algo inflados",
+   "res": "NJ"
   },
   {
    "f": "2026-11-18",
@@ -1246,7 +1251,9 @@
    "ln": 5.5,
    "od": "120",
    "pr": 0.55,
-   "nota": "AST pot 12.5 ultimos 4; armadores vs SAC +4% ast pot y ~+9% ast; otras casas -125 (precio aislado a +120)"
+   "nota": "AST pot 12.5 ultimos 4; armadores vs SAC +4% ast pot y ~+9% ast; otras casas -125 (precio aislado a +120)",
+   "act": 6,
+   "res": "W"
   },
   {
    "f": "2026-11-18",
@@ -1259,7 +1266,9 @@
    "ln": 11.5,
    "od": "-173",
    "pr": 0.705,
-   "nota": "Cuota bajo de -167 a -173; PHX 4to en reb a C (tabla usuario) vs +2% ajustado -> +5%; prob mezclada con mercado"
+   "nota": "Cuota bajo de -167 a -173; PHX 4to en reb a C (tabla usuario) vs +2% ajustado -> +5%; prob mezclada con mercado",
+   "act": 13,
+   "res": "W"
   },
   {
    "f": "2026-11-18",
@@ -1273,7 +1282,9 @@
    "od": "-136",
    "pr": 0.68,
    "nota": "Sin Paolo: 0.42 RA/min x 38 min, 8 de 11 con 13+; PHI da +10-15% chances de rebote a perimetrales y +24-72% ast pot a creadores principales (Cade, Giddey, Nembhard); sin castigo de ast; tope -145",
-   "jug": true
+   "jug": true,
+   "act": 19,
+   "res": "W"
   },
   {
    "f": "2026-11-18",
@@ -1287,7 +1298,9 @@
    "od": "-140",
    "pr": 0.67,
    "nota": "Cuota encontrada -140 (antes -155). Sin Chet/JDub/Cason (y hoy sin Sorber ni Jaylin Williams): 7 de 8 con 4+; 7.5 ast pot y 41.9 pases; conversion 67% alta. ATL +9% ast a todos, ~+8% a C sin Sharpe. OKC -7.5 riesgo paliza.",
-   "jug": true
+   "jug": true,
+   "act": 6,
+   "res": "W"
   },
   {
    "f": "2026-11-18",
@@ -1300,7 +1313,9 @@
    "ln": 1.5,
    "od": "170",
    "pr": 0.44,
-   "nota": "Sin Jaylen Brown, ~27 min; 0.057 3PM/min (0.136 3PA/min); ORL ajustado: 3PM 0.955, 3PA 0.926 (neutral a SG/SF 1.03); 3 de 5 con 2+ en partidos de 25+ min"
+   "nota": "Sin Jaylen Brown, ~27 min; 0.057 3PM/min (0.136 3PA/min); ORL ajustado: 3PM 0.955, 3PA 0.926 (neutral a SG/SF 1.03); 3 de 5 con 2+ en partidos de 25+ min",
+   "act": 2,
+   "res": "W"
   },
   {
    "f": "2026-11-18",
@@ -1313,7 +1328,9 @@
    "ln": 22.5,
    "od": "-130",
    "pr": 0.575,
-   "nota": "35 min x 0.655 pts/min = 22.9; CHI permite +8% a aleros (pace), regresado a +5%; total 238.5, BKN -2.5"
+   "nota": "35 min x 0.655 pts/min = 22.9; CHI permite +8% a aleros (pace), regresado a +5%; total 238.5, BKN -2.5",
+   "act": 5,
+   "res": "L"
   },
   {
    "f": "2026-11-18",
@@ -1326,7 +1343,9 @@
    "ln": 22.5,
    "od": "-120",
    "pr": 0.53,
-   "nota": "Sin Curry: 0.73 pts/min (5 juegos) vs 0.62 con el; ~32-33 min; DAL +3% a aleros; DAL -6.5 riesgo paliza"
+   "nota": "Sin Curry: 0.73 pts/min (5 juegos) vs 0.62 con el; ~32-33 min; DAL +3% a aleros; DAL -6.5 riesgo paliza",
+   "act": 13,
+   "res": "L"
   }
  ]
 }
