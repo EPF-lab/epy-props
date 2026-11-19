@@ -1389,6 +1389,19 @@
   {
    "f": "2026-11-19",
    "pl": "Devin Vassell",
+   "k": "pra",
+   "m": 18.5,
+   "lo": 16.5,
+   "hi": 20.5,
+   "vs": "Los Angeles Clippers",
+   "ln": 19.5,
+   "od": "-120",
+   "pr": 0.45,
+   "nota": "2026-27: 17.9 PRA, 20+ en 6 de 13, 0.59/min (0.67 en 2025-26 con Harper). Sin Harper 2025-26: 0.58/min, 6 de 13. Palizas no le bajan el PRA (4 de 6 con 20+) pero si los minutos. ~29.6 min x 0.60 x LAC ~+5% = 18.5. Justa ~+122."
+  },
+  {
+   "f": "2026-11-19",
+   "pl": "Devin Vassell",
    "k": "ra",
    "m": 7.1,
    "lo": 6.3,
