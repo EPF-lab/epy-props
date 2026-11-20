@@ -1689,6 +1689,19 @@
   },
   {
    "f": "2026-11-20",
+   "pl": "Luguentz Dort",
+   "k": "pra",
+   "m": 14.6,
+   "lo": 13.1,
+   "hi": 16.1,
+   "vs": "Charlotte Hornets",
+   "ln": 11.5,
+   "od": "-120",
+   "pr": 0.64,
+   "nota": "En ATL: 14.1 PRA (mediana 13) en 24.5 min; 12+ en 11 de 15. Con CJ en sus últimos 4: 18-20 min y 6/9/13/7 PRA. Primer partido sin CJ (vs OKC): 31 min, 19 PRA, 11 tiros. Hoy CJ fuera, Flemings en duda. ~27 min a 0.54 PRA/min. CHA a escoltas/aleros ajustado por minutos: PRA +2.5%, triples metidos +23% (intentos -5%). Vs CHA el 23-oct: 16 en 19 min. Modelo 67%, rebajado a 64% (sobreconfianza lejos de la línea). -120 pide 54.5%: valor."
+  },
+  {
+   "f": "2026-11-20",
    "pl": "Michael Porter Jr.",
    "k": "pts",
    "m": 21.8,
