@@ -1519,6 +1519,19 @@
   {
    "f": "2026-11-20",
    "pl": "Darius Acuff Jr.",
+   "k": "pts",
+   "m": 25.3,
+   "lo": 23.8,
+   "hi": 26.8,
+   "vs": "Los Angeles Lakers",
+   "ln": 23.5,
+   "od": "-117",
+   "pr": 0.58,
+   "nota": "26.2 pts (mediana 25.5) con 22.6 tiros de campo, 36.6 min; 24+ en 8 de 14. LAL a guardias ajustado por minutos: pts +2%, tiros -5%. Calculado con ~35 min por riesgo de paliza (LAL -14.5; en derrotas de 20+ jugó 33-37). Combinada con 3+ triples: ~47% simulado (6 de 14 reales), cuota justa ~+113."
+  },
+  {
+   "f": "2026-11-20",
+   "pl": "Darius Acuff Jr.",
    "k": "tpm",
    "m": 3.35,
    "lo": 3.0,
