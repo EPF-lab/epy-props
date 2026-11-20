@@ -1622,6 +1622,19 @@
   },
   {
    "f": "2026-11-20",
+   "pl": "Kevin Durant",
+   "k": "pts",
+   "m": 22.0,
+   "lo": 20.5,
+   "hi": 23.5,
+   "vs": "Denver Nuggets",
+   "ln": 19.5,
+   "od": "-175",
+   "pr": 0.63,
+   "nota": "21.3 pts (mediana 21.5), 33.5 min; 20+ en 13 de 16 (8 seguidos), 22+ en 8 de 16. Muy regular: desviación real 4.3 vs 7.6 del modelo (con 5.5: ~67% a 20+). DEN a aleros ajustado por minutos: pts +2/+3% (el #1 en bruto exagera), tiros libres -10/-17% (malo para KD). Vs DEN el 9-nov: 23. Sengun en duda (sin él: 18 y 28). Alterna 21.5 a -110: 52.6% vs 52.4% (justa)."
+  },
+  {
+   "f": "2026-11-20",
    "pl": "Keyonte George",
    "k": "ast",
    "m": 8.0,
