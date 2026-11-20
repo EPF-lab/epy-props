@@ -1520,27 +1520,27 @@
    "f": "2026-11-20",
    "pl": "Darius Acuff Jr.",
    "k": "pts",
-   "m": 25.3,
-   "lo": 23.8,
-   "hi": 26.8,
+   "m": 25.6,
+   "lo": 24.1,
+   "hi": 27.1,
    "vs": "Los Angeles Lakers",
    "ln": 23.5,
    "od": "-117",
-   "pr": 0.58,
-   "nota": "26.2 pts (mediana 25.5) con 22.6 tiros de campo, 36.6 min; 24+ en 8 de 14. LAL a guardias ajustado por minutos: pts +2%, tiros -5%. Calculado con ~35 min por riesgo de paliza (LAL -14.5; en derrotas de 20+ jugó 33-37). Combinada con 3+ triples: ~47% simulado (6 de 14 reales), cuota justa ~+113."
+   "pr": 0.59,
+   "nota": "26.2 pts (mediana 25.5) con 22.6 tiros, 36.6 min; 24+ en 8 de 14. LAL a guardias: pts +2%; algo más de volumen de triple de arriba. ~35 min por riesgo de paliza (LAL -14.5). Combinada con 3+ triples ~50% simulado; a +108 pide 48.1%: casi justa."
   },
   {
    "f": "2026-11-20",
    "pl": "Darius Acuff Jr.",
    "k": "tpm",
-   "m": 3.35,
-   "lo": 3.0,
-   "hi": 3.7,
+   "m": 3.5,
+   "lo": 3.1,
+   "hi": 3.9,
    "vs": "Los Angeles Lakers",
    "ln": 2.5,
    "od": "-167",
-   "pr": 0.63,
-   "nota": "3.3 triples con 9.6 intentos (34%), 36.6 min; 3+ en 10 de 14 (6 de esos exactamente 3). LAL a guardias ajustado por minutos: triples +15%, intentos +6%. Vs LAL el 4-nov: 3/11 en 42 min. LAL -14.5, pero en derrotas de 20+ jugó 33-37 min (no lo sientan). -167 pide 62.5%: precio justo, sin ventaja."
+   "pr": 0.66,
+   "nota": "Ajustado con el mapa de tiros: LAL es #1 en % de tiros permitidos desde triple de arriba (35%, liga ~32%) y Acuff lanza el 43% de sus tiros de ahí; LAL permite % normal (34%, #19). Ventaja por volumen, no por acierto. Similares vs LAL: triples +15%, intentos +6%. 3.3 triples con 9.6 intentos (34%); 3+ en 10 de 14 (6 justo en 3). En derrotas de 20+ jugó 33-37 min. -167 pide 62.5%: valor pequeño."
   },
   {
    "f": "2026-11-20",
