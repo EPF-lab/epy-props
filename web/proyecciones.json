@@ -1519,6 +1519,19 @@
   {
    "f": "2026-11-20",
    "pl": "Darius Acuff Jr.",
+   "k": "pa",
+   "m": 32.3,
+   "lo": 30.8,
+   "hi": 33.8,
+   "vs": "Los Angeles Lakers",
+   "ln": 29.5,
+   "od": "-165",
+   "pr": 0.63,
+   "nota": "33.2 P+A (mediana 33), 30+ en 10 de 14; 7.0 ast. LAL a guardias ajustado por minutos: P+A +1%, AST -1% (neutral). Vs LAL el 4-nov: 34 (22+12) en 42 min. ~35 min por riesgo de paliza. -165 pide 62.3%: precio justo."
+  },
+  {
+   "f": "2026-11-20",
+   "pl": "Darius Acuff Jr.",
    "k": "pts",
    "m": 25.6,
    "lo": 24.1,
