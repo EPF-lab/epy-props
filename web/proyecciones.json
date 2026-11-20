@@ -1578,7 +1578,8 @@
    "ln": 2.5,
    "od": "-167",
    "pr": 0.66,
-   "nota": "Ajustado con el mapa de tiros: LAL es #1 en % de tiros permitidos desde triple de arriba (35%, liga ~32%) y Acuff lanza el 43% de sus tiros de ahí; LAL permite % normal (34%, #19). Ventaja por volumen, no por acierto. Similares vs LAL: triples +15%, intentos +6%. 3.3 triples con 9.6 intentos (34%); 3+ en 10 de 14 (6 justo en 3). En derrotas de 20+ jugó 33-37 min. -167 pide 62.5%: valor pequeño."
+   "nota": "Ajustado con el mapa de tiros: LAL es #1 en % de tiros permitidos desde triple de arriba (35%, liga ~32%) y Acuff lanza el 43% de sus tiros de ahí; LAL permite % normal (34%, #19). Ventaja por volumen, no por acierto. Similares vs LAL: triples +15%, intentos +6%. 3.3 triples con 9.6 intentos (34%); 3+ en 10 de 14 (6 justo en 3). En derrotas de 20+ jugó 33-37 min. -167 pide 62.5%: valor pequeño.",
+   "jug": true
   },
   {
    "f": "2026-11-20",
@@ -1617,7 +1618,8 @@
    "ln": 1.5,
    "od": "141",
    "pr": 0.5,
-   "nota": "Rol nuevo sin Murray, Mathurin, McGowens, Murphy y Watford: 5, 6 y 5 intentos en los últimos 3 (2-2-3 triples), 28-32 min. Temporada 29% (0.94 triples, 2+ en 5 de 16). OKC sin Holmgren, J. Williams y Wallace desde el 26-oct (12 partidos): alas +17% intentos de triple, +5% metidos (antes, normal). ~5.6 intentos al 32% = 1.75. OKC -11.5 (riesgo de paliza). A +141 pide 41.5%: EV ~+20%."
+   "nota": "Rol nuevo sin Murray, Mathurin, McGowens, Murphy y Watford: 5, 6 y 5 intentos en los últimos 3 (2-2-3 triples), 28-32 min. Temporada 29% (0.94 triples, 2+ en 5 de 16). OKC sin Holmgren, J. Williams y Wallace desde el 26-oct (12 partidos): alas +17% intentos de triple, +5% metidos (antes, normal). ~5.6 intentos al 32% = 1.75. OKC -11.5 (riesgo de paliza). A +141 pide 41.5%: EV ~+20%.",
+   "jug": true
   },
   {
    "f": "2026-11-20",
@@ -1696,7 +1698,8 @@
    "ln": 20.5,
    "od": "-106",
    "pr": 0.57,
-   "nota": "20.5 pts (mediana 23), 32.7 min; 21+ en 8 de 13. El 5 vs CHI fue paliza (-30, 27 min). ORL a aleros ajustado por minutos: pts +7/+12%, triples +17/+20%. ORL sin Banchero ni Isaac. Alternativas: 19+ a -189 (66.9%, EV +2%), 20+ a -140 (61.9%, +6%), 21+ a -106 (56.8%, +10%)."
+   "nota": "20.5 pts (mediana 23), 32.7 min; 21+ en 8 de 13. El 5 vs CHI fue paliza (-30, 27 min). ORL a aleros ajustado por minutos: pts +7/+12%, triples +17/+20%. ORL sin Banchero ni Isaac. Alternativas: 19+ a -189 (66.9%, EV +2%), 20+ a -140 (61.9%, +6%), 21+ a -106 (56.8%, +10%).",
+   "jug": true
   },
   {
    "f": "2026-11-20",
