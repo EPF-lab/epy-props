@@ -1528,6 +1528,20 @@
    "od": "-150",
    "pr": 0.57,
    "nota": "8.5 ast (28.1 min), 15.1 AST potenciales (L5: 15.2). WAS a guardias ajustado por minutos: AST +12%, potenciales +5%. Vs WAS el 24-oct: 10 ast en 30 min. 9+ en 7 de 14. Total 240.5 (ritmo alto), CHI -3.5 (poco riesgo de paliza). Sin Caleb Wilson. A -150 pide 60%: sin valor."
+  },
+  {
+   "f": "2026-11-20",
+   "pl": "Keyonte George",
+   "k": "ast",
+   "m": 8.0,
+   "sd": "U",
+   "lo": 7.4,
+   "hi": 8.6,
+   "vs": "Phoenix Suns",
+   "ln": 7.5,
+   "od": "-105",
+   "pr": 0.47,
+   "nota": "Temporada 7.1 ast / 11.9 potenciales (59.7%). Sin Markkanen (6 PJ): 8.5 / 13.7 (62%), 34.7 min. Últimos 3: 9.7 / 16.3 (59.5%): la subida viene de más pases creados, no de suerte al convertir. PHX a guardias ajustado por minutos: AST +0%, potenciales -7%. Under pide 51.2%, el modelo da 47%: sin valor."
   }
  ]
 }
