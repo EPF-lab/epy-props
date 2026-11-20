@@ -1358,7 +1358,9 @@
    "ln": 4.5,
    "od": "+114",
    "pr": 0.54,
-   "nota": "Sin Green ni Curry (14 partidos 2024-27): 5.2 ast, 11.4 ast pot, 8 de 14 con 5+, 31.9 min. Con Green sin Curry 2026-27: 2.3 ast y 5.0 pot. NBA.com vs MEM (13 guardias, ajustado por minutos): ast pot +9%, ast +1%; creadores principales (Harden, Trae, Murray, Shead, Fears, Nembhard) pot 0%, ast +14%. Enfrentamiento neutral. Sin Porzingis; Horford DTD. Cuota justa ~-117."
+   "nota": "Sin Green ni Curry (14 partidos 2024-27): 5.2 ast, 11.4 ast pot, 8 de 14 con 5+, 31.9 min. Con Green sin Curry 2026-27: 2.3 ast y 5.0 pot. NBA.com vs MEM (13 guardias, ajustado por minutos): ast pot +9%, ast +1%; creadores principales (Harden, Trae, Murray, Shead, Fears, Nembhard) pot 0%, ast +14%. Enfrentamiento neutral. Sin Porzingis; Horford DTD. Cuota justa ~-117.",
+   "act": 2,
+   "res": "L"
   },
   {
    "f": "2026-11-19",
@@ -1371,7 +1373,9 @@
    "ln": 26.5,
    "od": "-120",
    "pr": 0.52,
-   "nota": "Sin Green ni Curry (14): 29.2 PRA, 9 de 14 con 27+, 31.9 min; vs LAC 1-nov 33 (17/8/8, 37 min, 14 FGA). Pero reb inflados: 9.6 reb chances (igual que con Green, 9.4) con 78% de conversion (normal ~55%) -> ~5.6 reb, no 7.5. Ast pot 11.4 (5.8 con Green). FGA ~14.5 sin ambos vs 12.3. MEM vs guardias: PRA 1.00 (26), reb -9%, reb chances -5.5% (21, NBA.com). Cuota justa ~-110."
+   "nota": "Sin Green ni Curry (14): 29.2 PRA, 9 de 14 con 27+, 31.9 min; vs LAC 1-nov 33 (17/8/8, 37 min, 14 FGA). Pero reb inflados: 9.6 reb chances (igual que con Green, 9.4) con 78% de conversion (normal ~55%) -> ~5.6 reb, no 7.5. Ast pot 11.4 (5.8 con Green). FGA ~14.5 sin ambos vs 12.3. MEM vs guardias: PRA 1.00 (26), reb -9%, reb chances -5.5% (21, NBA.com). Cuota justa ~-110.",
+   "act": 20,
+   "res": "L"
   },
   {
    "f": "2026-11-19",
@@ -1384,7 +1388,9 @@
    "ln": 22.5,
    "od": "-130",
    "pr": 0.63,
-   "nota": "Sin Jerome 4 de 4 con 26+ (28, 26, 27, 34) en 25-34 min. Ayer 26 pts con 9/11 FG: normalizado ~23 PRA -> 0.87 PRA/min. B2B: MEM no recorto minutos a titulares sanos en sus 2 b2b (Boozer 31/31 y 25/29, Coward 32/31 y 30/33); descansa jugadores puntuales (Edey, Grant). Spencer en 2do juego: 18 (vs 16) y 34 (vs 24). ~30.5 min. GSW neutral vs PG/SG (0.98). 22.5 -130: 63%; 24.5 -112: 53%."
+   "nota": "Sin Jerome 4 de 4 con 26+ (28, 26, 27, 34) en 25-34 min. Ayer 26 pts con 9/11 FG: normalizado ~23 PRA -> 0.87 PRA/min. B2B: MEM no recorto minutos a titulares sanos en sus 2 b2b (Boozer 31/31 y 25/29, Coward 32/31 y 30/33); descansa jugadores puntuales (Edey, Grant). Spencer en 2do juego: 18 (vs 16) y 34 (vs 24). ~30.5 min. GSW neutral vs PG/SG (0.98). 22.5 -130: 63%; 24.5 -112: 53%.",
+   "act": 22,
+   "res": "L"
   },
   {
    "f": "2026-11-19",
@@ -1397,7 +1403,9 @@
    "ln": 6.5,
    "od": "-152",
    "pr": 0.65,
-   "nota": "Actualizado: MEM sin Edey (Out) y Stewart en duda. MEM -20% reb a C con Edey (17) pero +9% sin el (6). Sin Green ni Porzingis, Horford DTD. Con 17+ min 7+ en 4 de 5; sin Green 2 de 2 (10 con 25 reb chances vs LAC). 11.5 reb chances en 15.1 min. Minutos 16/21/25 a 0.40 reb/min -> 6.4/8.4/10.0. Ojo 0 reb en 16 min vs NOP."
+   "nota": "Actualizado: MEM sin Edey (Out) y Stewart en duda. MEM -20% reb a C con Edey (17) pero +9% sin el (6). Sin Green ni Porzingis, Horford DTD. Con 17+ min 7+ en 4 de 5; sin Green 2 de 2 (10 con 25 reb chances vs LAC). 11.5 reb chances en 15.1 min. Minutos 16/21/25 a 0.40 reb/min -> 6.4/8.4/10.0. Ojo 0 reb en 16 min vs NOP.",
+   "act": 13,
+   "res": "W"
   },
   {
    "f": "2026-11-19",
@@ -1410,7 +1418,8 @@
    "ln": 24.5,
    "od": "-120",
    "pr": 0.46,
-   "nota": "GTD por enfermedad (reporte 19-nov), no jugo el 17. 24.2 pts (mediana 24) y solo 5 de 13 con 25+; 0.74 pts/min. En palizas (+41, -22, +22) 23-30 min y 15-24 pts; POR -10.5. MIL +8% pts a SF/PF (25 partidos) pero mapa de tiros -0.5 (aro bien defendido). ~31.5 min -> 23.8. Cuota justa ~+115."
+   "nota": "GTD por enfermedad (reporte 19-nov), no jugo el 17. 24.2 pts (mediana 24) y solo 5 de 13 con 25+; 0.74 pts/min. En palizas (+41, -22, +22) 23-30 min y 15-24 pts; POR -10.5. MIL +8% pts a SF/PF (25 partidos) pero mapa de tiros -0.5 (aro bien defendido). ~31.5 min -> 23.8. Cuota justa ~+115.",
+   "res": "NJ"
   },
   {
    "f": "2026-11-19",
@@ -1423,7 +1432,9 @@
    "ln": 19.5,
    "od": "-120",
    "pr": 0.45,
-   "nota": "2026-27: 17.9 PRA, 20+ en 6 de 13, 0.59/min (0.67 en 2025-26 con Harper). Sin Harper 2025-26: 0.58/min, 6 de 13. Palizas no le bajan el PRA (4 de 6 con 20+) pero si los minutos. ~29.6 min x 0.60 x LAC ~+5% = 18.5. Justa ~+122."
+   "nota": "2026-27: 17.9 PRA, 20+ en 6 de 13, 0.59/min (0.67 en 2025-26 con Harper). Sin Harper 2025-26: 0.58/min, 6 de 13. Palizas no le bajan el PRA (4 de 6 con 20+) pero si los minutos. ~29.6 min x 0.60 x LAC ~+5% = 18.5. Justa ~+122.",
+   "act": 23,
+   "res": "W"
   },
   {
    "f": "2026-11-19",
@@ -1435,7 +1446,9 @@
    "vs": "Los Angeles Clippers",
    "ln": 6.5,
    "pr": 0.54,
-   "nota": "SAS -15.5: en sus 6 palizas (gano por 15+) jugo 25 min y paso 6.5 solo 2 de 6; en los 7 partidos normales 34.7 min y 5 de 7. 0.219 RA/min. Sin Harper (Out): en 2025-26 sin el 0.183 RA/min (13 partidos), no confirma el on/off del tweet. LAC da +17% RA a SG/SF (24 partidos), sin Ingram ni Beal. Mezcla 55% paliza -> 54%. Cuota justa ~-117."
+   "nota": "SAS -15.5: en sus 6 palizas (gano por 15+) jugo 25 min y paso 6.5 solo 2 de 6; en los 7 partidos normales 34.7 min y 5 de 7. 0.219 RA/min. Sin Harper (Out): en 2025-26 sin el 0.183 RA/min (13 partidos), no confirma el on/off del tweet. LAC da +17% RA a SG/SF (24 partidos), sin Ingram ni Beal. Mezcla 55% paliza -> 54%. Cuota justa ~-117.",
+   "act": 8,
+   "res": "W"
   },
   {
    "f": "2026-11-19",
@@ -1448,7 +1461,9 @@
    "ln": 24.5,
    "od": "-120",
    "pr": 0.58,
-   "nota": "Sin Edwards (Out, 11 partidos): 28.0 PRA en 34.4 min, 9 de 11 con 25+. NBA.com sin Edwards: 41.4 pases (31.5 con el), 6.1 ast pot (3.5) con 67% de conversion (alta: ~0.7 ast de suerte); 11.2 reb chances (11.3) y 54% normal. NYK -10% PRA a SF/PF (31 partidos). Total 216.5 bajo, NY -1.5 parejo = minutos completos. Kuminga DTD. Cuota justa ~-140."
+   "nota": "Sin Edwards (Out, 11 partidos): 28.0 PRA en 34.4 min, 9 de 11 con 25+. NBA.com sin Edwards: 41.4 pases (31.5 con el), 6.1 ast pot (3.5) con 67% de conversion (alta: ~0.7 ast de suerte); 11.2 reb chances (11.3) y 54% normal. NYK -10% PRA a SF/PF (31 partidos). Total 216.5 bajo, NY -1.5 parejo = minutos completos. Kuminga DTD. Cuota justa ~-140.",
+   "act": 22,
+   "res": "L"
   },
   {
    "f": "2026-11-19",
@@ -1462,7 +1477,9 @@
    "ln": 17.5,
    "od": "-110",
    "pr": 0.65,
-   "nota": "UNDER 17.5. Under ~65% (recortado de 69% por sobreconfianza del modelo lejos de la linea). Ultimos 8 = 13.0 PRA; 18+ solo en 4 de 11 (3 primeros y 21 vs BRK); desde que volvio 9, 7, 11 en 23-31 min, 0.38 PRA/min (0.54 temporada, 0.62 en 2025-26). FGA 4-5 ultimos 4. MIN -6% PRA a SG/SF (41), R+A -2%. Historico vs MIN 21/27/35 con otro rol. 0.48/min x 28 min -> 13.4, regresado a 14."
+   "nota": "UNDER 17.5. Under ~65% (recortado de 69% por sobreconfianza del modelo lejos de la linea). Ultimos 8 = 13.0 PRA; 18+ solo en 4 de 11 (3 primeros y 21 vs BRK); desde que volvio 9, 7, 11 en 23-31 min, 0.38 PRA/min (0.54 temporada, 0.62 en 2025-26). FGA 4-5 ultimos 4. MIN -6% PRA a SG/SF (41), R+A -2%. Historico vs MIN 21/27/35 con otro rol. 0.48/min x 28 min -> 13.4, regresado a 14.",
+   "act": 19,
+   "res": "L"
   },
   {
    "f": "2026-11-19",
@@ -1475,7 +1492,9 @@
    "ln": 19.5,
    "od": "-155",
    "pr": 0.58,
-   "nota": "Línea conseguida +20 (19.5) a -155: el modelo da 58% y la cuota pide 60.8%; sin valor a ese precio aunque la proyección (21.0) no cambia."
+   "nota": "Línea conseguida +20 (19.5) a -155: el modelo da 58% y la cuota pide 60.8%; sin valor a ese precio aunque la proyección (21.0) no cambia.",
+   "act": 22,
+   "res": "W"
   },
   {
    "f": "2026-11-19",
@@ -1488,7 +1507,9 @@
    "ln": 1.5,
    "od": "-126",
    "pr": 0.57,
-   "nota": "2026-27: 2+ triples en 10 de 14, 2.0 3PM en 5.0 3PA (40%). MIN -7% 3PM y -6% 3PA a C/PF (25 partidos); mapa de tiros triple de arriba MIN 32% vs 34% liga. Total 216.5 bajo (sin Edwards). vs MIN 5/1/3. Modelo 52% (m 1.8), historial 71%: mezcla 57%. Justa ~-133."
+   "nota": "2026-27: 2+ triples en 10 de 14, 2.0 3PM en 5.0 3PA (40%). MIN -7% 3PM y -6% 3PA a C/PF (25 partidos); mapa de tiros triple de arriba MIN 32% vs 34% liga. Total 216.5 bajo (sin Edwards). vs MIN 5/1/3. Modelo 52% (m 1.8), historial 71%: mezcla 57%. Justa ~-133.",
+   "act": 2,
+   "res": "W"
   },
   {
    "f": "2026-11-19",
@@ -1501,7 +1522,9 @@
    "ln": 14.5,
    "od": "-110",
    "pr": 0.55,
-   "nota": "Actualizado tarde: Avdija DTD (pie), Camara DTD (descanso); MIL sin Turner ni Kuzma (Out). Escenarios: ambos fuera ~33 min -> 17.0 (63%); solo Camara fuera 15.8 (56%); solo Avdija fuera 15.3 (54.5%); ambos juegan 12 (35%). Unico partido sin Avdija: 12 PRA en 32 min (17-nov). Camara nunca se ha perdido un partido con el. Mezcla ~55%."
+   "nota": "Actualizado tarde: Avdija DTD (pie), Camara DTD (descanso); MIL sin Turner ni Kuzma (Out). Escenarios: ambos fuera ~33 min -> 17.0 (63%); solo Camara fuera 15.8 (56%); solo Avdija fuera 15.3 (54.5%); ambos juegan 12 (35%). Unico partido sin Avdija: 12 PRA en 32 min (17-nov). Camara nunca se ha perdido un partido con el. Mezcla ~55%.",
+   "act": 21,
+   "res": "W"
   },
   {
    "f": "2026-11-19",
@@ -1514,7 +1537,9 @@
    "ln": 30.5,
    "od": "-125",
    "pr": 0.39,
-   "nota": "2026-27: 26.1 PRA, 31+ solo 4 de 15. Sin Harper (10, 2025-26): 30.1 PRA, 6 de 10, 0.96/min. SAS -15.5: en sus 6 palizas 2 de 6 con 31+ (~26 min). LAC neutral a PG/SG (1.00, 27 partidos). Mezcla 55% paliza: 25.6 / 31.3 -> 39%. Justa ~+155."
+   "nota": "2026-27: 26.1 PRA, 31+ solo 4 de 15. Sin Harper (10, 2025-26): 30.1 PRA, 6 de 10, 0.96/min. SAS -15.5: en sus 6 palizas 2 de 6 con 31+ (~26 min). LAC neutral a PG/SG (1.00, 27 partidos). Mezcla 55% paliza: 25.6 / 31.3 -> 39%. Justa ~+155.",
+   "act": 39,
+   "res": "W"
   },
   {
    "f": "2026-11-20",
