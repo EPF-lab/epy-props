@@ -1518,6 +1518,32 @@
   },
   {
    "f": "2026-11-20",
+   "pl": "Isaac Okoro",
+   "k": "pra",
+   "m": 17.0,
+   "lo": 15.5,
+   "hi": 18.5,
+   "vs": "Washington Wizards",
+   "ln": 15.5,
+   "od": "-120",
+   "pr": 0.58,
+   "nota": "Sin Caleb Wilson (4 PJ): 32.2 min, 20.0 PRA (12.2 pts, 4.8 reb, 3.0 ast), 16+ en 4/4. Con Wilson: 19 min, 8 PRA. Encogido a ~30 min y ritmo 0.55 PRA/min. WAS a aleros ajustado por minutos: PRA +1 a +4%. Total 240.5, CHI -3.5. Muestra corta (4 partidos)."
+  },
+  {
+   "f": "2026-11-20",
+   "pl": "Isaac Okoro",
+   "k": "tpm",
+   "m": 1.45,
+   "lo": 1.2,
+   "hi": 1.7,
+   "vs": "Washington Wizards",
+   "ln": 1.5,
+   "od": "120",
+   "pr": 0.41,
+   "nota": "Sin Wilson: 5.5 triples intentados, 9/22 (41%). Esperado ~4.2 intentos al 35%. WAS a aleros: triples -12 a -21% (menos intentos). +120 pide 45.5%: sin valor."
+  },
+  {
+   "f": "2026-11-20",
    "pl": "Josh Giddey",
    "k": "ast",
    "m": 9.3,
