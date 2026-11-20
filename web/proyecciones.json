@@ -1542,6 +1542,18 @@
    "od": "-105",
    "pr": 0.47,
    "nota": "Temporada 7.1 ast / 11.9 potenciales (59.7%). Sin Markkanen (6 PJ): 8.5 / 13.7 (62%), 34.7 min. Últimos 3: 9.7 / 16.3 (59.5%): la subida viene de más pases creados, no de suerte al convertir. PHX a guardias ajustado por minutos: AST +0%, potenciales -7%. Under pide 51.2%, el modelo da 47%: sin valor."
+  },
+  {
+   "f": "2026-11-20",
+   "pl": "Trae Young",
+   "k": "ast",
+   "m": 9.4,
+   "lo": 8.9,
+   "hi": 9.9,
+   "vs": "Chicago Bulls",
+   "ln": 9.5,
+   "pr": 0.46,
+   "nota": "8.9 ast / 17.3 potenciales (51%, conversión baja), 35 min. L5: 9.2 / 16.8. 10+ en 6 de 16. CHI a guardias ajustado por minutos: AST +8%, potenciales +4%. Vs CHI el 24-oct: 9 ast con 22 potenciales. Total 240.5. Cuota justa ~+117; sin cuota del usuario."
   }
  ]
 }
