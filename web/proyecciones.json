@@ -1469,13 +1469,13 @@
    "pl": "Karl-Anthony Towns",
    "k": "pts",
    "m": 21.0,
-   "lo": 19.8,
-   "hi": 22.2,
+   "lo": 19.5,
+   "hi": 22.5,
    "vs": "Minnesota Timberwolves",
-   "ln": 20.5,
-   "od": "-120",
-   "pr": 0.53,
-   "nota": "Linea abrio 19.5 y subio a 20.5. 21.2 pts (14), 9 de 14 con 21+, 0.65 pts/min, ~34 min. MIN vs C/PF -5% pts (19 partidos); mapa de tiros -1.3 pts (MIN 62% en RA vs 66% liga; Towns 6.9 tiros/pj ahi). Sin Edwards MIN mas debil pero total 216.5 bajo. vs MIN historico 32/15/40. Justa ~-112 en 20.5; en 19.5 58% (~-138)."
+   "ln": 19.5,
+   "od": "-155",
+   "pr": 0.58,
+   "nota": "Línea conseguida +20 (19.5) a -155: el modelo da 58% y la cuota pide 60.8%; sin valor a ese precio aunque la proyección (21.0) no cambia."
   },
   {
    "f": "2026-11-19",
