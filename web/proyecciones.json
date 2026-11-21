@@ -1759,14 +1759,26 @@
    "f": "2026-11-21",
    "pl": "Cedric Coward",
    "k": "ra",
-   "m": 12.6,
-   "lo": 11.8,
-   "hi": 13.4,
+   "m": 13.2,
+   "lo": 12.3,
+   "hi": 14.1,
    "vs": "Minnesota Timberwolves",
    "ln": 11.5,
    "od": "-118",
-   "pr": 0.57,
-   "nota": "11.6 R+A (mediana 12) en 28.7 min; 12+ en 8 de 15. Boozer jugó todos los partidos: no hay muestra sin él. Sin Edey (4 PJ): 12.5. Hoy fuera Boozer, Grant, Jerome, Small y GG Jackson: más minutos (~31-32). Últimos 2: 8 y 8. MIN a aleros ajustado por minutos: R+A -3/-5% (el '4.º que más permite' es en bruto), reb +4%, ast -12%. MIN -5.5 sin Edwards. -118 pide 54.1%: valor pequeño."
+   "pr": 0.62,
+   "nota": "11.6 R+A en 28.7 min; 12+ en 8 de 15. Hoy fuera Boozer (9.2 reb, 5.3 ast), Grant, Jerome, Small y GG Jackson: quedan Coward, Edey, Wells, Stewart y Spencer; Coward es el único alero que rebotea (8.1) y absorbe parte de los 14.5 R+A de Boozer. Sin Edey (4 PJ): 12.5. MIN a aleros ajustado por minutos: R+A -3/-5%. Subido de 12.6 a 13.2 por el reparto. -118 pide 54.1%: valor."
+  },
+  {
+   "f": "2026-11-21",
+   "pl": "Jaime Jaquez Jr.",
+   "k": "pra",
+   "m": 21.3,
+   "lo": 19.8,
+   "hi": 22.8,
+   "vs": "Philadelphia 76ers",
+   "ln": 20.5,
+   "pr": 0.54,
+   "nota": "23.1 PRA (mediana 23) en 27.2 min; 21+ en 9 de 16. Minutos a la baja: 30, 23, 22 en los últimos 3 (15, 17, 12 PRA); suben Jakučionis y Ware. Kuzma y Turner vuelven. Vs PHI el 24-oct: 33 en 27 min. PHI a aleros ajustado por minutos: PRA +2/+3% (neutral). PHI -11.5: riesgo de paliza. ~25 min a 0.85/min. Cuota justa ~-117."
   },
   {
    "f": "2026-11-21",
