@@ -1782,6 +1782,19 @@
   },
   {
    "f": "2026-11-21",
+   "pl": "Kasparas Jakučionis",
+   "k": "pts",
+   "m": 10.0,
+   "lo": 4.0,
+   "hi": 12.0,
+   "vs": "Philadelphia 76ers",
+   "ln": 7.5,
+   "od": "-105",
+   "pr": 0.61,
+   "nota": "Escenarios de minutos: ~75% de jugar 20+ (media ~12 pts, 77% de 8+), ~25% de pocos minutos (media ~4, 19%). Últimos 3: 25, 20, 18 pts en 22-26 min, 21/35 de campo y 10/21 en triples (racha caliente, encogida). Con 20+ min: 12.7 pts y 8+ en 6 de 10. El 18-nov jugó 26 min con Kuzma y Turner. Vs PHI el 24-oct: 12. PHI -11.5: una paliza le daría minutos de suplente. -105 pide 51.2%."
+  },
+  {
+   "f": "2026-11-21",
    "pl": "Kyrie Irving",
    "k": "ast",
    "m": 4.8,
