@@ -1808,6 +1808,19 @@
   },
   {
    "f": "2026-11-21",
+   "pl": "Kasparas Jakučionis",
+   "k": "tpm",
+   "m": 1.45,
+   "lo": 0.5,
+   "hi": 1.8,
+   "vs": "Philadelphia 76ers",
+   "ln": 1.5,
+   "od": "164",
+   "pr": 0.41,
+   "nota": "Escenarios: ~75% de 20+ min (~5.2 intentos al 34% = 1.77, 51% de 2+), ~25% de pocos min (~0.5, 10%). Temporada 33% de tres; con 20+ min: 4.5 intentos y 2+ en 4 de 10. Últimos 3: 10, 5 y 6 intentos (4, 3, 3 metidos, racha). PHI a guardias ajustado por minutos: intentos -6%, triples -9%. +164 pide 37.9%: valor pequeño."
+  },
+  {
+   "f": "2026-11-21",
    "pl": "Kyrie Irving",
    "k": "ast",
    "m": 4.8,
