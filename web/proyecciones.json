@@ -1804,7 +1804,8 @@
    "ln": 7.5,
    "od": "-124",
    "pr": 0.61,
-   "nota": "Escenarios de minutos: ~75% de jugar 20+ (media ~12 pts, 77% de 8+), ~25% de pocos minutos (media ~4, 19%). Últimos 3: 25, 20, 18 pts en 22-26 min, 21/35 de campo y 10/21 en triples (racha caliente, encogida). Con 20+ min: 12.7 pts y 8+ en 6 de 10. El 18-nov jugó 26 min con Kuzma y Turner. Vs PHI el 24-oct: 12. PHI -11.5: una paliza le daría minutos de suplente. -105 pide 51.2%. Cuota movida de -105 a -124 (pide 55.4%, EV ~+10%)."
+   "nota": "Escenarios de minutos: ~75% de jugar 20+ (media ~12 pts, 77% de 8+), ~25% de pocos minutos (media ~4, 19%). Últimos 3: 25, 20, 18 pts en 22-26 min, 21/35 de campo y 10/21 en triples (racha caliente, encogida). Con 20+ min: 12.7 pts y 8+ en 6 de 10. El 18-nov jugó 26 min con Kuzma y Turner. Vs PHI el 24-oct: 12. PHI -11.5: una paliza le daría minutos de suplente. -105 pide 51.2%. Cuota movida de -105 a -124 (pide 55.4%, EV ~+10%).",
+   "jug": true
   },
   {
    "f": "2026-11-21",
@@ -1817,7 +1818,8 @@
    "ln": 1.5,
    "od": "+171",
    "pr": 0.45,
-   "nota": "Escenarios: ~75% de 20+ min (~5.2 intentos al 34% = 1.77, 51% de 2+), ~25% de pocos min (~0.5, 10%). Temporada 33% de tres; con 20+ min: 4.5 intentos y 2+ en 4 de 10. Últimos 3: 10, 5 y 6 intentos (4, 3, 3 metidos, racha). PHI a guardias ajustado por minutos: intentos -6%, triples -9%. +164 pide 37.9%: valor pequeño. Conseguida a +171 (pide 36.9%, EV ~+11%). Lectura del usuario (MIL se apoya en el que está encendido): con ~6 intentos al 34% y 75-85% de 20+ min da 46-51%. Ajustado a 45% como mezcla."
+   "nota": "Escenarios: ~75% de 20+ min (~5.2 intentos al 34% = 1.77, 51% de 2+), ~25% de pocos min (~0.5, 10%). Temporada 33% de tres; con 20+ min: 4.5 intentos y 2+ en 4 de 10. Últimos 3: 10, 5 y 6 intentos (4, 3, 3 metidos, racha). PHI a guardias ajustado por minutos: intentos -6%, triples -9%. +164 pide 37.9%: valor pequeño. Conseguida a +171 (pide 36.9%, EV ~+11%). Lectura del usuario (MIL se apoya en el que está encendido): con ~6 intentos al 34% y 75-85% de 20+ min da 46-51%. Ajustado a 45% como mezcla.",
+   "jug": true
   },
   {
    "f": "2026-11-21",
