@@ -1757,6 +1757,19 @@
   },
   {
    "f": "2026-11-21",
+   "pl": "Baylor Scheierman",
+   "k": "pts",
+   "m": 9.4,
+   "lo": 4.0,
+   "hi": 15.0,
+   "vs": "Sacramento Kings",
+   "ln": 9.5,
+   "od": "+100",
+   "pr": 0.48,
+   "nota": "BOS -12.5 en SAC, total 217.5. Fuera Tatum (descanso), White y M. Robinson: ~64 min libres. ~28 min. Temporada 5.4 pts en 19 min; sin Tatum y White el año pasado 13 pts en 30 min (4 pj). Muy volátil (0 y 0 en los últimos 2). Justa +108."
+  },
+  {
+   "f": "2026-11-21",
    "pl": "Cedric Coward",
    "k": "ra",
    "m": 13.2,
@@ -1780,6 +1793,19 @@
    "od": "-125",
    "pr": 0.64,
    "nota": "2.53 triples con 5.5 intentos (46%, alto: encogido a 40%); 2+ en 11 de 15. Hoy 5 bajas en MEM (Boozer, Jerome, Grant, Small, GG Jackson): ~6 intentos. MIN a aleros ajustado por minutos: intentos -12%, triples -16% (mal rival). ~5.5 intentos al 40%. La gráfica 'sin Jerome' mezcla partidos de 2025-26. -125 pide 55.6%."
+  },
+  {
+   "f": "2026-11-21",
+   "pl": "Darius Acuff Jr.",
+   "k": "tpm",
+   "m": 3.3,
+   "lo": 2.0,
+   "hi": 5.0,
+   "vs": "Boston Celtics",
+   "ln": 2.5,
+   "od": "-143",
+   "pr": 0.6,
+   "nota": "9.7 intentos al 33%, 3+ en 10 de 15. BOS sin White (defensor de perímetro). BOS neutral vs PG. Justa -150."
   },
   {
    "f": "2026-11-21",
@@ -1833,6 +1859,19 @@
    "od": "-130",
    "pr": 0.51,
    "nota": "4.4 ast / 8.8 potenciales (50%), 30.6 min; 5+ en 5 de 12. Último (vs GSW): 16 potenciales, 5 ast. Flagg organiza (6.4 ast). LAC a guardias ajustado por minutos: AST +12%, potenciales +2% (la ventaja es de conversión, 60.7% vs 55.1%: parte suerte). Clayton Jr. en duda. DAL -5.5, total 228.5. -130 pide 56.5%: sin valor."
+  },
+  {
+   "f": "2026-11-21",
+   "pl": "Sam Hauser",
+   "k": "tpm",
+   "m": 2.93,
+   "lo": 1.0,
+   "hi": 5.0,
+   "vs": "Sacramento Kings",
+   "ln": 2.5,
+   "od": "-120",
+   "pr": 0.54,
+   "nota": "BOS -12.5 en SAC, total 217.5. Fuera Tatum (descanso), White y M. Robinson: ~64 min libres. ~28 min (22-33), 0.26 intentos/min, 42% (en temporada 47%). SAC neutral vs SF. Justa -117."
   },
   {
    "f": "2026-11-21",
