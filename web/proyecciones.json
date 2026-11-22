@@ -2011,6 +2011,19 @@
   {
    "f": "2026-11-22",
    "pl": "Pelle Larsson",
+   "k": "pra",
+   "m": 15.4,
+   "lo": 9.0,
+   "hi": 23.0,
+   "vs": "Oklahoma City Thunder",
+   "ln": 17.5,
+   "od": "-104",
+   "pr": 0.39,
+   "nota": "Temporada 17.5 PRA (0.62/min), 18+ en 5 de 12. Vuelve de enfermedad: 15 min el 19-nov. SG vs OKC (desde 26-oct) x0.94 en PRA, 8 de 16 superaron. 70% ~28 min (16.8) / 30% ~20 min (12). Año pasado vs OKC 22 y 21. Justa +156."
+  },
+  {
+   "f": "2026-11-22",
+   "pl": "Pelle Larsson",
    "k": "tpm",
    "m": 1.25,
    "lo": 0.0,
