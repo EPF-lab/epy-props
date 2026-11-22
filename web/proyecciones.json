@@ -1766,7 +1766,9 @@
    "ln": 9.5,
    "od": "+100",
    "pr": 0.48,
-   "nota": "BOS -12.5 en SAC, total 217.5. Fuera Tatum (descanso), White y M. Robinson: ~64 min libres. ~28 min. Temporada 5.4 pts en 19 min; sin Tatum y White el año pasado 13 pts en 30 min (4 pj). Muy volátil (0 y 0 en los últimos 2). Justa +108."
+   "nota": "BOS -12.5 en SAC, total 217.5. Fuera Tatum (descanso), White y M. Robinson: ~64 min libres. ~28 min. Temporada 5.4 pts en 19 min; sin Tatum y White el año pasado 13 pts en 30 min (4 pj). Muy volátil (0 y 0 en los últimos 2). Justa +108.",
+   "act": 4,
+   "res": "L"
   },
   {
    "f": "2026-11-21",
@@ -1779,7 +1781,9 @@
    "ln": 11.5,
    "od": "-118",
    "pr": 0.62,
-   "nota": "11.6 R+A en 28.7 min; 12+ en 8 de 15. Hoy fuera Boozer (9.2 reb, 5.3 ast), Grant, Jerome, Small y GG Jackson: quedan Coward, Edey, Wells, Stewart y Spencer; Coward es el único alero que rebotea (8.1) y absorbe parte de los 14.5 R+A de Boozer. Sin Edey (4 PJ): 12.5. MIN a aleros ajustado por minutos: R+A -3/-5%. Subido de 12.6 a 13.2 por el reparto. -118 pide 54.1%: valor."
+   "nota": "11.6 R+A en 28.7 min; 12+ en 8 de 15. Hoy fuera Boozer (9.2 reb, 5.3 ast), Grant, Jerome, Small y GG Jackson: quedan Coward, Edey, Wells, Stewart y Spencer; Coward es el único alero que rebotea (8.1) y absorbe parte de los 14.5 R+A de Boozer. Sin Edey (4 PJ): 12.5. MIN a aleros ajustado por minutos: R+A -3/-5%. Subido de 12.6 a 13.2 por el reparto. -118 pide 54.1%: valor.",
+   "act": 9,
+   "res": "L"
   },
   {
    "f": "2026-11-21",
@@ -1792,7 +1796,9 @@
    "ln": 1.5,
    "od": "-125",
    "pr": 0.64,
-   "nota": "2.53 triples con 5.5 intentos (46%, alto: encogido a 40%); 2+ en 11 de 15. Hoy 5 bajas en MEM (Boozer, Jerome, Grant, Small, GG Jackson): ~6 intentos. MIN a aleros ajustado por minutos: intentos -12%, triples -16% (mal rival). ~5.5 intentos al 40%. La gráfica 'sin Jerome' mezcla partidos de 2025-26. -125 pide 55.6%."
+   "nota": "2.53 triples con 5.5 intentos (46%, alto: encogido a 40%); 2+ en 11 de 15. Hoy 5 bajas en MEM (Boozer, Jerome, Grant, Small, GG Jackson): ~6 intentos. MIN a aleros ajustado por minutos: intentos -12%, triples -16% (mal rival). ~5.5 intentos al 40%. La gráfica 'sin Jerome' mezcla partidos de 2025-26. -125 pide 55.6%.",
+   "act": 4,
+   "res": "W"
   },
   {
    "f": "2026-11-21",
@@ -1805,7 +1811,9 @@
    "ln": 2.5,
    "od": "-143",
    "pr": 0.6,
-   "nota": "9.7 intentos al 33%, 3+ en 10 de 15. BOS sin White (defensor de perímetro). BOS neutral vs PG. Justa -150."
+   "nota": "9.7 intentos al 33%, 3+ en 10 de 15. BOS sin White (defensor de perímetro). BOS neutral vs PG. Justa -150.",
+   "act": 2,
+   "res": "L"
   },
   {
    "f": "2026-11-21",
@@ -1817,7 +1825,9 @@
    "vs": "Philadelphia 76ers",
    "ln": 20.5,
    "pr": 0.54,
-   "nota": "23.1 PRA (mediana 23) en 27.2 min; 21+ en 9 de 16. Minutos a la baja: 30, 23, 22 en los últimos 3 (15, 17, 12 PRA); suben Jakučionis y Ware. Kuzma y Turner vuelven. Vs PHI el 24-oct: 33 en 27 min. PHI a aleros ajustado por minutos: PRA +2/+3% (neutral). PHI -11.5: riesgo de paliza. ~25 min a 0.85/min. Cuota justa ~-117."
+   "nota": "23.1 PRA (mediana 23) en 27.2 min; 21+ en 9 de 16. Minutos a la baja: 30, 23, 22 en los últimos 3 (15, 17, 12 PRA); suben Jakučionis y Ware. Kuzma y Turner vuelven. Vs PHI el 24-oct: 33 en 27 min. PHI a aleros ajustado por minutos: PRA +2/+3% (neutral). PHI -11.5: riesgo de paliza. ~25 min a 0.85/min. Cuota justa ~-117.",
+   "act": 10,
+   "res": "L"
   },
   {
    "f": "2026-11-21",
@@ -1831,7 +1841,9 @@
    "od": "-124",
    "pr": 0.61,
    "nota": "Escenarios de minutos: ~75% de jugar 20+ (media ~12 pts, 77% de 8+), ~25% de pocos minutos (media ~4, 19%). Últimos 3: 25, 20, 18 pts en 22-26 min, 21/35 de campo y 10/21 en triples (racha caliente, encogida). Con 20+ min: 12.7 pts y 8+ en 6 de 10. El 18-nov jugó 26 min con Kuzma y Turner. Vs PHI el 24-oct: 12. PHI -11.5: una paliza le daría minutos de suplente. -105 pide 51.2%. Cuota movida de -105 a -124 (pide 55.4%, EV ~+10%).",
-   "jug": true
+   "jug": true,
+   "act": 2,
+   "res": "L"
   },
   {
    "f": "2026-11-21",
@@ -1845,7 +1857,9 @@
    "od": "+171",
    "pr": 0.45,
    "nota": "Escenarios: ~75% de 20+ min (~5.2 intentos al 34% = 1.77, 51% de 2+), ~25% de pocos min (~0.5, 10%). Temporada 33% de tres; con 20+ min: 4.5 intentos y 2+ en 4 de 10. Últimos 3: 10, 5 y 6 intentos (4, 3, 3 metidos, racha). PHI a guardias ajustado por minutos: intentos -6%, triples -9%. +164 pide 37.9%: valor pequeño. Conseguida a +171 (pide 36.9%, EV ~+11%). Lectura del usuario (MIL se apoya en el que está encendido): con ~6 intentos al 34% y 75-85% de 20+ min da 46-51%. Ajustado a 45% como mezcla.",
-   "jug": true
+   "jug": true,
+   "act": 0,
+   "res": "L"
   },
   {
    "f": "2026-11-21",
@@ -1858,7 +1872,9 @@
    "ln": 4.5,
    "od": "-130",
    "pr": 0.51,
-   "nota": "4.4 ast / 8.8 potenciales (50%), 30.6 min; 5+ en 5 de 12. Último (vs GSW): 16 potenciales, 5 ast. Flagg organiza (6.4 ast). LAC a guardias ajustado por minutos: AST +12%, potenciales +2% (la ventaja es de conversión, 60.7% vs 55.1%: parte suerte). Clayton Jr. en duda. DAL -5.5, total 228.5. -130 pide 56.5%: sin valor."
+   "nota": "4.4 ast / 8.8 potenciales (50%), 30.6 min; 5+ en 5 de 12. Último (vs GSW): 16 potenciales, 5 ast. Flagg organiza (6.4 ast). LAC a guardias ajustado por minutos: AST +12%, potenciales +2% (la ventaja es de conversión, 60.7% vs 55.1%: parte suerte). Clayton Jr. en duda. DAL -5.5, total 228.5. -130 pide 56.5%: sin valor.",
+   "act": 4,
+   "res": "L"
   },
   {
    "f": "2026-11-21",
@@ -1871,7 +1887,9 @@
    "ln": 2.5,
    "od": "-120",
    "pr": 0.54,
-   "nota": "BOS -12.5 en SAC, total 217.5. Fuera Tatum (descanso), White y M. Robinson: ~64 min libres. ~28 min (22-33), 0.26 intentos/min, 42% (en temporada 47%). SAC neutral vs SF. Justa -117."
+   "nota": "BOS -12.5 en SAC, total 217.5. Fuera Tatum (descanso), White y M. Robinson: ~64 min libres. ~28 min (22-33), 0.26 intentos/min, 42% (en temporada 47%). SAC neutral vs SF. Justa -117.",
+   "act": 4,
+   "res": "W"
   },
   {
    "f": "2026-11-21",
@@ -1883,7 +1901,9 @@
    "vs": "Milwaukee Bucks",
    "ln": 5.5,
    "pr": 0.64,
-   "nota": "6.5 reb en 34 min; 6+ en 10 de 15. 10.7 oportunidades de rebote (61%, normal). Sin Jaylen Brown (2 PJ): 8 y 8 (36 y 43 min). Vs MIL el 24-oct: 13 en 30 min. MIL a guardias ajustado por minutos: reb +15% (incluye ese 13). Brown y Wade fuera, Maxey en duda. PHI -11.5: riesgo de paliza. Modelo 66%, rebajado a 64%. Cuota justa ~-178."
+   "nota": "6.5 reb en 34 min; 6+ en 10 de 15. 10.7 oportunidades de rebote (61%, normal). Sin Jaylen Brown (2 PJ): 8 y 8 (36 y 43 min). Vs MIL el 24-oct: 13 en 30 min. MIL a guardias ajustado por minutos: reb +15% (incluye ese 13). Brown y Wade fuera, Maxey en duda. PHI -11.5: riesgo de paliza. Modelo 66%, rebajado a 64%. Cuota justa ~-178.",
+   "act": 3,
+   "res": "L"
   },
   {
    "f": "2026-11-22",
@@ -1920,7 +1940,8 @@
    "ln": 25.5,
    "od": "-112",
    "pr": 0.6,
-   "nota": "Sin Paolo: 25.8 pts en 13 pj (31.3 en últimos 7, 22 FGA). WAS vs SF x1.02, vs PF x1.16 en pts (similares por minutos ~+5%). Sus 24 vs WAS el 2-nov (x0.92). Base 27 x 1.04 = 28. ORL -5.5."
+   "nota": "Sin Paolo: 25.8 pts en 13 pj (31.3 en últimos 7, 22 FGA). WAS vs SF x1.02, vs PF x1.16 en pts (similares por minutos ~+5%). Sus 24 vs WAS el 2-nov (x0.92). Base 27 x 1.04 = 28. ORL -5.5.",
+   "jug": true
   },
   {
    "f": "2026-11-22",
