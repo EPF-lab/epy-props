@@ -1945,6 +1945,19 @@
   },
   {
    "f": "2026-11-22",
+   "pl": "Karl-Anthony Towns",
+   "k": "tpm",
+   "m": 1.88,
+   "lo": 0.0,
+   "hi": 4.0,
+   "vs": "Indiana Pacers",
+   "ln": 1.5,
+   "od": "-120",
+   "pr": 0.535,
+   "nota": "5.2 intentos al 38.5%, 2+ en 11 de 15. IND vs C neutral esta temporada: 38 intentos vs 39.6 esperados, 12 metidos vs 12.9 (15 casos). Duda por enfermedad, 2do de B2B, NY -7.5: 15% escenario menos minutos. Justa -115."
+  },
+  {
+   "f": "2026-11-22",
    "pl": "Klay Thompson",
    "k": "tpm",
    "m": 4.2,
