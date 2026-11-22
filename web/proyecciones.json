@@ -1959,6 +1959,19 @@
   {
    "f": "2026-11-22",
    "pl": "Onyeka Okongwu",
+   "k": "pr",
+   "m": 26.5,
+   "lo": 19.0,
+   "hi": 33.0,
+   "vs": "Detroit Pistons",
+   "ln": 23.5,
+   "od": "-125",
+   "pr": 0.61,
+   "nota": "Pts: 0.51/min x 34 = 17.3; DET vs C en pts x0.99 (17 casos, 5 superaron). Reb 9.6. Sin Landale PR 27.1 pero 24+ solo 4 de 7. Pts muy variables. Justa -156. Peor que reb 8+ (66%)."
+  },
+  {
+   "f": "2026-11-22",
+   "pl": "Onyeka Okongwu",
    "k": "reb",
    "m": 9.6,
    "lo": 6.0,
