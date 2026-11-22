@@ -16,8 +16,8 @@ def peso_modelo(ln, base):
     gap = abs(ln - base) / base if base else 1
     return BLEND * min(1.0, max(0.0, 1 - (gap - .10) / .20))
 SOSP = .15   # EV por encima de esto = "sospechosa" (el modelo probablemente no sabe algo: lesión, rol, minutos)
-VR = {"reb": 1.36, "ast": 1.23, "tpm": 1.17, "stl": 1.07}
-SD = {"pts": (2.302, .386), "pra": (3.109, .304)}
+VR = {"reb": 1.36, "ast": 1.23, "tpm": 1.17, "stl": 1.07, "ra": 1.5}
+SD = {"pts": (2.302, .386), "pra": (3.109, .304), "pr": (1.747, .453), "pa": (1.785, .439)}
 IDX = {"pts": 0, "ast": 1, "reb": 2, "tpm": 3, "stl": 4}
 POS = ["PG", "SG", "SF", "PF", "C"]
 # mercados y posiciones de PICKS (igual que MK/PKM en la página)

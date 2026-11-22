@@ -51,6 +51,7 @@ tr.cl{cursor:pointer;transition:background .2s var(--ease)}tr.cl:active{backgrou
 .how h3{margin:18px 0 4px;font-size:17px;font-weight:600}.how h3:first-child{margin-top:0}.how p,.how li{color:var(--mut);margin:4px 0;font-size:16px;max-width:68ch}.how code{background:var(--seg);padding:2px 6px;border-radius:6px;color:var(--ink);font-size:14px}
 footer{margin-top:24px;color:var(--mut);font-size:13px;text-align:center}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+#pg>.card{min-width:0}#pg .pick .chip{white-space:normal;text-align:left}#pm{flex-wrap:wrap}.pkt{width:100%;border-collapse:collapse;font-size:13px}.pkt th,.pkt td{padding:5px 6px;text-align:left;border-bottom:1px solid var(--glass-edge,rgba(127,127,127,.2));white-space:nowrap}.pkt th{color:var(--mut);font-weight:600}.pkt td.pos{color:var(--green-text,var(--pos))}.pkt td.neg{color:var(--red-text,var(--neg))}.pkt tr.tot td{border-bottom:0}
 </style><style>
 :root{--glow:rgba(0,122,255,.14);--ring:rgba(0,122,255,.6);--o1:rgba(0,122,255,.20);--o2:rgba(175,82,222,.15);--o3:rgba(52,199,89,.12);--sh:0 1px 2px rgba(20,30,60,.06),0 10px 28px -10px rgba(20,30,60,.16);--sh2:0 2px 4px rgba(20,30,60,.06),0 18px 36px -12px rgba(20,30,60,.24);--hl:rgba(255,255,255,.9)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--glow:rgba(10,132,255,.24);--ring:rgba(130,175,255,.75);--o1:rgba(10,132,255,.32);--o2:rgba(191,90,242,.26);--o3:rgba(48,209,88,.14);--sh:0 10px 30px -12px rgba(0,0,0,.7);--sh2:0 22px 40px -14px rgba(0,0,0,.85);--hl:rgba(255,255,255,.07)}}
@@ -696,20 +697,83 @@ const rs=L.filter(e=>e.res==="W"||e.res==="L"),W=rs.filter(e=>e.res==="W").lengt
 $("#pn").textContent=`${L.length} jugadas ${PVV==="all"?"de DvP":"seleccionadas"} · ${rs.length?`${W} ganadas, ${rs.length-W} perdidas (${pct(W/rs.length)})`:"sin resultados todavía"}${pe?" · "+pe+" pendientes":""}.${all.length&&all.every(e=>e.selb==null)?" Ese día aún no existía la mezcla con la casa: «seleccionadas» son las del modelo solo.":""}`;
 PKL=[];$("#pg").innerHTML=L.map(histH).join("")||'<p class="hint">Sin jugadas con estos filtros.</p>'}
 /*HDE*/
-function picks(){const day=navH(),hist=!!day&&day!==liveDay();$("#dyw").hidden=hist;$("#slp").hidden=hist;$("#pall").hidden=hist;$("#pv").hidden=!(SL.auto||hist);if(hist){picksHist(day);return}
-const all=genPicks();all.forEach(x=>x.e=pickEV(x));const L=all.filter(x=>(PF.f==="all"||x.side===PF.f)&&(PF.m==="all"||x.k===PF.m)&&(!SL.auto||PVV==="all"||isSel(x)));
-$("#slate").innerHTML=SL.auto?'<div class="chips" style="margin-top:0">'+(SL.g.map(g=>`<span class="chip">${g[1]} @ ${g[0]}${g[2]?" · "+hhmm(g[2]):""}</span>`).join("")||'<span class="hint">Hoy no hay partidos.</span>')+"</div>":(SL.ex?'<p class="hint" style="margin:12px 0 0">Cartelera de ejemplo: cámbiala por los partidos reales.</p>':"")+'<div class="chips" style="margin-top:10px">'+(SL.g.map((g,i)=>`<span class="chip">${g[0]} vs ${g[1]} <button class="x" data-i="${i}" aria-label="Quitar">×</button></span>`).join("")||'<span class="hint">Añade partidos para generar jugadas.</span>')+"</div>";
-$("#pn").textContent=(SL.auto&&PVV==="sel"?`${L.length} de ${all.length} jugadas de DvP pasan también el filtro de EV (≥ ${pct(EVMINB)} con la mezcla modelo + casa). `:"")+`${L.length} jugadas (${L.filter(x=>x.side==="O").length} over, ${L.filter(x=>x.side==="U").length} under). Over si el rival está entre los 5 que más permiten, under si está entre los puestos 26 y 30. Solo puntos y asistencias, jugadores de ${PMIN}+ minutos con posición confirmada.`;
-PKL=L;$("#pg").innerHTML=L.map(pickH).join("")||'<p class="hint">Sin jugadas con estos filtros.</p>'}
-function pkInit(){const o=Object.keys(D.teams).sort().map(t=>`<option>${t}</option>`).join("");$("#gh").innerHTML=o;$("#ga").innerHTML=o;$("#ga").selectedIndex=1;
-$("#pm").innerHTML=[["all","Todos"],...PKM.map(k=>[k,MK[k]]).map(([k,m])=>[k,m.l[0].toUpperCase()+m.l.slice(1)])].map(([k,l])=>`<button data-m="${k}" class="${k==="all"?"on":""}">${l}</button>`).join("");
-$("#gadd").onclick=()=>{const a=$("#gh").value,b=$("#ga").value;if(a===b||SL.g.some(g=>g[0]===a&&g[1]===b))return;if(SL.ex)SL={ex:0,g:[]};SL.g.push([a,b]);saveSl();picks()};
-$("#slate").onclick=e=>{const b=e.target.closest(".x");if(!b)return;SL.g.splice(+b.dataset.i,1);SL.ex=0;saveSl();picks()};
+/*PK2*/ // PICKS (rediseño 22-nov-2026): partidos del día (ESPN, como la pestaña Partidos) x tablas de defensas (defensas.json, se rehacen cada madrugada)
+let DF=null,PK2L=[],PKG={day:null,games:null,src:""};
+const APU=["pts","reb","ast","tpm","pra","ra","pa","pr"],POSN={PG:"bases",SG:"escoltas",SF:"aleros",PF:"alas-pívot",C:"pívots"};
+const DFR={peso:.6,tope:.25,encoge:.75,pmin:.55,evmin:.08}; // mismos valores que scripts/defensas.py
+const tmName=ab=>Object.keys(D.teams).find(t=>D.teams[t][1]===ab);
+const amer=d=>!(d>1)?"–":d>=2?"+"+Math.round((d-1)*100):"-"+Math.round(100/(d-1));
+const fdN=n=>{const s=String(n),m=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"][+s.slice(4,6)-1];return s.slice(6)+"-"+m};
+const fx=v=>"x"+f2(v);
+async function pkGames(day){if(PKG.day===day&&PKG.games)return PKG.games;
+try{const r=await fetch("https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates="+day.replace(/-/g,""));const j=await r.json();
+const g=(j.events||[]).map(e=>{const c=e.competitions[0],T=s=>{const t=(c.competitors.find(q=>q.homeAway===s)||{}).team||{};return tmName(E2H[t.abbreviation]||t.abbreviation)};return{local:T("home"),visitante:T("away"),hora:e.date,st:c.status.type.state}}).filter(x=>x.local&&x.visitante);
+PKG={day,games:g,src:"ESPN"}}catch(e){PKG={day,games:DY&&DY.fecha===day?DY.juegos:[],src:"diario"}}return PKG.games}
+function pkGen(games){const out=[];if(!DF)return out;
+games.forEach(g=>[[g.local,g.visitante],[g.visitante,g.local]].forEach(([me,op])=>{if(!D.teams[me]||!D.teams[op])return;const ab=D.teams[me][1],oab=D.teams[op][1];
+const les=lesEq(me),fuera=new Set(les.filter(l=>/^out/i.test(l[1])).map(l=>normKey(l[0])));
+PL.filter(p=>p[2]===ab&&p[9]&&!fuera.has(normKey(p[0]))).forEach(p=>{const jg=DF.jug[p[10]];if(!jg||jg.mn5<22)return;let best=null;
+for(const k of APU){const t=((DF.eq[oab]||{})[p[3]]||{})[k];if(!t||!t[8])continue;const side=t[8]==="mas"?"O":"U";
+if(k==="tpm"&&jg.pj.tpm<(side==="O"?1.2:1.5))continue; // en triples, solo tiradores de verdad
+const mins=.6*jg.mn5+.4*jg.mns,aj=Math.max(-DFR.tope,Math.min(DFR.tope,DFR.peso*(t[3]-1))),m=jg.r[k]*mins*(1+aj);
+const ml=mkLine({p,k}),ln=ml?ml.ln:Math.floor(jg.pj[k]-.3)+.5;if(!(ln>0))continue;
+const[po,pu]=probs(k,m,ln),pw=.5+DFR.encoge*((side==="O"?po:pu)-.5);if(pw<DFR.pmin)continue;
+const od=ml?(side==="O"?ml.o:ml.u):null,x={p,me,op,oab,k,side,ln,real:!!ml,nb:ml?ml.n:0,od,m,mins,pw,t,jg,local:me===g.local,hora:g.hora,st:g.st,les:les.find(l=>normKey(l[0])===normKey(p[0])),bajas:les.filter(l=>/^out/i.test(l[1])).map(l=>l[0])};
+if(!best||x.pw>best.pw)best=x}
+if(best)out.push(best)})}));
+return out.sort((a,b)=>b.pw-a.pw)}
+function pkTabla(key){const v=DF&&DF.filas[key];if(!v)return'<p class="hint">Sin filas guardadas.</p>';const A=v.reduce((s,x)=>s+x[3],0),E=v.reduce((s,x)=>s+x[4],0),sup=v.filter(x=>x[3]>x[4]).length;
+return`<div style="overflow-x:auto;margin-top:10px"><table class="pkt"><thead><tr><th>Fecha</th><th>Jugador</th><th>Min</th><th>Real</th><th>Esperado</th><th>Factor</th></tr></thead><tbody>${v.map(x=>`<tr><td>${fdN(x[0])}</td><td>${x[1]}</td><td>${x[2]}</td><td><b>${x[3]}</b></td><td>${f1(x[4])}</td><td class="${x[3]>x[4]?"pos":"neg"}">${x[4]>=.3?fx(x[3]/x[4]):"–"}</td></tr>`).join("")}
+<tr class="tot"><td><b>Total</b></td><td><b>${v.length} casos</b></td><td></td><td><b>${A}</b></td><td><b>${f1(E)}</b></td><td><b>${fx(A/Math.max(E,.1))}</b></td></tr></tbody></table></div><p class="hint" style="margin:6px 0 0">${sup} de ${v.length} superaron lo esperado. Esperado = su ritmo por minuto contra los demás rivales × los minutos que jugó.</p>`}
+function pkReglas(x){const jg=x.jg,r=[],c=(ok,t)=>r.push(`<span class="chip ${ok===1?"g":ok===0?"w":""}">${ok===1?"✓":ok===0?"⚠":"·"} ${t}</span>`);
+c(jg.sd<=5&&jg.mn5>=26?1:0,`Minutos ${jg.sd<=5&&jg.mn5>=26?"estables":"variables"}: ${f1(jg.mn5)} (±${f1(jg.sd)})`);
+if(COMBO[x.k])c(1,"Combinada");else if(x.k==="pts")c(0,"Puntos solos: dependen de la puntería");
+c(x.local?1:-1,x.local?"Local":"Visitante");
+if(x.bajas.length)c(1,"Bajas en su equipo: "+x.bajas.slice(0,3).join(", "));
+if(x.les)c(0,`${x.p[0]}: ${estado(x.les[1])}`);
+const ev=x.od?x.pw*x.od-1:null;if(ev!=null)c(ev>=DFR.evmin?1:0,`Ventaja a la cuota de las casas: ${spct(ev)}`);
+return`<div class="chips" style="margin:10px 0 0">${r.join("")}</div>`}
+function pk2H(x,i){const{p,k,side,t}=x,o=side==="O",key=`${x.oab}|${p[3]}|${k}`,mn=1+DFR.evmin,mi=mn/x.pw;
+return`<article class="card pick ${o?"o":"u"}" style="animation-delay:${Math.min(i,12)*40}ms;cursor:default"><div class="ph">${avH(p,56)}<div class="pt"><b>${p[0]}</b><small>${p[3]} · ${D.teams[x.me][1]} ${x.local?"vs":"@"} ${x.oab}${x.hora?" · "+hhmm(x.hora):""}</small></div><span class="chip ${o?"g":"r"}">${o?"OVER":"UNDER"}</span></div>
+<div class="al">${LBL[k]} ${o?"más de":"menos de"} ${f1(x.ln)} <span class="hint" style="font-weight:500">(${o?Math.ceil(x.ln)+"+":Math.floor(x.ln)+" o menos"})</span></div>
+<p class="why">${x.op} ${o?"concede":"frena"}: los ${POSN[p[3]]} sacan ${fx(t[3])} de lo normal en ${LBL[k].toLowerCase()}. <b>${o?t[4]:t[0]-t[4]} de ${t[0]}</b> ${o?"superaron":"quedaron por debajo de"} lo esperado.</p>
+<div class="kv"><span>Proyección EPY</span><b>${f1(x.m)} <span class="hint" style="font-weight:500">en ~${Math.round(x.mins)} min</span></b>
+<span>Probabilidad ${o?"over":"under"}</span><b>${pct(x.pw)}</b>
+<span>${x.real?`Línea de las casas (${x.nb})`:"Línea de referencia"}</span><b>${f1(x.ln)}${x.od?" @"+f2(x.od)+" ("+amer(x.od)+")":""}</b>
+<span>Cuota justa · mínima para +8 %</span><b>${amer(1/x.pw)} · ${amer(mi)}</b>
+<span>Tendencia del rival</span><b>${fx(t[5])} → ${fx(t[6])} · últimos 8 ${fx(t[7])}</b></div>
+${x.real?"":`<p class="hint" style="margin:-4px 0 0">Línea de referencia = su promedio de la temporada. Si TriunfoBet pone otra línea, la probabilidad cambia.</p>`}
+${pkReglas(x)}
+<div class="acts"><button type="button" class="btn s tb" data-j="${i}">Ver tabla completa</button><button type="button" class="btn s hs" data-j="${i}">Historial del jugador</button></div><div class="tbw" hidden data-key="${key}"></div></article>`}
+function pkRivales(games){if(!DF)return"";const fila=(t,est)=>{const ab=D.teams[t][1],q=[];POS.forEach(ps=>APU.forEach(k=>{const v=((DF.eq[ab]||{})[ps]||{})[k];if(v&&v[8]===est&&!COMBO[k])q.push([ps,k,v[3]])}));
+return q.sort((a,b)=>est==="mas"?b[2]-a[2]:a[2]-b[2]).map(([ps,k,f])=>`<span class="chip ${est==="mas"?"g":"r"}">${POSN[ps]} · ${LBL[k].toLowerCase()} ${fx(f)}</span>`).join("")||'<span class="hint">nada claro</span>'};
+const tms=[...new Set(games.flatMap(g=>[g.local,g.visitante]))].filter(t=>D.teams[t]);
+return`<details class="panel" style="margin:0 0 14px"><summary style="cursor:pointer;font-weight:600">Tablas de los rivales de hoy (al ${DF.asof})</summary><p class="hint" style="margin:8px 0">Se rehacen cada madrugada con los partidos nuevos. Verde = concede más de lo normal a esa posición; rojo = frena.</p>${tms.map(t=>`<div style="margin:10px 0"><b>${t}</b><div class="chips" style="margin-top:6px">${fila(t,"mas")}${fila(t,"menos")}</div></div>`).join("")}</details>`}
+function pk2Hist(e,i){const p=PL.find(q=>q[0]===e.pl)||[e.pl,"","",e.pos],o=e.side==="O",r=RES[e.res]||["Pendiente",""];
+return`<article class="card pick ${o?"o":"u"}" style="animation-delay:${Math.min(i,12)*40}ms;cursor:default"><div class="ph">${avH(p,56)}<div class="pt"><b>${e.pl}</b><small>${e.pos} vs ${e.vs}</small></div><span class="chip ${o?"g":"r"}">${o?"OVER":"UNDER"}</span></div>
+<div class="al">${LBL[e.k]||e.k} ${o?"más de":"menos de"} ${f1(e.ln)}</div>
+<div class="kv"><span>Resultado</span><b><span class="chip ${r[1]}">${r[0]}</span></b><span>Hizo</span><b>${e.act!=null?e.act:"–"}</b><span>Proyección EPY</span><b>${f1(e.m)}</b><span>Probabilidad</span><b>${pct(e.pr)}</b><span>Rival</span><b>${fx(e.f)} (${e.sup} de ${e.n})</b><span>Línea</span><b>${e.lnreal?"de las casas":"de referencia"}</b>${e.les?`<span>Estado ese día</span><b>${estado(e.les)}</b>`:""}</div></article>`}
+function pkDays(){const s=new Set(((MDL&&MDL.picks)||[]).filter(e=>e.v===2).map(e=>e.fecha));s.add(today());return[...s].sort()}
+function pkNav(){const ds=pkDays(),cur=PDAY&&ds.includes(PDAY)?PDAY:today(),i=ds.indexOf(cur);
+$("#pdn").innerHTML=`<div class="dnav"><button class="ib" type="button" data-d="${i>0?ds[i-1]:""}" ${i>0?"":"disabled"} aria-label="Día anterior">‹</button><b>${capz(fDia(cur))}${cur===today()?" · hoy":" · resultados"}</b><button class="ib" type="button" data-d="${i<ds.length-1?ds[i+1]:""}" ${i<ds.length-1?"":"disabled"} aria-label="Día siguiente">›</button></div>`;return cur}
+async function picks(){const day=pkNav(),hist=day!==today();["#slman","#pv","#pall"].forEach(s=>{if($(s))$(s).hidden=true});$("#dyw").hidden=hist;$("#slp").hidden=hist;PKL=[];
+const flt=x=>(PF.f==="all"||x.side===PF.f)&&(PF.m==="all"||x.k===PF.m);
+if(hist){const all=((MDL&&MDL.picks)||[]).filter(e=>e.fecha===day&&e.v===2),L=all.filter(flt),rs=L.filter(e=>e.res==="W"||e.res==="L"),W=rs.filter(e=>e.res==="W").length;
+$("#pn").textContent=`${L.length} picks · ${rs.length?`${W} ganadas, ${rs.length-W} perdidas (${pct(W/rs.length)})`:"sin resultados todavía"}.`;$("#pg").innerHTML=L.map(pk2Hist).join("")||'<p class="hint">Sin picks con estos filtros.</p>';return}
+if(!DF){$("#pn").textContent="Cargando las tablas de defensas…";$("#pg").innerHTML="";return}
+const games=await pkGames(day);
+$("#slate").innerHTML='<div class="chips" style="margin-top:0">'+(games.map(g=>`<span class="chip">${g.visitante} @ ${g.local}${g.hora?" · "+hhmm(g.hora):""}</span>`).join("")||'<span class="hint">Hoy no hay partidos.</span>')+"</div>"+pkRivales(games).replace('class="panel" style="margin:0 0 14px"','class="panel" style="margin:12px 0 0;box-shadow:none"');
+const all=pkGen(games),L=all.filter(flt);PK2L=L;
+$("#pn").textContent=`${L.length} picks (${L.filter(x=>x.side==="O").length} over, ${L.filter(x=>x.side==="U").length} under) · un pick por jugador, el más probable · tablas al ${DF.asof}, rehechas cada madrugada. Sale pick cuando el rival concede o frena claro a su posición (12+ casos, la mayoría por encima o por debajo, y sigue igual en las últimas semanas) y la probabilidad es 55 %+.`;
+$("#pg").innerHTML=L.map(pk2H).join("")||'<p class="hint">Sin picks con estos filtros.</p>'}
+function pkInit(){$("#pm").innerHTML=[["all","Todos"],...APU.map(k=>[k,LBL[k]])].map(([k,l])=>`<button data-m="${k}" class="${k==="all"?"on":""}">${l}</button>`).join("");
 $("#pf").onclick=e=>{const b=e.target.closest("button");if(!b)return;PF.f=b.dataset.f;$$("#pf button").forEach(x=>x.classList.toggle("on",x===b));picks()};
 $("#pm").onclick=e=>{const b=e.target.closest("button");if(!b)return;PF.m=b.dataset.m;$$("#pm button").forEach(x=>x.classList.toggle("on",x===b));picks()};
-$("#pg").addEventListener("click",e=>{const b=e.target.closest("button.hadd");if(!b)return;if(histAdd(b.dataset.id)){picks();toast("Añadida a tu RECORD con su resultado y la cuota del mercado. Si TriunfoBet pagó distinto, toca el círculo del resultado para reabrirla y corrige la cuota.")}});
-$("#pdn").onclick=e=>{const b=e.target.closest("button[data-d]");if(!b||!b.dataset.d)return;PDAY=b.dataset.d===liveDay()?null:b.dataset.d;picks();window.scrollTo({top:0,behavior:"smooth"})};
-$("#pv").onclick=e=>{const b=e.target.closest("button");if(!b)return;PVV=b.dataset.v;$$("#pv button").forEach(x=>x.classList.toggle("on",x===b));picks()}}
+$("#pdn").onclick=e=>{const b=e.target.closest("button[data-d]");if(!b||!b.dataset.d)return;PDAY=b.dataset.d===today()?null:b.dataset.d;picks();window.scrollTo({top:0,behavior:"smooth"})};
+$("#pg").addEventListener("click",e=>{const b=e.target.closest("button.tb,button.hs");if(!b)return;const x=PK2L[+b.dataset.j];if(!x)return;
+if(b.classList.contains("tb")){const w=b.closest(".card").querySelector(".tbw");if(w.hidden){w.innerHTML=pkTabla(w.dataset.key);w.hidden=false;b.textContent="Ocultar tabla"}else{w.hidden=true;b.textContent="Ver tabla completa"}return}
+const bk=MK[x.k]?x.k:"pts";openDet({p:x.p,op:x.op,me:x.me,k:bk,side:x.side,calc:1,lbl:LBL[x.k]});if(DT){DT.stat=x.k;DT.projK=x.k;DT.proj=x.m;DT.alt=x.ln;DT.altAuto=false;try{const s=$("#dSt");if(s)s.value=x.k;detRender()}catch(er){}}})}
+/*PK2E*/
 function syncBtns(){const p=S.p,o=$("#op").value,ps=$("#ps").value;$('.pk[data-k="pl"]').innerHTML=avH(p,30)+`<span>${p[0]}</span>`;$('.pk[data-k="op"]').innerHTML=tavH(o,30)+`<span>${o}</span>`;$('.pk[data-k="ps"]').innerHTML=`<span class="av" style="--z:30px;background:${grad(hue(ps||p[3]),40)}">${ps||p[3]}</span><span>${ps||"Auto ("+p[3]+")"}</span>`}
 function buildSheet(){document.body.insertAdjacentHTML("beforeend",'<div class="ov"></div><div class="sh" id="psh" role="dialog"><div class="gr"></div><div class="sbt" id="st"></div><div class="sb" id="sbw"><input id="sq" placeholder="Buscar" autocomplete="off"></div><div class="sl" id="sl"></div></div>');
 $("#sq").oninput=e=>fill(e.target.value);$(".ov").onclick=closeSheet;
@@ -807,7 +871,7 @@ $("#rclr").onclick=()=>{if(confirm("¿Borrar todo tu record de este navegador?")
 const tp=e=>{const sv=$("#rsv");if(!sv||!CH.length)return;const r=sv.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*640;let i=0;CH.forEach((p,j)=>{if(Math.abs(p.x-x)<Math.abs(CH[i].x-x))i=j});const p=CH[i],m=$("#rcm"),t=$("#rtp");m.setAttribute("cx",p.x);m.setAttribute("cy",p.y);m.setAttribute("opacity",1);
 t.innerHTML=(i?"Jugada "+i+": ":"")+p.t+"<br><b class='"+(p.v>=0?"pos":"neg")+"'>"+su(p.v)+"</b> acumulado";t.style.left=Math.max(70,Math.min(r.width-70,p.x/640*r.width))+"px";t.style.top=p.y/240*r.height+"px";t.style.opacity=1};
 $("#rch").addEventListener("pointermove",tp);$("#rch").addEventListener("pointerdown",tp);$("#rch").addEventListener("pointerleave",()=>{const m=$("#rcm"),t=$("#rtp");if(m)m.setAttribute("opacity",0);if(t)t.style.opacity=0});rec()}
-const TT={calc:["Calculadora","Proyecciones y probabilidad frente a la casa"],vs:["Partidos","Enfrentamientos del día e historial por jugador"],pk:["PICKS","Alertas por el ranking del rival"],rc:["RECORD","Tus resultados y qué mercado rinde más"],mx:["Matchups","Qué rivales dan ventaja por posición"],hw:["Guía","Cómo funciona el modelo y sus límites"]};
+const TT={calc:["Calculadora","Proyecciones y probabilidad frente a la casa"],vs:["Partidos","Enfrentamientos del día e historial por jugador"],pk:["PICKS","Cruce de los partidos de hoy con lo que concede cada rival"],rc:["RECORD","Tus resultados y qué mercado rinde más"],mx:["Matchups","Qué rivales dan ventaja por posición"],hw:["Guía","Cómo funciona el modelo y sus límites"]};
 let PKL=[];
 function stamp(mode){const live=mode==="En vivo",ts=Date.parse(D.updated||D.ts),age=isNaN(ts)?null:Date.now()-ts,h=age==null?null:age/36e5,ago=age==null?D.asof:h<1?"hace "+Math.max(1,Math.round(age/6e4))+" min":h<24?"hace "+Math.round(h)+" h":"hace "+Math.round(h/24)+" d",cls=!live?"w":h<24?"g":h<72?"w":"r",el=$("#src");
 el.className="chip st "+cls;el.innerHTML='<i class="dot"></i>'+(live?"En vivo, ":"Foto, ")+ago;el.title=live?"Datos de tus hojas de Sheets. Toca para recargar.":"Foto de los datos: no se actualiza sola. Conecta el modo en vivo con el engranaje.";el.onclick=()=>{if(live)location.reload()}}
@@ -959,6 +1023,7 @@ $("#cf").onclick=()=>{const u=prompt("Pega la URL de tu Apps Script (termina en 
 try{const r=await fetch("proyecciones.json",{cache:"no-store"});if(r.ok){ANA=await r.json();try{ofiRender()}catch(e){}try{render();if(DT&&$("#dtc"))detRender()}catch(e){}}}catch(e){} // primero: es pequeño y cambia lo que se ve en la Calculadora
 try{const r=await fetch("diario.json",{cache:"no-store"});if(r.ok){DY=await r.json();dyApply();if(!$("#pk").hidden)picks()}}catch(e){}
 try{const r=await fetch("movimientos.json");if(r.ok){MOV=await r.json();if(!$("#pk").hidden)picks()}}catch(e){}
+try{const r=await fetch("defensas.json",{cache:"no-store"});if(r.ok){DF=await r.json();if(!$("#pk").hidden)picks()}}catch(e){}
 try{const r=await fetch("registro.json",{cache:"no-store"});if(r.ok){MDL=await r.json();mdlRender();if(!$("#pk").hidden)picks()}}catch(e){}
 try{const r=await fetch("historial.json",{cache:"no-store"});if(r.ok){const h=await r.json();if(h&&h.v===1&&(!HIST||String(h.asof||"")>=String(HIST.asof||"")))HIST=h}}catch(e){} /* el publicado (con la temporada nueva) gana al guardado en el navegador si es más reciente */})();
 </script>
