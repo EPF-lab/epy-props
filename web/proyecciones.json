@@ -1913,13 +1913,27 @@
    "f": "2026-11-22",
    "pl": "Klay Thompson",
    "k": "tpm",
-   "m": 4.0,
+   "m": 4.2,
    "lo": 2.0,
    "hi": 6.0,
    "vs": "Oklahoma City Thunder",
    "ln": 3.5,
-   "pr": 0.55,
-   "nota": "Desde 26-oct OKC (sin Holmgren, J. Williams, Wallace; Caruso fuera) permite +31% intentos de triple a SF, +35% a PF, +85% a C, +10% a guardias. Usado 60% del efecto. SGA en duda (espalda). 9.4 intentos por partido, 43%. Cuota justa -122."
+   "pr": 0.57,
+   "nota": "Desde 26-oct OKC (sin Holmgren, J. Williams, Wallace; Caruso fuera) permite +31% intentos de triple a SF, +35% a PF, +85% a C, +10% a guardias. Usado 60% del efecto. SGA en duda (espalda). 9.4 intentos por partido, 43%. Cuota justa -122. Con cuota -130: sumo la mitad del extra de acierto que OKC permite a guardias tiradores (x1.21) -> 4.2, 57%.",
+   "od": "-130"
+  },
+  {
+   "f": "2026-11-22",
+   "pl": "Pelle Larsson",
+   "k": "tpm",
+   "m": 1.25,
+   "lo": 0.0,
+   "hi": 3.0,
+   "vs": "Oklahoma City Thunder",
+   "ln": 1.5,
+   "od": "+125",
+   "pr": 0.35,
+   "nota": "Vuelve de enfermedad (15 min el 19-nov). 2.8 intentos en 28 min, 47%. OKC: forwards de poco volumen x1.63 intentos, guardias de poco volumen sin muestra (4 casos). Mezcla 30% minutos bajos / 70% normales con efecto parcial. Con efecto completo 46% (techo). Justa +186."
   }
  ]
 }
