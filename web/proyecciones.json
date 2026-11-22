@@ -1956,7 +1956,9 @@
    "ln": 37.5,
    "od": "-120",
    "pr": 0.55,
-   "nota": "Temporada 36.2 PRA (1.05/min), 38+ en 6 de 13; sin CJ 39 y 38 (2 pj). DET vs PF x1.08 (10 casos, 5 superaron), vs SF x0.95; todos los aleros x0.99 (33 casos). Holland fuera (el tweet lo pone defendiéndolo). Año pasado vs DET 42/49/42/47 (plantillas distintas, poco peso). ~35.5 min x 1.07 x 1.03. Justa -122."
+   "nota": "Temporada 36.2 PRA (1.05/min), 38+ en 6 de 13; sin CJ 39 y 38 (2 pj). DET vs PF x1.08 (10 casos, 5 superaron), vs SF x0.95; todos los aleros x0.99 (33 casos). Holland fuera (el tweet lo pone defendiéndolo). Año pasado vs DET 42/49/42/47 (plantillas distintas, poco peso). ~35.5 min x 1.07 x 1.03. Justa -122.",
+   "res": "L",
+   "act": 23
   },
   {
    "f": "2026-11-22",
@@ -1995,7 +1997,9 @@
    "ln": 23.5,
    "od": "-125",
    "pr": 0.61,
-   "nota": "Pts: 0.51/min x 34 = 17.3; DET vs C en pts x0.99 (17 casos, 5 superaron). Reb 9.6. Sin Landale PR 27.1 pero 24+ solo 4 de 7. Pts muy variables. Justa -156. Peor que reb 8+ (66%)."
+   "nota": "Pts: 0.51/min x 34 = 17.3; DET vs C en pts x0.99 (17 casos, 5 superaron). Reb 9.6. Sin Landale PR 27.1 pero 24+ solo 4 de 7. Pts muy variables. Justa -156. Peor que reb 8+ (66%).",
+   "res": "L",
+   "act": 15
   },
   {
    "f": "2026-11-22",
@@ -2008,7 +2012,9 @@
    "ln": 7.5,
    "od": "-140",
    "pr": 0.66,
-   "nota": "Sin Landale (y Gueye, Newell fuera): 9.3 reb en 33 min, 8+ en 5 de 7. 0.26 reb/min x ~34 min = 8.9. DET permite +14% reb a C (17 casos, uso 60%). DET -2.5. Ajuste: DET sin Jalen Duren (fuera desde ~25-oct): pívots rivales x1.17 en 15 casos (x0.79 en los 2 con él). Causa estructural y sigue fuera: uso 75% del efecto -> 9.6, 66%."
+   "nota": "Sin Landale (y Gueye, Newell fuera): 9.3 reb en 33 min, 8+ en 5 de 7. 0.26 reb/min x ~34 min = 8.9. DET permite +14% reb a C (17 casos, uso 60%). DET -2.5. Ajuste: DET sin Jalen Duren (fuera desde ~25-oct): pívots rivales x1.17 en 15 casos (x0.79 en los 2 con él). Causa estructural y sigue fuera: uso 75% del efecto -> 9.6, 66%.",
+   "res": "W",
+   "act": 9
   },
   {
    "f": "2026-11-22",
@@ -2047,7 +2053,8 @@
    "ln": 32.5,
    "od": "-105",
    "pr": 0.58,
-   "nota": "Temporada 31.7 pts (0.95/min); últimos 8 34.9 (1.04/min), últimos 4 37.8. OKC sin Holmgren, J. Williams, Wallace, Caruso, Topic, Jaylin. MIA vs PG x1.09 (18 casos, 11 superaron), vs SG x1.07; estrellas ~x1.07. Base 35.5 en 35 min; 15% escenario espalda limitada (29) -> 62.6%, recorte a 60%. SGA en duda (espalda). Justa -150. Línea movida: 30.5 a -186 (64%, EV -1%) o 32.5 a -105 (56%, EV +9%). Guardada la de 32.5. Usuario: si juega, sin restricción (OKC lo descarta si persiste). Escenario limitado baja de 15% a 5% (se resiente en partido) -> 58%."
+   "nota": "Temporada 31.7 pts (0.95/min); últimos 8 34.9 (1.04/min), últimos 4 37.8. OKC sin Holmgren, J. Williams, Wallace, Caruso, Topic, Jaylin. MIA vs PG x1.09 (18 casos, 11 superaron), vs SG x1.07; estrellas ~x1.07. Base 35.5 en 35 min; 15% escenario espalda limitada (29) -> 62.6%, recorte a 60%. SGA en duda (espalda). Justa -150. Línea movida: 30.5 a -186 (64%, EV -1%) o 32.5 a -105 (56%, EV +9%). Guardada la de 32.5. Usuario: si juega, sin restricción (OKC lo descarta si persiste). Escenario limitado baja de 15% a 5% (se resiente en partido) -> 58%.",
+   "res": "NJ"
   }
  ]
 }
