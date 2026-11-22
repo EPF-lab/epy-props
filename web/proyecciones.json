@@ -1945,6 +1945,19 @@
   },
   {
    "f": "2026-11-22",
+   "pl": "Jalen Johnson",
+   "k": "pra",
+   "m": 38.8,
+   "lo": 30.0,
+   "hi": 47.0,
+   "vs": "Detroit Pistons",
+   "ln": 37.5,
+   "od": "-120",
+   "pr": 0.55,
+   "nota": "Temporada 36.2 PRA (1.05/min), 38+ en 6 de 13; sin CJ 39 y 38 (2 pj). DET vs PF x1.08 (10 casos, 5 superaron), vs SF x0.95; todos los aleros x0.99 (33 casos). Holland fuera (el tweet lo pone defendiéndolo). Año pasado vs DET 42/49/42/47 (plantillas distintas, poco peso). ~35.5 min x 1.07 x 1.03. Justa -122."
+  },
+  {
+   "f": "2026-11-22",
    "pl": "Karl-Anthony Towns",
    "k": "tpm",
    "m": 1.88,
