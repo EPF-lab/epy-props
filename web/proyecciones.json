@@ -1911,6 +1911,19 @@
   },
   {
    "f": "2026-11-22",
+   "pl": "Franz Wagner",
+   "k": "pts",
+   "m": 28.0,
+   "lo": 22.0,
+   "hi": 34.0,
+   "vs": "Washington Wizards",
+   "ln": 25.5,
+   "od": "-112",
+   "pr": 0.6,
+   "nota": "Sin Paolo: 25.8 pts en 13 pj (31.3 en últimos 7, 22 FGA). WAS vs SF x1.02, vs PF x1.16 en pts (similares por minutos ~+5%). Sus 24 vs WAS el 2-nov (x0.92). Base 27 x 1.04 = 28. ORL -5.5."
+  },
+  {
+   "f": "2026-11-22",
    "pl": "Klay Thompson",
    "k": "tpm",
    "m": 4.2,
