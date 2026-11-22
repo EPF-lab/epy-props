@@ -1921,13 +1921,14 @@
    "f": "2026-11-22",
    "pl": "Bobby Portis",
    "k": "tpm",
-   "m": 1.7,
+   "m": 1.55,
    "lo": 0.0,
    "hi": 4.0,
    "vs": "Oklahoma City Thunder",
    "ln": 1.5,
-   "pr": 0.49,
-   "nota": "Desde 26-oct OKC (sin Holmgren, J. Williams, Wallace; Caruso fuera) permite +31% intentos de triple a SF, +35% a PF, +85% a C, +10% a guardias. Usado 60% del efecto. SGA en duda (espalda). Solo ~20 min. Cuota justa +104."
+   "pr": 0.43,
+   "nota": "Desde 26-oct OKC (sin Holmgren, J. Williams, Wallace; Caruso fuera) permite +31% intentos de triple a SF, +35% a PF, +85% a C, +10% a guardias. Usado 60% del efecto. SGA en duda (espalda). Solo ~20 min. Cuota justa +104. Revisión con cuota +141: PF vs OKC tiraron +35% (72 vs 53.4) pero metieron lo esperado (20 vs 20.7); 2+ en 6 de 13. Portis 2+ en 5 de 15, minutos bajando (15-23). Mezcla intentos/aciertos -> 1.55, 43%. Si Giannis no juega, sube.",
+   "od": "+141"
   },
   {
    "f": "2026-11-22",
