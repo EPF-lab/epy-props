@@ -1958,6 +1958,19 @@
   },
   {
    "f": "2026-11-22",
+   "pl": "Onyeka Okongwu",
+   "k": "reb",
+   "m": 9.3,
+   "lo": 6.0,
+   "hi": 13.0,
+   "vs": "Detroit Pistons",
+   "ln": 7.5,
+   "od": "-136",
+   "pr": 0.64,
+   "nota": "Sin Landale (y Gueye, Newell fuera): 9.3 reb en 33 min, 8+ en 5 de 7. 0.26 reb/min x ~34 min = 8.9. DET permite +14% reb a C (17 casos, uso 60%). DET -2.5."
+  },
+  {
+   "f": "2026-11-22",
    "pl": "Pelle Larsson",
    "k": "tpm",
    "m": 1.25,
