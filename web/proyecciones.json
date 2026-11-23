@@ -2084,6 +2084,19 @@
   },
   {
    "f": "2026-11-23",
+   "pl": "Deni Avdija",
+   "k": "pts",
+   "m": 25.0,
+   "lo": 18.0,
+   "hi": 32.0,
+   "vs": "Philadelphia 76ers",
+   "ln": 22.5,
+   "od": "-120",
+   "pr": 0.59,
+   "nota": "9/14 sobre 22,5 (23,9 de media); sin Morant 24,3 y 6/10, y por 36 igual que en total (26,5 vs 26,3). PHI 26o en puntos en la pintura, 28o en los ultimos 10, 2o en canastas permitidas en zona restringida. Vs aleros x1,04 (16/28), 2a mitad x1,14; aleros de 18+ esperados x1,22 (6/7, corte elegido a posteriori). Vs defensas debiles en pintura 5/5 (27,8); vs el resto 4/9. Embiid jugo 9 de los ultimos 10 de PHI. Spread PHI -3,5. Modelo 24,4-25,0: 59%, EV ~+8% a -120, justo en el minimo. Puntos solos."
+  },
+  {
+   "f": "2026-11-23",
    "pl": "Isaiah Hartenstein",
    "k": "ast",
    "m": 4.2,
