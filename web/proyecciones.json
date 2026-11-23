@@ -1916,7 +1916,9 @@
    "ln": 1.5,
    "pr": 0.49,
    "nota": "Desde 26-oct OKC (sin Holmgren, J. Williams, Wallace; Caruso fuera) permite +31% intentos de triple a SF, +35% a PF, +85% a C, +10% a guardias. Usado 60% del efecto. SGA en duda (espalda). Cuota justa +108. Con cuota +114: SF vs OKC (15+ min) 128 intentos vs 97 esp, 50 metidos vs 37 (x1.35); 17 de 20 metieron 2+. Wiggins 2+ en 6 de 15 (1.33/pj). 75% del efecto -> 1.72, 49%.",
-   "od": "+114"
+   "od": "+114",
+   "act": 1,
+   "res": "L"
   },
   {
    "f": "2026-11-22",
@@ -1929,7 +1931,9 @@
    "ln": 1.5,
    "pr": 0.43,
    "nota": "Desde 26-oct OKC (sin Holmgren, J. Williams, Wallace; Caruso fuera) permite +31% intentos de triple a SF, +35% a PF, +85% a C, +10% a guardias. Usado 60% del efecto. SGA en duda (espalda). Solo ~20 min. Cuota justa +104. Revisión con cuota +141: PF vs OKC tiraron +35% (72 vs 53.4) pero metieron lo esperado (20 vs 20.7); 2+ en 6 de 13. Portis 2+ en 5 de 15, minutos bajando (15-23). Mezcla intentos/aciertos -> 1.55, 43%. Si Giannis no juega, sube.",
-   "od": "+141"
+   "od": "+141",
+   "act": 1,
+   "res": "L"
   },
   {
    "f": "2026-11-22",
@@ -1943,7 +1947,9 @@
    "od": "-112",
    "pr": 0.6,
    "nota": "Sin Paolo: 25.8 pts en 13 pj (31.3 en últimos 7, 22 FGA). WAS vs SF x1.02, vs PF x1.16 en pts (similares por minutos ~+5%). Sus 24 vs WAS el 2-nov (x0.92). Base 27 x 1.04 = 28. ORL -5.5.",
-   "jug": true
+   "jug": true,
+   "act": 16,
+   "res": "L"
   },
   {
    "f": "2026-11-22",
@@ -1956,7 +1962,9 @@
    "ln": 2.5,
    "od": "-130",
    "pr": 0.65,
-   "nota": "3+ en 11 de 16 (3,1 por partido, 7,5 intentos al 39 %); últimos 9: 3,1,3,4,3,4,4,6 y 5. IND vs bases en triples x1,53 (17 de 20 superaron), intentos x1,19; usado ~60 %. Back-to-back sin efecto en sus minutos (35,8 vs 35,0). Riesgo: paliza (NYK -7,5). Towns duda."
+   "nota": "3+ en 11 de 16 (3,1 por partido, 7,5 intentos al 39 %); últimos 9: 3,1,3,4,3,4,4,6 y 5. IND vs bases en triples x1,53 (17 de 20 superaron), intentos x1,19; usado ~60 %. Back-to-back sin efecto en sus minutos (35,8 vs 35,0). Riesgo: paliza (NYK -7,5). Towns duda.",
+   "act": 1,
+   "res": "L"
   },
   {
    "f": "2026-11-22",
@@ -1984,7 +1992,9 @@
    "ln": 1.5,
    "od": "+149",
    "pr": 0.365,
-   "nota": "Sin Anunoby ni Clarkson: más minutos (35 ayer) pero 0 de 4 en triples. Temporada 27 % (17 de 63), 1,3 por partido; 2+ en 7 de 13 pero 1 de sus últimos 6. IND vs escoltas en triples x0,97 (8 de 27 superaron): sin ventaja de rival."
+   "nota": "Sin Anunoby ni Clarkson: más minutos (35 ayer) pero 0 de 4 en triples. Temporada 27 % (17 de 63), 1,3 por partido; 2+ en 7 de 13 pero 1 de sus últimos 6. IND vs escoltas en triples x0,97 (8 de 27 superaron): sin ventaja de rival.",
+   "act": 0,
+   "res": "L"
   },
   {
    "f": "2026-11-22",
@@ -1997,7 +2007,9 @@
    "ln": 1.5,
    "od": "-120",
    "pr": 0.535,
-   "nota": "5.2 intentos al 38.5%, 2+ en 11 de 15. IND vs C neutral esta temporada: 38 intentos vs 39.6 esperados, 12 metidos vs 12.9 (15 casos). Duda por enfermedad, 2do de B2B, NY -7.5: 15% escenario menos minutos. Justa -115."
+   "nota": "5.2 intentos al 38.5%, 2+ en 11 de 15. IND vs C neutral esta temporada: 38 intentos vs 39.6 esperados, 12 metidos vs 12.9 (15 casos). Duda por enfermedad, 2do de B2B, NY -7.5: 15% escenario menos minutos. Justa -115.",
+   "act": 4,
+   "res": "W"
   },
   {
    "f": "2026-11-22",
@@ -2010,7 +2022,9 @@
    "ln": 3.5,
    "pr": 0.57,
    "nota": "Desde 26-oct OKC (sin Holmgren, J. Williams, Wallace; Caruso fuera) permite +31% intentos de triple a SF, +35% a PF, +85% a C, +10% a guardias. Usado 60% del efecto. SGA en duda (espalda). 9.4 intentos por partido, 43%. Cuota justa -122. Con cuota -130: sumo la mitad del extra de acierto que OKC permite a guardias tiradores (x1.21) -> 4.2, 57%.",
-   "od": "-130"
+   "od": "-130",
+   "act": 3,
+   "res": "L"
   },
   {
    "f": "2026-11-22",
@@ -2053,7 +2067,9 @@
    "ln": 17.5,
    "od": "-104",
    "pr": 0.39,
-   "nota": "Temporada 17.5 PRA (0.62/min), 18+ en 5 de 12. Vuelve de enfermedad: 15 min el 19-nov. SG vs OKC (desde 26-oct) x0.94 en PRA, 8 de 16 superaron. 70% ~28 min (16.8) / 30% ~20 min (12). Año pasado vs OKC 22 y 21. Justa +156."
+   "nota": "Temporada 17.5 PRA (0.62/min), 18+ en 5 de 12. Vuelve de enfermedad: 15 min el 19-nov. SG vs OKC (desde 26-oct) x0.94 en PRA, 8 de 16 superaron. 70% ~28 min (16.8) / 30% ~20 min (12). Año pasado vs OKC 22 y 21. Justa +156.",
+   "act": 29,
+   "res": "W"
   },
   {
    "f": "2026-11-22",
@@ -2066,7 +2082,9 @@
    "ln": 1.5,
    "od": "+125",
    "pr": 0.35,
-   "nota": "Vuelve de enfermedad (15 min el 19-nov). 2.8 intentos en 28 min, 47%. OKC: forwards de poco volumen x1.63 intentos, guardias de poco volumen sin muestra (4 casos). Mezcla 30% minutos bajos / 70% normales con efecto parcial. Con efecto completo 46% (techo). Justa +186."
+   "nota": "Vuelve de enfermedad (15 min el 19-nov). 2.8 intentos en 28 min, 47%. OKC: forwards de poco volumen x1.63 intentos, guardias de poco volumen sin muestra (4 casos). Mezcla 30% minutos bajos / 70% normales con efecto parcial. Con efecto completo 46% (techo). Justa +186.",
+   "act": 3,
+   "res": "W"
   },
   {
    "f": "2026-11-22",
