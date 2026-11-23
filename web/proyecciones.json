@@ -2178,14 +2178,14 @@
    "f": "2026-11-23",
    "pl": "Scottie Barnes",
    "k": "pts",
-   "m": 26.0,
-   "lo": 16.0,
-   "hi": 36.0,
+   "m": 27.0,
+   "lo": 17.0,
+   "hi": 37.0,
    "vs": "Milwaukee Bucks",
    "ln": 23.5,
    "od": "-118",
-   "pr": 0.58,
-   "nota": "24+ en 6 de 11 (media 24,3, mediana 28). MIL vs alas-pivot x1,05 (8/17) y con 18+ esperados x0,87 (1/5); vs aleros x1,18. Juntos, aleros+PF de 18+ esperados x1,03 (5/10): rival neutro. Sin Barrett (baja) en cancha 30,5 por 36 (137 min) vs 25,7 en total; uso 35,4 vs 31,8: sumo parte (+6%). TOR -10,5: paliza ~36%, igual que su temporada (4/11): en palizas 1/4, en cerrados 5/7. Puntos solos y volatil (sd ~10). 57-59%: EV +5 a +9% a -118."
+   "pr": 0.6,
+   "nota": "24+ en 6 de 11 (media 24,3, mediana 28). MIL es el peor en rating defensivo (120,3) y el que mas concede vs lo esperado a todas las posiciones: x1,09 (105 casos); anotadores de 18+ x1,05 (15/25). Uso x1,05. Sin Barrett (baja) 30,5 por 36 (137 min) vs 25,7 en total, uso 35,4 vs 31,8: sumo +6%. Casa 28,4 vs fuera 20,8 (5 y 6 partidos; no se suma). TOR -10,5: paliza ~36% igual que su temporada. Metodo 63%; le quito 3 puntos por mi historial de puntos (11-17). EV ~+11% a -118. Puntos solos y volatil."
   }
  ]
 }
