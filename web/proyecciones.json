@@ -2087,13 +2087,14 @@
    "pl": "Julius Randle",
    "k": "pa",
    "m": 23.5,
+   "sd": "U",
    "lo": 16.0,
    "hi": 31.0,
    "vs": "Minnesota Timberwolves",
    "ln": 24.5,
    "od": "-110",
    "pr": 0.54,
-   "nota": "Under. MIN frena P+A a PF (x0,78; 11/15 debajo; 1a mitad x0,80, 2a x0,77, estable). Primer partido de Randle vs su exequipo (sin datos previos en historial). Pero Randle lleva 25,7 de media y solo 6/15 por debajo de 24,5; ultimos 5: 22,27,34,21,33. Sin Traore (BRK) tiene mas balon; MIN sin Edwards ni DiVincenzo. Modelo 22,1 (60%) mezclado con su media: 23,5, ~54% under. EV ~+3% a -110: ventaja pequena."
+   "nota": "Under. MIN frena P+A a PF (x0,78; 11/15 debajo), pero depende de dos casos: sin Barnes (3 en 28 min) x0,85, sin Barnes ni Hendricks x0,88. Sin Edwards (desde 26-oct) x0,81 en 11 casos. Primer partido vs MIN, sin datos previos. Randle 25,8 de media, 6/15 por debajo de 24,5. Modelo 22,1 (60%); sin los dos casos 23,6 (54%): uso el conservador. EV entre +3% y +15%."
   },
   {
    "f": "2026-11-23",
@@ -2106,7 +2107,7 @@
    "ln": 9.5,
    "od": "-110",
    "pr": 0.48,
-   "nota": "OKC concede R+A a PF (x1,16; 9/14; ultimos 8 x1,19) y hoy no tiene a Chet, Jaylin Williams, Mara ni Sorber. Pero Siakam lleva 6/16 en 10+ R+A esta temporada y 1 de sus ultimos 6 (5,4,7,9,7,7); sin Haliburton reparte menos. Modelo 10,8 (57%), forma reciente 8,5: mezcla 9,5, ~48% over. Sin ventaja a -110."
+   "nota": "OKC concede R+A a PF (x1,16; 9/14). Chet, Jalen Williams y Wallace no juegan desde 25-oct: la tabla ya los descuenta casi toda. Siakam 6/16 en 10+ R+A; 0 de sus ultimos 5 (5,4,7,9,7). Segundo dia seguido para IND. Modelo 10,8 (57%) y forma reciente 8,5: media a criterio 9,5, ~48% over. Sin ventaja a -110."
   }
  ]
 }
