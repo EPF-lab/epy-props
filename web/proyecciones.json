@@ -2207,6 +2207,19 @@
   },
   {
    "f": "2026-11-23",
+   "pl": "Keyonte George",
+   "k": "tpm",
+   "m": 2.4,
+   "lo": 1.0,
+   "hi": 4.0,
+   "vs": "Los Angeles Lakers",
+   "ln": 2.5,
+   "od": "+120",
+   "pr": 0.42,
+   "nota": "Bases vs LAL x1,28 en triples (14 de 23), pero x1,10 en intentos: el resto es acierto rival (41 % contra 35 % esperado). 6 de 17 con 3+ esta temporada. Segundo dia seguido y Utah +13,5. Ante Lakers 6 de 9 con 3+, pero ese historial no predice (40 % en 67 casos)."
+  },
+  {
+   "f": "2026-11-23",
    "pl": "Pascal Siakam",
    "k": "ra",
    "m": 9.5,
