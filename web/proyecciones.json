@@ -2099,15 +2099,15 @@
    "f": "2026-11-23",
    "pl": "Julius Randle",
    "k": "pa",
-   "m": 23.5,
+   "m": 24.6,
    "sd": "U",
-   "lo": 16.0,
-   "hi": 31.0,
+   "lo": 17.0,
+   "hi": 32.0,
    "vs": "Minnesota Timberwolves",
    "ln": 24.5,
    "od": "-110",
-   "pr": 0.54,
-   "nota": "Under. MIN frena P+A a PF (x0,78; 11/15 debajo), pero depende de dos casos: sin Barnes (3 en 28 min) x0,85, sin Barnes ni Hendricks x0,88. Sin Edwards (desde 26-oct) x0,81 en 11 casos. Primer partido vs MIN, sin datos previos. Randle 25,8 de media, 6/15 por debajo de 24,5. Modelo 22,1 (60%); sin los dos casos 23,6 (54%): uso el conservador. EV entre +3% y +15%."
+   "pr": 0.5,
+   "nota": "Actualizado con on/off de pbpstats: sin Traore en cancha Randle hace 30,6 P+A por 36 (271 min) contra 28,1 en total; uso 31,1 vs 27,7. Cuento la mitad del efecto (+4%): 23,5 pasa a 24,6. MIN frena a PF (x0,78; x0,88 sin los dos casos raros). Paliza (margen 16+) ~40% con spread -11,5, igual que su temporada (6/15): en palizas 5/6 bajo 24,5, en cerrados 1/9. Under ~50%, sin ventaja a -110."
   },
   {
    "f": "2026-11-23",
