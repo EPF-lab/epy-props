@@ -2090,10 +2090,10 @@
    "lo": 18.0,
    "hi": 32.0,
    "vs": "Philadelphia 76ers",
-   "ln": 22.5,
-   "od": "-120",
-   "pr": 0.59,
-   "nota": "9/14 sobre 22,5 (23,9 de media); sin Morant 24,3 y 6/10, y por 36 igual que en total (26,5 vs 26,3). PHI 26o en puntos en la pintura, 28o en los ultimos 10, 2o en canastas permitidas en zona restringida. Vs aleros x1,04 (16/28), 2a mitad x1,14; aleros de 18+ esperados x1,22 (6/7, corte elegido a posteriori). Vs defensas debiles en pintura 5/5 (27,8); vs el resto 4/9. Embiid jugo 9 de los ultimos 10 de PHI. Spread PHI -3,5. Modelo 24,4-25,0: 59%, EV ~+8% a -120, justo en el minimo. Puntos solos."
+   "ln": 23.5,
+   "od": "-110",
+   "pr": 0.56,
+   "nota": "24+ en 8 de 14 (23,9 de media); sin Morant 24,3. PHI 26o en puntos en la pintura, 28o en los ultimos 10, 2o en canastas permitidas en zona restringida. Vs aleros x1,04 (16/28), 2a mitad x1,14. Vs defensas debiles en pintura 5/5 (27,8); vs el resto 4/9 sobre 22,5. Embiid jugo 9 de los ultimos 10 de PHI. Spread PHI -3,5. Modelo 24,4-25,0: 56%, EV ~+6-7% a -110; para +8% pide -108. Puntos solos."
   },
   {
    "f": "2026-11-23",
@@ -2107,6 +2107,19 @@
    "od": "-130",
    "pr": 0.58,
    "nota": "4+ en 10 de 17 (10 de los ultimos 12). NBA.com L12: 4,4 ast y 6,4 potenciales; L5: 7,4 potenciales. Ayer sin SGA: 4 en 23 min (-21). Primer tramo sin SGA (jugo los 16 anteriores): muestra de 1. IND 4o en ritmo y 3o en triples C&S recibidos, pero vs pivots en ast x0,96 (6/15). Minutos ~26, segundo dia seguido para ambos. Modelo 4,0 (53%); con ritmo reciente 4,2-4,3 (57-59%). EV ~+3% a -130; para +8% pide -116."
+  },
+  {
+   "f": "2026-11-23",
+   "pl": "Joel Embiid",
+   "k": "ast",
+   "m": 3.5,
+   "lo": 1.0,
+   "hi": 7.0,
+   "vs": "Portland Trail Blazers",
+   "ln": 3.5,
+   "od": "-110",
+   "pr": 0.44,
+   "nota": "POR vs pivots en asist x1,15 (8/15, 2a mitad x1,04), 4o en brutas a pivots; no llega a senal. Con Jaylen Brown (probable hoy): 3 de 11 en 4+, 3,2 ast y 6,0 potenciales (4,4 desde el 28-oct). Sin Brown: 3 de 3, 7,7 ast y 12,7 potenciales. Con Brown ~40%, sin el ~68%; con 85% de que juegue, 44%. EV -16% a -110; si Brown es baja, recalcular."
   },
   {
    "f": "2026-11-23",
@@ -2134,6 +2147,19 @@
    "od": "-110",
    "pr": 0.48,
    "nota": "OKC concede R+A a PF (x1,16; 9/14). Chet, Jalen Williams y Wallace no juegan desde 25-oct: la tabla ya los descuenta casi toda. Siakam 6/16 en 10+ R+A; 0 de sus ultimos 5 (5,4,7,9,7). Segundo dia seguido para IND. Modelo 10,8 (57%) y forma reciente 8,5: media a criterio 9,5, ~48% over. Sin ventaja a -110."
+  },
+  {
+   "f": "2026-11-23",
+   "pl": "Quentin Grimes",
+   "k": "ra",
+   "m": 7.9,
+   "lo": 5.0,
+   "hi": 11.0,
+   "vs": "Utah Jazz",
+   "ln": 7.5,
+   "od": "-118",
+   "pr": 0.51,
+   "nota": "Sin Reaves (fuera hoy): 7, 9, 11 y 12 (9,8) en 37 min; ritmo sin Reaves 7,7 por 36 (263 min), igual que en total: sube por minutos. UTA vs escoltas R+A x0,85 (5/17), asist x0,65; reb ultimos 8 x1,19. LAL -13,5: riesgo de paliza. Mezcla a criterio 7,9: 51%, EV -7% a -118; para +8% pide +114."
   }
  ]
 }
