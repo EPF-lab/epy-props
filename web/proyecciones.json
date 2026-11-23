@@ -2259,6 +2259,19 @@
   },
   {
    "f": "2026-11-23",
+   "pl": "Shai Gilgeous-Alexander",
+   "k": "pts",
+   "m": 33.6,
+   "lo": 26.0,
+   "hi": 41.0,
+   "vs": "Indiana Pacers",
+   "ln": 31.5,
+   "od": "-115",
+   "pr": 0.56,
+   "nota": "31,7 por partido; 32,6 desde que faltan Chet y J. Williams, pero 6 de 13 con 32+. Bases vs IND x1,15 (12 de 21); sin los 51 de Harden x1,07, y anotadores de 18+ x1,02. IND es la que menos concede en pick and roll y 6ª que menos libres permite en los ultimos 5. Racha de 4 no predice (80 casos). Vuelve de espalda."
+  },
+  {
+   "f": "2026-11-23",
    "pl": "Sion James",
    "k": "ast",
    "m": 3.6,
