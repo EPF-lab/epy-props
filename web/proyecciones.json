@@ -2084,6 +2084,19 @@
   },
   {
    "f": "2026-11-23",
+   "pl": "Julius Randle",
+   "k": "pa",
+   "m": 23.5,
+   "lo": 16.0,
+   "hi": 31.0,
+   "vs": "Minnesota Timberwolves",
+   "ln": 24.5,
+   "od": "-110",
+   "pr": 0.54,
+   "nota": "Under. MIN frena P+A a PF (x0,78; 11/15 debajo; 1a mitad x0,80, 2a x0,77, estable). Primer partido de Randle vs su exequipo (sin datos previos en historial). Pero Randle lleva 25,7 de media y solo 6/15 por debajo de 24,5; ultimos 5: 22,27,34,21,33. Sin Traore (BRK) tiene mas balon; MIN sin Edwards ni DiVincenzo. Modelo 22,1 (60%) mezclado con su media: 23,5, ~54% under. EV ~+3% a -110: ventaja pequena."
+  },
+  {
+   "f": "2026-11-23",
    "pl": "Pascal Siakam",
    "k": "ra",
    "m": 9.5,
