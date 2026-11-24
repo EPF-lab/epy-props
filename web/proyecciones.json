@@ -2111,7 +2111,9 @@
    "ln": 16.5,
    "od": "-103",
    "pr": 0.52,
-   "nota": "17+ en 7 de 16, 5 seguidas (23, 18, 20, 19, 23). Racha 5/5 sobre su promedio en historial: 59% (584 casos) vs 51% normal, pero la linea de la casa ya subio. L5 pesa ~20%: 15,2 pasa a 16,2; mas Boozer y Jerami Grant fuera (uso 25,1 sin Boozer) llega a 17,4. Volumen L5 12,8 tiros (10,6 antes) y TS 71% (56% antes): parte es punteria. CHO neutra (x0,97). Metodo 54%, menos 2-3 puntos por mi historial de puntos (11-17): 52%. EV +2-3% a -103; para +8% pide +108."
+   "nota": "17+ en 7 de 16, 5 seguidas (23, 18, 20, 19, 23). Racha 5/5 sobre su promedio en historial: 59% (584 casos) vs 51% normal, pero la linea de la casa ya subio. L5 pesa ~20%: 15,2 pasa a 16,2; mas Boozer y Jerami Grant fuera (uso 25,1 sin Boozer) llega a 17,4. Volumen L5 12,8 tiros (10,6 antes) y TS 71% (56% antes): parte es punteria. CHO neutra (x0,97). Metodo 54%, menos 2-3 puntos por mi historial de puntos (11-17): 52%. EV +2-3% a -103; para +8% pide +108.",
+   "act": 16,
+   "res": "L"
   },
   {
    "f": "2026-11-23",
@@ -2124,7 +2126,9 @@
    "ln": 2.5,
    "od": "+136",
    "pr": 0.42,
-   "nota": "3+ en 8 de 16; 47% en triples (42 de 90), lo regreso a cerca de 39-40%. Sin Boozer casi no sube el intento (7,25 vs 7,03 por 36). Ultimos 5: 6,6 intentos. CHO a aleros: triples x1,17 pero intentos x0,88 (7/22), es decir punteria rival. Unos 6 intentos: 42%: EV -1% a +136; para +8% pide +157."
+   "nota": "3+ en 8 de 16; 47% en triples (42 de 90), lo regreso a cerca de 39-40%. Sin Boozer casi no sube el intento (7,25 vs 7,03 por 36). Ultimos 5: 6,6 intentos. CHO a aleros: triples x1,17 pero intentos x0,88 (7/22), es decir punteria rival. Unos 6 intentos: 42%: EV -1% a +136; para +8% pide +157.",
+   "act": 0,
+   "res": "L"
   },
   {
    "f": "2026-11-23",
@@ -2137,7 +2141,9 @@
    "ln": 4.5,
    "od": "+122",
    "pr": 0.44,
-   "nota": "Corregido: sus dos partidos de 9 asistencias fueron 9 de 10 potenciales; sin ellos convierte 41 por ciento (14 de 34). 0,31-0,33 potenciales por min, unos 8 en 26 min; a 55 por ciento da 4,5. MEM vs bases x1,02, ultimos 8 x1,23. Minutos inciertos (26 los dos ultimos). 5+ 44%: EV -2% a +122; para +8% pide +145."
+   "nota": "Corregido: sus dos partidos de 9 asistencias fueron 9 de 10 potenciales; sin ellos convierte 41 por ciento (14 de 34). 0,31-0,33 potenciales por min, unos 8 en 26 min; a 55 por ciento da 4,5. MEM vs bases x1,02, ultimos 8 x1,23. Minutos inciertos (26 los dos ultimos). 5+ 44%: EV -2% a +122; para +8% pide +145.",
+   "act": 2,
+   "res": "L"
   },
   {
    "f": "2026-11-23",
@@ -2150,7 +2156,9 @@
    "ln": 23.5,
    "od": "-110",
    "pr": 0.56,
-   "nota": "24+ en 8 de 14 (23,9 de media); sin Morant 24,3. PHI 26o en puntos en la pintura, 28o en los ultimos 10, 2o en canastas permitidas en zona restringida. Vs aleros x1,04 (16/28), 2a mitad x1,14. Vs defensas debiles en pintura 5/5 (27,8); vs el resto 4/9 sobre 22,5. Embiid jugo 9 de los ultimos 10 de PHI. Spread PHI -3,5. Modelo 24,4-25,0: 56%, EV ~+6-7% a -110; para +8% pide -108. Puntos solos."
+   "nota": "24+ en 8 de 14 (23,9 de media); sin Morant 24,3. PHI 26o en puntos en la pintura, 28o en los ultimos 10, 2o en canastas permitidas en zona restringida. Vs aleros x1,04 (16/28), 2a mitad x1,14. Vs defensas debiles en pintura 5/5 (27,8); vs el resto 4/9 sobre 22,5. Embiid jugo 9 de los ultimos 10 de PHI. Spread PHI -3,5. Modelo 24,4-25,0: 56%, EV ~+6-7% a -110; para +8% pide -108. Puntos solos.",
+   "act": 31,
+   "res": "W"
   },
   {
    "f": "2026-11-23",
@@ -2163,7 +2171,9 @@
    "ln": 3.5,
    "od": "+134",
    "pr": 0.42,
-   "nota": "SAC concede asistencias a escoltas x1,44 (10/15), pero 2 casos pesan: el propio Vassell (8 el 27-oct; 2 el 6-nov) y Cam Spencer (13). Sin ellos x1,23. 4+ en 5 de 15, 3+ en 6 de 15; 2,9 ast y 5,5 potenciales (53 por ciento). Sin Harper no sube: 3,2 por 36 (134 min) vs 3,5 en total; 2 partidos (4 y 2). SAS -10,5; en margen 15+ jugo 21-32 min. Fox y Wembanyama cuestionables. 4+ ~42%: EV -2% a +134. 3+ ~58%."
+   "nota": "SAC concede asistencias a escoltas x1,44 (10/15), pero 2 casos pesan: el propio Vassell (8 el 27-oct; 2 el 6-nov) y Cam Spencer (13). Sin ellos x1,23. 4+ en 5 de 15, 3+ en 6 de 15; 2,9 ast y 5,5 potenciales (53 por ciento). Sin Harper no sube: 3,2 por 36 (134 min) vs 3,5 en total; 2 partidos (4 y 2). SAS -10,5; en margen 15+ jugo 21-32 min. Fox y Wembanyama cuestionables. 4+ ~42%: EV -2% a +134. 3+ ~58%.",
+   "act": 2,
+   "res": "L"
   },
   {
    "f": "2026-11-23",
@@ -2176,7 +2186,9 @@
    "ln": 3.5,
    "od": "-139",
    "pr": 0.63,
-   "nota": "4+ en 10 de 11 desde el 2-nov (10 de 14 desde que faltan Chet, J. Williams y Wallace). Historial: jugadores de 3,4-4,4 ast con 9-11 de los ultimos 11 en 4+ repiten 68-69% (250 casos, con 18+ min). En contra: 7,1 potenciales con 69% convertido (alto; a 60% da 4,3) y 5,5 potenciales en los ultimos 4. IND 4o en ritmo, 6o en asist permitidas ultimos 5; vs pivots x0,96 (6/15). Shai en duda; segundo dia seguido. 63%: EV +8% a -139, en el limite."
+   "nota": "4+ en 10 de 11 desde el 2-nov (10 de 14 desde que faltan Chet, J. Williams y Wallace). Historial: jugadores de 3,4-4,4 ast con 9-11 de los ultimos 11 en 4+ repiten 68-69% (250 casos, con 18+ min). En contra: 7,1 potenciales con 69% convertido (alto; a 60% da 4,3) y 5,5 potenciales en los ultimos 4. IND 4o en ritmo, 6o en asist permitidas ultimos 5; vs pivots x0,96 (6/15). Shai en duda; segundo dia seguido. 63%: EV +8% a -139, en el limite.",
+   "act": 3,
+   "res": "L"
   },
   {
    "f": "2026-11-23",
@@ -2189,7 +2201,8 @@
    "ln": 3.5,
    "od": "-110",
    "pr": 0.44,
-   "nota": "POR vs pivots en asist x1,15 (8/15, 2a mitad x1,04), 4o en brutas a pivots; no llega a senal. Con Jaylen Brown (probable hoy): 3 de 11 en 4+, 3,2 ast y 6,0 potenciales (4,4 desde el 28-oct). Sin Brown: 3 de 3, 7,7 ast y 12,7 potenciales. Con Brown ~40%, sin el ~68%; con 85% de que juegue, 44%. EV -16% a -110; si Brown es baja, recalcular."
+   "nota": "POR vs pivots en asist x1,15 (8/15, 2a mitad x1,04), 4o en brutas a pivots; no llega a senal. Con Jaylen Brown (probable hoy): 3 de 11 en 4+, 3,2 ast y 6,0 potenciales (4,4 desde el 28-oct). Sin Brown: 3 de 3, 7,7 ast y 12,7 potenciales. Con Brown ~40%, sin el ~68%; con 85% de que juegue, 44%. EV -16% a -110; si Brown es baja, recalcular.",
+   "res": "NJ"
   },
   {
    "f": "2026-11-23",
@@ -2203,7 +2216,9 @@
    "ln": 24.5,
    "od": "-110",
    "pr": 0.5,
-   "nota": "Actualizado con on/off de pbpstats: sin Traore en cancha Randle hace 30,6 P+A por 36 (271 min) contra 28,1 en total; uso 31,1 vs 27,7. Cuento la mitad del efecto (+4%): 23,5 pasa a 24,6. MIN frena a PF (x0,78; x0,88 sin los dos casos raros). Paliza (margen 16+) ~40% con spread -11,5, igual que su temporada (6/15): en palizas 5/6 bajo 24,5, en cerrados 1/9. Under ~50%, sin ventaja a -110."
+   "nota": "Actualizado con on/off de pbpstats: sin Traore en cancha Randle hace 30,6 P+A por 36 (271 min) contra 28,1 en total; uso 31,1 vs 27,7. Cuento la mitad del efecto (+4%): 23,5 pasa a 24,6. MIN frena a PF (x0,78; x0,88 sin los dos casos raros). Paliza (margen 16+) ~40% con spread -11,5, igual que su temporada (6/15): en palizas 5/6 bajo 24,5, en cerrados 1/9. Under ~50%, sin ventaja a -110.",
+   "act": 33,
+   "res": "L"
   },
   {
    "f": "2026-11-23",
@@ -2216,7 +2231,9 @@
    "ln": 2.5,
    "od": "+120",
    "pr": 0.42,
-   "nota": "Bases vs LAL x1,28 en triples (14 de 23), pero x1,10 en intentos: el resto es acierto rival (41 % contra 35 % esperado). 6 de 17 con 3+ esta temporada. Segundo dia seguido y Utah +13,5. Ante Lakers 6 de 9 con 3+, pero ese historial no predice (40 % en 67 casos)."
+   "nota": "Bases vs LAL x1,28 en triples (14 de 23), pero x1,10 en intentos: el resto es acierto rival (41 % contra 35 % esperado). 6 de 17 con 3+ esta temporada. Segundo dia seguido y Utah +13,5. Ante Lakers 6 de 9 con 3+, pero ese historial no predice (40 % en 67 casos).",
+   "act": 2,
+   "res": "L"
   },
   {
    "f": "2026-11-23",
@@ -2229,7 +2246,9 @@
    "ln": 9.5,
    "od": "-110",
    "pr": 0.48,
-   "nota": "OKC concede R+A a PF (x1,16; 9/14). Chet, Jalen Williams y Wallace no juegan desde 25-oct: la tabla ya los descuenta casi toda. Siakam 6/16 en 10+ R+A; 0 de sus ultimos 5 (5,4,7,9,7). Segundo dia seguido para IND. Modelo 10,8 (57%) y forma reciente 8,5: media a criterio 9,5, ~48% over. Sin ventaja a -110."
+   "nota": "OKC concede R+A a PF (x1,16; 9/14). Chet, Jalen Williams y Wallace no juegan desde 25-oct: la tabla ya los descuenta casi toda. Siakam 6/16 en 10+ R+A; 0 de sus ultimos 5 (5,4,7,9,7). Segundo dia seguido para IND. Modelo 10,8 (57%) y forma reciente 8,5: media a criterio 9,5, ~48% over. Sin ventaja a -110.",
+   "act": 13,
+   "res": "W"
   },
   {
    "f": "2026-11-23",
@@ -2242,7 +2261,9 @@
    "ln": 7.5,
    "od": "-118",
    "pr": 0.51,
-   "nota": "Sin Reaves (fuera hoy): 7, 9, 11 y 12 (9,8) en 37 min; ritmo sin Reaves 7,7 por 36 (263 min), igual que en total: sube por minutos. UTA vs escoltas R+A x0,85 (5/17), asist x0,65; reb ultimos 8 x1,19. LAL -13,5: riesgo de paliza. Mezcla a criterio 7,9: 51%, EV -7% a -118; para +8% pide +114."
+   "nota": "Sin Reaves (fuera hoy): 7, 9, 11 y 12 (9,8) en 37 min; ritmo sin Reaves 7,7 por 36 (263 min), igual que en total: sube por minutos. UTA vs escoltas R+A x0,85 (5/17), asist x0,65; reb ultimos 8 x1,19. LAL -13,5: riesgo de paliza. Mezcla a criterio 7,9: 51%, EV -7% a -118; para +8% pide +114.",
+   "act": 11,
+   "res": "W"
   },
   {
    "f": "2026-11-23",
@@ -2255,7 +2276,9 @@
    "ln": 23.5,
    "od": "-118",
    "pr": 0.6,
-   "nota": "24+ en 6 de 11 (media 24,3, mediana 28). MIL es el peor en rating defensivo (120,3) y el que mas concede vs lo esperado a todas las posiciones: x1,09 (105 casos); anotadores de 18+ x1,05 (15/25). Uso x1,05. Sin Barrett (baja) 30,5 por 36 (137 min) vs 25,7 en total, uso 35,4 vs 31,8: sumo +6%. Casa 28,4 vs fuera 20,8 (5 y 6 partidos; no se suma). TOR -10,5: paliza ~36% igual que su temporada. Metodo 63%; le quito 3 puntos por mi historial de puntos (11-17). EV ~+11% a -118. Puntos solos y volatil."
+   "nota": "24+ en 6 de 11 (media 24,3, mediana 28). MIL es el peor en rating defensivo (120,3) y el que mas concede vs lo esperado a todas las posiciones: x1,09 (105 casos); anotadores de 18+ x1,05 (15/25). Uso x1,05. Sin Barrett (baja) 30,5 por 36 (137 min) vs 25,7 en total, uso 35,4 vs 31,8: sumo +6%. Casa 28,4 vs fuera 20,8 (5 y 6 partidos; no se suma). TOR -10,5: paliza ~36% igual que su temporada. Metodo 63%; le quito 3 puntos por mi historial de puntos (11-17). EV ~+11% a -118. Puntos solos y volatil.",
+   "act": 31,
+   "res": "W"
   },
   {
    "f": "2026-11-23",
@@ -2268,7 +2291,9 @@
    "ln": 31.5,
    "od": "-115",
    "pr": 0.56,
-   "nota": "31,7 por partido; 32,6 desde que faltan Chet y J. Williams, pero 6 de 13 con 32+. Bases vs IND x1,15 (12 de 21); sin los 51 de Harden x1,07, y anotadores de 18+ x1,02. IND es la que menos concede en pick and roll y 6ª que menos libres permite en los ultimos 5. Racha de 4 no predice (80 casos). Vuelve de espalda."
+   "nota": "31,7 por partido; 32,6 desde que faltan Chet y J. Williams, pero 6 de 13 con 32+. Bases vs IND x1,15 (12 de 21); sin los 51 de Harden x1,07, y anotadores de 18+ x1,02. IND es la que menos concede en pick and roll y 6ª que menos libres permite en los ultimos 5. Racha de 4 no predice (80 casos). Vuelve de espalda.",
+   "act": 38,
+   "res": "W"
   },
   {
    "f": "2026-11-23",
@@ -2281,7 +2306,9 @@
    "ln": 3.5,
    "od": "+129",
    "pr": 0.47,
-   "nota": "4+ en 7 de 15; con 29+ min 5 de 8. Sin Schroder 4 de 6 (0, 4, 6, 4, 4, 2); desde el 9-nov 32 min, 4,0 ast y 6,8 potenciales, 59 por ciento convertido. Schroder, Grayson Allen, Knueppel y Grant Williams fuera; Coby White 26 min los dos ultimos (segun usuario, con minutos restringidos). MEM frena a escoltas en asist x0,85 (10/26; todas las posiciones x0,97): descuento 5%. MEM -2,5. 3,6: 47%, EV +8% a +129, en el limite."
+   "nota": "4+ en 7 de 15; con 29+ min 5 de 8. Sin Schroder 4 de 6 (0, 4, 6, 4, 4, 2); desde el 9-nov 32 min, 4,0 ast y 6,8 potenciales, 59 por ciento convertido. Schroder, Grayson Allen, Knueppel y Grant Williams fuera; Coby White 26 min los dos ultimos (segun usuario, con minutos restringidos). MEM frena a escoltas en asist x0,85 (10/26; todas las posiciones x0,97): descuento 5%. MEM -2,5. 3,6: 47%, EV +8% a +129, en el limite.",
+   "act": 4,
+   "res": "W"
   }
  ]
 }
