@@ -2309,6 +2309,19 @@
    "nota": "4+ en 7 de 15; con 29+ min 5 de 8. Sin Schroder 4 de 6 (0, 4, 6, 4, 4, 2); desde el 9-nov 32 min, 4,0 ast y 6,8 potenciales, 59 por ciento convertido. Schroder, Grayson Allen, Knueppel y Grant Williams fuera; Coby White 26 min los dos ultimos (segun usuario, con minutos restringidos). MEM frena a escoltas en asist x0,85 (10/26; todas las posiciones x0,97): descuento 5%. MEM -2,5. 3,6: 47%, EV +8% a +129, en el limite.",
    "act": 4,
    "res": "W"
+  },
+  {
+   "f": "2026-11-25",
+   "pl": "Jaden McDaniels",
+   "k": "tpm",
+   "m": 1.9,
+   "lo": 1.0,
+   "hi": 4.0,
+   "vs": "Oklahoma City Thunder",
+   "ln": 1.5,
+   "od": "-110",
+   "pr": 0.57,
+   "nota": "OKC es la que mas triples concede a los SF (x1,37; 16 de 26) y tambien en intentos (x1,23); SF parecidos 16 de 19 con 2+. Como PF es neutra (x0,98). 10 de 18 con 2+; solo 4,2 intentos y viene de 9 de 12. Prueba fuera de muestra con tablas asi (triples e intentos altos): x1,25 contra x1,07 normal, 82 casos. Sin Edwards."
   }
  ]
 }
