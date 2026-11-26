@@ -2322,7 +2322,9 @@
    "ln": 21.5,
    "od": "-130",
    "pr": 0.59,
-   "nota": "Linea deducida del tweet (11 de 16, 9 de 13 y 7 seguidos coinciden con P+A 21.5). 7 seguidos por debajo con 38 % de campo (53 % antes) y 13,1 tiros contra 14,6. MIN 1a, 3a y 6a en spot-up, aislamiento y pick and roll por posesion; tabla de SG x0,95. EV +4 % a -130; para +8 % hace falta -120."
+   "nota": "Linea deducida del tweet (11 de 16, 9 de 13 y 7 seguidos coinciden con P+A 21.5). 7 seguidos por debajo con 38 % de campo (53 % antes) y 13,1 tiros contra 14,6. MIN 1a, 3a y 6a en spot-up, aislamiento y pick and roll por posesion; tabla de SG x0,95. EV +4 % a -130; para +8 % hace falta -120.",
+   "act": 28,
+   "res": "L"
   },
   {
    "f": "2026-11-25",
@@ -2335,7 +2337,9 @@
    "ln": 8.5,
    "od": "+100",
    "pr": 0.42,
-   "nota": "Linea 9+ a +100: 5 de 16 con 9+. Proyeccion 8,1; para 7+ daba 61 %. MIL la que mas rebotes concede a centros (x1,27; 17 de 20), pero las tablas de rebotes casi no predicen fuera de muestra."
+   "nota": "Linea 9+ a +100: 5 de 16 con 9+. Proyeccion 8,1; para 7+ daba 61 %. MIL la que mas rebotes concede a centros (x1,27; 17 de 20), pero las tablas de rebotes casi no predicen fuera de muestra.",
+   "act": 14,
+   "res": "W"
   },
   {
    "f": "2026-11-25",
@@ -2347,7 +2351,9 @@
    "vs": "Golden State Warriors",
    "ln": 19.5,
    "pr": 0.62,
-   "nota": "Sin cuota: linea de referencia. GSW es la que mas P+R concede a SF (x1,19; 21 de 27; parecidos 12 de 14). 7 de 15; 5 de 8 con 35+ min y lleva 38,6 de media en 5. GSW sin Curry ni Butler. Prueba fuera de muestra SF: 1,05 y 65 % superaron (31 casos)."
+   "nota": "Sin cuota: linea de referencia. GSW es la que mas P+R concede a SF (x1,19; 21 de 27; parecidos 12 de 14). 7 de 15; 5 de 8 con 35+ min y lleva 38,6 de media en 5. GSW sin Curry ni Butler. Prueba fuera de muestra SF: 1,05 y 65 % superaron (31 casos).",
+   "act": 22,
+   "res": "W"
   },
   {
    "f": "2026-11-25",
@@ -2360,7 +2366,9 @@
    "ln": 1.5,
    "od": "-110",
    "pr": 0.57,
-   "nota": "OKC es la que mas triples concede a los SF (x1,37; 16 de 26) y tambien en intentos (x1,23); SF parecidos 16 de 19 con 2+. Como PF es neutra (x0,98). 10 de 18 con 2+; solo 4,2 intentos y viene de 9 de 12. Prueba fuera de muestra con tablas asi (triples e intentos altos): x1,25 contra x1,07 normal, 82 casos. Sin Edwards."
+   "nota": "OKC es la que mas triples concede a los SF (x1,37; 16 de 26) y tambien en intentos (x1,23); SF parecidos 16 de 19 con 2+. Como PF es neutra (x0,98). 10 de 18 con 2+; solo 4,2 intentos y viene de 9 de 12. Prueba fuera de muestra con tablas asi (triples e intentos altos): x1,25 contra x1,07 normal, 82 casos. Sin Edwards.",
+   "act": 4,
+   "res": "W"
   },
   {
    "f": "2026-11-25",
@@ -2373,7 +2381,9 @@
    "ln": 1.5,
    "od": "+110",
    "pr": 0.48,
-   "nota": "Linea supuesta 2+. 9 de 17 con 2+, pero 3 de los ultimos 9. 4,0 intentos y 40 % (0,97 triples el año pasado). Como PF la tabla de OKC es neutra en triples (x0,98) aunque x1,24 en intentos; la buena es la de SF, que ocupa McDaniels."
+   "nota": "Linea supuesta 2+. 9 de 17 con 2+, pero 3 de los ultimos 9. 4,0 intentos y 40 % (0,97 triples el año pasado). Como PF la tabla de OKC es neutra en triples (x0,98) aunque x1,24 en intentos; la buena es la de SF, que ocupa McDaniels.",
+   "act": 0,
+   "res": "L"
   },
   {
    "f": "2026-11-25",
@@ -2385,7 +2395,9 @@
    "vs": "Milwaukee Bucks",
    "ln": 20.5,
    "pr": 0.52,
-   "nota": "Sin cuota: linea de referencia. MIL x1,16 en P+A a SF (18 de 26), pero desde que volvio Demin (11-nov) tira 11,4 por partido contra 15,4 antes y promedia 18,4 P+A."
+   "nota": "Sin cuota: linea de referencia. MIL x1,16 en P+A a SF (18 de 26), pero desde que volvio Demin (11-nov) tira 11,4 por partido contra 15,4 antes y promedia 18,4 P+A.",
+   "act": 16,
+   "res": "L"
   }
  ]
 }
