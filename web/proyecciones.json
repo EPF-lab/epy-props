@@ -2466,6 +2466,19 @@
   },
   {
    "f": "2026-11-27",
+   "pl": "Devin Booker",
+   "k": "ast",
+   "m": 6.0,
+   "lo": 3.0,
+   "hi": 10.0,
+   "vs": "Dallas Mavericks",
+   "ln": 5.5,
+   "od": "-107",
+   "pr": 0.54,
+   "nota": "6+ en 8 de 17 (5,4); ultimos 6: 6,2 ast con 11,5 potenciales (9,8 en el año). Como creador, la tabla que aplica es la de bases: DAL x0,95 (9 de 22; parecidos 9 de 16 con 6+). La de escoltas (x1,26) es de jugadores de poco volumen (solo 1 parecido). Ante DAL: 5, 12, 6, 9, 6, 9. EV +4 % a -107; hace falta +100."
+  },
+  {
+   "f": "2026-11-27",
    "pl": "Jakob Poeltl",
    "k": "pa",
    "m": 13.4,
