@@ -2635,6 +2635,19 @@
   },
   {
    "f": "2026-11-27",
+   "pl": "Stephon Castle",
+   "k": "tpm",
+   "m": 2.4,
+   "lo": 0.0,
+   "hi": 5.0,
+   "vs": "Los Angeles Lakers",
+   "ln": 1.5,
+   "od": "-154",
+   "pr": 0.65,
+   "nota": "2+ en 13 de 19 (6,0 intentos, 38 %); sin Harper 4 de 4 (6,5 intentos, 50 %). LAL x1,27 en triples a bases (15 de 24), intentos x1,10. El año pasado 1,19 por partido. Harper y Fox en duda: si Harper vuelve, ~62 %; si faltan los dos, ~67 % (EV +10 %). Base 65 %: EV +7 %; hace falta -151."
+  },
+  {
+   "f": "2026-11-27",
    "pl": "Tyrese Maxey",
    "k": "tpm",
    "m": 2.95,
