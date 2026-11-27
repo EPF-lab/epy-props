@@ -2545,6 +2545,19 @@
   },
   {
    "f": "2026-11-27",
+   "pl": "Jamal Murray",
+   "k": "tpm",
+   "m": 2.9,
+   "lo": 1.0,
+   "hi": 5.0,
+   "vs": "Utah Jazz",
+   "ln": 2.5,
+   "od": "-167",
+   "pr": 0.52,
+   "nota": "3+ en 8 de 16 este año (7,1 intentos, 45,6 % insostenible) y 41 de 75 en 2025-26 (55 %). Ultimos 7: 0, 1, 2, 1, 6, 2 -> 2 de 7 con 3+ (contando el 4). Vs UTA 2025-26: 6, 8, 5, 10 (12,8 intentos), pero 2024-25: 1 y 2. UTA vs PG triples x0,91 (23o) e intentos x0,96 (21o) este año; captura de cobertura individual: UTA permite triples tras bote (0,931). UTA sin Markkanen ni JJJ -> riesgo de paliza y menos minutos. 52 % -> EV -17 %; minima +108."
+  },
+  {
+   "f": "2026-11-27",
    "pl": "Jayson Tatum",
    "k": "tpm",
    "m": 3.4,
