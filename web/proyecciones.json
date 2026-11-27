@@ -2493,6 +2493,19 @@
   },
   {
    "f": "2026-11-27",
+   "pl": "Devin Booker",
+   "k": "pts",
+   "m": 23.5,
+   "lo": 19.0,
+   "hi": 28.0,
+   "vs": "Dallas Mavericks",
+   "ln": 24.5,
+   "od": "-124",
+   "pr": 0.45,
+   "nota": "25+ en 8 de 17; ultimos 8: 17, 30, 17, 20, 29, 23, 22, 25 (media 22,9). Modelo 25,7 con 36 min, menos ~2 por mi sesgo en puntos. DAL limita los tiros tras bote: 1o en frecuencia (-15 %) y 3o en canastas (-18 %); 57 % de los tiros de Booker son asi -> -0,5. DAL sin Lively (mas tiros libres) y Kyrie en duda. Tablas de puntos sin valor fuera de muestra (PG x1,03, SG x1,10). 45 % -> EV -19 %; minima +140. Under: 55 %, minima -104."
+  },
+  {
+   "f": "2026-11-27",
    "pl": "Dillon Brooks",
    "k": "ra",
    "m": 6.9,
