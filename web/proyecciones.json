@@ -2398,6 +2398,19 @@
    "nota": "Sin cuota: linea de referencia. MIL x1,16 en P+A a SF (18 de 26), pero desde que volvio Demin (11-nov) tira 11,4 por partido contra 15,4 antes y promedia 18,4 P+A.",
    "act": 16,
    "res": "L"
+  },
+  {
+   "f": "2026-11-27",
+   "pl": "Daniss Jenkins",
+   "k": "ra",
+   "m": 11.5,
+   "lo": 7.0,
+   "hi": 17.0,
+   "vs": "Milwaukee Bucks",
+   "ln": 11.5,
+   "od": "-123",
+   "pr": 0.48,
+   "nota": "Sin Cade esta temporada 13 y 14 (35-36 min); el año pasado sin Cade 8 de 18 con 12+ (media 11,6). Con 25+ min: 4 de 10 con 12+, aunque 9 de 10 con 4+ rebotes. MIL concede mas rebotes como equipo (1a), pero ajustado a bases R+A x1,03 (9 de 22), puesto 13. DET -8,5: riesgo de paliza. Sin Robinson tambien."
   }
  ]
 }
