@@ -2597,6 +2597,19 @@
   },
   {
    "f": "2026-11-27",
+   "pl": "Kris Dunn",
+   "k": "pra",
+   "m": 13.6,
+   "lo": 10.0,
+   "hi": 18.0,
+   "vs": "New Orleans Pelicans",
+   "ln": 10.5,
+   "od": "-102",
+   "pr": 0.7,
+   "nota": "11+ en 15 de 17; en casa 8 de 8. Desde el 10-nov juega 18-26 min (antes 27-35): 8, 11, 11, 12, 10, 12, 18, 22 -> 6 de 8, varios justo en la linea. 0,60 PRA/min x 22 min = 13,3. NOP vs PG PRA x1,13 (2o) pero la senal PRA no predice fuera de muestra. Mercado raro: Under -145 (casa ~46 % al over) -> posible info o linea vieja. 12+ seria ~55 %. Sospechosa por brecha con la casa. Minima -184."
+  },
+  {
+   "f": "2026-11-27",
    "pl": "Myles Turner",
    "k": "reb",
    "m": 6.6,
