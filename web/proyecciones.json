@@ -2603,10 +2603,23 @@
    "lo": 10.0,
    "hi": 18.0,
    "vs": "New Orleans Pelicans",
-   "ln": 10.5,
-   "od": "-102",
-   "pr": 0.7,
-   "nota": "11+ en 15 de 17; en casa 8 de 8. Desde el 10-nov juega 18-26 min (antes 27-35): 8, 11, 11, 12, 10, 12, 18, 22 -> 6 de 8, varios justo en la linea. 0,60 PRA/min x 22 min = 13,3. NOP vs PG PRA x1,13 (2o) pero la senal PRA no predice fuera de muestra. Mercado raro: Under -145 (casa ~46 % al over) -> posible info o linea vieja. 12+ seria ~55 %. Sospechosa por brecha con la casa. Minima -184."
+   "ln": 11.5,
+   "od": "-103",
+   "pr": 0.57,
+   "nota": "12+ en 13 de 17, pero desde el 10-nov (18-26 min) solo 4 de 8 (8, 11, 11, 12, 10, 12, 18, 22); con Ingram 18 y 22. Media ~13,5, desviacion propia ~4,5. 11+ a -102: 70 %, EV +41 % (sospechosa: casa Under -145). 12+ a -103: 57 %, EV +12 %, minima -112. NOP vs PG PRA x1,13 (senal sin valor fuera de muestra)."
+  },
+  {
+   "f": "2026-11-27",
+   "pl": "Landry Shamet",
+   "k": "tpm",
+   "m": 2.9,
+   "lo": 0.0,
+   "hi": 6.0,
+   "vs": "Miami Heat",
+   "ln": 2.5,
+   "od": "-154",
+   "pr": 0.54,
+   "nota": "3+ en 8 de 18 (44 %); ultimos 6: 4 de 6 (4, 2, 2, 6, 3, 3) con 30-36 min. Intentos 3, 10, 9, 3 en los ultimos 4. NYK sin OG, McBride, Clarkson y Drummond; Towns en duda -> mas tiros. MIA vs SG triples x1,07 (11o), intentos x1,06 (7o). Modelo 2,7 -> 47 %; con bajas ~54 %. A -154 (61 % implicito) EV -11 %; minima +100."
   },
   {
    "f": "2026-11-27",
