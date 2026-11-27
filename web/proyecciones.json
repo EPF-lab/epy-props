@@ -2479,6 +2479,32 @@
   },
   {
    "f": "2026-11-27",
+   "pl": "Sidy Cissoko",
+   "k": "pts",
+   "m": 9.8,
+   "lo": 3.0,
+   "hi": 18.0,
+   "vs": "Golden State Warriors",
+   "ln": 7.5,
+   "od": "-122",
+   "pr": 0.58,
+   "nota": "8+ en 7 de 18, 5 de 9 desde que juega ~28 min (10-nov). Bimodal: 3-6 o 11-19. GSW x1,15 en puntos a SF (17 de 29), pero en puntos las tablas casi no predicen."
+  },
+  {
+   "f": "2026-11-27",
+   "pl": "Sidy Cissoko",
+   "k": "tpm",
+   "m": 1.8,
+   "lo": 0.0,
+   "hi": 4.0,
+   "vs": "Golden State Warriors",
+   "ln": 1.5,
+   "od": "+130",
+   "pr": 0.49,
+   "nota": "GSW concede triples a SF x1,26 con intentos x1,19 (la senal que aguanta). Cissoko 5,4 intentos en sus ultimos 9 (4,1 en el año), 38 %, 2+ en 5 de 9. Parecidos 10 de 17 con 2+. EV +13 % a +130."
+  },
+  {
+   "f": "2026-11-27",
    "pl": "Tyrese Maxey",
    "k": "tpm",
    "m": 2.95,
