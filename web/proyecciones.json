@@ -2429,14 +2429,14 @@
    "f": "2026-11-27",
    "pl": "Dean Wade",
    "k": "tpm",
-   "m": 1.1,
+   "m": 1.6,
    "lo": 0.0,
-   "hi": 3.0,
+   "hi": 4.0,
    "vs": "Indiana Pacers",
    "ln": 1.5,
    "od": "+131",
-   "pr": 0.3,
-   "nota": "IND concede triples a PF (x1,43; 10 de 17; intentos x1,18), pero Wade tira solo 2,7 por partido (0,93 triples) y 2+ en 5 de 15. Parecidos 6 de 11 con 2+, pero eran tiradores de mas volumen."
+   "pr": 0.46,
+   "nota": "Corregido: desde el 10-nov tira 4,0 triples por partido en 23-35 min (antes 1,9), 9 de 24 (38 %), 2+ en 3 de 6. IND x1,43 a PF con intentos x1,18. Sin Brown solo un partido (0 intentos en 27 min). Con 4,5 intentos y 36 %: ~46 %."
   },
   {
    "f": "2026-11-27",
