@@ -2440,6 +2440,19 @@
   },
   {
    "f": "2026-11-27",
+   "pl": "Jayson Tatum",
+   "k": "tpm",
+   "m": 3.4,
+   "lo": 1.0,
+   "hi": 6.0,
+   "vs": "Atlanta Hawks",
+   "ln": 2.5,
+   "od": "-167",
+   "pr": 0.63,
+   "nota": "ATL concede triples a SF x1,21 con intentos x1,16 (13 de 21). Tatum 3+ en 9 de 16 y 8 de sus ultimos 10; 8,6 intentos (10,3 en los ultimos 6) con 34 %. BOS -8,5: riesgo de paliza. A -167 la cuota ya cobra casi todo: EV +1 %; hace falta -140."
+  },
+  {
+   "f": "2026-11-27",
    "pl": "Joel Embiid",
    "k": "ast",
    "m": 5.0,
