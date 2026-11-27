@@ -2411,6 +2411,32 @@
    "od": "-123",
    "pr": 0.48,
    "nota": "Sin Cade esta temporada 13 y 14 (35-36 min); el año pasado sin Cade 8 de 18 con 12+ (media 11,6). Con 25+ min: 4 de 10 con 12+, aunque 9 de 10 con 4+ rebotes. MIL concede mas rebotes como equipo (1a), pero ajustado a bases R+A x1,03 (9 de 22), puesto 13. DET -8,5: riesgo de paliza. Sin Robinson tambien."
+  },
+  {
+   "f": "2026-11-27",
+   "pl": "Joel Embiid",
+   "k": "ast",
+   "m": 5.0,
+   "lo": 2.0,
+   "hi": 9.0,
+   "vs": "Indiana Pacers",
+   "ln": 3.5,
+   "od": "-137",
+   "pr": 0.66,
+   "nota": "Sin Brown: 7, 7 y 9 asistencias con 15, 11 y 12 potenciales (con Brown 6,0 potenciales y 3,0 asistencias). IND neutra con centros (x0,96, 7 de 17). En duda por enfermedad y viene de perderse 2 partidos: riesgo de minutos. Si no juega, se anula."
+  },
+  {
+   "f": "2026-11-27",
+   "pl": "Tyrese Maxey",
+   "k": "tpm",
+   "m": 2.95,
+   "lo": 1.0,
+   "hi": 5.0,
+   "vs": "Indiana Pacers",
+   "ln": 2.5,
+   "od": "-113",
+   "pr": 0.55,
+   "nota": "IND es la que mas triples concede a bases (x1,49; 19 de 23) y 2a en intentos (x1,19), la senal que si aguanta fuera de muestra. Maxey 10 de 18 con 3+, 2,56 por partido en 6,8 intentos; ante IND 3 y 5 este año. Sin Brown hizo 3 y 0."
   }
  ]
 }
