@@ -2683,8 +2683,9 @@
    "hi": 17.0,
    "vs": "San Antonio Spurs",
    "ln": 15.5,
+   "od": "-115",
    "pr": 0.66,
-   "nota": "Under 15.5. Reaves juega seguro; restriccion sin confirmar. Con Reaves y Luka: 16, 25, 5, 6, 8, 11, 15, 8, 2 -> bajo 15.5 en 7 de 9 en 20-31 min; con todos 8, 15, 8, 2 y 5. Sin Reaves 29, 56, 31, 25, 20. Sin restriccion ~72 %, con restriccion ~58 %; ~40 % de que la haya -> 66 %. SAS vs SG PRA x1,04, neutral. Minima -157."
+   "nota": "Under 15.5 a -115. Con Sexton, Reaves, Luka y Kessler: media 10,0 en 23,8 min, bajo 15.5 en 7 de 8. Sin Reaves 29, 56, 31, 25, 20. Reaves juega seguro; restriccion sin confirmar. Sin restriccion 72 % (EV +35 %), con restriccion 58 % (EV +8 %), mezcla 66 % (EV +23 %). Minima -157 (sin restriccion -185, con restriccion -116)."
   },
   {
    "f": "2026-11-27",
