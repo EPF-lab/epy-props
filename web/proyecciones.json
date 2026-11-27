@@ -2468,14 +2468,14 @@
    "f": "2026-11-27",
    "pl": "Jakob Poeltl",
    "k": "pts",
-   "m": 10.8,
+   "m": 11.0,
    "lo": 3.0,
    "hi": 19.0,
    "vs": "Brooklyn Nets",
    "ln": 9.5,
    "od": "-114",
-   "pr": 0.53,
-   "nota": "10+ en 6 de 15; sin Kawhi con 20+ min 5 de 8 (12, 19, 18, 6, 9, 8, 10, 15). BRK 2a que mas puntos concede a C (x1,17) pero en puntos las tablas no predicen. TOR -9,5: riesgo de minutos. EV -1 % a -114; hace falta +104."
+   "pr": 0.55,
+   "nota": "Contexto sin Kawhi ni RJ (3 partidos): 8, 10 y 15 en 29, 32 y 28 min (11,0; 0,37 pts/min). Con ~29 min proyecta 11. BRK x1,17 en puntos a C (no predice fuera de muestra). TOR -9,5: riesgo de minutos. 55 %: EV +3 % a -114; hace falta -108."
   },
   {
    "f": "2026-11-27",
