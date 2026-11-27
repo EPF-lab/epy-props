@@ -2440,6 +2440,32 @@
   },
   {
    "f": "2026-11-27",
+   "pl": "John Collins",
+   "k": "reb",
+   "m": 6.2,
+   "lo": 2.0,
+   "hi": 10.0,
+   "vs": "Milwaukee Bucks",
+   "ln": 5.5,
+   "od": "-113",
+   "pr": 0.52,
+   "nota": "6+ en 9 de 17; 0,22 rebotes por minuto en ~26 min (5,6 de media). MIL: x1,29 contra C pero x1,11 contra PF (11 de 21); fuera de muestra las tablas de rebotes casi no predicen. Comparte rebotes con Reed. Sin Duren toda la temporada: no hay cambio de rol."
+  },
+  {
+   "f": "2026-11-27",
+   "pl": "Paul Reed",
+   "k": "reb",
+   "m": 8.0,
+   "lo": 4.0,
+   "hi": 12.0,
+   "vs": "Milwaukee Bucks",
+   "ln": 7.5,
+   "od": "-109",
+   "pr": 0.52,
+   "nota": "8+ en 7 de 17 (6 de 15 sin Duren); 0,28 por minuto en ~26 min (7,4). MIL la que mas rebotes concede a C (x1,29; 18 de 21) pero las tablas de rebotes casi no predicen fuera de muestra; usado un tercio. Comparte con Collins. DET -8,5: riesgo de minutos."
+  },
+  {
+   "f": "2026-11-27",
    "pl": "Tyrese Maxey",
    "k": "tpm",
    "m": 2.95,
