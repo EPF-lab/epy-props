@@ -2677,15 +2677,15 @@
    "f": "2026-11-27",
    "pl": "Quentin Grimes",
    "k": "pra",
-   "m": 11.3,
+   "m": 10.5,
    "sd": "U",
-   "lo": 6.0,
-   "hi": 17.0,
+   "lo": 5.0,
+   "hi": 16.0,
    "vs": "San Antonio Spurs",
    "ln": 15.5,
    "od": "-115",
-   "pr": 0.66,
-   "nota": "Under 15.5 a -115. Con Sexton, Reaves, Luka y Kessler: media 10,0 en 23,8 min, bajo 15.5 en 7 de 8. Sin Reaves 29, 56, 31, 25, 20. Reaves juega seguro; restriccion sin confirmar. Sin restriccion 72 % (EV +35 %), con restriccion 58 % (EV +8 %), mezcla 66 % (EV +23 %). Minima -157 (sin restriccion -185, con restriccion -116)."
+   "pr": 0.72,
+   "nota": "Under 15.5 a -115. Confirmado: Reaves juega SIN restriccion. Con Sexton, Reaves, Luka y Kessler: media 10,0 en 23,8 min, bajo 15.5 en 7 de 8 (unico fallo 25 vs LAC en 31 min). 72 %, EV +35 %, minima -185."
   },
   {
    "f": "2026-11-27",
