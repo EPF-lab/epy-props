@@ -2764,6 +2764,19 @@
    "od": "-136",
    "pr": 0.62,
    "nota": "Senal del sistema: OKC permite intentos de triple a PF x1,21 (2o) y a SF x1,22 (1o); metidos PF x1,02, SF x1,34. La senal de intentos >=1,12 fue la que aguanto fuera de muestra. Kuzma 5,2 intentos y 34 %, 2+ en 9 de 18; ultimos 5: 3, 2, 2, 2, 3 con 30-33 min y 5,8 intentos. OKC sin Chet, Jalen Williams, Wallace ni Jaylin Williams. Vs OKC: 0, 2, 0, 2. 62 % -> EV +8 %, minima -135."
+  },
+  {
+   "f": "2026-11-28",
+   "pl": "Michael Porter Jr.",
+   "k": "tpm",
+   "m": 2.8,
+   "lo": 1.0,
+   "hi": 5.0,
+   "vs": "Charlotte Hornets",
+   "ln": 2.5,
+   "od": "-111",
+   "pr": 0.54,
+   "nota": "B2B fuera; 3+ en 11/17 (8/10 fuera) pero 3PA bajó a 5.2 en últimos 6; CHA limita 3PA a SF x0.87 (26.º)"
   }
  ]
 }
