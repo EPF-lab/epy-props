@@ -2410,7 +2410,9 @@
    "ln": 1.5,
    "od": "-152",
    "pr": 0.66,
-   "nota": "Sin Brown jugo 31, 38 y 26 min con 5, 3 y 4 triples (8, 7 y 10 intentos), los tres CON Embiid. 2+ en 10 de 19 en el año; ultimos 2 bajo a 18 y 15 min con Brown. IND x1,49 contra PG, x0,94 contra SG. 2+ a -152: 66 %, EV +9 %; minima -157. 3+ a +150: 47 %, EV +17 %."
+   "nota": "Sin Brown jugo 31, 38 y 26 min con 5, 3 y 4 triples (8, 7 y 10 intentos), los tres CON Embiid. 2+ en 10 de 19 en el año; ultimos 2 bajo a 18 y 15 min con Brown. IND x1,49 contra PG, x0,94 contra SG. 2+ a -152: 66 %, EV +9 %; minima -157. 3+ a +150: 47 %, EV +17 %.",
+   "act": 5,
+   "res": "W"
   },
   {
    "f": "2026-11-27",
@@ -2424,7 +2426,9 @@
    "ln": 8.5,
    "od": "-125",
    "pr": 0.56,
-   "nota": "TriunfoBet: Under 8.5 a -125. Debajo de 8.5 en 14 de 19 (7,8 de media). MEM la que menos R+A concede a escoltas (x0,83, puesto 30). LaMelo en duda y sin muestra de Ayo sin el. A 8.5 EV +1 %; hace falta -108. A 9.5 -112 era +23 %."
+   "nota": "TriunfoBet: Under 8.5 a -125. Debajo de 8.5 en 14 de 19 (7,8 de media). MEM la que menos R+A concede a escoltas (x0,83, puesto 30). LaMelo en duda y sin muestra de Ayo sin el. A 8.5 EV +1 %; hace falta -108. A 9.5 -112 era +23 %.",
+   "act": 12,
+   "res": "L"
   },
   {
    "f": "2026-11-27",
@@ -2437,7 +2441,9 @@
    "ln": 12.5,
    "od": "-140",
    "pr": 0.62,
-   "nota": "13+ en 11 de 17; con 28+ min 11 de 14 (13,8). 23,7 oportunidades (11,5 reb + 12,2 ast pot). PHO 3a que mas R+A concede a SF (x1,17; 16 de 27), pero en R+A las tablas 'mas' no predicen fuera de muestra. Su R+A varia poco (desv. ~3,7). PHO -1,5: partido parejo."
+   "nota": "13+ en 11 de 17; con 28+ min 11 de 14 (13,8). 23,7 oportunidades (11,5 reb + 12,2 ast pot). PHO 3a que mas R+A concede a SF (x1,17; 16 de 27), pero en R+A las tablas 'mas' no predicen fuera de muestra. Su R+A varia poco (desv. ~3,7). PHO -1,5: partido parejo.",
+   "act": 15,
+   "res": "W"
   },
   {
    "f": "2026-11-27",
@@ -2450,7 +2456,9 @@
    "ln": 25.5,
    "od": "-125",
    "pr": 0.5,
-   "nota": "Sin Cade (20+ min, desde 2025-26): 26+ en 11 de 20, media 25,2 en 34 min (0,74 P+A/min). Ultimos 10 sin Cade: 6 de 10 sobre 25,5 (el grafico usa 23,5: 8 de 10). MIL x1,06 en P+A a bases (12 de 22). DET -8,5: riesgo de minutos. Linea en su media: EV -10 % a -125; hace falta +116."
+   "nota": "Sin Cade (20+ min, desde 2025-26): 26+ en 11 de 20, media 25,2 en 34 min (0,74 P+A/min). Ultimos 10 sin Cade: 6 de 10 sobre 25,5 (el grafico usa 23,5: 8 de 10). MIL x1,06 en P+A a bases (12 de 22). DET -8,5: riesgo de minutos. Linea en su media: EV -10 % a -125; hace falta +116.",
+   "act": 16,
+   "res": "L"
   },
   {
    "f": "2026-11-27",
@@ -2463,7 +2471,9 @@
    "ln": 11.5,
    "od": "-123",
    "pr": 0.48,
-   "nota": "Sin Cade esta temporada 13 y 14 (35-36 min); el año pasado sin Cade 8 de 18 con 12+ (media 11,6). Con 25+ min: 4 de 10 con 12+, aunque 9 de 10 con 4+ rebotes. MIL concede mas rebotes como equipo (1a), pero ajustado a bases R+A x1,03 (9 de 22), puesto 13. DET -8,5: riesgo de paliza. Sin Robinson tambien."
+   "nota": "Sin Cade esta temporada 13 y 14 (35-36 min); el año pasado sin Cade 8 de 18 con 12+ (media 11,6). Con 25+ min: 4 de 10 con 12+, aunque 9 de 10 con 4+ rebotes. MIL concede mas rebotes como equipo (1a), pero ajustado a bases R+A x1,03 (9 de 22), puesto 13. DET -8,5: riesgo de paliza. Sin Robinson tambien.",
+   "act": 5,
+   "res": "L"
   },
   {
    "f": "2026-11-27",
@@ -2476,7 +2486,8 @@
    "ln": 1.5,
    "od": "+136",
    "pr": 0.46,
-   "nota": "Desde el 10-nov tira 4,0 triples por partido en 23-35 min (antes 1,9), 9 de 24 (38 %), 2+ en 3 de 6. IND x1,43 a PF con intentos x1,18. Con 4,5 intentos y 36 %: ~46 %. A +136: EV +9 %, minima +135."
+   "nota": "Desde el 10-nov tira 4,0 triples por partido en 23-35 min (antes 1,9), 9 de 24 (38 %), 2+ en 3 de 6. IND x1,43 a PF con intentos x1,18. Con 4,5 intentos y 36 %: ~46 %. A +136: EV +9 %, minima +135.",
+   "res": "NJ"
   },
   {
    "f": "2026-11-27",
@@ -2489,7 +2500,9 @@
    "ln": 5.5,
    "od": "-107",
    "pr": 0.54,
-   "nota": "6+ en 8 de 17 (5,4); ultimos 6: 6,2 ast con 11,5 potenciales (9,8 en el año). Como creador, la tabla que aplica es la de bases: DAL x0,95 (9 de 22; parecidos 9 de 16 con 6+). La de escoltas (x1,26) es de jugadores de poco volumen (solo 1 parecido). Ante DAL: 5, 12, 6, 9, 6, 9. EV +4 % a -107; hace falta +100."
+   "nota": "6+ en 8 de 17 (5,4); ultimos 6: 6,2 ast con 11,5 potenciales (9,8 en el año). Como creador, la tabla que aplica es la de bases: DAL x0,95 (9 de 22; parecidos 9 de 16 con 6+). La de escoltas (x1,26) es de jugadores de poco volumen (solo 1 parecido). Ante DAL: 5, 12, 6, 9, 6, 9. EV +4 % a -107; hace falta +100.",
+   "act": 5,
+   "res": "L"
   },
   {
    "f": "2026-11-27",
@@ -2502,7 +2515,9 @@
    "ln": 24.5,
    "od": "-124",
    "pr": 0.45,
-   "nota": "25+ en 8 de 17; ultimos 8: 17, 30, 17, 20, 29, 23, 22, 25 (media 22,9). Modelo 25,7 con 36 min, menos ~2 por mi sesgo en puntos. DAL limita los tiros tras bote: 1o en frecuencia (-15 %) y 3o en canastas (-18 %); 57 % de los tiros de Booker son asi -> -0,5. DAL sin Lively (mas tiros libres) y Kyrie en duda. Tablas de puntos sin valor fuera de muestra (PG x1,03, SG x1,10). 45 % -> EV -19 %; minima +140. Under: 55 %, minima -104."
+   "nota": "25+ en 8 de 17; ultimos 8: 17, 30, 17, 20, 29, 23, 22, 25 (media 22,9). Modelo 25,7 con 36 min, menos ~2 por mi sesgo en puntos. DAL limita los tiros tras bote: 1o en frecuencia (-15 %) y 3o en canastas (-18 %); 57 % de los tiros de Booker son asi -> -0,5. DAL sin Lively (mas tiros libres) y Kyrie en duda. Tablas de puntos sin valor fuera de muestra (PG x1,03, SG x1,10). 45 % -> EV -19 %; minima +140. Under: 55 %, minima -104.",
+   "act": 31,
+   "res": "W"
   },
   {
    "f": "2026-11-27",
@@ -2515,7 +2530,9 @@
    "ln": 5.5,
    "od": "-124",
    "pr": 0.6,
-   "nota": "6+ R+A en 10 de 17 (59 %); ultimos 6: 5 de 6 (8, 8, 6, 12, 10, salvo 2 vs LAL en 22 min). Media 6,5, ultimos 5 8,8; mas asistencias (4,3 en los ultimos 6). DAL vs SF R+A x1,04 (11o), 15 de 23 la superaron; senal de R+A 'mas' sin valor fuera de muestra. DAL sin Lively; PHX sin Mark Williams. 60 % -> EV +8 %, minima -125."
+   "nota": "6+ R+A en 10 de 17 (59 %); ultimos 6: 5 de 6 (8, 8, 6, 12, 10, salvo 2 vs LAL en 22 min). Media 6,5, ultimos 5 8,8; mas asistencias (4,3 en los ultimos 6). DAL vs SF R+A x1,04 (11o), 15 de 23 la superaron; senal de R+A 'mas' sin valor fuera de muestra. DAL sin Lively; PHX sin Mark Williams. 60 % -> EV +8 %, minima -125.",
+   "act": 6,
+   "res": "W"
   },
   {
    "f": "2026-11-27",
@@ -2528,7 +2545,9 @@
    "ln": 11.5,
    "od": "-125",
    "pr": 0.58,
-   "nota": "Sin Kawhi con 20+ min: 7 de 8 con 12+ (14,8). Pero en 4 partidos sin Kawhi jugo menos de 20 (0, 2, 12, 4). Desde que falta RJ: 29, 32 y 28 min. BRK 2a que mas puntos concede a C (x1,17) y 4a en P+A (x1,15, 12 de 19), pero en puntos las tablas casi no predicen. TOR -9,5: riesgo de paliza."
+   "nota": "Sin Kawhi con 20+ min: 7 de 8 con 12+ (14,8). Pero en 4 partidos sin Kawhi jugo menos de 20 (0, 2, 12, 4). Desde que falta RJ: 29, 32 y 28 min. BRK 2a que mas puntos concede a C (x1,17) y 4a en P+A (x1,15, 12 de 19), pero en puntos las tablas casi no predicen. TOR -9,5: riesgo de paliza.",
+   "act": 19,
+   "res": "W"
   },
   {
    "f": "2026-11-27",
@@ -2541,7 +2560,9 @@
    "ln": 9.5,
    "od": "-114",
    "pr": 0.55,
-   "nota": "Contexto sin Kawhi ni RJ (3 partidos): 8, 10 y 15 en 29, 32 y 28 min (11,0; 0,37 pts/min). Con ~29 min proyecta 11. BRK x1,17 en puntos a C (no predice fuera de muestra). TOR -9,5: riesgo de minutos. 55 %: EV +3 % a -114; hace falta -104."
+   "nota": "Contexto sin Kawhi ni RJ (3 partidos): 8, 10 y 15 en 29, 32 y 28 min (11,0; 0,37 pts/min). Con ~29 min proyecta 11. BRK x1,17 en puntos a C (no predice fuera de muestra). TOR -9,5: riesgo de minutos. 55 %: EV +3 % a -114; hace falta -104.",
+   "act": 17,
+   "res": "W"
   },
   {
    "f": "2026-11-27",
@@ -2554,7 +2575,9 @@
    "ln": 2.5,
    "od": "-167",
    "pr": 0.52,
-   "nota": "3+ en 8 de 16 este año (7,1 intentos, 45,6 % insostenible) y 41 de 75 en 2025-26 (55 %). Ultimos 7: 0, 1, 2, 1, 6, 2 -> 2 de 7 con 3+ (contando el 4). Vs UTA 2025-26: 6, 8, 5, 10 (12,8 intentos), pero 2024-25: 1 y 2. UTA vs PG triples x0,91 (23o) e intentos x0,96 (21o) este año; captura de cobertura individual: UTA permite triples tras bote (0,931). UTA sin Markkanen ni JJJ -> riesgo de paliza y menos minutos. 52 % -> EV -17 %; minima +108."
+   "nota": "3+ en 8 de 16 este año (7,1 intentos, 45,6 % insostenible) y 41 de 75 en 2025-26 (55 %). Ultimos 7: 0, 1, 2, 1, 6, 2 -> 2 de 7 con 3+ (contando el 4). Vs UTA 2025-26: 6, 8, 5, 10 (12,8 intentos), pero 2024-25: 1 y 2. UTA vs PG triples x0,91 (23o) e intentos x0,96 (21o) este año; captura de cobertura individual: UTA permite triples tras bote (0,931). UTA sin Markkanen ni JJJ -> riesgo de paliza y menos minutos. 52 % -> EV -17 %; minima +108.",
+   "act": 3,
+   "res": "W"
   },
   {
    "f": "2026-11-27",
@@ -2567,7 +2590,9 @@
    "ln": 2.5,
    "od": "-167",
    "pr": 0.63,
-   "nota": "ATL concede triples a SF x1,21 con intentos x1,16 (13 de 21). Tatum 3+ en 9 de 16 y 8 de sus ultimos 10; 8,6 intentos (10,3 en los ultimos 6) con 34 %. BOS -8,5: riesgo de paliza. A -167 la cuota ya cobra casi todo: EV +1 %; hace falta -140."
+   "nota": "ATL concede triples a SF x1,21 con intentos x1,16 (13 de 21). Tatum 3+ en 9 de 16 y 8 de sus ultimos 10; 8,6 intentos (10,3 en los ultimos 6) con 34 %. BOS -8,5: riesgo de paliza. A -167 la cuota ya cobra casi todo: EV +1 %; hace falta -140.",
+   "act": 1,
+   "res": "L"
   },
   {
    "f": "2026-11-27",
@@ -2580,7 +2605,9 @@
    "ln": 3.5,
    "od": "-141",
    "pr": 0.66,
-   "nota": "4+ ast a -141; fue al shootaround (enfermedad, day-to-day). Min -157 para 8%"
+   "nota": "4+ ast a -141; fue al shootaround (enfermedad, day-to-day). Min -157 para 8%",
+   "act": 3,
+   "res": "L"
   },
   {
    "f": "2026-11-27",
@@ -2593,7 +2620,9 @@
    "ln": 5.5,
    "od": "-113",
    "pr": 0.52,
-   "nota": "6+ en 9 de 17; 0,22 rebotes por minuto en ~26 min (5,6 de media). MIL: x1,29 contra C pero x1,11 contra PF (11 de 21); fuera de muestra las tablas de rebotes casi no predicen. Comparte rebotes con Reed. Sin Duren toda la temporada: no hay cambio de rol."
+   "nota": "6+ en 9 de 17; 0,22 rebotes por minuto en ~26 min (5,6 de media). MIL: x1,29 contra C pero x1,11 contra PF (11 de 21); fuera de muestra las tablas de rebotes casi no predicen. Comparte rebotes con Reed. Sin Duren toda la temporada: no hay cambio de rol.",
+   "act": 8,
+   "res": "W"
   },
   {
    "f": "2026-11-27",
@@ -2606,7 +2635,9 @@
    "ln": 9.5,
    "od": "-120",
    "pr": 0.47,
-   "nota": "7,1 pts y 10+ en 6 de 15; sin OG 0, 10 y 15 en 35-39 min con 7, 11 y 14 tiros (0,23 pts/min, igual que su año). 27 % de triple: algo de regresion al alza. MIA x1,07 en puntos a SG (puesto 11), neutro. OG en duda. EV -14 % a -120; hace falta +135."
+   "nota": "7,1 pts y 10+ en 6 de 15; sin OG 0, 10 y 15 en 35-39 min con 7, 11 y 14 tiros (0,23 pts/min, igual que su año). 27 % de triple: algo de regresion al alza. MIA x1,07 en puntos a SG (puesto 11), neutro. OG en duda. EV -14 % a -120; hace falta +135.",
+   "act": 6,
+   "res": "L"
   },
   {
    "f": "2026-11-27",
@@ -2619,7 +2650,9 @@
    "ln": 6.5,
    "od": "-114",
    "pr": 0.56,
-   "nota": "7+ en 11 de 18; desde el 11-nov 6 de 8 con 13 potenciales (11,7 en el año). DEN x1,15 en asistencias a bases (13 de 22; parecidos 7+ en 6 de 12); asistencias es de las senales que aguantan. DEN -10,5: riesgo de paliza (ante LAL -13,5 hizo 2 en 33 min). EV +5 % a -114; hace falta -108."
+   "nota": "7+ en 11 de 18; desde el 11-nov 6 de 8 con 13 potenciales (11,7 en el año). DEN x1,15 en asistencias a bases (13 de 22; parecidos 7+ en 6 de 12); asistencias es de las senales que aguantan. DEN -10,5: riesgo de paliza (ante LAL -13,5 hizo 2 en 33 min). EV +5 % a -114; hace falta -108.",
+   "act": 4,
+   "res": "L"
   },
   {
    "f": "2026-11-27",
@@ -2632,7 +2665,9 @@
    "ln": 11.5,
    "od": "-103",
    "pr": 0.59,
-   "nota": "12+ en 13 de 17, pero desde el 10-nov (18-26 min) solo 4 de 8 (8, 11, 11, 12, 10, 12, 18, 22); con Ingram 18 y 22. Tweet Roto_Scott: NOP 3o en puntos y 5o en asistencias a bases, 5o ritmo mas rapido, def. rating 4o peor; en casa 8 de 8. Sumo +2 pp por ritmo y asistencias (la unica senal de tabla que aguanto fuera de muestra). 11+: 72 %. 12+ a -103: 59 %, EV +16 %, minima -117."
+   "nota": "12+ en 13 de 17, pero desde el 10-nov (18-26 min) solo 4 de 8 (8, 11, 11, 12, 10, 12, 18, 22); con Ingram 18 y 22. Tweet Roto_Scott: NOP 3o en puntos y 5o en asistencias a bases, 5o ritmo mas rapido, def. rating 4o peor; en casa 8 de 8. Sumo +2 pp por ritmo y asistencias (la unica senal de tabla que aguanto fuera de muestra). 11+: 72 %. 12+ a -103: 59 %, EV +16 %, minima -117.",
+   "act": 13,
+   "res": "W"
   },
   {
    "f": "2026-11-27",
@@ -2645,7 +2680,9 @@
    "ln": 2.5,
    "od": "-154",
    "pr": 0.54,
-   "nota": "3+ en 8 de 18 (44 %); ultimos 6: 4 de 6 (4, 2, 2, 6, 3, 3) con 30-36 min. Intentos 3, 10, 9, 3 en los ultimos 4. NYK sin OG, McBride, Clarkson y Drummond; Towns en duda -> mas tiros. MIA vs SG triples x1,07 (11o), intentos x1,06 (7o). Modelo 2,7 -> 47 %; con bajas ~54 %. A -154 (61 % implicito) EV -11 %; minima +100."
+   "nota": "3+ en 8 de 18 (44 %); ultimos 6: 4 de 6 (4, 2, 2, 6, 3, 3) con 30-36 min. Intentos 3, 10, 9, 3 en los ultimos 4. NYK sin OG, McBride, Clarkson y Drummond; Towns en duda -> mas tiros. MIA vs SG triples x1,07 (11o), intentos x1,06 (7o). Modelo 2,7 -> 47 %; con bajas ~54 %. A -154 (61 % implicito) EV -11 %; minima +100.",
+   "act": 1,
+   "res": "L"
   },
   {
    "f": "2026-11-27",
@@ -2658,7 +2695,9 @@
    "ln": 5.5,
    "od": "-124",
    "pr": 0.58,
-   "nota": "6+ en 9 de 17; con 23+ min 9 de 14 (6,7). 0,23 reb/min en ~26,5 min. DET 2a que mas rebotes concede a C (x1,17; 13 de 20) pero en rebotes las tablas casi no predicen; usado un tercio. Ante DET el año pasado 4, 3 y 1. Ware le quita minutos; DET -8,5. A -124 (TriunfoBet) EV +5 %; hace falta -116."
+   "nota": "6+ en 9 de 17; con 23+ min 9 de 14 (6,7). 0,23 reb/min en ~26,5 min. DET 2a que mas rebotes concede a C (x1,17; 13 de 20) pero en rebotes las tablas casi no predicen; usado un tercio. Ante DET el año pasado 4, 3 y 1. Ware le quita minutos; DET -8,5. A -124 (TriunfoBet) EV +5 %; hace falta -116.",
+   "act": 12,
+   "res": "W"
   },
   {
    "f": "2026-11-27",
@@ -2671,7 +2710,9 @@
    "ln": 7.5,
    "od": "-109",
    "pr": 0.52,
-   "nota": "8+ en 7 de 17 (6 de 15 sin Duren); 0,28 por minuto en ~26 min (7,4). MIL la que mas rebotes concede a C (x1,29; 18 de 21) pero las tablas de rebotes casi no predicen fuera de muestra; usado un tercio. Comparte con Collins. DET -8,5: riesgo de minutos."
+   "nota": "8+ en 7 de 17 (6 de 15 sin Duren); 0,28 por minuto en ~26 min (7,4). MIL la que mas rebotes concede a C (x1,29; 18 de 21) pero las tablas de rebotes casi no predicen fuera de muestra; usado un tercio. Comparte con Collins. DET -8,5: riesgo de minutos.",
+   "act": 7,
+   "res": "L"
   },
   {
    "f": "2026-11-27",
@@ -2685,7 +2726,9 @@
    "ln": 15.5,
    "od": "-115",
    "pr": 0.72,
-   "nota": "Under 15.5 a -115. Confirmado: Reaves juega SIN restriccion. Con Sexton, Reaves, Luka y Kessler: media 10,0 en 23,8 min, bajo 15.5 en 7 de 8 (unico fallo 25 vs LAC en 31 min). 72 %, EV +35 %, minima -185."
+   "nota": "Under 15.5 a -115. Confirmado: Reaves juega SIN restriccion. Con Sexton, Reaves, Luka y Kessler: media 10,0 en 23,8 min, bajo 15.5 en 7 de 8 (unico fallo 25 vs LAC en 31 min). 72 %, EV +35 %, minima -185.",
+   "act": 10,
+   "res": "W"
   },
   {
    "f": "2026-11-27",
@@ -2698,7 +2741,9 @@
    "ln": 1.5,
    "od": "-167",
    "pr": 0.68,
-   "nota": "2+ en 13 de 18 este año (43 % de triple, 5,4 intentos en 21 min) y 68 % de 78 el año pasado. ATL concede triples a SF x1,21 con intentos x1,16. Con ~6 intentos y 37-40 %: 65-69 %. BOS -8,5: suplente, la paliza no le quita minutos. Ultimos 2: 1 y 1."
+   "nota": "2+ en 13 de 18 este año (43 % de triple, 5,4 intentos en 21 min) y 68 % de 78 el año pasado. ATL concede triples a SF x1,21 con intentos x1,16. Con ~6 intentos y 37-40 %: 65-69 %. BOS -8,5: suplente, la paliza no le quita minutos. Ultimos 2: 1 y 1.",
+   "act": 2,
+   "res": "W"
   },
   {
    "f": "2026-11-27",
@@ -2711,7 +2756,9 @@
    "ln": 7.5,
    "od": "-122",
    "pr": 0.58,
-   "nota": "8+ en 7 de 18, 5 de 9 desde que juega ~28 min (10-nov). Bimodal: 3-6 o 11-19. GSW x1,15 en puntos a SF (17 de 29), pero en puntos las tablas casi no predicen."
+   "nota": "8+ en 7 de 18, 5 de 9 desde que juega ~28 min (10-nov). Bimodal: 3-6 o 11-19. GSW x1,15 en puntos a SF (17 de 29), pero en puntos las tablas casi no predicen.",
+   "act": 4,
+   "res": "L"
   },
   {
    "f": "2026-11-27",
@@ -2724,7 +2771,9 @@
    "ln": 1.5,
    "od": "+112",
    "pr": 0.49,
-   "nota": "GSW concede triples a SF x1,26 con intentos x1,19 (la senal que aguanta). Cissoko 5,4 intentos en sus ultimos 9 (4,1 en el año), 20 de 49 (41 %), 2+ en 5 de 9. Parecidos 10 de 17 con 2+. Cuota bajo de +130 a +112: EV +4 %; minima +120."
+   "nota": "GSW concede triples a SF x1,26 con intentos x1,19 (la senal que aguanta). Cissoko 5,4 intentos en sus ultimos 9 (4,1 en el año), 20 de 49 (41 %), 2+ en 5 de 9. Parecidos 10 de 17 con 2+. Cuota bajo de +130 a +112: EV +4 %; minima +120.",
+   "act": 0,
+   "res": "L"
   },
   {
    "f": "2026-11-27",
@@ -2737,7 +2786,9 @@
    "ln": 1.5,
    "od": "-154",
    "pr": 0.65,
-   "nota": "2+ en 13 de 19 (6,0 intentos, 38 %); sin Harper 4 de 4 (6,5 intentos, 50 %). LAL x1,27 en triples a bases (15 de 24), intentos x1,10. El año pasado 1,19 por partido. Harper y Fox en duda: si Harper vuelve, ~62 %; si faltan los dos, ~67 % (EV +10 %). Base 65 %: EV +7 %; hace falta -151."
+   "nota": "2+ en 13 de 19 (6,0 intentos, 38 %); sin Harper 4 de 4 (6,5 intentos, 50 %). LAL x1,27 en triples a bases (15 de 24), intentos x1,10. El año pasado 1,19 por partido. Harper y Fox en duda: si Harper vuelve, ~62 %; si faltan los dos, ~67 % (EV +10 %). Base 65 %: EV +7 %; hace falta -151.",
+   "act": 4,
+   "res": "W"
   },
   {
    "f": "2026-11-27",
@@ -2750,7 +2801,9 @@
    "ln": 2.5,
    "od": "-113",
    "pr": 0.55,
-   "nota": "IND es la que mas triples concede a bases (x1,49; 19 de 23) y 2a en intentos (x1,19), la senal que si aguanta fuera de muestra. Maxey 10 de 18 con 3+, 2,56 por partido en 6,8 intentos; ante IND 3 y 5 este año. Sin Brown hizo 3 y 0."
+   "nota": "IND es la que mas triples concede a bases (x1,49; 19 de 23) y 2a en intentos (x1,19), la senal que si aguanta fuera de muestra. Maxey 10 de 18 con 3+, 2,56 por partido en 6,8 intentos; ante IND 3 y 5 este año. Sin Brown hizo 3 y 0.",
+   "act": 0,
+   "res": "L"
   },
   {
    "f": "2026-11-28",
