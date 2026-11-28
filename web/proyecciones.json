@@ -2751,6 +2751,19 @@
    "od": "-113",
    "pr": 0.55,
    "nota": "IND es la que mas triples concede a bases (x1,49; 19 de 23) y 2a en intentos (x1,19), la senal que si aguanta fuera de muestra. Maxey 10 de 18 con 3+, 2,56 por partido en 6,8 intentos; ante IND 3 y 5 este año. Sin Brown hizo 3 y 0."
+  },
+  {
+   "f": "2026-11-28",
+   "pl": "Kyle Kuzma",
+   "k": "tpm",
+   "m": 2.3,
+   "lo": 0.0,
+   "hi": 5.0,
+   "vs": "Oklahoma City Thunder",
+   "ln": 1.5,
+   "od": "-136",
+   "pr": 0.62,
+   "nota": "Senal del sistema: OKC permite intentos de triple a PF x1,21 (2o) y a SF x1,22 (1o); metidos PF x1,02, SF x1,34. La senal de intentos >=1,12 fue la que aguanto fuera de muestra. Kuzma 5,2 intentos y 34 %, 2+ en 9 de 18; ultimos 5: 3, 2, 2, 2, 3 con 30-33 min y 5,8 intentos. OKC sin Chet, Jalen Williams, Wallace ni Jaylin Williams. Vs OKC: 0, 2, 0, 2. 62 % -> EV +8 %, minima -135."
   }
  ]
 }
